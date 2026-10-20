@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
-import MezaScrollExperience from "@/components/MezaScrollExperience";
+import MezaFrameSequence from "@/components/MezaFrameSequence";
 import { DEMO_PATH, CONTACT_EMAIL } from "@/lib/siteUrls";
 
 export const metadata: Metadata = {
@@ -144,20 +144,66 @@ export default function NosotrosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      {/* SECCIÓN INTERACTIVA STICKY 350VH: SECUENCIA DE FRAMES DE JUAN DAVID MEZA */}
-      <MezaScrollExperience />
+      {/* FONDO FIJO EN TODA LA PÁGINA: SECUENCIA DE 80 FRAMES */}
+      <MezaFrameSequence />
 
-      <div className="relative z-10 bg-[#080B11]/95 text-white">
+      {/* CONTENIDO PRINCIPAL TRANSPARENTE (SIN BLUR PARA VER EL FONDO NÍTIDO) */}
+      <div className="relative z-10 text-white min-h-screen">
+        
+        {/* HERO SECTION DE LA PÁGINA NOSOTROS */}
+        <section className="pt-20 sm:pt-28 pb-16 sm:pb-24">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+            <ScrollReveal>
+              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-black/35 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-cyan-300 mb-6 shadow-lg">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
+                </span>
+                Dirección Técnica &amp; Arquitectura de Software
+              </div>
 
-        {/* PROFILE & ARCHITECTURE BLOCK (GLASSMORPHISM REAL) */}
-        <section className="pb-24">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.08]">
+                Juan David Meza &amp;{" "}
+                <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                  Call360 Colombia
+                </span>
+              </h1>
+
+              <p className="mx-auto mt-6 max-w-2xl text-base sm:text-lg text-white/80 leading-relaxed font-medium">
+                Tecnología propia creada para vender. Plataforma desarrollada y respaldada directamente por su creador: sin intermediarios, sin plantillas extranjeras en dólares y sin tickets eternos.
+              </p>
+
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
+                <WhatsAppButton
+                  text="Hola Juan David, quiero una asesoría directa sobre cómo implementar Call360 en mi empresa"
+                  label="Hablar con Juan David"
+                  className="w-full sm:w-auto shadow-lg shadow-emerald-500/20"
+                />
+                <Link
+                  href={DEMO_PATH}
+                  className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-black/35 px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-black/50 active:scale-[0.98]"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-400 shrink-0">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
+                  </svg>
+                  <span>Probar Demo CRM</span>
+                </Link>
+              </div>
+            </ScrollReveal>
+          </div>
+        </section>
+
+        {/* PROFILE & ARCHITECTURE BLOCK (TRANSPARENTE SIN BLUR) */}
+        <section className="pb-20 sm:pb-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="overflow-hidden rounded-3xl border border-white/15 bg-white/[0.04] backdrop-blur-md p-8 sm:p-12 lg:p-16 shadow-2xl relative">
-                <div className="grid gap-12 lg:grid-cols-12 items-center">
+              <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-black/35 p-6 sm:p-10 md:p-14 shadow-2xl relative">
+                <div className="grid gap-10 lg:grid-cols-12 items-center">
                   {/* Foto y credenciales */}
                   <div className="lg:col-span-5 flex flex-col items-center text-center">
-                    <div className="relative w-64 h-64 sm:w-72 sm:h-72 rounded-3xl overflow-hidden border-2 border-cyan-400/40 shadow-2xl shadow-cyan-500/20 group">
+                    <div className="relative w-60 h-60 sm:w-72 sm:h-72 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-cyan-400/40 shadow-2xl shadow-cyan-500/20 group">
                       <Image
                         src="/juan-meza-director.jpg"
                         alt="Juan David Meza - Director Comercial y Desarrollador de Call360"
@@ -165,10 +211,10 @@ export default function NosotrosPage() {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         priority
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#080B11] via-transparent to-transparent opacity-40" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                     </div>
 
-                    <div className="mt-6">
+                    <div className="mt-5">
                       <h2 className="text-2xl font-black text-white">Juan David Meza</h2>
                       <p className="text-sm font-bold text-cyan-400 mt-1">
                         Commercial Director &amp; Software Developer
@@ -177,48 +223,48 @@ export default function NosotrosPage() {
 
                       <a
                         href={`mailto:${CONTACT_EMAIL}`}
-                        className="mt-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-2 text-xs font-bold text-cyan-300 backdrop-blur-sm transition-all hover:border-cyan-300 hover:bg-cyan-500/20"
+                        className="mt-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-black/40 px-4 py-2 text-xs font-bold text-cyan-300 transition-all hover:border-cyan-300 hover:bg-black/60"
                       >
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
                           <rect x="2" y="4" width="20" height="16" rx="2" />
                           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                         </svg>
-                        {CONTACT_EMAIL}
+                        <span>{CONTACT_EMAIL}</span>
                       </a>
                     </div>
                   </div>
 
                   {/* Copy comercial directo */}
                   <div className="lg:col-span-7 space-y-6">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 backdrop-blur-sm">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-black/35 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 shadow-sm">
                       <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                       100% Código Propio y Respaldado
                     </span>
 
-                    <h3 className="text-3xl font-black tracking-tight text-white sm:text-4xl leading-tight">
-                      "No te vendemos una plantilla de reventa en dólares. Te entregamos un sistema que funciona hoy para cerrar clientes."
+                    <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight text-white leading-tight">
+                      &ldquo;No te vendemos una plantilla de reventa en dólares. Te entregamos un sistema que funciona hoy para cerrar clientes.&rdquo;
                     </h3>
 
-                    <p className="text-base leading-relaxed text-white/70">
+                    <p className="text-sm sm:text-base leading-relaxed text-white/80">
                       Muchos proveedores de CRM en Colombia son simples intermediarios de software extranjero: te cobran en dólares, las integraciones con WhatsApp se caen continuamente y, si tienes una duda urgente, te dejan en una cola de tickets por correo electrónico durante 72 horas.
                     </p>
 
-                    <p className="text-base leading-relaxed text-white/70">
+                    <p className="text-sm sm:text-base leading-relaxed text-white/80">
                       En <strong className="text-white">Call360</strong> tomamos una postura comercial distinta: la arquitectura de telefonía, el CRM multiagente y el motor de campañas fueron construidos por nosotros. Si necesitas una personalización, una integración rápida o soporte un viernes por la tarde, <strong className="text-cyan-300">hablas directamente con quien escribió el código</strong>.
                     </p>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10">
-                      <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/10 backdrop-blur-sm">
-                        <div className="text-2xl font-black text-cyan-400">+12 años</div>
-                        <div className="text-xs text-white/60 mt-1">Infraestructura TI y Ventas</div>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 pt-6 border-t border-white/10">
+                      <div className="rounded-2xl bg-black/40 p-4 border border-white/10 shadow-sm">
+                        <div className="text-xl sm:text-2xl font-black text-cyan-400">+12 años</div>
+                        <div className="text-xs text-white/70 mt-1">Infraestructura TI y Ventas</div>
                       </div>
-                      <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/10 backdrop-blur-sm">
-                        <div className="text-2xl font-black text-emerald-400">+200</div>
-                        <div className="text-xs text-white/60 mt-1">Empresas en Colombia</div>
+                      <div className="rounded-2xl bg-black/40 p-4 border border-white/10 shadow-sm">
+                        <div className="text-xl sm:text-2xl font-black text-emerald-400">+200</div>
+                        <div className="text-xs text-white/70 mt-1">Empresas en Colombia</div>
                       </div>
-                      <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-4 border border-white/10 backdrop-blur-sm">
-                        <div className="text-2xl font-black text-violet-400">0 Tickets</div>
-                        <div className="text-xs text-white/60 mt-1">Atención directa por WhatsApp</div>
+                      <div className="col-span-2 sm:col-span-1 rounded-2xl bg-black/40 p-4 border border-white/10 shadow-sm">
+                        <div className="text-xl sm:text-2xl font-black text-violet-400">0 Tickets</div>
+                        <div className="text-xs text-white/70 mt-1">Atención directa por WhatsApp</div>
                       </div>
                     </div>
                   </div>
@@ -228,30 +274,30 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* 3 PILARES COMERCIALES DE VENTA (GLASSMORPHISM) */}
+        {/* 3 PILARES COMERCIALES DE VENTA (TRANSPARENTE SIN BLUR) */}
         <section className="py-14 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="text-center mb-16">
+              <div className="text-center mb-14">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
                   Beneficios Tangibles
                 </span>
                 <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl text-white">
                   Por qué tu equipo venderá más con Call360
                 </h2>
-                <p className="mx-auto mt-3 max-w-2xl text-base text-white/60">
+                <p className="mx-auto mt-3 max-w-2xl text-base text-white/70">
                   Soluciones diseñadas para resolver las fricciones diarias de tus asesores de ventas.
                 </p>
               </div>
             </ScrollReveal>
 
-            <div className="grid gap-8 md:grid-cols-3">
+            <div className="grid gap-6 md:grid-cols-3">
               {pilaresComerciales.map((pilar, index) => (
                 <ScrollReveal key={pilar.title} delay={index * 120}>
-                  <div className="flex h-full flex-col justify-between rounded-3xl border border-white/15 bg-white/[0.04] backdrop-blur-md p-8 sm:p-10 transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:-translate-y-1 shadow-xl">
+                  <div className="flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/15 bg-black/35 p-6 sm:p-8 transition-all duration-300 hover:border-cyan-400/40 hover:bg-black/45 hover:-translate-y-1 shadow-xl">
                     <div>
-                      <div className="flex items-center justify-between gap-4 mb-6">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                      <div className="flex items-center justify-between gap-4 mb-5">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/15 border border-cyan-500/25 text-cyan-400">
                           {pilar.icon}
                         </div>
                         <span className={`rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${pilar.badgeColor}`}>
@@ -259,8 +305,8 @@ export default function NosotrosPage() {
                         </span>
                       </div>
                       <h3 className="text-xl font-bold text-white mb-2">{pilar.title}</h3>
-                      <p className="text-xs font-semibold text-cyan-300/90 mb-4">{pilar.subtitle}</p>
-                      <p className="text-sm leading-relaxed text-white/70">{pilar.description}</p>
+                      <p className="text-xs font-semibold text-cyan-300/90 mb-3">{pilar.subtitle}</p>
+                      <p className="text-sm leading-relaxed text-white/75">{pilar.description}</p>
                     </div>
                   </div>
                 </ScrollReveal>
@@ -269,18 +315,18 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* TRAYECTORIA REAL */}
-        <section className="py-24">
+        {/* TRAYECTORIA REAL (TRANSPARENTE SIN BLUR) */}
+        <section className="py-14 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="text-center mb-16">
+              <div className="text-center mb-14">
                 <span className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
                   Solidez Comprobada
                 </span>
                 <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl text-white">
                   Más de una década resolviendo la comunicación de los negocios
                 </h2>
-                <p className="mx-auto mt-3 max-w-2xl text-base text-white/60">
+                <p className="mx-auto mt-3 max-w-2xl text-base text-white/70">
                   Call360 es la culminación de 12 años en el campo de batalla de telecomunicaciones y software.
                 </p>
               </div>
@@ -289,13 +335,13 @@ export default function NosotrosPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {trayectoriaReal.map((item, idx) => (
                 <ScrollReveal key={item.period} delay={idx * 100}>
-                  <div className="h-full rounded-3xl border border-white/15 bg-white/[0.04] backdrop-blur-md p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:-translate-y-1">
+                  <div className="h-full rounded-2xl sm:rounded-3xl border border-white/15 bg-black/35 p-6 sm:p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-cyan-400/40 hover:bg-black/45 hover:-translate-y-1">
                     <div>
-                      <span className="inline-block rounded-full bg-cyan-500/15 border border-cyan-500/30 px-3.5 py-1 text-xs font-black text-cyan-300 mb-4 backdrop-blur-sm">
+                      <span className="inline-block rounded-full bg-cyan-500/20 border border-cyan-500/30 px-3.5 py-1 text-xs font-black text-cyan-300 mb-4">
                         {item.period}
                       </span>
-                      <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
-                      <p className="text-sm leading-relaxed text-white/70 mb-6">{item.desc}</p>
+                      <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                      <p className="text-sm leading-relaxed text-white/75 mb-6">{item.desc}</p>
                     </div>
                     <div className="pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-semibold text-emerald-400">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -310,30 +356,30 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* FINAL CONVERSION CTA (GLASSMORPHISM) */}
+        {/* FINAL CONVERSION CTA (TRANSPARENTE SIN BLUR) */}
         <section className="pb-16 sm:pb-24 lg:pb-28">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/10 via-black/40 to-violet-500/10 p-6 sm:p-10 md:p-14 text-center shadow-2xl backdrop-blur-md">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-cyan-400/30 bg-black/40 p-6 sm:p-10 md:p-14 text-center shadow-2xl">
                 <div className="relative z-10 max-w-2xl mx-auto">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-5 sm:mb-6 backdrop-blur-sm">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-black/40 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-5 sm:mb-6">
                     Atención Inmediata en Bogotá y Todo Colombia
                   </span>
                   <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-tight">
                     ¿Quieres ver cómo opera Call360 con tus números de WhatsApp y tu equipo?
                   </h2>
-                  <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/75 leading-relaxed">
+                  <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/80 leading-relaxed">
                     Escríbele directamente a Juan David Meza. Revisamos la situación actual de tu equipo comercial y configuramos una demostración con datos reales en menos de 24 horas.
                   </p>
                   <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
                     <WhatsAppButton
                       text="Hola Juan David, quiero agendar una demostración de Call360 para mi equipo de ventas"
                       label="Escribir a Juan David por WhatsApp"
-                      className="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-xl shadow-black/30"
+                      className="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5 !bg-emerald-500/30 hover:!bg-emerald-500/40 !border !border-emerald-400/40 shadow-xl shadow-black/30"
                     />
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
-                      className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 sm:px-8 py-3.5 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all hover:border-cyan-400/50 hover:bg-white/[0.12] active:scale-[0.98]"
+                      className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-black/40 px-6 sm:px-8 py-3.5 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/50 hover:bg-black/60 active:scale-[0.98]"
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
                         <rect x="2" y="4" width="20" height="16" rx="2" />
