@@ -29,7 +29,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
         <div className="grid gap-8 lg:grid-cols-3">
           {/* 1. PLAN MENSUAL FLEXIBLE */}
           <ScrollReveal delay={0}>
-            <div className="relative flex h-full flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#12121a] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
+            <div className="relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-8 md:p-10 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
               <div>
                 <div className="mb-4">
                   <span className="rounded-full bg-white/[0.06] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white/70">
@@ -95,9 +95,9 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
 
           {/* 2. PLAN ANUAL CRECIMIENTO (DESTACADO) */}
           <ScrollReveal delay={100}>
-            <div className="relative flex h-full flex-col justify-between rounded-3xl border-2 border-cyan-400/60 bg-gradient-to-b from-cyan-500/[0.15] via-[#12121a] to-[#12121a] p-8 sm:p-10 shadow-[0_0_50px_-10px_rgba(6,182,212,0.25)] transition-all duration-300 hover:border-cyan-300 hover:-translate-y-1">
+            <div className="relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border-2 border-cyan-400/60 bg-gradient-to-b from-cyan-500/[0.15] via-[#12121a] to-[#12121a] p-5 sm:p-8 md:p-10 shadow-[0_0_50px_-10px_rgba(6,182,212,0.25)] transition-all duration-300 hover:border-cyan-300 hover:-translate-y-1">
               {/* Badge Destacado */}
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-5 py-1.5 text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-cyan-500/40">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-3.5 sm:px-5 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-cyan-500/40">
                 ⚡ Ahorra 50% · Mejor Valor
               </div>
 
@@ -170,7 +170,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
 
           {/* 3. PLAN EMPRESARIAL PRO */}
           <ScrollReveal delay={200}>
-            <div className="relative flex h-full flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#12121a] p-8 sm:p-10 transition-all duration-300 hover:border-violet-500/40 hover:-translate-y-1">
+            <div className="relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-8 md:p-10 transition-all duration-300 hover:border-violet-500/40 hover:-translate-y-1">
               <div>
                 <div className="mb-4">
                   <span className="rounded-full bg-violet-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-violet-400 border border-violet-500/20">
@@ -241,7 +241,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
       {/* ========================================================================= */}
       {/* SECCIÓN B: CORREO CORPORATIVO, CRM E INTELIGENCIA ARTIFICIAL */}
       {/* ========================================================================= */}
-      <div className="rounded-3xl border border-white/[0.08] bg-[#0c0c14] p-8 sm:p-12 lg:p-16 relative overflow-hidden">
+      <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#0c0c14] p-5 sm:p-10 lg:p-16 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -283,7 +283,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
                 <WhatsAppButton
                   text="Hola Call360, me interesa activar Correo Corporativo Básico ($40.000 COP/mes)"
                   label="Contratar Básico"
-                  className="w-full justify-center !py-2.5 !text-xs !bg-transparent border border-white/20 hover:!bg-white/[0.06]"
+                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-transparent border border-white/20 hover:!bg-white/[0.06]"
                 />
               </div>
             </div>
@@ -312,7 +312,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
                 <WhatsAppButton
                   text="Hola Call360, quiero activar Correo Corporativo + CRM + IA ($60.000 COP/mes)"
                   label="Activar con CRM e IA"
-                  className="w-full justify-center !py-2.5 !text-xs !bg-emerald-500 !text-black font-bold hover:!bg-emerald-400"
+                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-emerald-500 !text-black font-bold hover:!bg-emerald-400"
                 />
               </div>
             </div>
@@ -338,7 +338,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
                 <WhatsAppButton
                   text="Hola Call360, me interesa el plan de Correo Corporativo Anual ($120.000 COP/año)"
                   label="Contratar Anual"
-                  className="w-full justify-center !py-2.5 !text-xs !bg-transparent border border-white/20 hover:!bg-white/[0.06]"
+                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-transparent border border-white/20 hover:!bg-white/[0.06]"
                 />
               </div>
             </div>
@@ -364,7 +364,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
                 <WhatsAppButton
                   text="Hola Call360, quiero el plan de Correo Corporativo Anual Pro + IA ($180.000 COP/año)"
                   label="Contratar Anual Pro"
-                  className="w-full justify-center !py-2.5 !text-xs !bg-violet-600 !text-white font-bold hover:!bg-violet-500"
+                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-violet-600 !text-white font-bold hover:!bg-violet-500"
                 />
               </div>
             </div>

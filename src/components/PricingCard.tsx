@@ -28,7 +28,7 @@ export default function PricingCard({
 }: PricingCardProps) {
   return (
     <div
-      className={`relative flex flex-col rounded-2xl border p-8 transition-all duration-500 hover-lift ${
+      className={`relative flex flex-col rounded-2xl sm:rounded-3xl border p-5 sm:p-8 transition-all duration-500 hover-lift ${
         featured
           ? "border-cyan-500/30 bg-gradient-to-b from-cyan-500/[0.08] to-[#12121a]"
           : "border-white/[0.08] bg-[#12121a] hover:border-white/[0.15]"

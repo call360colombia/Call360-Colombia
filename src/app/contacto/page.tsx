@@ -33,7 +33,7 @@ export default function ContactoPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative overflow-hidden py-14 sm:py-20 lg:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(16,185,129,0.10),transparent_60%)]" />
         <div className="noise-overlay" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -42,28 +42,28 @@ export default function ContactoPage() {
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
                 Contacto · Colombia
               </p>
-              <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
                 Hablemos de tu operación{" "}
                 <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
                   en Colombia
                 </span>
               </h1>
-              <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">
-                Páginas web, CRM WhatsApp, CRM de llamadas con minutos
+              <p className="mx-auto mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-white/60 leading-relaxed">
+                Páginas web, CRM WhatsApp, telefonía IP con minutos
                 ilimitados y marketing digital. Un solo proveedor, un solo
                 sistema.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
                 <WhatsAppButton
                   text="Hola Call360, quiero información sobre sus servicios"
                   label="Cotizar por WhatsApp"
-                  className="text-base px-8 py-4"
+                  className="w-full sm:w-auto"
                 />
                 <Link
                   href={DEMO_PATH}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5"
+                  className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 active:scale-[0.98]"
                 >
-                  Crear demo
+                  <span>Probar Demo CRM</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>

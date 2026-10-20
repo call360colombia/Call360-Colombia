@@ -239,10 +239,10 @@ export default function PaginasWebPage() {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-40 sm:py-48">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-24 lg:py-32">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-8 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan-400 mb-6 sm:mb-8 animate-fade-in-up">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
@@ -251,7 +251,7 @@ export default function PaginasWebPage() {
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-5xl md:text-7xl font-black leading-tight tracking-tight text-white mb-6 animate-fade-in-up animation-delay-100">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-white mb-5 sm:mb-6 animate-fade-in-up animation-delay-100">
               No pierdas clientes por una web lenta: lista en{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
                 72 horas
@@ -259,30 +259,30 @@ export default function PaginasWebPage() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
+            <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
               Diseño premium conectado directamente a tu WhatsApp. Sin agencias costosas, sin demoras y con planes desde $100.000/mes o $600.000/año al 50% de descuento.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col items-center justify-center gap-3 animate-fade-in-up animation-delay-300">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
                 <WhatsAppButton
                   text="Hola Call360, quiero iniciar el diseño de mi página web profesional"
                   label="Cotizar página por WhatsApp"
-                  className="text-base px-8 py-4 shadow-lg shadow-cyan-500/20"
+                  className="w-full sm:w-auto shadow-lg shadow-cyan-500/20"
                 />
                 <a
                   href="#planes"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5 group"
+                  className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 active:scale-[0.98] group"
                 >
-                  Ver planes y precios
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-1">
+                  <span>Ver planes y precios</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <polyline points="19 12 12 19 5 12" />
                   </svg>
                 </a>
               </div>
-              <p className="text-xs text-white/40">
+              <p className="text-xs text-white/40 mt-2">
                 ⚡ Mockup preliminar sin costo • Dominio propio (.com o .co) • Soporte directo en Bogotá
               </p>
             </div>
@@ -296,7 +296,7 @@ export default function PaginasWebPage() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section id="como-funciona" className="py-32 bg-[#0f0f17]/50">
+      <section id="como-funciona" className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
@@ -391,7 +391,7 @@ export default function PaginasWebPage() {
       </section>
 
       {/* BENEFITS */}
-      <section className="py-32">
+      <section className="py-14 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
@@ -427,7 +427,7 @@ export default function PaginasWebPage() {
       </section>
 
       {/* INTERACTIVE PREVIEW */}
-      <section className="py-32 bg-[#0f0f17]/50">
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <div>
@@ -492,7 +492,7 @@ export default function PaginasWebPage() {
       </section>
 
       {/* COMPARISON */}
-      <section className="py-32">
+      <section className="py-14 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-20">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
@@ -547,7 +547,7 @@ export default function PaginasWebPage() {
       </section>
 
       {/* TRUST BLOCK */}
-      <section className="py-32 bg-[#0f0f17]/50">
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-3xl border border-white/[0.08] bg-[#12121a] p-12 md:p-16 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-6">
@@ -587,7 +587,7 @@ export default function PaginasWebPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-32">
+      <section className="py-14 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
@@ -634,7 +634,7 @@ export default function PaginasWebPage() {
       <GuaranteesSection />
 
       {/* PRICING */}
-      <section className="py-32 bg-[#0f0f17]/50" id="planes">
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50" id="planes">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <WebAndEmailPricing />
           <p className="mt-12 text-center text-xs text-white/40">
@@ -644,37 +644,37 @@ export default function PaginasWebPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-32">
+      <section className="py-14 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-cyan-500/[0.1] via-[#12121a] to-violet-500/[0.1] p-12 md:p-20 text-center">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-gradient-to-br from-cyan-500/[0.1] via-[#12121a] to-violet-500/[0.1] p-6 sm:p-12 md:p-16 text-center">
             {/* Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
             
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6">
                 ¿Listo para empezar?
               </h2>
-              <p className="text-xl text-white/60 mb-10 max-w-2xl mx-auto">
-                Tu página web profesional lista en 72 horas. Sin complicaciones. 
-                Sin sorpresas.
+              <p className="text-base sm:text-lg lg:text-xl text-white/60 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+                Tu página web profesional lista en 72 horas. Sin complicaciones ni costos ocultos.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
                 <ServiceLeadForm
                   service="pagina-web"
                   triggerLabel="Cotizar mi página web"
                   triggerVariant="cyan"
-                  triggerClassName="text-base px-8 py-4"
+                  triggerClassName="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5"
                 />
                 <DemoRequestForm
                   title="Ver ejemplos de páginas que vendemos"
                   subtitle="Te enseñamos sitios reales y cómo los diseñamos en 72h"
                   ctaLabel="Solicitar ejemplos"
+                  triggerLabel="Ver ejemplos en vivo"
                   defaultService="pagina-web"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5"
+                  triggerClassName="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5 !bg-white/[0.06] !border !border-white/20 hover:!bg-white/[0.12]"
                 />
               </div>
-              <p className="mt-3 text-xs text-white/40">Mockup preliminar gratis • Soporte ilimitado por WhatsApp</p>
+              <p className="mt-4 text-xs text-white/40">Mockup preliminar gratis • Soporte ilimitado por WhatsApp</p>
             </div>
           </div>
         </div>

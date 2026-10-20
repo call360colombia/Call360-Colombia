@@ -229,7 +229,7 @@ export default function NosotrosPage() {
         </section>
 
         {/* 3 PILARES COMERCIALES DE VENTA (GLASSMORPHISM) */}
-        <section className="py-24">
+        <section className="py-14 sm:py-20 lg:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
@@ -311,35 +311,35 @@ export default function NosotrosPage() {
         </section>
 
         {/* FINAL CONVERSION CTA (GLASSMORPHISM) */}
-        <section className="pb-28">
+        <section className="pb-16 sm:pb-24 lg:pb-28">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="relative overflow-hidden rounded-3xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/10 via-black/40 to-violet-500/10 p-10 sm:p-14 text-center shadow-2xl backdrop-blur-md">
+              <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/10 via-black/40 to-violet-500/10 p-6 sm:p-10 md:p-14 text-center shadow-2xl backdrop-blur-md">
                 <div className="relative z-10 max-w-2xl mx-auto">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-6 backdrop-blur-sm">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-5 sm:mb-6 backdrop-blur-sm">
                     Atención Inmediata en Bogotá y Todo Colombia
                   </span>
-                  <h2 className="text-3xl font-black text-white sm:text-4xl">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white leading-tight">
                     ¿Quieres ver cómo opera Call360 con tus números de WhatsApp y tu equipo?
                   </h2>
-                  <p className="mt-4 text-base text-white/75 leading-relaxed">
+                  <p className="mt-3 sm:mt-4 text-sm sm:text-base text-white/75 leading-relaxed">
                     Escríbele directamente a Juan David Meza. Revisamos la situación actual de tu equipo comercial y configuramos una demostración con datos reales en menos de 24 horas.
                   </p>
-                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
                     <WhatsAppButton
                       text="Hola Juan David, quiero agendar una demostración de Call360 para mi equipo de ventas"
                       label="Escribir a Juan David por WhatsApp"
-                      className="text-base px-8 py-4 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-xl shadow-black/30"
+                      className="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-xl shadow-black/30"
                     />
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-8 py-4 text-base font-bold text-white backdrop-blur-md transition-all hover:border-cyan-400/50 hover:bg-white/[0.12]"
+                      className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 sm:px-8 py-3.5 text-sm sm:text-base font-bold text-white backdrop-blur-md transition-all hover:border-cyan-400/50 hover:bg-white/[0.12] active:scale-[0.98]"
                     >
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="shrink-0">
                         <rect x="2" y="4" width="20" height="16" rx="2" />
                         <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                       </svg>
-                      {CONTACT_EMAIL}
+                      <span className="truncate">{CONTACT_EMAIL}</span>
                     </a>
                   </div>
                 </div>

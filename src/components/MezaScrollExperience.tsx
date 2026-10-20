@@ -306,11 +306,11 @@ export default function MezaScrollExperience() {
                 : "opacity-0 -translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-black/20 border border-white/15 hover:border-cyan-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
+            <div className="max-w-xl mx-auto md:mx-0 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-black/25 border border-white/10 hover:border-cyan-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
               <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4 backdrop-blur-sm">
                 Arquitectura &amp; Dirección Comercial
               </span>
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
                 Juan David Meza
               </h2>
               <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
@@ -320,7 +320,7 @@ export default function MezaScrollExperience() {
                 <WhatsAppButton
                   text="Hola Juan David, quiero una asesoría directa sobre cómo implementar Call360 en mi empresa"
                   label="Hablar con Juan David"
-                  className="text-xs sm:text-sm px-5 py-2.5 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-lg shadow-black/30"
+                  className="min-h-[46px] sm:min-h-[48px] text-xs sm:text-sm px-5 py-2.5 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-lg shadow-black/30"
                 />
                 <span className="text-xs text-white/60 font-medium">
                   Desliza para ver la tecnología ↓
@@ -337,7 +337,7 @@ export default function MezaScrollExperience() {
                 : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto md:ml-auto p-6 sm:p-8 rounded-3xl bg-black/20 border border-white/15 hover:border-emerald-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
+            <div className="max-w-xl mx-auto md:ml-auto p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-black/25 border border-white/10 hover:border-emerald-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
               <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-4 backdrop-blur-sm">
                 Cero Prospectos Perdidos
               </span>
@@ -348,11 +348,11 @@ export default function MezaScrollExperience() {
                 Varios asesores atendiendo desde el mismo número comercial con historial compartido, tareas de seguimiento y bandeja unificada.
               </p>
               <div className="mt-5 grid grid-cols-2 gap-3 text-xs text-white/80">
-                <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
+                <div className="p-3 rounded-xl sm:rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
                   <strong className="block text-emerald-400 text-sm font-black">18 Segundos</strong>
                   Tiempo promedio respuesta
                 </div>
-                <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
+                <div className="p-3 rounded-xl sm:rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
                   <strong className="block text-cyan-400 text-sm font-black">1 Solo Número</strong>
                   Múltiples agentes en simultáneo
                 </div>
@@ -368,7 +368,7 @@ export default function MezaScrollExperience() {
                 : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-black/20 border border-white/15 hover:border-cyan-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
+            <div className="max-w-xl mx-auto md:mx-0 p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-black/25 border border-white/10 hover:border-cyan-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
               <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4 backdrop-blur-sm">
                 Campañas Sin Enredos
               </span>
@@ -378,7 +378,7 @@ export default function MezaScrollExperience() {
               <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
                 Envía promociones y reactiva tu cartera de clientes sin riesgo de baneo. Despacho programado con variables personalizadas ({`{Nombre}`}, {`{Empresa}`}).
               </p>
-              <div className="mt-5 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-200 backdrop-blur-sm">
+              <div className="mt-5 p-3.5 rounded-xl sm:rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-200 backdrop-blur-sm">
                 ⚡ <strong>Protección anti-bloqueo:</strong> Intervalos variables entre mensajes y control estricto de velocidad de envío.
               </div>
             </div>
@@ -392,7 +392,7 @@ export default function MezaScrollExperience() {
                 : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto p-6 sm:p-8 rounded-3xl bg-black/30 border border-cyan-400/40 hover:border-cyan-400/60 backdrop-blur-md shadow-2xl shadow-black/50 text-center transition-all duration-300">
+            <div className="max-w-xl mx-auto p-5 sm:p-8 rounded-2xl sm:rounded-3xl bg-black/30 border border-cyan-400/30 hover:border-cyan-400/50 backdrop-blur-md shadow-2xl shadow-black/50 text-center transition-all duration-300">
               <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-300 mb-4 backdrop-blur-sm">
                 Soporte Inmediato
               </span>
@@ -402,15 +402,15 @@ export default function MezaScrollExperience() {
               <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
                 Revisamos la operación de tu negocio y estructuramos tu CRM de WhatsApp o llamadas en menos de 24 horas.
               </p>
-              <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 w-full sm:w-auto">
                 <WhatsAppButton
                   text="Hola Juan David, vi toda la animación de scroll y quiero agendar una demostración para mi empresa"
                   label="Contactar a Juan David"
-                  className="w-full sm:w-auto text-sm px-6 py-3 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-xl shadow-black/30"
+                  className="w-full sm:w-auto min-h-[46px] sm:min-h-[48px] text-xs sm:text-sm px-6 py-3 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-xl shadow-black/30"
                 />
                 <Link
                   href={DEMO_PATH}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/[0.12] hover:border-white/30"
+                  className="w-full sm:w-auto min-h-[46px] sm:min-h-[48px] inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 text-xs sm:text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/[0.12] hover:border-white/30 active:scale-[0.98]"
                 >
                   Ver Demo Guiada
                 </Link>

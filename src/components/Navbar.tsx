@@ -202,21 +202,30 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-2.5 lg:flex">
             <a
               href={CRM_LOGIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-full px-4 py-2 text-sm font-semibold text-white/65 transition hover:bg-white/[0.06] hover:text-white"
+              className="rounded-full px-4 py-2 text-sm font-semibold text-white/70 transition hover:bg-white/[0.06] hover:text-white"
             >
               Acceder al CRM
             </a>
             <Link
               href={DEMO_PATH}
-              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-2.5 text-sm font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:scale-[1.02] hover:bg-emerald-400"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-4 py-2 text-sm font-bold text-white transition hover:bg-white/[0.12]"
             >
-              Crear demo
+              Probar Demo
             </Link>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-5 py-2 text-sm font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:scale-[1.02] hover:from-emerald-600 hover:to-green-700 active:scale-[0.98]"
+            >
+              <WhatsAppIcon />
+              Cotizar
+            </a>
           </div>
 
           <button
@@ -326,34 +335,39 @@ export default function Navbar() {
               Nosotros
             </Link>
 
-            <div className="grid gap-2">
+            <div className="grid gap-2.5 pt-2 border-t border-white/[0.08]">
+              {/* Botón Primario Móvil */}
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={closeMenus}
+                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/20 active:scale-[0.98] transition-all"
+              >
+                <WhatsAppIcon />
+                Cotizar por WhatsApp
+              </a>
+
+              {/* Botón Secundario Móvil */}
+              <Link
+                href={DEMO_PATH}
+                onClick={closeMenus}
+                className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-5 py-3 text-sm font-bold text-white active:scale-[0.98] transition-all hover:bg-white/[0.12]"
+              >
+                Probar Demo CRM
+              </Link>
+
+              {/* Acceso Clientes CRM */}
               <a
                 href={CRM_LOGIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={closeMenus}
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/[0.06]"
+                className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full text-xs font-semibold text-white/60 hover:text-white transition"
               >
-                Acceder al CRM
+                ¿Ya eres cliente? Iniciar sesión en CRM →
               </a>
-              <Link
-                href={DEMO_PATH}
-                onClick={closeMenus}
-                className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-emerald-500 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-400"
-              >
-                Crear demo
-              </Link>
             </div>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={closeMenus}
-              className="mt-2 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/15 px-5 py-3 text-sm font-bold text-white transition hover:bg-white/[0.06]"
-            >
-              <WhatsAppIcon />
-              Cotizar por WhatsApp
-            </a>
           </div>
         </div>
       )}

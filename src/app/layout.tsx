@@ -49,11 +49,11 @@ export default function RootLayout({
       lang="es"
       className={`${sora.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white">
+      <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white overflow-x-hidden">
         <Analytics />
         <ThreeBackground />
         <Navbar />
-        <main className="flex-1 pt-16 relative z-10">{children}</main>
+        <main className="flex-1 pt-16 pb-16 sm:pb-0 relative z-10 overflow-x-hidden">{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <StickyBottomBar />

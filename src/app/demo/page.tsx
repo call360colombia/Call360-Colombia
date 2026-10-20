@@ -84,7 +84,7 @@ export default function DemoPage() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden py-24">
+      <section className="relative overflow-hidden py-14 sm:py-20 lg:py-24">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(6,182,212,0.10),transparent_60%)]" />
         <div className="noise-overlay" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -93,29 +93,30 @@ export default function DemoPage() {
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
                 Demo · Colombia
               </p>
-              <h1 className="text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight">
                 Solicita una demo de Call360
               </h1>
-              <p className="mx-auto mt-6 max-w-xl text-lg text-white/60">
+              <p className="mx-auto mt-5 sm:mt-6 max-w-xl text-base sm:text-lg text-white/60 leading-relaxed">
                 Te mostramos el sistema funcionando con tus casos reales. Sin
                 registro, sin contraseñas, sin compromiso.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
                 <DemoRequestForm
                   requireConsent
                   title="Solicita tu demo"
                   subtitle="Completa tus datos y la solicitud llega directo a nuestro WhatsApp."
                   triggerLabel="Solicitar demo por WhatsApp"
                   ctaLabel="Solicitar por WhatsApp"
-                  className="inline-flex"
+                  triggerClassName="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5"
+                  className="w-full sm:w-auto"
                 />
                 <a
                   href={CRM_LOGIN_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-base font-bold text-white transition-all hover:border-violet-400/40 hover:bg-violet-400/5"
+                  className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-violet-400/40 hover:bg-violet-400/10 active:scale-[0.98]"
                 >
-                  Acceder al CRM
+                  <span>Acceder al CRM</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>

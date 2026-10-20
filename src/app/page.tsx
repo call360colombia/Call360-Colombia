@@ -21,10 +21,10 @@ export default function Home() {
           <div className="absolute bottom-1/4 right-[15%] w-96 h-96 bg-cyan-500/8 rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 sm:py-40 sm:px-6 lg:px-8">
-          <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:py-20 lg:py-28 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 lg:items-center">
             <div className="text-center lg:text-left">
-              <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-violet-400 backdrop-blur-sm">
+              <div className="animate-fade-in-up mb-6 sm:mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-2 sm:px-5 sm:py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-violet-400 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
@@ -32,24 +32,24 @@ export default function Home() {
                 +200 empresas operando en Colombia
               </div>
 
-              <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
-                Sistema comercial para{" "}
+              <h1 className="animate-fade-in-up animation-delay-100 text-3xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-black leading-[1.08] tracking-tight">
+                Soluciones tecnológicas para{" "}
                 <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
-                  Call Centers y equipos de ventas
+                  empresas y negocios en Colombia
                 </span>
               </h1>
 
-              <p className="animate-fade-in-up animation-delay-200 mx-auto mt-7 max-w-xl text-lg text-white/70 sm:mx-0 sm:text-xl leading-relaxed">
-                <strong className="text-white">No pierdas prospectos por demoras en WhatsApp.</strong> Centraliza tu equipo comercial y envía campañas en minutos sin enredos técnicos. CRM de llamadas, WhatsApp multiagente y página web en un solo pago.
+              <p className="animate-fade-in-up animation-delay-200 mx-auto mt-5 sm:mt-7 max-w-xl text-base sm:text-lg text-white/70 sm:mx-0 leading-relaxed">
+                <strong className="text-white">Acelera tus ventas y moderniza tu operación:</strong> CRM WhatsApp multiagente para equipos, desarrollo de páginas web de alto impacto en 72h, correo corporativo y telefonía IP con minutos ilimitados. Todo en un solo proveedor.
               </p>
 
-              <div className="animate-fade-in-up animation-delay-300 mt-7 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-white/60 lg:justify-start">
+              <div className="animate-fade-in-up animation-delay-300 mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-white/60 lg:justify-start">
                 {[
-                  "Minutos ilimitados a Colombia",
-                  "CRM + WhatsApp multiagente",
-                  "Página web en 72 horas",
+                  "Páginas Web desde $100k/mes",
+                  "CRM WhatsApp Multiagente",
+                  "Telefonía IP & Minutos Ilimitados",
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-2">
+                  <div key={item} className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 sm:px-4 sm:py-2">
                     <span className="text-emerald-400">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
                         <polyline points="20 6 9 17 4 12" />
@@ -60,29 +60,27 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="animate-fade-in-up animation-delay-400 mt-9 flex flex-wrap items-center gap-4 justify-center lg:justify-start">
+              <div className="animate-fade-in-up animation-delay-400 mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto">
                 <WhatsAppButton
-                  text="Hola Call360, quiero cotizar el sistema integrado para mi negocio"
-                  label="Cotizar sistema integrado"
-                  className="text-base px-8 py-4 shadow-lg shadow-emerald-500/20"
+                  text="Hola Call360, quiero cotizar las soluciones de páginas web y CRM para mi negocio"
+                  label="Ver Planes / Cotizar"
+                  className="w-full sm:w-auto"
                 />
-                <a
-                  href="https://wa.me/573203693949?text=Hola%20Call360%2C%20quiero%20agendar%20una%20demo"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5"
+                <Link
+                  href="/demo"
+                  className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 active:scale-[0.98]"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-400 shrink-0">
                     <rect x="2" y="3" width="20" height="14" rx="2" />
                     <line x1="8" y1="21" x2="16" y2="21" />
                     <line x1="12" y1="17" x2="12" y2="21" />
                   </svg>
-                  Agendar demo
-                </a>
+                  <span>Probar Demo CRM</span>
+                </Link>
               </div>
 
               <p className="animate-fade-in-up animation-delay-400 mt-4 text-xs text-white/40 lg:text-left">
-                ⚡ Desde $350.000/mes • Sin contratos de permanencia • Soporte en Bogotá
+                ⚡ Implementación rápida • Sin cláusulas de permanencia • Soporte directo en Bogotá
               </p>
 
               <div className="animate-fade-in-up animation-delay-400 mt-12 grid grid-cols-2 gap-x-4 gap-y-7 border-t border-white/[0.06] pt-10 sm:grid-cols-3 md:grid-cols-5 lg:gap-x-5">
@@ -141,7 +139,7 @@ export default function Home() {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-28 bg-[#0f0f17]/50">
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <HowItWorks
@@ -170,7 +168,7 @@ export default function Home() {
       </section>
 
       {/* ECOSYSTEM MODULES */}
-      <section className="py-28">
+      <section className="py-14 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-16 text-center">
@@ -526,44 +524,42 @@ export default function Home() {
       />
 
       {/* CTA FINAL */}
-      <section className="py-28 bg-[#0f0f17]/50">
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a] p-12 text-center sm:p-16">
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-6 sm:p-12 md:p-16 text-center">
               <div className="absolute inset-0 bg-gradient-to-b from-violet-500/[0.08] via-cyan-500/[0.04] to-transparent" />
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
               <div className="relative z-10">
-                <h2 className="text-3xl font-black leading-tight tracking-tight sm:text-4xl">
+                <h2 className="text-2xl sm:text-4xl font-black leading-tight tracking-tight">
                   Tu operación comercial puede estar{" "}
                   <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                     funcionando esta semana
                   </span>
                 </h2>
-                <p className="mx-auto mt-4 max-w-xl text-base text-white/50">
-                  Página web + CRM de WhatsApp + CRM de llamadas + marketing digital. Todo desde un solo lugar, con un solo proveedor.
+                <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base text-white/60 leading-relaxed">
+                  Página web profesional + CRM de WhatsApp multiagente + telefonía IP + marketing digital. Todo desde un solo lugar, con un solo proveedor.
                 </p>
-                <div className="mx-auto mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <div className="mx-auto mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
                   <WhatsAppButton
-                    text="Hola Call360, quiero cotizar el sistema integrado para mi negocio"
-                    label="Cotizar sistema integrado"
-                    className="text-base px-8 py-4 shadow-lg shadow-emerald-500/20"
+                    text="Hola Call360, quiero cotizar las soluciones tecnológicas para mi negocio"
+                    label="Cotizar Soluciones"
+                    className="w-full sm:w-auto"
                   />
-                  <a
-                    href="https://wa.me/573203693949?text=Hola%20Call360%2C%20quiero%20agendar%20una%20demo"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5"
+                  <Link
+                    href="/demo"
+                    className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 active:scale-[0.98]"
                   >
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-400 shrink-0">
                       <rect x="2" y="3" width="20" height="14" rx="2" />
                       <line x1="8" y1="21" x2="16" y2="21" />
                       <line x1="12" y1="17" x2="12" y2="21" />
                     </svg>
-                    Agendar demo
-                  </a>
+                    <span>Probar Demo CRM</span>
+                  </Link>
                 </div>
-                <p className="mt-3 text-xs text-white/40">
-                  Sin permanencia · Implementación en días · Soporte en Bogotá
+                <p className="mt-4 text-xs text-white/40">
+                  Sin cláusulas de permanencia · Implementación en días · Soporte directo en Bogotá
                 </p>
               </div>
             </div>
