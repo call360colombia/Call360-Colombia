@@ -411,3 +411,21 @@ h1, h2, h3, h4, h5, h6 {
                 0 0 0 8px rgba(16, 185, 129, 0);
   }
 }
+
+/* ============================================
+   CONTINUOUS LIVE BENEFITS TICKER
+   ============================================ */
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker {
+  animation: ticker-scroll 45s linear infinite;
+  will-change: transform;
+}
+
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+

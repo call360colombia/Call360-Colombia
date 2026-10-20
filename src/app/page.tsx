@@ -6,6 +6,8 @@ import ServiceCard from "@/components/ServiceCard";
 import FAQSection from "@/components/FAQSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ModernSaaSMockup from "@/components/ModernSaaSMockup";
+import LiveBenefitsTicker from "@/components/LiveBenefitsTicker";
+import CommercialTicketsBanner from "@/components/CommercialTicketsBanner";
 
 export default function Home() {
   return (
@@ -137,6 +139,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CINTA DE NOTICIAS & BENEFICIOS EN VIVO ESTILO SAAS */}
+      <LiveBenefitsTicker />
+
+      {/* BLOQUE DE PASES Y TICKETS COMERCIALES (COLOR & ACCESO VIP) */}
+      <CommercialTicketsBanner
+        title="Garantías y Beneficios Comerciales Directos"
+        subtitle="Diferenciamos cada solución con soporte local en Bogotá y entregables certificados."
+      />
 
       {/* HOW IT WORKS */}
       <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">

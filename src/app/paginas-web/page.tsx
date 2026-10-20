@@ -8,6 +8,8 @@ import ServiceLeadForm from "@/components/ServiceLeadForm";
 import DemoRequestForm from "@/components/DemoRequestForm";
 import WebAndEmailPricing from "@/components/WebAndEmailPricing";
 import PortfolioShowcase from "@/components/PortfolioShowcase";
+import CommercialTicket from "@/components/CommercialTicket";
+import LiveBenefitsTicker from "@/components/LiveBenefitsTicker";
 
 export const metadata: Metadata = {
   title: "Páginas Web Profesionales en Colombia | Entrega 72h & WhatsApp | Call360",
@@ -294,6 +296,9 @@ export default function PaginasWebPage() {
           </div>
         </div>
       </section>
+
+      {/* CINTA DE BENEFICIOS INCLUIDOS EN PÁGINAS WEB */}
+      <LiveBenefitsTicker />
 
       {/* HOW IT WORKS */}
       <section id="como-funciona" className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
@@ -636,6 +641,58 @@ export default function PaginasWebPage() {
       {/* PRICING */}
       <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50" id="planes">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          {/* SHOWCASE DE TICKETS DE OBSEQUIO & BONOS EXCLUSIVOS */}
+          <div className="mb-14 sm:mb-20 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-amber-300 mb-4 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-amber-400 animate-ping" />
+              Pases &amp; Bonos Exclusivos de Obsequio
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+              Tickets Incluidos en tu{" "}
+              <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">
+                Plan Anual de $600.000
+              </span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base text-white/70">
+              Al contratar tu página web anual, recibes de inmediato estos 4 pases comerciales de cortesía sin costos adicionales ni mensualidades escondidas:
+            </p>
+
+            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
+              <CommercialTicket
+                category="TICKET OBSEQUIO"
+                title="Dominio .com o .co"
+                subtitle="Registro a tu nombre por 1 año"
+                serial="DOM-2026"
+                badge="GOLD"
+                color="gold"
+              />
+              <CommercialTicket
+                category="TICKET OBSEQUIO"
+                title="3 Correos Corporativos"
+                subtitle="tuempresa.com con Webmail"
+                serial="MAIL-360"
+                badge="VIP"
+                color="cyan"
+              />
+              <CommercialTicket
+                category="TICKET IA"
+                title="100 Créditos IA / Mes"
+                subtitle="Generación de textos comerciales"
+                serial="AI-PRO100"
+                badge="AI"
+                color="violet"
+              />
+              <CommercialTicket
+                category="TICKET SOPORTE"
+                title="Cambios Mensuales"
+                subtitle="Mantenimiento directo incluido"
+                serial="SOP-DIRECT"
+                badge="FAST"
+                color="emerald"
+              />
+            </div>
+          </div>
+
           <WebAndEmailPricing />
           <p className="mt-12 text-center text-xs text-white/40">
             * Garantía de satisfacción Call360: Creamos un mockup preliminar de tu web sin costo. Solo pagas si el diseño final te convence.

@@ -4,6 +4,7 @@ import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
 import MezaFrameSequence from "@/components/MezaFrameSequence";
+import CommercialTicket from "@/components/CommercialTicket";
 import { DEMO_PATH, CONTACT_EMAIL } from "@/lib/siteUrls";
 
 export const metadata: Metadata = {
@@ -253,19 +254,44 @@ export default function NosotrosPage() {
                       En <strong className="text-white">Call360</strong> tomamos una postura comercial distinta: la arquitectura de telefonía, el CRM multiagente y el motor de campañas fueron construidos por nosotros. Si necesitas una personalización, una integración rápida o soporte un viernes por la tarde, <strong className="text-cyan-300">hablas directamente con quien escribió el código</strong>.
                     </p>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4 pt-6 border-t border-white/10">
-                      <div className="rounded-2xl bg-black/40 p-4 border border-white/10 shadow-sm">
-                        <div className="text-xl sm:text-2xl font-black text-cyan-400">+12 años</div>
-                        <div className="text-xs text-white/70 mt-1">Infraestructura TI y Ventas</div>
-                      </div>
-                      <div className="rounded-2xl bg-black/40 p-4 border border-white/10 shadow-sm">
-                        <div className="text-xl sm:text-2xl font-black text-emerald-400">+200</div>
-                        <div className="text-xs text-white/70 mt-1">Empresas en Colombia</div>
-                      </div>
-                      <div className="col-span-2 sm:col-span-1 rounded-2xl bg-black/40 p-4 border border-white/10 shadow-sm">
-                        <div className="text-xl sm:text-2xl font-black text-violet-400">0 Tickets</div>
-                        <div className="text-xs text-white/70 mt-1">Atención directa por WhatsApp</div>
-                      </div>
+                    {/* TICKETS EJECUTIVOS DE ENTREGABLES GARANTIZADOS (SIN BLUR) */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-6 border-t border-white/10">
+                      <CommercialTicket
+                        category="VELOCIDAD"
+                        title="Entrega en 72h"
+                        subtitle="Página web al aire"
+                        serial="720914"
+                        badge="FAST"
+                        color="cyan"
+                        isTransparent
+                      />
+                      <CommercialTicket
+                        category="SOPORTE"
+                        title="Sin Intermediarios"
+                        subtitle="Directo con Juan David"
+                        serial="000200"
+                        badge="REAL"
+                        color="emerald"
+                        isTransparent
+                      />
+                      <CommercialTicket
+                        category="SOFTWARE"
+                        title="Código Propio"
+                        subtitle="Sin plantillas en dólares"
+                        serial="100984"
+                        badge="PRO"
+                        color="violet"
+                        isTransparent
+                      />
+                      <CommercialTicket
+                        category="RESPALDO"
+                        title="+12 Años"
+                        subtitle="Infraestructura TI"
+                        serial="202612"
+                        badge="VIP"
+                        color="gold"
+                        isTransparent
+                      />
                     </div>
                   </div>
                 </div>
@@ -356,19 +382,36 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* HERO DE CIERRE COMERCIAL (SINCRONIZADO CON FRAME 80) */}
+        {/* HERO DE CIERRE COMERCIAL (SINCRONIZADO CON FRAME 80) — FORMATO PASE VIP DE PROYECTO */}
         <section className="pt-16 sm:pt-24 pb-28 sm:pb-36 lg:pb-44" id="cierre-comercial">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="relative overflow-hidden rounded-3xl sm:rounded-4xl border border-emerald-500/40 bg-black/40 p-8 sm:p-12 md:p-16 text-center shadow-2xl shadow-emerald-500/10">
+              <div className="relative overflow-hidden rounded-3xl sm:rounded-4xl border-2 border-emerald-500/40 bg-black/45 p-8 sm:p-12 md:p-16 text-center shadow-2xl shadow-emerald-500/10">
+                {/* Muescas troqueladas semicirculares laterales (Estilo Pase VIP auténtico) */}
+                <span
+                  className="pointer-events-none absolute -left-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-[#0a0a0f] shadow-inner"
+                  aria-hidden="true"
+                />
+                <span
+                  className="pointer-events-none absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 h-7 w-7 rounded-full bg-[#0a0a0f] shadow-inner"
+                  aria-hidden="true"
+                />
+
                 <div className="relative z-10 max-w-3xl mx-auto">
-                  {/* Badge superior con punto pulsante verde esmeralda */}
-                  <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-black/45 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-emerald-300 mb-6 shadow-md">
-                    <span className="relative flex h-2.5 w-2.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                    </span>
-                    Tecnología y Diseño en Acción
+                  {/* Cabecera del Pase VIP con serial */}
+                  <div className="flex flex-col sm:flex-row items-center justify-between gap-3 border-b border-dashed border-white/20 pb-5 mb-6">
+                    <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/40 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-emerald-300 shadow-md">
+                      <span className="relative flex h-2.5 w-2.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                      </span>
+                      ★ PASE VIP DE PROYECTO ★ DISPONIBLE EN COLOMBIA
+                    </div>
+
+                    <div className="font-mono text-xs font-bold text-white/50 tracking-wider">
+                      <span>SERIAL: </span>
+                      <span className="text-emerald-400">№ C360-VIP80-2026</span>
+                    </div>
                   </div>
 
                   {/* Titular principal grande y directo */}
@@ -409,7 +452,7 @@ export default function NosotrosPage() {
                   </div>
 
                   {/* Enlace rápido de correo */}
-                  <div className="mt-8 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs sm:text-sm text-white/70">
+                  <div className="mt-8 pt-6 border-t border-dashed border-white/15 flex flex-col sm:flex-row items-center justify-center gap-2 text-xs sm:text-sm text-white/70">
                     <span>O escríbeme directo a</span>
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}

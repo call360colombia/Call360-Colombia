@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThreeBackground from "@/components/ThreeBackground";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
-import StickyBottomBar from "@/components/StickyBottomBar";
+import FloatingActionDock from "@/components/FloatingActionDock";
 import ExitIntentPopup from "@/components/ExitIntentPopup";
 import Analytics from "@/components/Analytics";
 import "./globals.css";
@@ -53,10 +53,10 @@ export default function RootLayout({
         <Analytics />
         <ThreeBackground />
         <Navbar />
-        <main className="flex-1 pt-16 pb-16 sm:pb-0 relative z-10 overflow-x-hidden">{children}</main>
+        <main className="flex-1 pt-16 pb-20 sm:pb-16 relative z-10 overflow-x-hidden">{children}</main>
         <Footer />
         <FloatingWhatsApp />
-        <StickyBottomBar />
+        <FloatingActionDock />
         <ExitIntentPopup />
       </body>
     </html>
