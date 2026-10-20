@@ -47,13 +47,13 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${sora.variable} ${inter.variable} h-full antialiased`}
+      className={`${sora.variable} ${inter.variable} h-full antialiased overflow-x-hidden w-full max-w-full`}
     >
-      <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white overflow-x-hidden">
+      <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white overflow-x-hidden w-full max-w-full relative">
         <Analytics />
         <ThreeBackground />
         <Navbar />
-        <main className="flex-1 pt-16 pb-24 sm:pb-20 relative z-10 overflow-x-hidden">{children}</main>
+        <main className="flex-1 pt-16 pb-24 sm:pb-20 relative z-10 overflow-x-hidden w-full max-w-full">{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <FloatingActionDock />

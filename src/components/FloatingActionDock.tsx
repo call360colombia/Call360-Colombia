@@ -39,14 +39,14 @@ export default function FloatingActionDock() {
   return (
     <aside
       aria-label="Barra de acción comercial flotante"
-      className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 max-w-[92vw] w-fit mx-auto transition-all duration-400 ease-out select-none ${
+      className={`fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.25rem)] max-w-[340px] sm:max-w-fit mx-auto transition-all duration-400 ease-out select-none ${
         visible
           ? "translate-y-0 opacity-100 pointer-events-auto"
           : "translate-y-8 opacity-0 pointer-events-none"
       }`}
     >
       <nav
-        className={`flex items-center gap-1 sm:gap-2 rounded-full border border-white/20 p-1 sm:p-1.5 shadow-[0_12px_36px_rgba(0,0,0,0.75),0_0_20px_rgba(16,185,129,0.2)] ${
+        className={`flex items-center justify-between sm:justify-start gap-0.5 sm:gap-2 rounded-full border border-white/20 p-1 sm:p-1.5 shadow-[0_12px_36px_rgba(0,0,0,0.75),0_0_20px_rgba(16,185,129,0.2)] ${
           isNosotros
             ? "bg-[#080B11]/95" // Cero blur en /nosotros para mantener nítidos los frames
             : "bg-[#080B11]/90 backdrop-blur-xl"
@@ -55,7 +55,7 @@ export default function FloatingActionDock() {
         {/* 1. Páginas Web */}
         <Link
           href="/paginas-web"
-          className="group flex items-center gap-1 sm:gap-1.5 rounded-full px-2 sm:px-3 py-1.5 text-[11px] sm:text-xs font-bold text-white/85 transition-all hover:bg-white/10 hover:text-cyan-300 active:scale-95 shrink-0"
+          className="group flex items-center gap-1 sm:gap-1.5 rounded-full px-1.5 sm:px-3 py-1 sm:py-1.5 text-[10px] sm:text-xs font-bold text-white/85 transition-all hover:bg-white/10 hover:text-cyan-300 active:scale-95 shrink-0"
           title="Páginas Web en 72h desde $100k/mes"
         >
           <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 group-hover:scale-105 transition-transform">

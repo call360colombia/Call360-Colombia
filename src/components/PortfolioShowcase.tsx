@@ -154,17 +154,17 @@ export default function PortfolioShowcase() {
       {/* Tarjeta Principal de Presentación de Proyecto (Marco de Navegador Moderno) */}
       <div className="mt-4 overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0c14]/90 backdrop-blur-2xl shadow-2xl shadow-cyan-500/10">
         {/* Cabecera estilo Navegador Moderno (macOS) */}
-        <div className="flex items-center justify-between border-b border-white/[0.08] bg-white/[0.02] px-4 py-3 select-none">
-          <div className="flex items-center gap-2">
-            <span className="h-3 w-3 rounded-full bg-[#ff5f56]/80" />
-            <span className="h-3 w-3 rounded-full bg-[#ffbd2e]/80" />
-            <span className="h-3 w-3 rounded-full bg-[#27c93f]/80" />
-            <div className="ml-3 flex items-center gap-1.5 rounded-md border border-white/[0.06] bg-black/40 px-3 py-1 text-xs font-mono text-white/60">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-emerald-400">
+        <div className="flex items-center justify-between border-b border-white/[0.08] bg-white/[0.02] px-3 sm:px-4 py-2.5 sm:py-3 select-none">
+          <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 max-w-[85%] sm:max-w-none">
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#ff5f56]/80 shrink-0" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#ffbd2e]/80 shrink-0" />
+            <span className="h-2.5 w-2.5 sm:h-3 sm:w-3 rounded-full bg-[#27c93f]/80 shrink-0" />
+            <div className="ml-2 sm:ml-3 flex items-center gap-1.5 rounded-md border border-white/[0.06] bg-black/40 px-2 sm:px-3 py-1 text-[11px] sm:text-xs font-mono text-white/60 min-w-0 max-w-[170px] xs:max-w-[240px] sm:max-w-xs">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-emerald-400 shrink-0">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              https://{activeProject.urlPreview}
+              <span className="truncate">https://{activeProject.urlPreview}</span>
             </div>
           </div>
 

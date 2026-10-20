@@ -73,10 +73,10 @@ export default function ArcadeTicketsMarquee({ className = "" }: { className?: s
 
   return (
     <div
-      className={`relative z-10 overflow-hidden py-6 sm:py-10 select-none [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] ${className}`}
+      className={`relative z-10 overflow-hidden w-full max-w-full py-6 sm:py-10 select-none [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] ${className}`}
     >
       {/* Destellos ambientales sutiles integrados con el fondo */}
-      <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between px-10 opacity-40">
+      <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-between px-4 sm:px-10 opacity-40">
         <span className="text-amber-300/50 text-xl animate-pulse">✦</span>
         <span className="text-emerald-300/50 text-base animate-pulse" style={{ animationDelay: "0.8s" }}>
           ★
@@ -90,8 +90,8 @@ export default function ArcadeTicketsMarquee({ className = "" }: { className?: s
       </div>
 
       {/* CINTA DIAGONAL FLOTANDO DIRECTAMENTE SOBRE EL LIENZO */}
-      <div className="relative w-[116%] -ml-[8%] rotate-[-1.8deg] sm:rotate-[-2.2deg] py-3">
-        <div className="flex w-max items-center gap-4 sm:gap-6 px-4 animate-ticker-slow pointer-events-auto">
+      <div className="relative w-full sm:w-[108%] sm:-ml-[4%] rotate-0 sm:rotate-[-2deg] py-3 overflow-hidden max-w-full">
+        <div className="flex w-max items-center gap-3 sm:gap-6 px-2 sm:px-4 animate-ticker-slow pointer-events-auto">
           {row.map((item, i) => {
             const isWaveUp = i % 2 === 0;
 

@@ -131,7 +131,7 @@ export default function CallCenterPage() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/15 px-4 py-1.5 text-[11px] font-bold uppercase tracking-wider text-cyan-300">
                 Solución para Call Centers
               </div>
-              <h1 className="text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="text-2xl xs:text-3xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight break-words">
                 El sistema comercial que tu{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
                   Call Center necesita
@@ -197,7 +197,7 @@ export default function CallCenterPage() {
               <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-rose-400">
                 Problemas reales
               </span>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black tracking-tight break-words">
                 ¿Te suena familiar?
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-base text-white/50">
