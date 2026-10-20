@@ -1,41 +1,36 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import PricingCard from "@/components/PricingCard";
+import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import ImageSlider from "@/components/ImageSlider";
-import GuaranteesSection from "@/components/GuaranteesSection";
 import ServiceLeadForm from "@/components/ServiceLeadForm";
 import DemoRequestForm from "@/components/DemoRequestForm";
+import GuaranteesSection from "@/components/GuaranteesSection";
+import ImageSlider from "@/components/ImageSlider";
 import WebAndEmailPricing from "@/components/WebAndEmailPricing";
 import PortfolioShowcase from "@/components/PortfolioShowcase";
 import CommercialTicket from "@/components/CommercialTicket";
 import LiveBenefitsTicker from "@/components/LiveBenefitsTicker";
 
 export const metadata: Metadata = {
-  title: "Páginas Web Profesionales en Colombia | Entrega 72h & WhatsApp | Call360",
+  title: "Páginas Web en 72 Horas en Colombia · Call360",
   description:
-    "Diseño web para vender: lista en 72h con WhatsApp integrado, hosting de alta velocidad y correo corporativo. Planes desde $100.000/mes o $600.000/año al 50% DCTO.",
+    "Páginas web profesionales para negocios y empresas en Colombia listas en 72 horas. Diseño de alta velocidad, optimización móvil y conexión directa a WhatsApp desde $100.000/mes.",
   alternates: {
     canonical: "https://call360colombia.com/paginas-web",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
   openGraph: {
-    title: "Páginas Web Profesionales en Colombia | Entrega 72h & WhatsApp | Call360",
+    title: "Páginas Web Profesionales en 72 Horas | Call360 Colombia",
     description:
-      "Diseño web para vender: lista en 72h con WhatsApp integrado, hosting de alta velocidad y correo corporativo. Planes desde $100.000/mes o $600.000/año al 50% DCTO.",
+      "Tu página web lista para vender en 72 horas. Sin agencias costosas ni demoras. Diseñada para generar prospectos y conectada a WhatsApp.",
     url: "https://call360colombia.com/paginas-web",
     siteName: "Call360 Colombia",
     locale: "es_CO",
     type: "website",
     images: [
       {
-        url: "https://call360colombia.com/creacion-web/hero.png",
+        url: "https://call360colombia.com/inicio/web.png?v=2",
         width: 1200,
         height: 630,
-        alt: "Diseño y desarrollo de páginas web Call360 Colombia",
+        alt: "Páginas Web Profesionales Call360 Colombia",
       },
     ],
   },
@@ -44,178 +39,81 @@ export const metadata: Metadata = {
 const paginasWebSchema = {
   "@context": "https://schema.org",
   "@type": "Product",
-  "name": "Desarrollo de Páginas Web Profesionales",
-  "description":
-    "Páginas web optimizadas para ventas con botón WhatsApp integrado, hosting de alta velocidad y entrega en 72 horas.",
-  "brand": {
+  name: "Desarrollo de Páginas Web Profesionales Call360",
+  image: "https://call360colombia.com/inicio/web.png?v=2",
+  description:
+    "Páginas web de alto rendimiento para empresas y comercios en Colombia con entrega en 72 horas, hosting, dominio y conexión directa a WhatsApp.",
+  brand: {
     "@type": "Brand",
-    "name": "Call360 Colombia",
+    name: "Call360 Colombia",
   },
-  "offers": {
-    "@type": "OfferCatalog",
-    "name": "Planes de Páginas Web y Correo Corporativo",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "name": "Plan Mensual Flexible",
-        "description": "Página web responsiva con WhatsApp integrado, hosting y soporte continuo.",
-        "price": "100000",
-        "priceCurrency": "COP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://call360colombia.com/paginas-web#planes",
-      },
-      {
-        "@type": "Offer",
-        "name": "Plan Anual Crecimiento (50% Descuento)",
-        "description":
-          "Página web profesional completa, hosting por 1 año, dominio .com o .co incluido y 3 cuentas de correo corporativo de obsequio.",
-        "price": "600000",
-        "priceCurrency": "COP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://call360colombia.com/paginas-web#planes",
-      },
-      {
-        "@type": "Offer",
-        "name": "Plan Empresarial Pro",
-        "description":
-          "Plataforma a medida con base de datos dedicada, arquitectura escalable, integraciones CRM y hasta 10 correos corporativos.",
-        "price": "1200000",
-        "priceCurrency": "COP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://call360colombia.com/paginas-web#planes",
-      },
-      {
-        "@type": "Offer",
-        "name": "Paquete Correo Corporativo Starter (5 Cuentas)",
-        "description": "5 cuentas de correo corporativo con webmail profesional y antispam.",
-        "price": "40000",
-        "priceCurrency": "COP",
-        "availability": "https://schema.org/InStock",
-        "url": "https://call360colombia.com/paginas-web#planes",
-      },
-    ],
+  offers: {
+    "@type": "AggregateOffer",
+    priceCurrency: "COP",
+    lowPrice: "100000",
+    highPrice: "600000",
+    offerCount: "3",
   },
 };
 
-const steps = [
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
-        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
-      </svg>
-    ),
-    title: "Cuéntanos tu idea",
-    description: "Comparte tu visión, colores y contenido. Nosotros hacemos el resto.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <line x1="8" y1="21" x2="16" y2="21" />
-        <line x1="12" y1="17" x2="12" y2="21" />
-      </svg>
-    ),
-    title: "Diseñamos en 72h",
-    description: "Tu página web profesional, optimizada para ventas y dispositivos móviles.",
-  },
-  {
-    icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    ),
-    title: "Lanzas y vendes",
-    description: "Publicamos tu sitio y comienzas a recibir clientes automáticamente.",
-  },
-];
-
-const benefits = [
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="12" cy="12" r="10" />
-        <polyline points="12 6 12 12 16 14" />
-      </svg>
-    ),
-    title: "Disponible 24/7",
-    description: "Tu negocio nunca duerme. Tus clientes te encuentran cuando quieren.",
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
-    title: "WhatsApp integrado",
-    description: "Botón directo que conecta visitantes contigo en un clic.",
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-      </svg>
-    ),
-    title: "Entrega en 72 horas",
-    description: "Sin demoras. Tu web lista para vender en 3 días o menos.",
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <circle cx="11" cy="11" r="8" />
-        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      </svg>
-    ),
-    title: "SEO optimizado",
-    description: "Aparece en Google cuando busquen lo que vendes.",
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <rect x="5" y="2" width="14" height="20" rx="2" />
-        <line x1="12" y1="18" x2="12.01" y2="18" />
-      </svg>
-    ),
-    title: "100% responsive",
-    description: "Se ve perfecto en celular, tablet y computador.",
-  },
-  {
-    icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 20h9" />
-        <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
-      </svg>
-    ),
-    title: "Fácil de editar",
-    description: "Actualiza contenido tú mismo sin saber programar.",
-  },
-];
-
 const comparisonItems = [
-  { label: "Tiempo de entrega", solo: "2-4 semanas", call360: "72 horas" },
-  { label: "Costo inicial", solo: "$2M - $5M+", call360: "Desde $100K/mes" },
-  { label: "Conexión WhatsApp", solo: "Manual o nada", call360: "Integrada nativamente" },
-  { label: "Optimización móvil", solo: "Variable", call360: "100% responsive garantizado" },
-  { label: "SEO incluido", solo: "Extra costoso", call360: "Optimizado desde el inicio" },
-  { label: "Soporte", solo: "Por horas o tickets", call360: "Equipo dedicado en Bogotá" },
+  {
+    label: "Tiempo de entrega",
+    solo: "4 a 8 semanas",
+    call360: "72 horas garantizadas",
+  },
+  {
+    label: "Diseño y estructura",
+    solo: "Plantilla genérica sin optimizar",
+    call360: "Diseño comercial enfocado en ventas",
+  },
+  {
+    label: "Integración WhatsApp",
+    solo: "Enlace básico o plugin lento",
+    call360: "Botones directos y prellenados",
+  },
+  {
+    label: "Hosting y dominio propio",
+    solo: "Cobros extras por separado",
+    call360: "Todo incluido en tu plan anual",
+  },
+  {
+    label: "Correos corporativos",
+    solo: "Configuración manual compleja",
+    call360: "3 cuentas oficiales listas con IA",
+  },
+  {
+    label: "Soporte y cambios",
+    solo: "Tickets lentos o cobro por hora",
+    call360: "Atención directa con el desarrollador",
+  },
 ];
 
 const faqItems = [
   {
-    question: "¿Qué necesito para empezar?",
-    answer: "Solo tu información básica: qué vendes, colores de marca, fotos (si tienes) y textos. Si no tienes nada, nosotros te ayudamos a crearlo.",
+    question: "¿En serio la página está lista en 72 horas?",
+    answer:
+      "Sí. Contamos con una metodología estructurada: tras recibir la información básica de tu negocio (logo, servicios, fotos y datos de contacto), desarrollamos y publicamos tu sitio en 72 horas hábiles con dominio y WhatsApp integrados.",
   },
   {
-    question: "¿Puedo editarla después?",
-    answer: "Sí. Todas nuestras páginas son editables. Te capacitamos para que actualices contenidos, precios y fotos sin depender de nadie.",
+    question: "¿Qué incluye el Plan Anual con 50% de descuento?",
+    answer:
+      "Por solo $600.000 COP al año (equivalente a $50.000 COP/mes), recibes la página web completa, dominio propio (.com o .co) a tu nombre por 1 año, 3 correos corporativos con IA, hosting en la nube de alta velocidad, certificado de seguridad SSL y soporte prioritario directo.",
   },
   {
-    question: "¿Incluye dominio y hosting?",
-    answer: "El Plan Starter incluye subdominio y hosting básico. El Plan Premium incluye dominio propio (.com o .co), correos corporativos y hosting avanzado.",
+    question: "¿Tengo que pagar antes de ver el diseño?",
+    answer:
+      "No. En Call360 te preparamos un boceto preliminar de tu web sin costo inicial. Solo cuando veas la propuesta y te guste cómo luce, realizas el pago para publicar en tu dominio definitivo.",
   },
   {
-    question: "¿Funciona para mi industria?",
-    answer: "Sí. Hemos creado páginas para clínicas, restaurantes, barberías, consultores, e-commerce y muchos más. El diseño se adapta a tu sector.",
+    question: "¿La página web funciona bien en celulares?",
+    answer:
+      "Totalmente. El 80% de tus clientes en Colombia te visitarán desde su teléfono. Todos nuestros sitios son diseñados con enfoque móvil nativo: cargan en menos de 1 segundo en redes 4G y facilitan el contacto inmediato por WhatsApp.",
+  },
+  {
+    question: "¿Puedo conectar la web al CRM de WhatsApp más adelante?",
+    answer:
+      "Sí. Call360 es un ecosistema modular. Puedes empezar hoy con tu página web y luego activar el CRM WhatsApp multiagente o la telefonía cuando tu equipo comercial lo requiera, sin rehacer nada.",
   },
 ];
 
@@ -228,8 +126,8 @@ export default function PaginasWebPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(paginasWebSchema) }}
       />
 
-      {/* HERO */}
-      <section className="relative overflow-hidden min-h-screen flex items-center">
+      {/* BLOQUE 1: HERO (GANCHO COMERCIAL DIRECTO + CTA ERGONÓMICO) */}
+      <section className="relative overflow-hidden min-h-[85vh] flex items-center">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(6,182,212,0.15),transparent_70%)]" />
         <div className="absolute inset-0 grid-pattern opacity-20" />
@@ -241,7 +139,7 @@ export default function PaginasWebPage() {
           <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-24 lg:py-32">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan-400 mb-6 sm:mb-8 animate-fade-in-up">
@@ -261,226 +159,140 @@ export default function PaginasWebPage() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
-              Diseño premium conectado directamente a tu WhatsApp. Sin agencias costosas, sin demoras y con planes desde $100.000/mes o $600.000/año al 50% de descuento.
+            <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
+              Páginas web de alta velocidad desde <strong className="text-white font-black">$100.000 COP/mes</strong> y ecosistema comercial conectado a tu WhatsApp. Sin agencias costosas ni demoras.
             </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col items-center justify-center gap-3 animate-fade-in-up animation-delay-300">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
+            {/* CTA Buttons Ergonómicos Gigantes */}
+            <div className="flex flex-col items-center justify-center gap-4 animate-fade-in-up animation-delay-300">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full max-w-lg mx-auto">
                 <WhatsAppButton
-                  text="Hola Call360, quiero iniciar el diseño de mi página web profesional"
-                  label="Cotizar página por WhatsApp"
-                  className="w-full sm:w-auto shadow-lg shadow-cyan-500/20"
+                  text="Hola Call360, quiero cotizar mi página web profesional y mi CRM ahora"
+                  label="Cotizar mi página / CRM ahora"
+                  className="w-full sm:w-auto min-h-[54px] sm:min-h-[58px] text-base sm:text-lg px-8 sm:px-10 py-4 font-black shadow-2xl shadow-cyan-500/30 justify-center text-center"
                 />
                 <a
                   href="#planes"
-                  className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 active:scale-[0.98] group"
+                  className="inline-flex w-full sm:w-auto min-h-[54px] sm:min-h-[58px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.08] backdrop-blur-md px-8 py-4 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/50 hover:bg-cyan-400/10 active:scale-[0.98] group"
                 >
                   <span>Ver planes y precios</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-y-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-y-0.5">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <polyline points="19 12 12 19 5 12" />
                   </svg>
                 </a>
               </div>
-              <p className="text-xs text-white/40 mt-2">
-                ⚡ Mockup preliminar sin costo • Dominio propio (.com o .co) • Soporte directo en Bogotá
+              <p className="text-xs text-white/50 mt-1">
+                ⚡ Boceto inicial sin costo • Dominio propio (.com o .co) • Soporte directo en Bogotá
               </p>
-            </div>
-
-            {/* Hero Visual: Showcase de Proyectos Reales */}
-            <div className="mt-14 relative animate-fade-in-up animation-delay-400">
-              <PortfolioShowcase />
             </div>
           </div>
         </div>
       </section>
 
-      {/* CINTA DE BENEFICIOS INCLUIDOS EN PÁGINAS WEB */}
+      {/* CINTA DE BENEFICIOS INCLUIDOS EN PÁGINAS WEB (CALIBRADA A 48s) */}
       <LiveBenefitsTicker />
 
-      {/* HOW IT WORKS */}
-      <section id="como-funciona" className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
+      {/* BLOQUE 2 INMEDIATO: PLANES CLAROS Y TRANSPARENTES + TICKETS DE OBSEQUIO (CRO) */}
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0a0c13]/90 border-b border-white/[0.06]" id="planes">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
-              Proceso simple
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
-              Tu web en{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                3 pasos
+          {/* SHOWCASE DE TICKETS DE OBSEQUIO & BONOS EXCLUSIVOS */}
+          <div className="mb-14 sm:mb-20 text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-amber-300 mb-4 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-amber-400 animate-ping" />
+              Pases &amp; Bonos Exclusivos de Obsequio
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
+              Pases Incluidos en tu{" "}
+              <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">
+                Plan Anual de $600.000 COP
               </span>
             </h2>
-          </div>
+            <p className="mx-auto mt-4 max-w-3xl text-base sm:text-lg text-white/70 leading-relaxed">
+              Al contratar tu página web anual (con 50% de descuento directo), recibes de inmediato estos 4 pases comerciales de cortesía sin cobros sorpresa:
+            </p>
 
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            {/* Steps Stack */}
-            <div className="space-y-4 sm:space-y-6">
-              {steps.map((step, index) => (
-                <div
-                  key={index}
-                  className="group relative rounded-2xl border border-white/[0.06] bg-[#12121a] p-4 sm:p-6 transition-all duration-500 hover:border-cyan-500/20 hover:-translate-y-1"
-                >
-                  <div className="flex items-start gap-3 sm:gap-4">
-                    {/* Step Number */}
-                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 text-base sm:text-lg font-black text-white shadow-lg shadow-cyan-500/30">
-                      {index + 1}
-                    </div>
-
-                    {/* Content */}
-                    <div>
-                      <h3 className="mb-1 text-base sm:text-lg font-bold text-white">
-                        {step.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm leading-relaxed text-white/50">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Mockup Visual Modernizado */}
-            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0c14]/90 p-3.5 sm:p-5 group shadow-2xl shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-500">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
-                <div className="flex items-center gap-1.5">
-                  <span className="h-3 w-3 rounded-full bg-[#ff5f56]/80" />
-                  <span className="h-3 w-3 rounded-full bg-[#ffbd2e]/80" />
-                  <span className="h-3 w-3 rounded-full bg-[#27c93f]/80" />
-                </div>
-                <div className="text-xs font-mono text-cyan-400 font-bold">
-                  ⚡ Rendimiento Google: 100/100
-                </div>
-              </div>
-
-              <div className="space-y-3">
-                <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-emerald-400 text-lg">🚀</span>
-                    <div>
-                      <div className="text-xs font-bold text-white">Velocidad Extrema</div>
-                      <div className="text-[11px] text-white/50">Carga en menos de 1 segundo en redes 4G</div>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-emerald-400 font-mono">0.6s</span>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-cyan-400 text-lg">💬</span>
-                    <div>
-                      <div className="text-xs font-bold text-white">WhatsApp Flotante</div>
-                      <div className="text-[11px] text-white/50">Mensajes precargados por servicio</div>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-cyan-400 font-mono">1 Clic</span>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="text-violet-400 text-lg">🔒</span>
-                    <div>
-                      <div className="text-xs font-bold text-white">SSL &amp; Dominio Propio</div>
-                      <div className="text-[11px] text-white/50">Certificado de seguridad bancario</div>
-                    </div>
-                  </div>
-                  <span className="text-xs font-bold text-violet-400 font-mono">HTTPS</span>
-                </div>
-              </div>
+            {/* 4 TICKETS AMPLIADOS: CERO RECORTE NI PUNTOS SUSPENSIVOS */}
+            <div className="mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 justify-items-stretch">
+              <CommercialTicket
+                category="PASE DE CORTESÍA"
+                title="DOMINIO .COM O .CO INCLUIDO"
+                subtitle="Registro a tu nombre por 1 año completo sin cobros ocultos."
+                serial="DOM-2026"
+                badge="ÉLITE"
+                stubLabel="PASE VIP"
+                color="gold"
+              />
+              <CommercialTicket
+                category="PASE DE CORTESÍA"
+                title="3 CORREOS CORPORATIVOS"
+                subtitle="tudominio.com con Webmail seguro y alta velocidad."
+                serial="MAIL-360"
+                badge="PRO"
+                stubLabel="CORREOS"
+                color="cyan"
+              />
+              <CommercialTicket
+                category="PASE DE INTELIGENCIA ARTIFICIAL"
+                title="100 CRÉDITOS DE IA MENSUALES"
+                subtitle="Generación de textos, respuestas y asistencia comercial."
+                serial="AI-PRO100"
+                badge="IA"
+                stubLabel="PASE IA"
+                color="lavender"
+              />
+              <CommercialTicket
+                category="SOPORTE PRIORITARIO"
+                title="SOPORTE Y CAMBIOS DIRECTOS"
+                subtitle="Mantenimiento prioritario sin intermediarios ni tickets lentos."
+                serial="SOP-DIRECT"
+                badge="ÁGIL"
+                stubLabel="DIRECTO"
+                color="emerald"
+              />
             </div>
           </div>
+
+          {/* TABLA DE PRECIOS */}
+          <WebAndEmailPricing />
+          
+          <p className="mt-12 text-center text-xs text-white/50">
+            * Garantía de satisfacción Call360: Diseñamos un boceto preliminar de tu web sin costo. Solo pagas si el diseño final te convence.
+          </p>
         </div>
       </section>
 
-      {/* BENEFITS */}
-      <section className="py-14 sm:py-20 lg:py-28">
+      {/* BLOQUE 3: CASOS DE ÉXITO REALES Y PRUEBA SOCIAL DE PESO */}
+      <section className="py-14 sm:py-20 lg:py-28" id="casos-reales">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
-              Por qué elegirnos
-            </p>
-            <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
-              Más que una{" "}
+          <div className="text-center mb-12 sm:mb-16">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+              ★ Casos de Éxito Reales
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+              Empresas colombianas que ya{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                página bonita
+                venden con su web Call360
               </span>
             </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-white/60 leading-relaxed">
+              Explora proyectos reales en producción diseñados para convertir visitas en clientes reales por WhatsApp.
+            </p>
           </div>
 
-          <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="group rounded-2xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-8 transition-all duration-500 hover:border-cyan-500/30 hover:bg-[#1a1a24] hover:-translate-y-1"
-              >
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-white/[0.06] text-cyan-400 transition-all duration-500 group-hover:bg-cyan-500/10 group-hover:scale-110 group-hover:rotate-3">
-                  {benefit.icon}
-                </div>
-                <h3 className="mb-2 text-lg font-bold text-white">
-                  {benefit.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-white/50">
-                  {benefit.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          {/* Componente Interactivo de Proyectos Reales */}
+          <PortfolioShowcase />
 
-      {/* INTERACTIVE PREVIEW */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
-                Vista previa
+          {/* Galería Slider de Proyectos Reales */}
+          <div className="mt-16 sm:mt-24">
+            <div className="text-center mb-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-white">
+                Muestras adicionales de diseño responsive
+              </h3>
+              <p className="text-sm text-white/50 mt-1">
+                Visualiza cómo lucen los portales de nuestros clientes en computadores y dispositivos móviles.
               </p>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white mb-6">
-                Diseños que{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                  venden
-                </span>
-              </h2>
-              <p className="text-lg text-white/60 mb-8">
-                Cada página está diseñada estratégicamente para convertir visitantes 
-                en clientes. Botones de llamada a la acción, integración con WhatsApp 
-                y optimización para ventas.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-[#12121a] px-5 py-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-500/10 text-cyan-400">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                    </svg>
-                  </div>
-                  <span className="text-sm font-bold text-white">WhatsApp integrado</span>
-                </div>
-                <div className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-[#12121a] px-5 py-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-violet-500/10 text-violet-400">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <circle cx="11" cy="11" r="8" />
-                      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
-                  </div>
-                  <span className="text-sm font-bold text-white">SEO optimizado</span>
-                </div>
-                <div className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-[#12121a] px-5 py-3">
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-amber-500/10 text-amber-400">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <rect x="5" y="2" width="14" height="20" rx="2" />
-                    </svg>
-                  </div>
-                  <span className="text-sm font-bold text-white">100% móvil</span>
-                </div>
-              </div>
             </div>
-
-            {/* Image Slider de Proyectos Reales */}
             <ImageSlider
               images={[
                 { src: "/shots/clinica.jpg", alt: "New Clinic — Odontología y Armonización Orofacial", urlPreview: "newclinic.com.co" },
@@ -496,77 +308,120 @@ export default function PaginasWebPage() {
         </div>
       </section>
 
-      {/* COMPARISON */}
-      <section className="py-14 sm:py-20 lg:py-28">
+      {/* BLOQUE 4: CÓMO FUNCIONA + COMPARATIVA + RESPALDO */}
+      <section id="como-funciona" className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50 border-t border-white/[0.06]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
+          <div className="text-center mb-16 sm:mb-20">
             <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
-              Comparativa
+              Proceso simple
             </p>
             <h2 className="text-4xl md:text-5xl font-black tracking-tight text-white">
-              Hacerlo solo vs{" "}
+              Tu web en{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                Call360
+                3 pasos sencillos
               </span>
             </h2>
           </div>
 
-          <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a]">
-            {/* Header */}
-            <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0f0f17]">
-              <div className="p-3 sm:p-6" />
-              <div className="p-3 sm:p-6 text-center">
-                <div className="text-xs sm:text-sm font-bold text-white/40">Hacerlo solo</div>
-              </div>
-              <div className="p-3 sm:p-6 text-center flex items-center justify-center">
-                <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-2.5 sm:px-4 py-1 text-xs sm:text-sm font-bold text-cyan-400">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <polyline points="20 6 9 17 4 12" />
-                  </svg>
-                  Call360
-                </div>
-              </div>
-            </div>
-
-            {/* Rows */}
-            {comparisonItems.map((item, index) => (
-              <div
-                key={index}
-                className={`grid grid-cols-3 border-b border-white/[0.06] transition-colors hover:bg-white/[0.02] ${
-                  index === comparisonItems.length - 1 ? "border-b-0" : ""
-                }`}
-              >
-                <div className="p-3 sm:p-6 flex items-center">
-                  <span className="text-xs sm:text-sm font-medium text-white/80 leading-tight">{item.label}</span>
-                </div>
-                <div className="p-3 sm:p-6 flex items-center justify-center text-center">
-                  <span className="text-xs sm:text-sm text-white/40 leading-tight">{item.solo}</span>
-                </div>
-                <div className="p-3 sm:p-6 flex items-center justify-center text-center">
-                  <span className="text-xs sm:text-sm font-bold text-cyan-400 leading-tight">{item.call360}</span>
+          <div className="grid gap-12 lg:grid-cols-3">
+            {[
+              {
+                step: "1",
+                title: "Cuéntanos de tu negocio",
+                desc: "Completas una breve asesoría por WhatsApp. Nos compartes tu logo, servicios principales y fotos si las tienes.",
+              },
+              {
+                step: "2",
+                title: "Boceto y desarrollo en 72h",
+                desc: "Estructuramos tu sitio con diseño moderno, textos persuasivos, botones de WhatsApp y optimización para Google.",
+              },
+              {
+                step: "3",
+                title: "Publicación y entrega",
+                desc: "Conectamos tu dominio definitivo (.com o .co), configuramos tus correos corporativos y te entregamos el control total.",
+              },
+            ].map((s) => (
+              <div key={s.step} className="rounded-2xl border border-white/[0.08] bg-[#12121a] p-8 text-center flex flex-col justify-between">
+                <div>
+                  <div className="mx-auto mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-cyan-500/15 text-lg font-black text-cyan-300">
+                    {s.step}
+                  </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{s.title}</h3>
+                  <p className="text-sm text-white/60 leading-relaxed">{s.desc}</p>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Comparativa */}
+          <div className="mt-20 sm:mt-28">
+            <div className="text-center mb-12 sm:mb-16">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-4">
+                Comparativa
+              </p>
+              <h3 className="text-3xl md:text-4xl font-black tracking-tight text-white">
+                Hacerlo solo vs{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
+                  Call360
+                </span>
+              </h3>
+            </div>
+
+            <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a]">
+              <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0f0f17]">
+                <div className="p-3 sm:p-6" />
+                <div className="p-3 sm:p-6 text-center">
+                  <div className="text-xs sm:text-sm font-bold text-white/40">Hacerlo solo</div>
+                </div>
+                <div className="p-3 sm:p-6 text-center flex items-center justify-center">
+                  <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-2.5 sm:px-4 py-1 text-xs sm:text-sm font-bold text-cyan-400">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Call360
+                  </div>
+                </div>
+              </div>
+
+              {comparisonItems.map((item, index) => (
+                <div
+                  key={index}
+                  className={`grid grid-cols-3 border-b border-white/[0.06] transition-colors hover:bg-white/[0.02] ${
+                    index === comparisonItems.length - 1 ? "border-b-0" : ""
+                  }`}
+                >
+                  <div className="p-3 sm:p-6 flex items-center">
+                    <span className="text-xs sm:text-sm font-medium text-white/80 leading-tight">{item.label}</span>
+                  </div>
+                  <div className="p-3 sm:p-6 flex items-center justify-center text-center">
+                    <span className="text-xs sm:text-sm text-white/40 leading-tight">{item.solo}</span>
+                  </div>
+                  <div className="p-3 sm:p-6 flex items-center justify-center text-center">
+                    <span className="text-xs sm:text-sm font-bold text-cyan-400 leading-tight">{item.call360}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* TRUST BLOCK */}
+      {/* BLOQUE DE CONFIANZA Y ENLACE A NOSOTROS */}
       <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-12 md:p-16 text-center">
+          <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-6 sm:p-12 md:p-16 text-center">
             <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-6">
-              No somos una agencia
+              Respaldo Directo en Colombia
             </div>
             
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 sm:mb-6">
-              Somos tu departamento de tecnología
+              Somos tu departamento de tecnología comercial
             </h2>
             
-            <p className="text-sm sm:text-base md:text-lg text-white/60 mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-white/60 mb-8 leading-relaxed max-w-2xl mx-auto">
               Después de +12 años viendo cómo empresas colombianas pierden dinero con 
               agencias costosas y proyectos que nunca terminan, creamos Call360: 
-              páginas web que realmente funcionan como herramienta de ventas.
+              páginas web que realmente funcionan como herramienta de ventas, respaldadas directamente por su desarrollador.
             </p>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-md mx-auto mb-8 sm:mb-10">
@@ -580,13 +435,21 @@ export default function PaginasWebPage() {
                 <div className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-1 sm:mb-2">
                   12+
                 </div>
-                <div className="text-[11px] sm:text-xs text-white/50">Años experiencia</div>
+                <div className="text-[11px] sm:text-xs text-white/50">Años de experiencia</div>
               </div>
             </div>
 
-            <p className="text-xl font-bold text-white">
-              Esto no es solo una página bonita. Es tu vendedor digital 24/7.
-            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/nosotros"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 text-sm font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10"
+              >
+                <span>Conoce al creador y nuestra filosofía</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -635,103 +498,36 @@ export default function PaginasWebPage() {
         </div>
       </section>
 
-      {/* GUARANTEES SECTION */}
+      {/* GARANTÍAS */}
       <GuaranteesSection />
 
-      {/* PRICING */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50" id="planes">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          {/* SHOWCASE DE TICKETS DE OBSEQUIO & BONOS EXCLUSIVOS */}
-          <div className="mb-14 sm:mb-20 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-amber-300 mb-4 shadow-sm">
-              <span className="h-2 w-2 rounded-full bg-amber-400 animate-ping" />
-              Pases &amp; Bonos Exclusivos de Obsequio
-            </span>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight">
-              Tickets Incluidos en tu{" "}
-              <span className="bg-gradient-to-r from-amber-300 via-yellow-400 to-amber-500 bg-clip-text text-transparent">
-                Plan Anual de $600.000
-              </span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/70">
-              Al contratar tu página web anual, recibes de inmediato estos 4 pases comerciales de cortesía sin costos adicionales ni mensualidades escondidas:
-            </p>
-
-            <div className="mt-8 sm:mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
-              <CommercialTicket
-                category="TICKET OBSEQUIO"
-                title="Dominio .com o .co"
-                subtitle="Registro a tu nombre por 1 año"
-                serial="DOM-2026"
-                badge="GOLD"
-                color="gold"
-              />
-              <CommercialTicket
-                category="TICKET OBSEQUIO"
-                title="3 Correos Corporativos"
-                subtitle="tuempresa.com con Webmail"
-                serial="MAIL-360"
-                badge="VIP"
-                color="cyan"
-              />
-              <CommercialTicket
-                category="TICKET IA"
-                title="100 Créditos IA / Mes"
-                subtitle="Generación de textos comerciales"
-                serial="AI-PRO100"
-                badge="AI"
-                color="lavender"
-              />
-              <CommercialTicket
-                category="TICKET SOPORTE"
-                title="Cambios Mensuales"
-                subtitle="Mantenimiento directo incluido"
-                serial="SOP-DIRECT"
-                badge="FAST"
-                color="emerald"
-              />
-            </div>
-          </div>
-
-          <WebAndEmailPricing />
-          <p className="mt-12 text-center text-xs text-white/40">
-            * Garantía de satisfacción Call360: Creamos un mockup preliminar de tu web sin costo. Solo pagas si el diseño final te convence.
-          </p>
-        </div>
-      </section>
-
-      {/* CTA */}
+      {/* CTA FINAL DE CIERRE */}
       <section className="py-14 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-gradient-to-br from-cyan-500/[0.1] via-[#12121a] to-violet-500/[0.1] p-5 sm:p-12 md:p-16 text-center">
-            {/* Background Glow */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-gradient-to-br from-cyan-500/[0.1] via-[#12121a] to-violet-500/[0.1] p-6 sm:p-12 md:p-16 text-center">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
             
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6">
-                ¿Listo para empezar?
+                ¿Listo para empezar hoy?
               </h2>
               <p className="text-base sm:text-lg lg:text-xl text-white/60 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-                Tu página web profesional lista en 72 horas. Sin complicaciones ni costos ocultos.
+                Tu página web profesional lista en 72 horas con dominio propio y WhatsApp conectado. Sin costos ocultos.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full max-w-md sm:max-w-none mx-auto">
+                <WhatsAppButton
+                  text="Hola Call360, quiero iniciar mi página web profesional y mi CRM ahora"
+                  label="Cotizar mi página / CRM ahora"
+                  className="min-h-[52px] sm:min-h-[56px] text-base px-8 py-3.5"
+                />
                 <ServiceLeadForm
                   service="pagina-web"
-                  triggerLabel="Cotizar mi página web"
+                  triggerLabel="Solicitar llamada de asesoría"
                   triggerVariant="cyan"
-                  triggerClassName="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5"
-                />
-                <DemoRequestForm
-                  title="Ver ejemplos de páginas que vendemos"
-                  subtitle="Te enseñamos sitios reales y cómo los diseñamos en 72h"
-                  ctaLabel="Solicitar ejemplos"
-                  triggerLabel="Ver ejemplos en vivo"
-                  defaultService="pagina-web"
-                  triggerClassName="w-full sm:w-auto min-h-[48px] sm:min-h-[52px] text-sm sm:text-base px-6 sm:px-8 py-3.5 !bg-white/[0.06] !border !border-white/20 hover:!bg-white/[0.12]"
+                  triggerClassName="w-full sm:w-auto min-h-[52px] sm:min-h-[56px] text-sm sm:text-base px-6 sm:px-8 py-3.5"
                 />
               </div>
-              <p className="mt-4 text-xs text-white/40">Mockup preliminar gratis • Soporte ilimitado por WhatsApp</p>
             </div>
           </div>
         </div>

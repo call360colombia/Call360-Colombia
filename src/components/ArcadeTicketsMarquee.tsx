@@ -22,14 +22,14 @@ const ARCADE_TICKETS: {
     category: "AGENDA 24/7",
     serial: "72190432",
     color: "gold", // Amarillo Mostaza / Oro Arcade
-    badge: "TOP",
+    badge: "ÉLITE",
   },
   {
     title: "Más Citas",
     category: "AUTOMÁTICO",
     serial: "38561099",
     color: "emerald", // Verde Menta Arcade
-    badge: "FAST",
+    badge: "ÁGIL",
   },
   {
     title: "Más Ventas",

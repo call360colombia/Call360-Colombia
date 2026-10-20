@@ -261,7 +261,8 @@ export default function NosotrosPage() {
                         title="Entrega en 72h"
                         subtitle="Página web al aire"
                         serial="720914"
-                        badge="FAST"
+                        badge="ÁGIL"
+                        stubLabel="72 HORAS"
                         color="cyan"
                         isTransparent
                       />

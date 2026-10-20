@@ -66,20 +66,18 @@ export default function Home() {
 
               <div className="animate-fade-in-up animation-delay-400 mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto">
                 <WhatsAppButton
-                  text="Hola Call360, quiero cotizar las soluciones de páginas web y CRM para mi negocio"
-                  label="Ver Planes / Cotizar"
-                  className="w-full sm:w-auto"
+                  text="Hola Call360, quiero cotizar las soluciones de páginas web y CRM para mi negocio ahora"
+                  label="Cotizar mi página / CRM ahora"
+                  className="w-full sm:w-auto min-h-[52px] sm:min-h-[56px] text-base px-8 py-3.5 font-black shadow-xl shadow-cyan-500/25 justify-center text-center"
                 />
                 <Link
-                  href="/demo"
-                  className="inline-flex w-full sm:w-auto min-h-[48px] sm:min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 active:scale-[0.98]"
+                  href="/paginas-web#planes"
+                  className="inline-flex w-full sm:w-auto min-h-[52px] sm:min-h-[56px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 active:scale-[0.98]"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-cyan-400 shrink-0">
-                    <rect x="2" y="3" width="20" height="14" rx="2" />
-                    <line x1="8" y1="21" x2="16" y2="21" />
-                    <line x1="12" y1="17" x2="12" y2="21" />
+                  <span>Ver Planes y Precios</span>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-cyan-400">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                  <span>Probar Demo CRM</span>
                 </Link>
               </div>
 
@@ -150,6 +148,32 @@ export default function Home() {
         title="Garantías y Beneficios Comerciales Directos"
         subtitle="Diferenciamos cada solución con soporte local en Bogotá y entregables certificados."
       />
+
+      {/* PORTAFOLIO DE PROYECTOS REALES (PRUEBA SOCIAL DE PESO) */}
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0a0c13]/70 border-y border-white/[0.06]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center mb-12 sm:mb-16">
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+                ★ Proyectos Reales Desarrollados
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+                Empresas colombianas que ya{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
+                  venden y crecen con Call360
+                </span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-white/60 leading-relaxed">
+                Diseño web responsive de alto impacto, plataformas a medida y sistemas de venta directa por WhatsApp con entrega récord en 72 horas.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <PortfolioShowcase />
+          </ScrollReveal>
+        </div>
+      </section>
 
       {/* HOW IT WORKS */}
       <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
@@ -321,31 +345,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* PORTAFOLIO DE PROYECTOS REALES */}
-      <section className="py-14 sm:py-20 lg:py-28 bg-[#0a0c13]/70 border-t border-white/[0.06]">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="text-center mb-12 sm:mb-16">
-              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-                ★ Proyectos Reales Desarrollados
-              </span>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
-                Empresas colombianas que ya{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                  venden y crecen con Call360
-                </span>
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-white/60 leading-relaxed">
-                Diseño web responsive de alto impacto, plataformas a medida y sistemas de venta directa por WhatsApp con entrega récord en 72 horas.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <ScrollReveal delay={200}>
-            <PortfolioShowcase />
-          </ScrollReveal>
-        </div>
-      </section>
 
       {/* WHY CHOOSE US + GUARANTEES */}
       <section className="py-28 bg-[#0f0f17]/50">
@@ -424,6 +423,17 @@ export default function Home() {
                       <p className="text-sm leading-relaxed text-white/50">
                         {benefit.description}
                       </p>
+                      {benefit.title.includes("Juan David") && (
+                        <Link
+                          href="/nosotros"
+                          className="mt-2.5 inline-flex items-center gap-1.5 text-xs font-bold text-violet-400 hover:text-violet-300 transition-colors"
+                        >
+                          <span>Conoce al creador y nuestra historia</span>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                          </svg>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </ScrollReveal>

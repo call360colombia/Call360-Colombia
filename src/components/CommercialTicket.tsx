@@ -20,6 +20,7 @@ export interface TicketProps {
   subtitle?: string;
   serial: string;
   badge: string;
+  stubLabel?: string;
   color?: TicketColor;
   href?: string;
   className?: string;
@@ -88,6 +89,7 @@ export default function CommercialTicket({
   subtitle,
   serial,
   badge,
+  stubLabel = "PASE VIP",
   color = "emerald",
   href,
   className = "",
@@ -98,11 +100,11 @@ export default function CommercialTicket({
 
   const content = (
     <div
-      className={`relative flex items-center h-[4.75rem] sm:h-[5.25rem] w-full max-w-[310px] sm:max-w-[340px] rounded-2xl ${
+      className={`relative flex items-center min-h-[5.75rem] sm:min-h-[6.25rem] w-full max-w-full rounded-2xl ${
         p.bg
       } ${p.text} shadow-[0_12px_28px_-6px_rgba(0,0,0,0.65)] ${
         isTransparent ? "border-2 border-white/20" : "border-2 border-black/15"
-      } transition-transform duration-300 hover:scale-105 hover:-translate-y-0.5 shrink-0 overflow-hidden select-none cursor-pointer ${className}`}
+      } transition-all duration-300 hover:scale-[1.03] hover:-translate-y-0.5 shrink-0 overflow-hidden select-none cursor-pointer ${className}`}
     >
       {/* Muescas semicirculares de troquelado a los lados (estilo ticket real) */}
       <span
@@ -114,33 +116,33 @@ export default function CommercialTicket({
         aria-hidden="true"
       />
 
-      {/* TALÓN IZQUIERDO: "ADMIT ONE" VERTICAL CON LÍNEA PUNTEADA */}
+      {/* TALÓN IZQUIERDO: TEXTO EN ESPAÑOL VERTICAL CON LÍNEA PUNTEADA (CERO SPANGLISH) */}
       <div
-        className={`w-10 sm:w-11 h-full flex flex-col items-center justify-center border-r-2 border-dashed ${
+        className={`w-9 sm:w-11 self-stretch flex flex-col items-center justify-center border-r-2 border-dashed ${
           isTransparent ? "border-white/20" : "border-black/25"
-        } font-mono text-[0.6rem] sm:text-[0.64rem] font-black tracking-widest uppercase opacity-75 select-none [writing-mode:vertical-rl] rotate-180 shrink-0`}
+        } font-mono text-[0.58rem] sm:text-[0.62rem] font-black tracking-widest uppercase opacity-80 select-none [writing-mode:vertical-rl] rotate-180 shrink-0 py-2`}
       >
-        <span>ADMIT ONE</span>
+        <span>{stubLabel}</span>
       </div>
 
-      {/* CUERPO CENTRAL DEL TICKET: CATEGORÍA + TÍTULO + PUNTITOS + SERIAL */}
-      <div className="flex-1 flex flex-col items-center justify-center px-2.5 py-1 text-center min-w-0 select-none">
+      {/* CUERPO CENTRAL DEL TICKET: CATEGORÍA + TÍTULO COMPLETO + DESCRIPCIÓN + SERIAL */}
+      <div className="flex-1 flex flex-col items-center justify-center px-3 py-2 text-center min-w-0 select-none">
         {/* Categoría superior */}
-        <span className="font-mono text-[0.56rem] sm:text-[0.6rem] font-bold tracking-wider opacity-65 uppercase truncate max-w-full">
+        <span className="font-mono text-[0.56rem] sm:text-[0.62rem] font-bold tracking-wider opacity-75 uppercase text-center max-w-full">
           ★ {category} ★
         </span>
 
-        {/* Título enérgico del beneficio */}
-        <h4 className="font-black text-xs sm:text-[1.02rem] leading-none tracking-tight uppercase line-clamp-1 my-1">
+        {/* Título enérgico del beneficio - CERO TRUNCADO, texto completo y legible */}
+        <h4 className="font-black text-xs sm:text-[0.92rem] leading-snug tracking-tight uppercase my-1 text-center break-words max-w-full">
           {title}
         </h4>
 
         {subtitle ? (
-          <p className="text-[0.62rem] sm:text-[0.68rem] opacity-75 line-clamp-1 font-semibold leading-tight -mt-0.5 mb-0.5">
+          <p className="text-[0.66rem] sm:text-[0.72rem] opacity-85 font-medium leading-tight mt-0.5 text-center break-words max-w-full">
             {subtitle}
           </p>
         ) : (
-          /* Fila de puntitos troquelados como en los tickets de arcade de JuanMeza */
+          /* Fila de puntitos troquelados como en los tickets de arcade */
           <div className="flex items-center gap-1 my-0.5 opacity-35" aria-hidden="true">
             <span className="h-1 w-1 rounded-full bg-current" />
             <span className="h-1 w-1 rounded-full bg-current" />
@@ -154,21 +156,21 @@ export default function CommercialTicket({
         )}
 
         {/* Serial numérico auténtico */}
-        <span className="font-mono text-[0.6rem] sm:text-[0.66rem] font-bold tracking-wider opacity-75">
+        <span className="font-mono text-[0.58rem] sm:text-[0.64rem] font-bold tracking-wider opacity-70 mt-1">
           № {serial}
         </span>
       </div>
 
-      {/* TALÓN DERECHO: SERIAL VERTICAL Y BADGE CON LÍNEA PUNTEADA */}
+      {/* TALÓN DERECHO: SERIAL VERTICAL Y DISTINTIVO CON LÍNEA PUNTEADA */}
       <div
-        className={`w-11 sm:w-12 h-full flex flex-col items-center justify-center border-l-2 border-dashed ${
+        className={`w-10 sm:w-11 self-stretch flex flex-col items-center justify-center border-l-2 border-dashed ${
           isTransparent ? "border-white/20" : "border-black/25"
-        } px-1 font-mono text-[0.56rem] font-bold opacity-80 shrink-0 select-none`}
+        } px-1 font-mono text-[0.55rem] font-bold opacity-80 shrink-0 select-none py-2`}
       >
         <span className="[writing-mode:vertical-rl] tracking-tighter text-[0.52rem]">
           {serial.slice(0, 5)}
         </span>
-        <span className="[writing-mode:vertical-rl] font-black tracking-widest text-[0.58rem] mt-0.5">
+        <span className="[writing-mode:vertical-rl] font-black tracking-widest text-[0.56rem] mt-0.5">
           {badge}
         </span>
       </div>
@@ -177,7 +179,7 @@ export default function CommercialTicket({
 
   if (href) {
     return (
-      <Link href={href} className="inline-block focus:outline-none w-full max-w-[310px] sm:max-w-[340px]">
+      <Link href={href} className="inline-block focus:outline-none w-full max-w-full">
         {content}
       </Link>
     );

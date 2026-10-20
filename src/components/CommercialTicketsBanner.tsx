@@ -10,16 +10,18 @@ const TICKETS_DATA: {
   subtitle?: string;
   serial: string;
   badge: string;
+  stubLabel?: string;
   color: TicketColor;
   href: string;
 }[] = [
   {
     category: "PÁGINAS WEB",
     title: "Entrega en 72h",
-    subtitle: "Al aire desde $100k/mes",
+    subtitle: "Al aire desde $100.000 COP/mes",
     serial: "720914",
-    badge: "FAST",
-    color: "cyan", // Azul Cian Retro
+    badge: "ÁGIL",
+    stubLabel: "ENTREGA",
+    color: "cyan",
     href: "/paginas-web",
   },
   {
@@ -28,25 +30,28 @@ const TICKETS_DATA: {
     subtitle: "Cierres rápidos sin fugas",
     serial: "912045",
     badge: "PRO",
-    color: "emerald", // Verde Menta Arcade
+    stubLabel: "VENTAS",
+    color: "emerald",
     href: "/crm-whatsapp",
   },
   {
     category: "PLAN ANUAL VIP",
     title: "50% Descuento",
-    subtitle: "Dominio + 3 Correos Free",
+    subtitle: "Dominio + 3 Correos Gratis",
     serial: "600202",
-    badge: "TOP",
-    color: "gold", // Amarillo Mostaza / Oro Arcade
+    badge: "ÉLITE",
+    stubLabel: "REGALO",
+    color: "gold",
     href: "/paginas-web#planes",
   },
   {
     category: "GARANTÍA CALL360",
-    title: "Mockup Sin Costo",
+    title: "Boceto Sin Costo",
     subtitle: "Pagas solo si te convence",
     serial: "385610",
-    badge: "VIP",
-    color: "coral", // Coral / Mandarina Cálido
+    badge: "SEGURO",
+    stubLabel: "GARANTÍA",
+    color: "coral",
     href: "/paginas-web",
   },
 ];
