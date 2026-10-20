@@ -36,7 +36,7 @@ export default function Home() {
                 +200 empresas operando en Colombia
               </div>
 
-              <h1 className="animate-fade-in-up animation-delay-100 text-3xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-black leading-[1.08] tracking-tight">
+              <h1 className="animate-fade-in-up animation-delay-100 text-2xl xs:text-3xl sm:text-5xl lg:text-6xl xl:text-[4rem] font-black leading-tight tracking-tight break-words">
                 Soluciones tecnológicas para{" "}
                 <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
                   empresas y negocios en Colombia
@@ -212,7 +212,7 @@ export default function Home() {
               <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
                 ⚡ Módulos del ecosistema
               </span>
-              <h2 className="mt-4 text-4xl md:text-5xl font-black leading-tight tracking-tight text-white">
+              <h2 className="mt-4 text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black leading-tight tracking-tight text-white break-words">
                 Cada pieza funciona sola.{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
                   Juntas, son un sistema completo.
@@ -354,7 +354,7 @@ export default function Home() {
               <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
                 ¿Por qué Call360?
               </span>
-              <h2 className="mt-4 text-4xl font-black leading-tight tracking-tight sm:text-5xl">
+              <h2 className="mt-4 text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-black leading-tight tracking-tight break-words">
                 Menos proveedores, menos costo,{" "}
                 <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
                   más control sobre tu operación
