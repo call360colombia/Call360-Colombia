@@ -8,6 +8,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import ModernSaaSMockup from "@/components/ModernSaaSMockup";
 import LiveBenefitsTicker from "@/components/LiveBenefitsTicker";
 import CommercialTicketsBanner from "@/components/CommercialTicketsBanner";
+import ArcadeTicketsMarquee from "@/components/ArcadeTicketsMarquee";
 
 export default function Home() {
   return (
@@ -461,6 +462,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* CINTA DIAGONAL DE TICKETS ARCADE DE ALTO IMPACTO (STYLE JUANMEZA) */}
+      <ArcadeTicketsMarquee />
 
       {/* INDUSTRY TEASER */}
       <section className="py-28">

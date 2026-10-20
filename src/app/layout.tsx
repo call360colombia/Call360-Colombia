@@ -53,7 +53,7 @@ export default function RootLayout({
         <Analytics />
         <ThreeBackground />
         <Navbar />
-        <main className="flex-1 pt-16 pb-20 sm:pb-16 relative z-10 overflow-x-hidden">{children}</main>
+        <main className="flex-1 pt-16 pb-24 sm:pb-20 relative z-10 overflow-x-hidden">{children}</main>
         <Footer />
         <FloatingWhatsApp />
         <FloatingActionDock />
