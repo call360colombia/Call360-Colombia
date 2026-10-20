@@ -367,19 +367,46 @@ export default function PaginasWebPage() {
               </h3>
             </div>
 
-            <div className="overflow-x-auto rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] -mx-1 sm:mx-0">
-              <div className="min-w-[320px]">
-                <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0f0f17]">
-                  <div className="p-3 sm:p-6" />
-                  <div className="p-3 sm:p-6 text-center">
-                    <div className="text-xs sm:text-sm font-bold text-white/40">Hacerlo solo</div>
+            {/* VISTA MÓVIL: TARJETAS RESPONSIVAS Y 100% LEGIBLES (CERO TEXTO APRETADO) */}
+            <div className="sm:hidden space-y-3.5">
+              {comparisonItems.map((item, index) => (
+                <div key={index} className="rounded-2xl border border-white/[0.08] bg-[#12121a] p-4 shadow-md">
+                  <div className="font-bold text-sm text-white mb-3 pb-2 border-b border-white/[0.06] flex items-center justify-between">
+                    <span>{item.label}</span>
+                    <span className="text-[10px] font-mono text-cyan-400/80">#0{index + 1}</span>
                   </div>
-                  <div className="p-3 sm:p-6 text-center flex items-center justify-center">
-                    <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-2 sm:px-4 py-1 text-[11px] sm:text-sm font-bold text-cyan-400">
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+                  <div className="grid grid-cols-2 gap-2 text-xs">
+                    <div className="rounded-xl bg-white/[0.02] border border-white/[0.05] p-3 text-white/55">
+                      <span className="block text-[10px] font-bold text-red-400 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                        <span>✕</span> Hacerlo solo
+                      </span>
+                      <p className="leading-snug">{item.solo}</p>
+                    </div>
+                    <div className="rounded-xl bg-gradient-to-b from-cyan-500/10 to-blue-500/10 border border-cyan-500/25 p-3 text-cyan-300 font-semibold shadow-sm">
+                      <span className="block text-[10px] font-bold text-cyan-400 uppercase tracking-wider mb-1.5 flex items-center gap-1">
+                        <span>✓</span> Con Call360
+                      </span>
+                      <p className="leading-snug">{item.call360}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* VISTA TABLET / ESCRITORIO: TABLA ESPACIOSA Y FLUIDA */}
+            <div className="hidden sm:block overflow-x-auto rounded-3xl border border-white/[0.08] bg-[#12121a]">
+              <div className="min-w-[620px]">
+                <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0f0f17]">
+                  <div className="p-5 md:p-6 text-sm font-bold text-white/60">Aspecto de Entrega</div>
+                  <div className="p-5 md:p-6 text-center">
+                    <div className="text-sm font-bold text-white/40">Hacerlo por tu cuenta / Agencias</div>
+                  </div>
+                  <div className="p-5 md:p-6 text-center flex items-center justify-center">
+                    <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-4 py-1.5 text-sm font-bold text-cyan-400 border border-cyan-500/30">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
-                      Call360
+                      Call360 Colombia
                     </div>
                   </div>
                 </div>
@@ -391,14 +418,14 @@ export default function PaginasWebPage() {
                       index === comparisonItems.length - 1 ? "border-b-0" : ""
                     }`}
                   >
-                    <div className="p-2.5 sm:p-6 flex items-center min-w-0">
-                      <span className="text-xs sm:text-sm font-medium text-white/80 leading-tight break-words">{item.label}</span>
+                    <div className="p-5 md:p-6 flex items-center min-w-0">
+                      <span className="text-sm font-medium text-white/90 leading-tight">{item.label}</span>
                     </div>
-                    <div className="p-2.5 sm:p-6 flex items-center justify-center text-center min-w-0">
-                      <span className="text-[11px] sm:text-sm text-white/40 leading-tight break-words">{item.solo}</span>
+                    <div className="p-5 md:p-6 flex items-center justify-center text-center min-w-0">
+                      <span className="text-sm text-white/40 leading-snug">{item.solo}</span>
                     </div>
-                    <div className="p-2.5 sm:p-6 flex items-center justify-center text-center min-w-0">
-                      <span className="text-[11px] sm:text-sm font-bold text-cyan-400 leading-tight break-words">{item.call360}</span>
+                    <div className="p-5 md:p-6 flex items-center justify-center text-center min-w-0">
+                      <span className="text-sm font-bold text-cyan-400 leading-snug">{item.call360}</span>
                     </div>
                   </div>
                 ))}

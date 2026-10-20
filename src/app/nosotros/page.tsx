@@ -255,7 +255,7 @@ export default function NosotrosPage() {
                     </p>
 
                     {/* TICKETS EJECUTIVOS DE ENTREGABLES GARANTIZADOS (SIN BLUR) */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-6 border-t border-white/10">
+                    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-6 border-t border-white/10">
                       <CommercialTicket
                         category="VELOCIDAD"
                         title="Entrega en 72h"

@@ -98,7 +98,7 @@ export default function ArcadeTicketsMarquee({ className = "" }: { className?: s
             return (
               <div
                 key={`${item.title}-${i}`}
-                className={`transition-transform duration-300 hover:scale-105 shrink-0 ${
+                className={`w-[240px] xs:w-[260px] sm:w-[290px] transition-transform duration-300 hover:scale-105 shrink-0 ${
                   isWaveUp ? "-translate-y-1" : "translate-y-1"
                 }`}
               >
