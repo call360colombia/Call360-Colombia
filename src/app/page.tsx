@@ -160,7 +160,7 @@ export default function Home() {
               steps={[
                 {
                   number: "1",
-                  title: "Captamos leads",
+                  title: "Atraemos prospectos",
                   description: "Tu página web profesional lista en 72h + marketing digital. Los clientes te encuentran en Google y redes sociales.",
                 },
                 {
@@ -171,7 +171,7 @@ export default function Home() {
                 {
                   number: "3",
                   title: "Los cierras",
-                  description: "CRM de llamadas con marcación predictiva y minutos ilimitados. Tu equipo contacta más leads y cierra más ventas.",
+                  description: "CRM de llamadas con marcación predictiva y minutos ilimitados. Tu equipo contacta más prospectos y cierra más ventas.",
                 },
               ]}
             />
@@ -227,7 +227,7 @@ export default function Home() {
               },
               {
                 title: "CRM Llamadas",
-                headline: "Tu equipo contacta 3x más leads por día",
+                headline: "Tu equipo contacta 3x más prospectos por día",
                 description: "Marcación predictiva inteligente con minutos ilimitados a Colombia. Grabación, supervisión y métricas en tiempo real.",
                 benefit: "Demo de 6 horas con acceso completo • Sin compromiso",
                 image: "/inicio/vozip.png?v=2",
@@ -250,7 +250,7 @@ export default function Home() {
                 {
                   href: "/marketing",
                   title: "Marketing",
-                  desc: "Campañas en Google y redes sociales para generar leads calificados. Si no hay retorno, devolvemos tu dinero.",
+                  desc: "Campañas en Google y redes sociales para atraer clientes potenciales calificados. Si no hay retorno, devolvemos tu dinero.",
                   icon: (
                     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-amber-400">
                       <polygon points="12 2 2 7 12 12 22 7 12 2" />

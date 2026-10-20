@@ -59,10 +59,10 @@ interface DemoRequestFormProps {
 
 export default function DemoRequestForm({
   defaultService,
-  title = "Agenda una demo o asesoría",
+  title = "Agenda una demostración o asesoría",
   subtitle = "Cuéntanos qué necesitas y te contactamos para mostrarte la mejor solución para tu operación.",
   ctaLabel = "Confirmar por WhatsApp",
-  triggerLabel = "Agendar demo gratuita",
+  triggerLabel = "Agendar demostración personalizada",
   triggerClassName = "",
   className = "",
   requireConsent = false,

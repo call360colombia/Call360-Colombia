@@ -61,7 +61,7 @@ export default function ModernSaaSMockup({
               : "text-white/50 hover:text-white"
           }`}
         >
-          Inbox Chat
+          Bandeja WhatsApp
         </button>
         <button
           onClick={() => setActiveTab("campaigns")}
@@ -81,7 +81,7 @@ export default function ModernSaaSMockup({
               : "text-white/50 hover:text-white"
           }`}
         >
-          Pipeline
+          Embudo
         </button>
       </div>
 
@@ -92,7 +92,7 @@ export default function ModernSaaSMockup({
           <div className="flex flex-col gap-4">
             <button
               onClick={() => setActiveTab("chat")}
-              title="Bandeja Multicanal"
+              title="Bandeja de WhatsApp"
               className={`p-2.5 rounded-xl transition-all ${
                 activeTab === "chat"
                   ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30"
@@ -105,7 +105,7 @@ export default function ModernSaaSMockup({
             </button>
             <button
               onClick={() => setActiveTab("campaigns")}
-              title="Campañas de Difusión"
+              title="Campañas y Difusión"
               className={`p-2.5 rounded-xl transition-all ${
                 activeTab === "campaigns"
                   ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/30"
@@ -118,7 +118,7 @@ export default function ModernSaaSMockup({
             </button>
             <button
               onClick={() => setActiveTab("pipeline")}
-              title="Pipeline de Ventas"
+              title="Embudo de Ventas"
               className={`p-2.5 rounded-xl transition-all ${
                 activeTab === "pipeline"
                   ? "bg-violet-500/20 text-violet-400 border border-violet-500/30"
@@ -237,7 +237,7 @@ export default function ModernSaaSMockup({
 
                 <div className="flex items-center gap-2">
                   <span className="rounded-full bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-1 text-[10px] font-bold text-emerald-300">
-                    Lead Calificado
+                    Prospecto Calificado
                   </span>
                 </div>
               </div>
@@ -339,7 +339,7 @@ export default function ModernSaaSMockup({
           <div className="col-span-12 p-6 md:p-8 space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
               <div>
-                <h3 className="text-base font-bold text-white">Pipeline de Oportunidades</h3>
+                <h3 className="text-base font-bold text-white">Embudo de Oportunidades</h3>
                 <p className="text-xs text-white/50">Visibilidad comercial completa del ciclo de venta</p>
               </div>
               <span className="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-3 py-1 rounded-full">

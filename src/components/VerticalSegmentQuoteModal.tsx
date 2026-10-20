@@ -186,7 +186,7 @@ const INDUSTRY_FIELDS: Record<IndustryId, FieldDef[]> = {
     },
     {
       key: "leadsPerMonth",
-      label: "Leads mensuales aproximados",
+      label: "Prospectos mensuales aproximados",
       type: "select",
       required: true,
       options: [

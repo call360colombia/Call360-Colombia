@@ -101,7 +101,7 @@ const projects: Project[] = [
     description:
       "Embudo de alta conversión con validación rápida de requisitos y botón de asesoría comercial inmediata.",
     metrics: [
-      { label: "Leads Semanales", value: "+180" },
+      { label: "Prospectos Semanales", value: "+180" },
       { label: "Formulario", value: "Prellenado WA" },
       { label: "Retorno", value: "Inmediato" },
     ],

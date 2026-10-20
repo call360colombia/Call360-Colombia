@@ -27,7 +27,7 @@ const solutions = [
   {
     href: "/marketing",
     label: "Marketing",
-    description: "Campañas y contenido para generar leads.",
+    description: "Campañas y contenido para atraer prospectos.",
   },
   {
     href: "/servicios",

@@ -22,18 +22,18 @@ const pains = [
   },
   {
     pain: "No tienes métricas reales de gestión",
-    solution: "Dashboard en vivo con llamadas, mensajes, conversión y rendimiento de cada agente. Sepas quién vende y quién no.",
+    solution: "Panel de control en vivo con llamadas, mensajes, conversión y rendimiento de cada agente. Sabrás con certeza quién vende y quién no.",
   },
   {
     pain: "WhatsApp personal mezclado con llamadas de trabajo",
-    solution: "CRM WhatsApp multiagente con un solo número profesional. Campañas masivas, respuestas automáticas, historial de cada lead.",
+    solution: "CRM WhatsApp multiagente con un solo número profesional. Campañas masivas, respuestas automáticas, historial de cada contacto.",
   },
   {
     pain: "No te alcanza el presupuesto para una página web que consiga clientes",
-    solution: "Página web profesional en 72 horas con sección 'Trabaja con nosotros' para captar talento, más marketing digital para atraer leads.",
+    solution: "Página web profesional en 72 horas con sección 'Trabaja con nosotros' para captar talento, más marketing digital para atraer prospectos.",
   },
   {
-    pain: "No le das seguimiento a leads que se enfriaron",
+    pain: "No le das seguimiento a prospectos que se enfriaron",
     solution: "Sistema de campañas automáticas por WhatsApp y llamadas. Reactivas clientes que dejaron de comprar sin mover un dedo.",
   },
 ];
@@ -80,7 +80,7 @@ const features = [
       </svg>
     ),
     title: "Marketing Digital",
-    description: "Campañas en Google, redes y contenido constante para llenar tu embudo de leads. Medición de resultados en tiempo real.",
+    description: "Campañas en Google, redes y contenido constante para llenar tu embudo de prospectos. Medición de resultados en tiempo real.",
     gradient: "from-amber-500/20 to-orange-500/20",
   },
 ];
@@ -95,8 +95,8 @@ const comparisonItems = [
     call360: "Marcación predictiva: los agentes solo hablan",
   },
   {
-    informal: "Sin métricas ni dashboards de gestión",
-    call360: "Dashboard en vivo con KPIs de cada agente",
+    informal: "Sin métricas ni paneles de gestión",
+    call360: "Panel de control en vivo con indicadores de cada agente",
   },
   {
     informal: "WhatsApp personal, sin historial ni campañas",
@@ -143,7 +143,7 @@ export default function CallCenterPage() {
                 entre 5 proveedores distintos.
               </p>
               <div className="mt-8 flex flex-wrap gap-3 text-sm font-semibold text-white/60">
-                {["Minutos ilimitados Colombia", "Marcación predictiva", "WhatsApp multiagente", "Dashboard en vivo"].map(
+                {["Minutos ilimitados Colombia", "Marcación predictiva", "WhatsApp multiagente", "Panel de control en vivo"].map(
                   (item) => (
                     <div
                       key={item}
@@ -323,7 +323,7 @@ export default function CallCenterPage() {
                   </span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-base text-white/50">
-                  Cotiza hoy y empieza a operar con llamadas ilimitadas, WhatsApp multiagente y dashboard en vivo.
+                  Cotiza hoy y empieza a operar con llamadas ilimitadas, WhatsApp multiagente y panel de control en vivo.
                 </p>
                 <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                   <WhatsAppButton
@@ -332,12 +332,12 @@ export default function CallCenterPage() {
                     className="text-base px-8 py-4"
                   />
                   <a
-                    href="https://wa.me/573203693949?text=Hola%20Call360%2C%20quiero%20una%20demo%20para%20mi%20Call%20Center"
+                    href="https://wa.me/573203693949?text=Hola%20Call360%2C%20quiero%20una%20demostracion%20para%20mi%20Call%20Center"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5"
                   >
-                    Agendar demo
+                    Agendar demostración
                   </a>
                 </div>
               </div>

@@ -328,11 +328,11 @@ export default function ServiciosPage() {
             <ScrollReveal>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-violet-500/20">
                 <div className="relative aspect-video overflow-hidden bg-[#0c0d14] p-1.5 flex items-center justify-center">
-                  <Image src="/predictivo/voip_dashboard_mockup.png" alt="Dashboard CRM Llamadas" fill className="object-contain" />
+                  <Image src="/predictivo/voip_dashboard_mockup.png" alt="Panel de control CRM Llamadas" fill className="object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">CRM Llamadas Predictivo</h3>
-                  <p className="mt-1 text-sm text-white/50">Dashboard con agentes en vivo, métricas y control total</p>
+                  <p className="mt-1 text-sm text-white/50">Panel de control con agentes en vivo, métricas y control total</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -502,7 +502,7 @@ export default function ServiciosPage() {
                 },
                 {
                   informal: "Sin visibilidad completa del negocio",
-                  call360: "Dashboard integrado con toda la operación",
+                  call360: "Panel de control integrado con toda la operación",
                 },
               ]}
             />

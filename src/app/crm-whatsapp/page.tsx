@@ -331,7 +331,7 @@ export default function CRMWhatsAppPage() {
               },
               {
                 icon: "📈",
-                title: "Pipeline & Cotizaciones PDF",
+                title: "Embudo de Ventas & Cotizaciones PDF",
                 desc: "Convierte conversaciones en acuerdos cerrados. Genera cotizaciones y visualiza el valor total de tu embudo comercial.",
                 badge: "Cierre Rápido",
                 badgeColor: "border-violet-500/30 bg-violet-500/10 text-violet-400",

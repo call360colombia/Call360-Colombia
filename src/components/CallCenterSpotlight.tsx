@@ -52,11 +52,11 @@ const pillars = [
         <line x1="12" y1="17" x2="12" y2="21" />
       </svg>
     ),
-    title: "Captación de leads",
+    title: "Atracción de prospectos",
     features: [
       "Página web profesional en 72 horas",
       'Sección "Trabaja con nosotros" para reclutamiento',
-      "Marketing digital para generar leads",
+      "Marketing digital para atraer clientes calificados",
       "SEO y posicionamiento en Google",
     ],
     href: "/paginas-web",
