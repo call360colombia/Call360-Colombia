@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useSyncExternalStore } from "react";
 
 interface Activity {
   id: number;
@@ -47,23 +47,44 @@ function generateActivity(id: number): Activity {
   }
 }
 
+function subscribe() {
+  return () => {};
+}
+
+function getClientSnapshot(): true {
+  return true;
+}
+
+function getServerSnapshot(): false {
+  return false;
+}
+
+function useIsClient(): boolean {
+  return useSyncExternalStore(subscribe, getClientSnapshot, getServerSnapshot);
+}
+
 export default function LiveActivityWidget() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const isClient = useIsClient();
   const [visible, setVisible] = useState(false);
-  const [activities, setActivities] = useState<Activity[]>(() =>
-    Array.from({ length: 4 }, (_, i) => generateActivity(i))
-  );
+  const [activities, setActivities] = useState<Activity[]>([]);
   const [nextId, setNextId] = useState(4);
   const [counters, setCounters] = useState({ calls: 0, messages: 0, web: 0 });
 
   useEffect(() => {
+    if (!isClient) return;
+    setActivities(Array.from({ length: 4 }, (_, i) => generateActivity(i)));
+  }, [isClient]);
+
+  useEffect(() => {
+    if (!isClient) return;
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true); },
       { threshold: 0.2 }
     );
     if (sectionRef.current) obs.observe(sectionRef.current);
     return () => obs.disconnect();
-  }, []);
+  }, [isClient]);
 
   useEffect(() => {
     if (!visible) return;

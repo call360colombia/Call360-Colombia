@@ -1,3 +1,5 @@
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 interface BeforeAfterItem {
   before: string;
   after: string;
@@ -7,12 +9,20 @@ interface BeforeAfterProps {
   items: BeforeAfterItem[];
   title?: string;
   subtitle?: string;
+  showCta?: boolean;
+  ctaLabel?: string;
+  ctaText?: string;
+  ctaSubtext?: string;
 }
 
 export default function BeforeAfter({
   items,
   title = "Adiós al desorden",
   subtitle = "Tu transformación con Call360",
+  showCta = false,
+  ctaLabel = "Ver demo personalizada",
+  ctaText = "Hola Call360, quiero ver una demo del antes y después para mi negocio.",
+  ctaSubtext,
 }: BeforeAfterProps) {
   return (
     <section className="py-24 bg-[#0f0f17]/50">
@@ -74,6 +84,13 @@ export default function BeforeAfter({
             ))}
           </div>
         </div>
+
+        {showCta && (
+          <div className="mt-12 flex flex-col items-center justify-center gap-3">
+            <WhatsAppButton label={ctaLabel} text={ctaText} />
+            {ctaSubtext && <p className="text-xs text-white/40">{ctaSubtext}</p>}
+          </div>
+        )}
       </div>
     </section>
   );

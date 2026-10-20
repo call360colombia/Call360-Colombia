@@ -1,8 +1,14 @@
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 interface TrustBlockProps {
   title?: string;
   description: string;
   bullets: string[];
   closingStatement: string;
+  showCta?: boolean;
+  ctaLabel?: string;
+  ctaText?: string;
+  ctaSubtext?: string;
 }
 
 export default function TrustBlock({
@@ -10,6 +16,10 @@ export default function TrustBlock({
   description,
   bullets,
   closingStatement,
+  showCta = false,
+  ctaLabel = "Iniciar sin riesgo",
+  ctaText = "Hola Call360, quiero iniciar mi proyecto sin riesgo y con garantía.",
+  ctaSubtext,
 }: TrustBlockProps) {
   return (
     <section className="py-24 bg-[#0f0f17]/50">
@@ -34,6 +44,13 @@ export default function TrustBlock({
           <div className="mt-8 pt-8 border-t border-white/[0.08]">
             <p className="text-lg font-bold text-white">{closingStatement}</p>
           </div>
+
+          {showCta && (
+            <div className="mt-8 pt-8 border-t border-white/[0.08] flex flex-col items-center justify-center gap-3">
+              <WhatsAppButton label={ctaLabel} text={ctaText} />
+              {ctaSubtext && <p className="text-xs text-white/40">{ctaSubtext}</p>}
+            </div>
+          )}
         </div>
       </div>
     </section>

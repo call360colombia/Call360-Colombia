@@ -1,63 +1,52 @@
-import type { Metadata } from "next";
 import Image from "next/image";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import ComparisonTable from "@/components/ComparisonTable";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import HowItWorks from "@/components/HowItWorks";
-import TrustBlock from "@/components/TrustBlock";
-import FAQSection from "@/components/FAQSection";
-import BeforeAfter from "@/components/BeforeAfter";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import LiveActivityWidget from "@/components/LiveActivityWidget";
+import HowItWorks from "@/components/HowItWorks";
+import ServiceCard from "@/components/ServiceCard";
+import FAQSection from "@/components/FAQSection";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 export default function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 hero-bg-home" />
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="noise-overlay" />
 
-        {/* Floating Orbs */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="orb-1 absolute top-1/4 left-[15%] w-80 h-80 bg-cyan-500/8 rounded-full blur-[100px]" />
-          <div className="orb-2 absolute bottom-1/4 right-[15%] w-96 h-96 bg-violet-500/8 rounded-full blur-[120px]" />
-          <div className="orb-1 absolute top-1/2 left-1/2 -translate-x-1/2 w-64 h-64 bg-amber-500/5 rounded-full blur-[80px]" />
+          <div className="absolute top-1/4 left-[15%] w-80 h-80 bg-violet-500/8 rounded-full blur-[100px]" />
+          <div className="absolute bottom-1/4 right-[15%] w-96 h-96 bg-cyan-500/8 rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 sm:py-40 sm:px-6 lg:px-8">
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
             <div className="text-center lg:text-left">
-              {/* Badge */}
-              <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-cyan-400 backdrop-blur-sm">
+              <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2.5 rounded-full border border-white/[0.08] bg-white/[0.04] px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-violet-400 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-violet-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-violet-500" />
                 </span>
-                Sistema completo de ventas para Colombia
+                +200 empresas operando en Colombia
               </div>
 
-              {/* Headline */}
-              <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-                ¿Tu negocio no está{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
-                  consiguiendo clientes?
+              <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl xl:text-[4.2rem]">
+                Sistema comercial para{" "}
+                <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                  Call Centers y equipos de ventas
                 </span>
               </h1>
 
-              {/* Subheadline */}
-              <p className="animate-fade-in-up animation-delay-200 mx-auto mt-8 max-w-lg text-lg text-white/50 sm:mx-0 sm:text-xl leading-relaxed">
-                Te conseguimos clientes y te damos el sistema para gestionarlos.{" "}
-                <span className="text-white/70 font-medium">Todo integrado.</span>
+              <p className="animate-fade-in-up animation-delay-200 mx-auto mt-7 max-w-xl text-lg text-white/70 sm:mx-0 sm:text-xl leading-relaxed">
+                <strong className="text-white">No pierdas prospectos por demoras en WhatsApp.</strong> Centraliza tu equipo comercial y envía campañas en minutos sin enredos técnicos. CRM de llamadas, WhatsApp multiagente y página web en un solo pago.
               </p>
 
-              {/* Benefits Pills */}
-              <div className="animate-fade-in-up animation-delay-300 mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-white/60 lg:justify-start">
+              <div className="animate-fade-in-up animation-delay-300 mt-7 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-white/60 lg:justify-start">
                 {[
-                  "Página web en 72h",
-                  "Clientes desde Google",
-                  "CRM + minutos ilimitados",
+                  "Minutos ilimitados a Colombia",
+                  "CRM + WhatsApp multiagente",
+                  "Página web en 72 horas",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-2">
                     <span className="text-emerald-400">
@@ -70,59 +59,64 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* CTA */}
-              <div className="animate-fade-in-up animation-delay-400 mt-10 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+              <div className="animate-fade-in-up animation-delay-400 mt-9 flex flex-wrap items-center gap-4 justify-center lg:justify-start">
                 <WhatsAppButton
-                  text="Hola Call360, quiero cotizar mi página web y sistema de ventas"
-                  className="text-base px-8 py-4"
+                  text="Hola Call360, quiero cotizar el sistema integrado para mi negocio"
+                  label="Cotizar sistema integrado"
+                  className="text-base px-8 py-4 shadow-lg shadow-emerald-500/20"
                 />
                 <a
-                  href="/servicios"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] px-8 py-4 text-sm font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5 group"
+                  href="https://wa.me/573203693949?text=Hola%20Call360%2C%20quiero%20agendar%20una%20demo"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5"
                 >
-                  Ver servicios
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-x-1">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <line x1="8" y1="21" x2="16" y2="21" />
+                    <line x1="12" y1="17" x2="12" y2="21" />
                   </svg>
+                  Agendar demo
                 </a>
               </div>
 
-              {/* Stats */}
-              <div className="animate-fade-in-up animation-delay-400 mt-16 grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-5">
+              <p className="animate-fade-in-up animation-delay-400 mt-4 text-xs text-white/40 lg:text-left">
+                ⚡ Desde $350.000/mes • Sin contratos de permanencia • Soporte en Bogotá
+              </p>
+
+              <div className="animate-fade-in-up animation-delay-400 mt-12 grid grid-cols-2 gap-x-4 gap-y-7 border-t border-white/[0.06] pt-10 sm:grid-cols-3 md:grid-cols-5 lg:gap-x-5">
                 {[
                   { label: "empresas activas", value: "+200" },
-                  { label: "clientes activos", value: "+1.200" },
+                  { label: "usuarios activos", value: "+1.200" },
                   { label: "entrega web", value: "72h" },
                   { label: "años experiencia", value: "12+" },
                   { label: "minutos/mes", value: "+3M" },
                 ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-2xl font-black sm:text-3xl bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
+                  <div key={stat.label} className="min-w-0 overflow-visible text-center">
+                    <span className="inline-block w-max whitespace-nowrap bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text pb-1.5 text-2xl font-black leading-tight text-transparent sm:text-[1.55rem] xl:text-[1.65rem]">
                       {stat.value}
-                    </div>
-                    <div className="mt-1 text-xs text-white/40 font-medium">{stat.label}</div>
+                    </span>
+                    <span className="block text-[10px] sm:text-xs text-white/40 font-semibold uppercase tracking-wider leading-relaxed">
+                      {stat.label}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Hero Visual */}
             <div className="relative hidden lg:block">
               <div className="relative aspect-square max-w-lg mx-auto">
-                {/* Glow behind image */}
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-violet-500/10 to-amber-500/10 rounded-3xl blur-3xl" />
-
-                <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.04] p-6 group glow-cyan">
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-cyan-500/10 to-emerald-500/10 rounded-3xl blur-3xl" />
+                <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.04] p-6 group glow-violet">
                   <Image
                     src="/inicio/hero.png?v=2"
-                    alt="Call360 - Sistema Completo de Ventas"
+                    alt="Call360 - Sistema Completo de Ventas para Call Centers y Equipos Comerciales"
                     fill
                     priority
                     className="object-contain transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
 
-                {/* Floating Stats */}
                 <div className="absolute -bottom-6 -left-8 rounded-2xl border border-white/[0.08] bg-[#12121a]/90 backdrop-blur-xl px-6 py-4 shadow-xl animate-float">
                   <div className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                     72h
@@ -131,7 +125,7 @@ export default function Home() {
                 </div>
 
                 <div className="absolute -top-6 -right-8 rounded-2xl border border-white/[0.08] bg-[#12121a]/90 backdrop-blur-xl px-6 py-4 shadow-xl animate-float delay-700">
-                  <div className="text-3xl font-black bg-gradient-to-r from-violet-400 to-amber-400 bg-clip-text text-transparent">
+                  <div className="text-3xl font-black bg-gradient-to-r from-violet-400 to-emerald-400 bg-clip-text text-transparent">
                     +200
                   </div>
                   <div className="text-xs text-white/50 font-medium">Empresas activas</div>
@@ -142,82 +136,52 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VALUE PROPOSITION */}
-      <section className="py-32">
+      {/* HOW IT WORKS */}
+      <section className="py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="mb-20 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-                Nuestra propuesta
-              </p>
-              <h2 className="text-4xl font-black leading-tight tracking-tight sm:text-5xl">
-                No solo te conseguimos clientes,{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
-                  te damos el sistema para atenderlos
-                </span>
-              </h2>
-            </div>
+            <HowItWorks
+              title="Tres pasos para tener tu operación funcionando"
+              subtitle="Así funciona el ecosistema Call360"
+              steps={[
+                {
+                  number: "1",
+                  title: "Captamos leads",
+                  description: "Tu página web profesional lista en 72h + marketing digital. Los clientes te encuentran en Google y redes sociales.",
+                },
+                {
+                  number: "2",
+                  title: "Los gestionas",
+                  description: "CRM WhatsApp multiagente para centralizar conversaciones. Varios asesores, un solo número, historial compartido.",
+                },
+                {
+                  number: "3",
+                  title: "Los cierras",
+                  description: "CRM de llamadas con marcación predictiva y minutos ilimitados. Tu equipo contacta más leads y cierra más ventas.",
+                },
+              ]}
+            />
           </ScrollReveal>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            {[
-              {
-                step: "1",
-                title: "Conseguimos clientes",
-                desc: "Página web + marketing para que te encuentren en Google y redes.",
-                gradient: "from-cyan-500/20 to-blue-500/20",
-                glow: "group-hover:shadow-cyan-500/20",
-              },
-              {
-                step: "2",
-                title: "Los gestionas",
-                desc: "CRM WhatsApp multiagente para atender cada cliente.",
-                gradient: "from-emerald-500/20 to-green-500/20",
-                glow: "group-hover:shadow-emerald-500/20",
-              },
-              {
-                step: "3",
-                title: "Los cierras",
-                desc: "CRM de llamadas con minutos ilimitados a Colombia.",
-                gradient: "from-violet-500/20 to-purple-500/20",
-                glow: "group-hover:shadow-violet-500/20",
-              },
-            ].map((item, i) => (
-              <ScrollReveal key={item.step} delay={i * 150}>
-                <div className={`group relative rounded-3xl border border-white/[0.08] bg-[#12121a] p-10 premier-card ${item.glow}`}>
-                  <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-                  <div className="relative z-10">
-                    <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/[0.08] text-xl font-black text-white/80 group-hover:scale-110 transition-transform duration-300">
-                      {item.step}
-                    </div>
-                    <h3 className="mb-3 text-xl font-bold text-white">
-                      {item.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-white/50">
-                      {item.desc}
-                    </p>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* VISUAL SERVICES */}
-      <section className="py-32 bg-[#0f0f17]/50">
+      {/* ECOSYSTEM MODULES */}
+      <section className="py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-16 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-                Nuestros servicios
-              </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Todo lo que necesitas para{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
-                  vender más
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+                ⚡ Módulos del ecosistema
+              </span>
+              <h2 className="mt-4 text-4xl md:text-5xl font-black leading-tight tracking-tight text-white">
+                Cada pieza funciona sola.{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
+                  Juntas, son un sistema completo.
                 </span>
               </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base md:text-lg text-white/50 leading-relaxed">
+                Elige lo que necesitas hoy y activa más módulos cuando crezcas. Sin permanencia, sin ataduras.
+              </p>
             </div>
           </ScrollReveal>
 
@@ -225,369 +189,378 @@ export default function Home() {
             {[
               {
                 title: "Páginas Web",
-                desc: "Tu vitrina digital 24/7",
+                headline: "Tu vitrina digital lista en 72 horas",
+                description: "Diseño premium responsive, optimizado para SEO y conectado a WhatsApp. Incluye sección 'Trabaja con nosotros' para reclutamiento.",
+                benefit: "Mockup gratis antes de pagar • Solo pagas si te gusta",
                 image: "/inicio/web.png?v=2",
-                gradient: "from-cyan-500/20 to-blue-500/20",
                 href: "/paginas-web",
+                ctaLabel: "Ver páginas web",
+                gradient: "from-cyan-500/20 to-blue-500/20",
+                hoverGlow: "hover:border-cyan-500/30 hover:shadow-[0_20px_40px_-15px_rgba(6,182,212,0.15)]",
+                ctaColor: "text-cyan-400 group-hover:text-cyan-300",
               },
               {
                 title: "CRM WhatsApp",
-                desc: "Gestión centralizada",
+                headline: "Varios asesores, un solo número de WhatsApp",
+                description: "Sistema profesional multiagente. Responde desde un solo lugar, conserva el historial de tus clientes y haz seguimiento sin perder oportunidades.",
+                benefit: "Prueba 7 días gratis • Baja probabilidad de bloqueo",
                 image: "/inicio/whatsapp.png?v=2",
-                gradient: "from-emerald-500/20 to-green-500/20",
                 href: "/crm-whatsapp",
+                ctaLabel: "Ver CRM WhatsApp",
+                gradient: "from-emerald-500/20 to-green-500/20",
+                hoverGlow: "hover:border-emerald-500/30 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)]",
+                ctaColor: "text-emerald-400 group-hover:text-emerald-300",
               },
               {
                 title: "CRM Llamadas",
-                desc: "Minutos ilimitados",
+                headline: "Tu equipo contacta 3x más leads por día",
+                description: "Marcación predictiva inteligente con minutos ilimitados a Colombia. Grabación, supervisión y métricas en tiempo real.",
+                benefit: "Demo de 6 horas con acceso completo • Sin compromiso",
                 image: "/inicio/vozip.png?v=2",
-                gradient: "from-violet-500/20 to-purple-500/20",
                 href: "/crm-llamadas",
+                ctaLabel: "Ver CRM de llamadas",
+                gradient: "from-violet-500/20 to-purple-500/20",
+                hoverGlow: "hover:border-violet-500/30 hover:shadow-[0_20px_40px_-15px_rgba(139,92,246,0.15)]",
+                ctaColor: "text-violet-400 group-hover:text-violet-300",
               },
-            ].map((service, i) => (
-              <ScrollReveal key={service.title} delay={i * 150}>
-                <a
-                  href={service.href}
-                  className="group relative block overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a] premier-card"
-                >
-                  <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
-
-                  <div className="relative z-10 p-8">
-                    <div className="mb-6 aspect-video overflow-hidden rounded-2xl bg-white/[0.04] p-4 group-hover:p-3 transition-all duration-300">
-                      <Image
-                        src={service.image}
-                        alt={service.title}
-                        fill
-                        className="object-contain transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-
-                    <h3 className="mb-2 text-xl font-bold text-white">{service.title}</h3>
-                    <p className="text-sm text-white/50">{service.desc}</p>
-
-                    <div className="mt-5 flex items-center gap-2 text-sm font-bold text-cyan-400 transition-colors group-hover:text-cyan-300">
-                      Explorar
-                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="transition-transform group-hover:translate-x-1">
-                        <path d="M5 12h14M12 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                  </div>
-                </a>
+            ].map((service) => (
+              <ScrollReveal key={service.title} delay={150}>
+                <ServiceCard {...service} />
               </ScrollReveal>
             ))}
           </div>
+
+          <ScrollReveal delay={200}>
+            <div className="mt-10 grid gap-5 sm:grid-cols-2">
+              {[
+                {
+                  href: "/marketing",
+                  title: "Marketing",
+                  desc: "Campañas en Google y redes sociales para generar leads calificados. Si no hay retorno, devolvemos tu dinero.",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-amber-400">
+                      <polygon points="12 2 2 7 12 12 22 7 12 2" />
+                      <polyline points="2 17 12 22 22 17" />
+                      <polyline points="2 12 12 17 22 12" />
+                    </svg>
+                  ),
+                  hoverBorder: "hover:border-amber-500/30",
+                  linkColor: "text-amber-400",
+                },
+                {
+                  href: "/servicios",
+                  title: "Ver todas las soluciones",
+                  desc: "Minutos y llamadas, WhatsApp CRM, marketing y páginas web en un solo ecosistema.",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-cyan-400">
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <line x1="8" y1="21" x2="16" y2="21" />
+                      <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                  ),
+                  hoverBorder: "hover:border-cyan-500/30",
+                  linkColor: "text-cyan-400",
+                },
+              ].map((mod) => (
+                <Link
+                  key={mod.href}
+                  href={mod.href}
+                  className={`group flex items-start gap-4 rounded-2xl border border-white/[0.08] bg-[#12121a] p-6 transition-all duration-300 ${mod.hoverBorder} hover:-translate-y-1`}
+                >
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/[0.06] group-hover:scale-110 transition-transform duration-300">
+                    {mod.icon}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-base font-bold text-white mb-1">{mod.title}</h3>
+                    <p className="text-sm text-white/50 leading-relaxed">{mod.desc}</p>
+                    <span className={`mt-3 inline-flex items-center gap-1.5 text-xs font-bold ${mod.linkColor} group-hover:gap-2.5 transition-all`}>
+                      Ver detalle
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-x-1">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={300}>
+            <div className="mt-12 text-center">
+              <p className="text-sm text-white/40">
+                ¿No estás seguro de cuál módulo necesitas primero?{" "}
+                <a
+                  href="https://wa.me/573203693949?text=Hola%20Call360%2C%20quiero%20asesor%C3%ADa%20gratuita%20sobre%20sus%20servicios"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ml-1 inline-flex items-center gap-1 font-bold text-cyan-400 hover:text-cyan-300 underline transition-colors"
+                >
+                  Hablar con un consultor gratis
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="inline-block align-middle ml-1">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </a>
+              </p>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="py-32">
+      {/* WHY CHOOSE US + GUARANTEES */}
+      <section className="py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-16 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
                 ¿Por qué Call360?
-              </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                No somos una herramienta,{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
-                  somos tu sistema
+              </span>
+              <h2 className="mt-4 text-4xl font-black leading-tight tracking-tight sm:text-5xl">
+                Menos proveedores, menos costo,{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
+                  más control sobre tu operación
                 </span>
               </h2>
             </div>
           </ScrollReveal>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: "Todo en un solo lugar",
-                description: "Páginas web, marketing y CRM integrados. Sin proveedores diferentes.",
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                    <path d="M2 17l10 5 10-5" />
-                    <path d="M2 12l10 5 10-5" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Ahorro de costos",
-                description: "Un sistema completo cuesta menos que contratar todo por separado.",
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <line x1="12" y1="1" x2="12" y2="23" />
-                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Implementación rápida",
-                description: "Tu página web en 72 horas y tus CRMs listos en menos de una semana.",
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Experiencia real",
-                description: "+12 años ayudando empresas colombianas a organizar sus ventas.",
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Enfoque en resultados",
-                description: "No vendemos herramientas, vendemos clientes y organización.",
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                  </svg>
-                ),
-              },
-              {
-                title: "Soporte local",
-                description: "Equipo en Bogotá listo para ayudarte cuando lo necesites.",
-                icon: (
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                ),
-              },
-            ].map((benefit, i) => (
-              <ScrollReveal key={i} delay={i * 100}>
-                <div className="group rounded-2xl border border-white/[0.08] bg-[#12121a] p-8 premier-card">
-                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-white/[0.06] text-cyan-400 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                    {benefit.icon}
+          <div className="grid gap-8 lg:grid-cols-2 items-start">
+            <div className="space-y-5">
+              {[
+                {
+                  title: "Un solo proveedor para todo",
+                  description: "Páginas web, marketing, CRM de WhatsApp y CRM de llamadas integrados. Sin coordinar entre proveedores diferentes.",
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                      <path d="M2 17l10 5 10-5" />
+                      <path d="M2 12l10 5 10-5" />
+                    </svg>
+                  ),
+                  color: "cyan",
+                },
+                {
+                  title: "Menor costo total",
+                  description: "Un sistema completo cuesta menos que contratar todo por separado. Ahorro real desde el primer mes.",
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <line x1="12" y1="1" x2="12" y2="23" />
+                      <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                    </svg>
+                  ),
+                  color: "emerald",
+                },
+                {
+                  title: "Implementación rápida",
+                  description: "Tu página web en 72 horas y tus CRMs listos en menos de una semana. Sin meses de espera.",
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                    </svg>
+                  ),
+                  color: "amber",
+                },
+                {
+                  title: "Respaldado por su creador, Juan David Meza",
+                  description: "Plataforma desarrollada y dirigida en Colombia. Trato directo con el creador: sin intermediarios, sin bots frustrantes ni tickets eternos.",
+                  icon: (
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                      <circle cx="9" cy="7" r="4" />
+                      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    </svg>
+                  ),
+                  color: "violet",
+                },
+              ].map((benefit, i) => (
+                <ScrollReveal key={i} delay={i * 100}>
+                  <div className="group flex items-start gap-5 rounded-2xl border border-white/[0.08] bg-[#12121a] p-6">
+                    <div className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white/[0.06] text-${benefit.color}-400 group-hover:scale-110 transition-transform duration-300`}>
+                      {benefit.icon}
+                    </div>
+                    <div>
+                      <h3 className="mb-1.5 text-base font-bold text-white">{benefit.title}</h3>
+                      <p className="text-sm leading-relaxed text-white/50">
+                        {benefit.description}
+                      </p>
+                    </div>
                   </div>
-                  <h3 className="mb-3 text-lg font-bold text-white">{benefit.title}</h3>
-                  <p className="text-sm leading-relaxed text-white/50">
-                    {benefit.description}
+                </ScrollReveal>
+              ))}
+            </div>
+
+            <ScrollReveal delay={200}>
+              <div className="rounded-3xl border border-white/[0.08] bg-[#12121a] p-8 lg:p-10">
+                <div className="mb-6 flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500/20 via-violet-500/20 to-emerald-500/20">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white">
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-black text-white">Resultados antes de cobrarte</h3>
+                    <p className="text-xs text-white/50">Eliminamos todo el riesgo para tu negocio</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  {[
+                    {
+                      service: "Páginas Web",
+                      guarantee: "Mockup gratis antes de pagar. Solo pagas si te gusta el diseño.",
+                      color: "cyan",
+                    },
+                    {
+                      service: "CRM WhatsApp",
+                      guarantee: "7 días de prueba con acceso completo. Sin riesgo.",
+                      color: "emerald",
+                    },
+                    {
+                      service: "CRM Llamadas",
+                      guarantee: "Demo real de 6 horas con minutos ilimitados. Si no te convence, no pagas.",
+                      color: "violet",
+                    },
+                    {
+                      service: "Marketing Digital",
+                      guarantee: "Si no recuperas la inversión, devolvemos tu dinero.",
+                      color: "amber",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.service}
+                      className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
+                    >
+                      <div className={`mb-1.5 text-xs font-bold uppercase tracking-wider text-${item.color}-400`}>
+                        {item.service}
+                      </div>
+                      <p className="text-sm text-white/60 leading-relaxed">{item.guarantee}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-6 pt-5 border-t border-white/[0.06] text-center">
+                  <p className="text-sm font-bold bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
+                    &ldquo;No vendemos promesas. Te damos resultados antes de cobrar.&rdquo;
                   </p>
                 </div>
-              </ScrollReveal>
-            ))}
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </section>
 
-      {/* BEFORE AFTER */}
-      <section className="py-32 bg-[#0f0f17]/50">
+      {/* INDUSTRY TEASER */}
+      <section className="py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="mb-20 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-                Transformación
-              </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Adiós al{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
-                  desorden operativo
+            <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-gradient-to-br from-[#12121a] to-[#0f0f17] p-10 sm:p-14">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/[0.04] via-violet-500/[0.04] to-amber-500/[0.04]" />
+              <div className="relative z-10 text-center max-w-3xl mx-auto">
+                <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.03] px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-white/60">
+                  También para otros sectores
                 </span>
-              </h2>
+                <h2 className="mt-4 text-3xl font-black tracking-tight sm:text-4xl">
+                  ¿No eres Call Center?{" "}
+                  <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
+                    Adaptamos el sistema a tu industria
+                  </span>
+                </h2>
+                <p className="mx-auto mt-4 max-w-2xl text-base text-white/50 leading-relaxed">
+                  Clínicas, barberías, restaurantes, inmobiliarias, colegios, aseguradoras y más. 
+                  El mismo ecosistema, configurado para tu tipo de negocio.
+                </p>
+                <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+                  <Link
+                    href="/industrias"
+                    className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/15 px-6 py-3 text-sm font-bold text-cyan-300 transition-all hover:bg-cyan-500/25"
+                  >
+                    Ver industrias
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                  <WhatsAppButton
+                    text="Hola Call360, quiero saber si tienen solución para mi tipo de negocio"
+                    label="Consultar por mi industria"
+                    className="text-sm px-6 py-3"
+                  />
+                </div>
+              </div>
             </div>
-          </ScrollReveal>
-
-          <BeforeAfter
-            items={[
-              {
-                before: "Clientes perdidos porque no tienes página web",
-                after: "Página web profesional lista en 72 horas, 24/7",
-              },
-              {
-                before: "WhatsApp personal mezclado con el del negocio",
-                after: "CRM WhatsApp multiagente con historial centralizado",
-              },
-              {
-                before: "Llamadas desde celulares sin control ni métricas",
-                after: "CRM predictivo con minutos ilimitados y grabación",
-              },
-              {
-                before: "Hojas de Excel desorganizadas",
-                after: "Base de datos centralizada con funnel visible",
-              },
-            ]}
-          />
-        </div>
-      </section>
-
-      {/* COMPARISON */}
-      <section className="py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <ComparisonTable
-              title="Operar como siempre o hacerlo bien"
-              subtitle="La diferencia entre perder clientes y organizar tu negocio"
-              items={[
-                {
-                  informal: "Hojas impresas que se pierden",
-                  call360: "Base de datos centralizada con historial",
-                },
-                {
-                  informal: "Excel desorganizados sin control",
-                  call360: "Sistema integrado con funnel visible",
-                },
-                {
-                  informal: "Celulares personales mezclados",
-                  call360: "Líneas colombianas separadas por función",
-                },
-                {
-                  informal: "Llamadas sin supervisión",
-                  call360: "Grabación automática para capacitación",
-                },
-                {
-                  informal: "Audio de mala calidad",
-                  call360: "Voz HD y conexión estable",
-                },
-                {
-                  informal: "Sin métricas, solo intuición",
-                  call360: "Métricas en tiempo real",
-                },
-              ]}
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="py-32 bg-[#0f0f17]/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <HowItWorks
-              title="Cómo funciona el sistema"
-              subtitle="Tu negocio organizado en 3 pasos"
-              steps={[
-                {
-                  number: "1",
-                  title: "Generamos clientes",
-                  description: "Página web profesional + marketing digital para atraer prospectos 24/7.",
-                },
-                {
-                  number: "2",
-                  title: "Gestionas conversaciones",
-                  description: "CRM WhatsApp multiagente para atender múltiples clientes simultáneamente.",
-                },
-                {
-                  number: "3",
-                  title: "Cierras ventas",
-                  description: "CRM de llamadas con minutos ilimitados y seguimiento profesional.",
-                },
-              ]}
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* LIVE ACTIVITY */}
-      <section className="py-32">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="mb-12 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-                Actividad del sistema
-              </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Todo funciona{" "}
-                <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
-                  en tiempo real
-                </span>
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base text-white/50">
-                Llamadas, mensajes y visitas web en tiempo real. Nuestros clientes están vendiendo.
-              </p>
-            </div>
-          </ScrollReveal>
-
-          <LiveActivityWidget />
-        </div>
-      </section>
-
-      {/* TRUST BLOCK */}
-      <section className="py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <TrustBlock
-              title="No somos otra agencia tecnológica"
-              description="Después de +12 años viendo cómo empresas colombianas pierden dinero con sistemas fragmentados, creamos Call360: un ecosistema completo donde cada pieza está diseñada para trabajar juntas."
-              bullets={[
-                "Entendemos el mercado colombiano porque trabajamos aquí",
-                "Nuestros sistemas están probados con +200 empresas activas",
-                "Te acompañamos desde la implementación hasta ver resultados",
-              ]}
-              closingStatement="Esto no es una herramienta más. Es el sistema que organiza todo tu negocio."
-            />
           </ScrollReveal>
         </div>
       </section>
 
       {/* FAQ */}
-      <section className="py-32 bg-[#0f0f17]/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <FAQSection
-              title="Preguntas frecuentes"
-              items={[
-                {
-                  question: "¿Cuándo empiezo a ver resultados?",
-                  answer: "Tu página web estará lista en 72 horas. El tráfico comienza en cuanto publicamos.",
-                },
-                {
-                  question: "¿Necesito experiencia técnica?",
-                  answer: "No. Nosotros hacemos la configuración inicial y te capacitamos.",
-                },
-                {
-                  question: "¿Qué pasa si mi equipo no sabe usarlo?",
-                  answer: "Incluimos capacitación completa. Los sistemas son intuitivos.",
-                },
-                {
-                  question: "¿Tienen permanencia?",
-                  answer: "No. Los planes de CRM son mensuales y puedes cancelar cuando quieras.",
-                },
-                {
-                  question: "¿Me pueden bloquear el WhatsApp?",
-                  answer: "Nuestro CRM está diseñado para minimizar ese riesgo.",
-                },
-                {
-                  question: "¿Funciona para mi negocio?",
-                  answer: "Sí. Hemos trabajado con clínicas, restaurantes, consultores y más.",
-                },
-              ]}
-            />
-          </ScrollReveal>
-        </div>
-      </section>
+      <FAQSection
+        title="Preguntas frecuentes"
+        showCta
+        ctaLabel="Resolver otras dudas"
+        ctaText="Hola Call360, tengo una duda sobre el servicio que no está en las preguntas frecuentes."
+        items={[
+          {
+            question: "¿Cuánto tiempo toma tener todo funcionando?",
+            answer: "Tu página web la entregamos en 72 horas. Los CRMs de WhatsApp y llamadas los activamos en menos de una semana. En 7 días tu operación está corriendo.",
+          },
+          {
+            question: "¿Puedo contratar solo un módulo o debo comprar todo el paquete?",
+            answer: "Puedes empezar con lo que necesites. Muchos clientes empiezan solo con CRM WhatsApp o solo con la página web, y agregan módulos después. Sin permanencia. Sin penalizaciones.",
+          },
+          {
+            question: "¿Hay límite de agentes o usuarios?",
+            answer: "No. Escalabilidad ilimitada. Puedes tener desde 1 agente hasta cientos en el mismo sistema. El precio se ajusta según tu volumen de uso.",
+          },
+          {
+            question: "¿Dan factura con NIT?",
+            answer: "Sí, somos una empresa colombiana con NIT y emitimos factura electrónica con todos los requisitos legales. Contamos con más de 12 años de operación en el país.",
+          },
+          {
+            question: "¿Qué pasa si no me gusta el servicio?",
+            answer: "Probamos antes de que pagues. El CRM WhatsApp tiene 7 días de prueba gratis. Las llamadas tienen demo de 6 horas. Si no funciona para ti, no pagas. Así de simple.",
+          },
+        ]}
+      />
 
       {/* CTA FINAL */}
-      <section className="py-32">
+      <section className="py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a] p-12 text-center sm:p-16">
-              <div className="absolute inset-0 bg-gradient-to-b from-cyan-500/[0.08] to-transparent" />
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl" />
+              <div className="absolute inset-0 bg-gradient-to-b from-violet-500/[0.08] via-cyan-500/[0.04] to-transparent" />
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-violet-500/10 rounded-full blur-3xl" />
               <div className="relative z-10">
                 <h2 className="text-3xl font-black leading-tight tracking-tight sm:text-4xl">
-                  Tu negocio puede empezar a{" "}
-                  <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-amber-400 bg-clip-text text-transparent">
-                    vender en 72 horas
+                  Tu operación comercial puede estar{" "}
+                  <span className="bg-gradient-to-r from-violet-400 via-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+                    funcionando esta semana
                   </span>
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-base text-white/50">
-                  Página web + Marketing + CRM con minutos ilimitados. Todo en un solo lugar.
+                  Página web + CRM de WhatsApp + CRM de llamadas + marketing digital. Todo desde un solo lugar, con un solo proveedor.
                 </p>
-                <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+                <div className="mx-auto mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                   <WhatsAppButton
-                    text="Hola Call360, quiero cotizar mi página web y sistema de ventas"
-                    className="text-base px-8 py-4"
+                    text="Hola Call360, quiero cotizar el sistema integrado para mi negocio"
+                    label="Cotizar sistema integrado"
+                    className="text-base px-8 py-4 shadow-lg shadow-emerald-500/20"
                   />
-                  <span className="text-sm font-bold text-white/40">
-                    320 369 3949
-                  </span>
+                  <a
+                    href="https://wa.me/573203693949?text=Hola%20Call360%2C%20quiero%20agendar%20una%20demo"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/5"
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <line x1="8" y1="21" x2="16" y2="21" />
+                      <line x1="12" y1="17" x2="12" y2="21" />
+                    </svg>
+                    Agendar demo
+                  </a>
                 </div>
+                <p className="mt-3 text-xs text-white/40">
+                  Sin permanencia · Implementación en días · Soporte en Bogotá
+                </p>
               </div>
             </div>
           </ScrollReveal>

@@ -10,6 +10,7 @@ import BeforeAfter from "@/components/BeforeAfter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
 import MarketingDashboard from "@/components/MarketingDashboard";
+import GuaranteesSection from "@/components/GuaranteesSection";
 
 export const metadata: Metadata = {
   title: "Marketing Digital | Call360",
@@ -93,7 +94,7 @@ export default function MarketingDigitalPage() {
           <div className="orb-2 absolute bottom-1/4 right-[15%] w-96 h-96 bg-orange-500/8 rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 text-center sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-40 sm:py-48 text-center sm:px-6 lg:px-8">
           {/* Badge */}
           <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2.5 rounded-full border border-amber-500/20 bg-amber-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-amber-400 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
@@ -136,11 +137,23 @@ export default function MarketingDigitalPage() {
           </div>
 
           {/* CTA */}
-          <div className="animate-fade-in-up animation-delay-400 mt-10 flex flex-wrap items-center justify-center gap-4">
-            <WhatsAppButton
-              text="Hola Call360, quiero marketing digital para mi negocio"
-              className="text-base px-8 py-4"
-            />
+          <div className="animate-fade-in-up animation-delay-400 mt-10">
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <WhatsAppButton
+                text="Hola Call360, quiero una propuesta de marketing digital"
+                label="Cotizar plan de marketing"
+                className="text-base px-8 py-4 shadow-lg shadow-amber-500/20"
+              />
+              <a
+                href="#panel-marketing"
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-8 py-4 text-sm font-bold text-white transition-all hover:bg-white/[0.08] hover:border-white/20 hover:scale-105"
+              >
+                Ver demo en vivo
+              </a>
+            </div>
+            <p className="mt-3 text-xs text-white/40">
+              ⚡ Garantía de retorno • Planes fijos desde $350K/mes • Sin contratos de permanencia
+            </p>
           </div>
         </div>
       </section>
@@ -380,7 +393,7 @@ export default function MarketingDigitalPage() {
       </section>
 
       {/* DASHBOARD INTERACTIVO */}
-      <section className="py-32 bg-[#0f0f17]/50">
+      <section id="panel-marketing" className="py-32 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-12 text-center">
@@ -402,6 +415,9 @@ export default function MarketingDigitalPage() {
           <MarketingDashboard />
         </div>
       </section>
+
+      {/* GUARANTEES SECTION */}
+      <GuaranteesSection />
 
       {/* PRICING */}
       <section className="pb-24">
@@ -457,6 +473,9 @@ export default function MarketingDigitalPage() {
               />
             </ScrollReveal>
           </div>
+          <p className="mt-8 text-center text-xs text-white/40">
+            * Garantía de retorno: Si no recuperas tu inversión tras implementar nuestras recomendaciones y campañas, te devolvemos el dinero de la gestión.
+          </p>
         </div>
       </section>
 
@@ -466,6 +485,10 @@ export default function MarketingDigitalPage() {
           <ScrollReveal>
             <WhyChooseUs
               title="¿Por qué Marketing Digital Call360?"
+              showCta={true}
+              ctaLabel="Hablar con un consultor"
+              ctaText="Hola Call360, quiero hablar con un consultor de marketing sobre el Plan Crece o Pro."
+              ctaSubtext="Te asesoramos sin costo sobre tu presencia en redes"
               benefits={[
                 {
                   title: "Contenido constante",
@@ -504,6 +527,7 @@ export default function MarketingDigitalPage() {
             <HowItWorks
               title="Cómo funciona"
               subtitle="Tu estrategia de contenido lista en tiempo récord"
+              image="/Marketing/marketing_scheduler_mockup.png"
               steps={[
                 {
                   number: "1",
@@ -533,6 +557,10 @@ export default function MarketingDigitalPage() {
             <ComparisonTable
               title="Marketing informal vs Estrategia profesional"
               subtitle="La diferencia entre publicar por publicar y generar resultados"
+              showCta={true}
+              ctaLabel="Profesionalizar mi marketing"
+              ctaText="Hola Call360, quiero delegar mi marketing digital y ver resultados reales."
+              ctaSubtext="Diseño coherente y anuncios enfocados en ventas"
               items={[
                 {
                   informal: "Publicas cuando tienes tiempo o inspiración",
@@ -571,6 +599,10 @@ export default function MarketingDigitalPage() {
             <BeforeAfter
               title="De inconsistente a estrategia consolidada"
               subtitle="Tu transformación con marketing digital profesional"
+              showCta={true}
+              ctaLabel="Comenzar mi plan mensual"
+              ctaText="Hola Call360, quiero comenzar mi plan de marketing digital."
+              ctaSubtext="Sin cláusulas de permanencia • Cancelación flexible"
               items={[
                 {
                   before: "Publicas ocasionalmente sin constancia",
@@ -601,6 +633,10 @@ export default function MarketingDigitalPage() {
             <TrustBlock
               title="No somos una agencia creativa más"
               description="Hemos visto cómo empresas colombianas pierden oportunidades porque su presencia en redes es inconsistente o poco profesional. Por eso creamos este servicio: contenido que realmente genera engagement y lleva a conversiones, no solo likes vacíos."
+              showCta={true}
+              ctaLabel="Iniciar con garantía de retorno"
+              ctaText="Hola Call360, quiero contratar el plan de marketing digital con garantía de retorno de inversión."
+              ctaSubtext="Soporte y diseño premium de Colombia"
               bullets={[
                 "Más de 200 empresas confían en nosotros para su presencia digital",
                 "Enfoque en resultados: cada pieza de contenido tiene un propósito comercial",
@@ -618,6 +654,10 @@ export default function MarketingDigitalPage() {
           <ScrollReveal>
             <FAQSection
               title="Preguntas frecuentes"
+              showCta={true}
+              ctaLabel="Resolver otra pregunta"
+              ctaText="Hola Call360, tengo una duda sobre el servicio de marketing digital."
+              ctaSubtext="Respondemos rápido por WhatsApp"
               items={[
                 {
                   question: "¿Con qué frecuencia publican?",
@@ -666,8 +706,10 @@ export default function MarketingDigitalPage() {
                   <div className="mt-8 flex flex-col items-center gap-4 md:items-start">
                     <WhatsAppButton
                       text="Hola Call360, quiero una propuesta de marketing"
+                      label="Solicitar propuesta de marketing"
                       className="text-base px-8 py-4"
                     />
+                    <p className="text-xs text-white/40">Garantía de retorno • Plan Crece o Pro sin ataduras</p>
                   </div>
                 </div>
                 

@@ -11,11 +11,38 @@ import BeforeAfter from "@/components/BeforeAfter";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
 import WhatsAppLiveChat from "@/components/WhatsAppLiveChat";
+import GuaranteesSection from "@/components/GuaranteesSection";
+import CotizadorCRM from "@/components/CotizadorCRM";
+import DemoRequestForm from "@/components/DemoRequestForm";
 
 export const metadata: Metadata = {
-  title: "CRM WhatsApp Multiagente | Call360",
+  title: "CRM WhatsApp Multiagente en Colombia | Call360",
   description:
-    "Sistema profesional de WhatsApp con múltiples agentes en un solo número. Campañas masivas, historial de chats y baja probabilidad de bloqueo. Desde $120.000/mes.",
+    "No pierdas prospectos por demoras al responder en WhatsApp. Centraliza tus asesores en un solo número, envía campañas con cadencia anti-bloqueo y organiza tus ventas sin pagar en dólares. Planes desde $120.000/mes.",
+  alternates: {
+    canonical: "https://call360colombia.com/crm-whatsapp",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    title: "CRM WhatsApp Multiagente en Colombia | Call360",
+    description:
+      "Varios asesores, un solo número de WhatsApp. Campañas masivas reguladas, historial unificado y soporte directo con el desarrollador Juan David Meza.",
+    url: "https://call360colombia.com/crm-whatsapp",
+    siteName: "Call360 Colombia",
+    locale: "es_CO",
+    type: "website",
+    images: [
+      {
+        url: "https://call360colombia.com/inicio/whatsapp.png",
+        width: 1200,
+        height: 630,
+        alt: "CRM WhatsApp Multiagente Call360 Colombia",
+      },
+    ],
+  },
 };
 
 const features = [
@@ -131,9 +158,9 @@ export default function CRMWhatsAppPage() {
           <div className="orb-2 absolute bottom-1/4 right-[15%] w-96 h-96 bg-green-500/8 rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-40 sm:py-48 sm:px-6 lg:px-8">
           <div className="grid gap-16 md:grid-cols-2 items-center">
-            <div className="text-center md:text-left">
+            <div className="text-center md:text-left flex flex-col items-center md:items-start">
               {/* Badge */}
               <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
@@ -144,7 +171,7 @@ export default function CRMWhatsAppPage() {
               </div>
 
               {/* Headline */}
-              <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+              <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl text-center md:text-left">
                 Gestiona clientes por{" "}
                 <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
                   WhatsApp profesional
@@ -152,10 +179,28 @@ export default function CRMWhatsAppPage() {
               </h1>
 
               {/* Subheadline */}
-              <p className="animate-fade-in-up animation-delay-200 mx-auto mt-8 max-w-lg text-lg text-white/50 sm:mx-0 leading-relaxed">
-                Multiagente, campañas masivas e historial completo.{" "}
-                <span className="text-white/70 font-medium">Todo desde un solo lugar.</span>
-              </p>
+              <div className="animate-fade-in-up animation-delay-200 mx-auto mt-8 max-w-lg text-left sm:mx-0">
+                <p className="text-lg font-extrabold text-emerald-400 mb-3">
+                  No pierdas prospectos por demoras al responder en WhatsApp.
+                </p>
+                <p className="text-base text-white/70 leading-relaxed mb-4">
+                  Organiza tus conversaciones, cotizaciones y tareas en un solo lugar sin pagar suscripciones absurdas en dólares. Software desarrollado y respaldado directamente por su creador, Juan David Meza.
+                </p>
+                <div className="grid grid-cols-1 gap-2 mb-6 text-sm text-white/80 font-medium">
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400">⚡</span> Varios asesores respondiendo desde el mismo número.
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400">⚡</span> Campañas masivas reguladas con cadencia anti-bloqueo.
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <span className="text-emerald-400">⚡</span> Trato directo con el desarrollador: sin tickets eternos.
+                  </div>
+                </div>
+                <p className="text-base font-bold text-white">
+                  Entras, conectas tu WhatsApp en 2 minutos… y empiezas a vender.
+                </p>
+              </div>
 
               {/* Benefits */}
               <div className="animate-fade-in-up animation-delay-300 mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-white/60 md:justify-start">
@@ -176,11 +221,23 @@ export default function CRMWhatsAppPage() {
               </div>
 
               {/* CTA */}
-              <div className="animate-fade-in-up animation-delay-400 mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
-                <WhatsAppButton
-                  text="Hola Call360, quiero el CRM WhatsApp"
-                  className="text-base px-8 py-4"
-                />
+              <div className="animate-fade-in-up animation-delay-400 mt-10">
+                <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+                  <WhatsAppButton
+                    text="Hola Call360, quiero probar gratis el CRM WhatsApp"
+                    label="Probar gratis 7 días"
+                    className="text-base px-8 py-4 shadow-lg shadow-emerald-500/20"
+                  />
+                  <a
+                    href="#chat-interactivo"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-8 py-4 text-sm font-bold text-white transition-all hover:bg-white/[0.08] hover:border-white/20 hover:scale-105"
+                  >
+                    Ver simulador de chat
+                  </a>
+                </div>
+                <p className="mt-3 text-xs text-white/40 md:text-left">
+                  ⚡ Sin tarjeta de crédito • Configuración en 10 min • Cancela cuando quieras
+                </p>
               </div>
             </div>
 
@@ -311,7 +368,7 @@ export default function CRMWhatsAppPage() {
       </section>
 
       {/* DASHBOARD INTERACTIVO */}
-      <section className="py-32">
+      <section id="chat-interactivo" className="py-32">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-12 text-center">
@@ -331,6 +388,31 @@ export default function CRMWhatsAppPage() {
           </ScrollReveal>
 
           <WhatsAppLiveChat />
+        </div>
+      </section>
+
+      {/* GUARANTEES SECTION */}
+      <GuaranteesSection />
+
+      {/* COTIZADOR INTERACTIVO */}
+      <section className="py-32">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
+              ⚡ Cotiza en vivo
+            </span>
+            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+              Arma tu plan{" "}
+              <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
+                en 30 segundos
+              </span>
+            </h2>
+            <p className="mt-3 text-base text-white/50">
+              Elige tipo de CRM, número de agentes y te enviamos todo a tu
+              WhatsApp con la cotización exacta.
+            </p>
+          </div>
+          <CotizadorCRM />
         </div>
       </section>
 
@@ -366,6 +448,9 @@ export default function CRMWhatsAppPage() {
               </ScrollReveal>
             ))}
           </div>
+          <p className="mt-8 text-center text-xs text-white/40">
+            * Garantía de prueba gratis por 7 días • Sin cargos ocultos • Configuración remota incluida
+          </p>
         </div>
       </section>
 
@@ -375,6 +460,10 @@ export default function CRMWhatsAppPage() {
           <ScrollReveal>
             <WhyChooseUs
               title="¿Por qué CRM WhatsApp Call360?"
+              showCta={true}
+              ctaLabel="Hablar con un especialista"
+              ctaText="Hola Call360, quiero consultar cómo su CRM WhatsApp beneficia mi negocio."
+              ctaSubtext="Asesoría gratuita de 15 minutos sin compromiso"
               benefits={[
                 {
                   title: "Todo en un solo lugar",
@@ -413,6 +502,7 @@ export default function CRMWhatsAppPage() {
             <HowItWorks
               title="Cómo funciona"
               subtitle="Gestiona tus clientes como un profesional"
+              image="/whatsapp/wa_inbox_mockup.png"
               steps={[
                 {
                   number: "1",
@@ -442,6 +532,10 @@ export default function CRMWhatsAppPage() {
             <ComparisonTable
               title="WhatsApp personal vs CRM profesional"
               subtitle="La diferencia entre perder clientes y organizar tu atención"
+              showCta={true}
+              ctaLabel="Pasar a WhatsApp profesional"
+              ctaText="Hola Call360, quiero dejar de usar WhatsApp personal y pasarme al CRM profesional."
+              ctaSubtext="Configuración en minutos conservando tu número actual"
               items={[
                 {
                   informal: "Celular personal mezclado con chats del negocio",
@@ -480,6 +574,10 @@ export default function CRMWhatsAppPage() {
             <BeforeAfter
               title="De caos operativo a gestión profesional"
               subtitle="Tu transformación con el CRM WhatsApp"
+              showCta={true}
+              ctaLabel="Iniciar mi transformación"
+              ctaText="Hola Call360, quiero organizar mi WhatsApp de ventas con su CRM."
+              ctaSubtext="7 días de prueba sin costo"
               items={[
                 {
                   before: "Clientes esperando horas porque no hay nadie disponible",
@@ -510,6 +608,10 @@ export default function CRMWhatsAppPage() {
             <TrustBlock
               title="No somos solo un proveedor de software"
               description="Hemos visto cómo empresas colombianas pierden cientos de clientes por mala gestión de WhatsApp. Por eso creamos este CRM: para que tu equipo pueda atender como los grandes, sin necesidad de ser un experto."
+              showCta={true}
+              ctaLabel="Iniciar sin riesgo ahora"
+              ctaText="Hola Call360, me interesa comenzar la prueba del CRM de WhatsApp."
+              ctaSubtext="Soporte local en Bogotá y configuración asistida"
               bullets={[
                 "Entendemos las particularidades del mercado colombiano y cómo opera WhatsApp aquí",
                 "Nuestro sistema está diseñado específicamente para minimizar bloqueos usando técnicas validadas",
@@ -527,6 +629,10 @@ export default function CRMWhatsAppPage() {
           <ScrollReveal>
             <FAQSection
               title="Preguntas frecuentes"
+              showCta={true}
+              ctaLabel="Tengo otra consulta"
+              ctaText="Hola Call360, tengo una duda sobre el CRM de WhatsApp que no sale en las preguntas frecuentes."
+              ctaSubtext="Te respondemos en minutos por WhatsApp"
               items={[
                 {
                   question: "¿Me van a bloquear el número?",
@@ -571,8 +677,11 @@ export default function CRMWhatsAppPage() {
                 como un profesional.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <WhatsAppButton
-                  text="Hola Call360, quiero una demo del CRM WhatsApp"
+                <DemoRequestForm
+                  title="Reserva tu demo del CRM WhatsApp"
+                  subtitle="Te mostramos el sistema en vivo y respondemos tus dudas"
+                  ctaLabel="Solicitar demo"
+                  defaultService="crm-whatsapp"
                   className="text-base px-8 py-4"
                 />
                 <a
@@ -582,9 +691,10 @@ export default function CRMWhatsAppPage() {
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
-                  320 369 3949
+                  Llamar a soporte
                 </a>
               </div>
+              <p className="mt-3 text-xs text-white/40">Demo guiada de 15 minutos • Sin compromisos</p>
             </div>
           </ScrollReveal>
         </div>

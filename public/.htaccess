@@ -1,0 +1,28 @@
+# Call360 Colombia — Apache (hosting compartido, sin Node.js)
+# Este archivo se publica en public_html junto al export estático de Next.js.
+
+DirectorySlash Off
+Options -Indexes
+RewriteEngine On
+
+# 301: /licenciaschico eliminado del frontend comercial → /servicios
+RewriteRule ^licencias(/.*)?$ https://call360colombia.com/servicios [R=301,L]
+
+# 301: alias legacy /marketing-digital → ruta canónica /marketing
+RewriteRule ^marketing-digital(/.*)?$ https://call360colombia.com/marketing [R=301,L]
+
+# URLs limpias del export estático: /marketing sirve marketing.html.
+# Sin condición !-d a propósito: las carpetas de datos __next de cada ruta
+# no tienen index y deben resolverse al .html correspondiente.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^.]+?)/?$ $1.html [L]
+
+# 404 limpia del propio sitio
+ErrorDocument 404 /_not-found.html
+
+# Caché agresiva para assets versionados (solo si mod_headers existe)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|avif|png|jpe?g|svg|ico|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>

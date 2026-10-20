@@ -1,3 +1,5 @@
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 interface BenefitItem {
   title: string;
   description: string;
@@ -6,11 +8,19 @@ interface BenefitItem {
 interface WhyChooseUsProps {
   benefits: BenefitItem[];
   title?: string;
+  showCta?: boolean;
+  ctaLabel?: string;
+  ctaText?: string;
+  ctaSubtext?: string;
 }
 
 export default function WhyChooseUs({
   benefits,
   title = "¿Por qué elegir Call360?",
+  showCta = false,
+  ctaLabel = "Hablar con un especialista",
+  ctaText = "Hola Call360, quiero hablar con un especialista sobre sus beneficios para mi negocio.",
+  ctaSubtext,
 }: WhyChooseUsProps) {
   return (
     <section className="py-24">
@@ -33,6 +43,13 @@ export default function WhyChooseUs({
             </div>
           ))}
         </div>
+
+        {showCta && (
+          <div className="mt-12 flex flex-col items-center justify-center gap-3">
+            <WhatsAppButton label={ctaLabel} text={ctaText} />
+            {ctaSubtext && <p className="text-xs text-white/40">{ctaSubtext}</p>}
+          </div>
+        )}
       </div>
     </section>
   );

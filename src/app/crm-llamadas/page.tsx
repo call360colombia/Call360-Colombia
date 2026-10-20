@@ -11,6 +11,9 @@ import FAQSection from "@/components/FAQSection";
 import BeforeAfter from "@/components/BeforeAfter";
 import ScrollReveal from "@/components/ScrollReveal";
 import IssabelDashboard from "@/components/IssabelDashboard";
+import GuaranteesSection from "@/components/GuaranteesSection";
+import CotizadorCRM from "@/components/CotizadorCRM";
+import DemoRequestForm from "@/components/DemoRequestForm";
 
 export const metadata: Metadata = {
   title: "CRM Llamadas con Minutos Ilimitados | Call360",
@@ -94,7 +97,7 @@ export default function CRMLlamadasPage() {
           <div className="orb-2 absolute bottom-1/4 right-[15%] w-96 h-96 bg-purple-500/8 rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 sm:px-6 lg:px-8">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-40 sm:py-48 sm:px-6 lg:px-8">
           <div className="grid gap-16 md:grid-cols-2 items-center">
             <div className="text-center md:text-left">
               {/* Badge */}
@@ -108,7 +111,7 @@ export default function CRMLlamadasPage() {
 
               {/* Headline */}
               <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-                Sistema predictivo con{" "}
+                Multiplica tus llamadas con{" "}
                 <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
                   minutos ilimitados
                 </span>
@@ -116,11 +119,9 @@ export default function CRMLlamadasPage() {
 
               {/* Subheadline */}
               <p className="animate-fade-in-up animation-delay-200 mx-auto mt-8 max-w-lg text-lg text-white/50 sm:mx-0 leading-relaxed">
-                Solución empresarial para equipos de ventas.{" "}
-                <span className="text-white/70 font-medium">Todo desde $120.000/mes.</span>
-              </p>
-
-              {/* Benefits */}
+                Marcación predictiva para contactar 3 veces más clientes.{" "}
+                <span className="text-white/70 font-medium">Desde $120.000/mes.</span>
+              </p>              {/* Benefits */}
               <div className="animate-fade-in-up animation-delay-300 mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-white/60 md:justify-start">
                 {[
                   "Minutos ilimitados",
@@ -139,11 +140,23 @@ export default function CRMLlamadasPage() {
               </div>
 
               {/* CTA */}
-              <div className="animate-fade-in-up animation-delay-400 mt-10 flex flex-wrap items-center justify-center gap-4 md:justify-start">
-                <WhatsAppButton
-                  text="Hola Call360, quiero el CRM de llamadas"
-                  className="text-base px-8 py-4"
-                />
+              <div className="animate-fade-in-up animation-delay-400 mt-10">
+                <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
+                  <WhatsAppButton
+                    text="Hola Call360, quiero una demo del CRM de llamadas con minutos ilimitados"
+                    label="Solicitar demo gratuita"
+                    className="text-base px-8 py-4 shadow-lg shadow-violet-500/20"
+                  />
+                  <a
+                    href="#panel-en-vivo"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-8 py-4 text-sm font-bold text-white transition-all hover:bg-white/[0.08] hover:border-white/20 hover:scale-105"
+                  >
+                    Ver demo en vivo
+                  </a>
+                </div>
+                <p className="mt-3 text-xs text-white/40 md:text-left">
+                  ⚡ Demo real de 6 horas gratis • Minutos ilimitados • Activación en 24h
+                </p>
               </div>
             </div>
 
@@ -249,7 +262,7 @@ export default function CRMLlamadasPage() {
       </section>
 
       {/* DASHBOARD INTERACTIVO */}
-      <section className="pb-24">
+      <section id="panel-en-vivo" className="pb-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-12 text-center">
@@ -269,6 +282,31 @@ export default function CRMLlamadasPage() {
           </ScrollReveal>
 
           <IssabelDashboard />
+        </div>
+      </section>
+
+      {/* GUARANTEES SECTION */}
+      <GuaranteesSection />
+
+      {/* COTIZADOR INTERACTIVO */}
+      <section className="py-32">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-violet-500/30 bg-violet-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-violet-400">
+              ⚡ Cotiza al instante
+            </span>
+            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
+              Calcula tu inversión{" "}
+              <span className="bg-gradient-to-r from-violet-400 via-purple-400 to-cyan-400 bg-clip-text text-transparent">
+                en segundos
+              </span>
+            </h2>
+            <p className="mt-3 text-base text-white/50">
+              Selecciona el número de agentes y obtén el costo mensual exacto.
+              Te enviamos la cotización a tu WhatsApp.
+            </p>
+          </div>
+          <CotizadorCRM defaultType="llamadas" />
         </div>
       </section>
 
@@ -292,6 +330,20 @@ export default function CRMLlamadasPage() {
             badge="Precio único"
             waText="Hola Call360, quiero el CRM de llamadas"
           />
+          
+          <div className="mt-8 rounded-2xl border border-violet-500/20 bg-violet-500/[0.03] p-6 text-center">
+            <h4 className="text-base font-bold text-violet-300">📈 Descuento por Volumen y Servidor Local</h4>
+            <p className="mt-2 text-sm text-white/70">
+              A partir de <strong>10 usuarios</strong>, el valor baja a <strong>$100.000/mes</strong> por usuario.
+            </p>
+            <p className="mt-2 text-xs text-white/50 leading-relaxed">
+              📍 <strong>Beneficio Bogotá:</strong> Si tu equipo está en Bogotá y contratas 10+ usuarios, instalamos un <strong>servidor local en comodato (prestado sin costo)</strong> directamente en tu oficina para garantizar la mejor velocidad, latencia cero y máxima calidad de voz.
+            </p>
+          </div>
+          
+          <p className="mt-4 text-center text-xs text-white/40">
+            * Garantía de prueba de 6 horas • Sin cláusulas de permanencia • Activación en menos de 24 horas
+          </p>
         </div>
       </section>
 
@@ -301,6 +353,10 @@ export default function CRMLlamadasPage() {
           <ScrollReveal>
             <WhyChooseUs
               title="¿Por qué CRM Llamadas Call360?"
+              showCta={true}
+              ctaLabel="Hablar con un asesor de llamadas"
+              ctaText="Hola Call360, quiero hablar con un asesor sobre el CRM de Llamadas con minutos ilimitados."
+              ctaSubtext="Garantía de prueba de 6 horas • Sin cláusulas de permanencia"
               benefits={[
                 {
                   title: "Minutos ilimitados reales",
@@ -339,6 +395,7 @@ export default function CRMLlamadasPage() {
             <HowItWorks
               title="Cómo funciona"
               subtitle="Vende más por teléfono con tecnología predictiva"
+              image="/predictivo/voip_dashboard_mockup.png"
               steps={[
                 {
                   number: "1",
@@ -368,6 +425,10 @@ export default function CRMLlamadasPage() {
             <ComparisonTable
               title="Call center informal vs Sistema profesional"
               subtitle="La diferencia entre perder tiempo y vender más"
+              showCta={true}
+              ctaLabel="Quiero dar el salto profesional"
+              ctaText="Hola Call360, quiero optimizar mi call center con marcación predictiva y minutos ilimitados."
+              ctaSubtext="Marcación automática que triplica tus contactos"
               items={[
                 {
                   informal: "Agentes marcando manualmente uno por uno",
@@ -406,6 +467,10 @@ export default function CRMLlamadasPage() {
             <BeforeAfter
               title="De caos operativo a venta organizada"
               subtitle="Tu transformación con el CRM de llamadas"
+              showCta={true}
+              ctaLabel="Comenzar mi transformación"
+              ctaText="Hola Call360, me interesa la transformación a marcación predictiva con llamadas ilimitadas."
+              ctaSubtext="Activación rápida sin configuraciones ocultas"
               items={[
                 {
                   before: "Agentes perdiendo tiempo marcando números manualmente",
@@ -436,6 +501,10 @@ export default function CRMLlamadasPage() {
             <TrustBlock
               title="No somos solo un proveedor de VoIP"
               description="Hemos visto cómo empresas colombianas pierden miles de pesos en facturas telefónicas impredecibles y equipos que no saben medir su rendimiento. Por eso creamos este CRM: para que vendas más con costos fijos y control total."
+              showCta={true}
+              ctaLabel="Iniciar prueba de llamadas"
+              ctaText="Hola Call360, quiero empezar a utilizar el CRM de llamadas con minutos ilimitados."
+              ctaSubtext="Probado por más de 200 empresas en Colombia"
               bullets={[
                 "Más de 3 millones de minutos mensuales procesados a través de nuestro sistema",
                 "Enfoque específico en el mercado colombiano con números locales de todo el país",
@@ -453,6 +522,10 @@ export default function CRMLlamadasPage() {
           <ScrollReveal>
             <FAQSection
               title="Preguntas frecuentes"
+              showCta={true}
+              ctaLabel="Tengo una pregunta diferente"
+              ctaText="Hola Call360, tengo una pregunta sobre el CRM de llamadas que no encontré en el FAQ."
+              ctaSubtext="Te respondemos en menos de 3 minutos por WhatsApp"
               items={[
                 {
                   question: "¿Los minutos son realmente ilimitados?",
@@ -495,12 +568,23 @@ export default function CRMLlamadasPage() {
               Agenda una demo personalizada y descubre cómo nuestro CRM puede 
               incrementar tus contactos efectivos hasta en 300%.
             </p>
-            <div className="mt-8">
-              <WhatsAppButton
-                text="Hola Call360, quiero una demo del CRM de llamadas"
-                className="text-base"
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <DemoRequestForm
+                title="Demo personalizada del CRM Llamadas"
+                subtitle="Te mostramos el sistema en vivo con números reales"
+                ctaLabel="Solicitar demo"
+                defaultService="crm-llamadas"
+                className="text-base px-8 py-4"
+              />
+              <DemoRequestForm
+                title="Hablar con un especialista"
+                subtitle="Resolvemos tus dudas técnicas o comerciales"
+                ctaLabel="Hablar con asesor"
+                defaultService="crm-llamadas"
+                className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] px-8 py-4 text-base font-bold text-white transition-all hover:border-violet-400/40 hover:bg-violet-400/5"
               />
             </div>
+            <p className="mt-3 text-xs text-white/40">Demo gratis de 6 horas • Sin tarjeta • Activación en 24 horas</p>
           </div>
         </div>
       </section>

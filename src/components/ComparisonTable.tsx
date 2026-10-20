@@ -1,3 +1,5 @@
+import WhatsAppButton from "@/components/WhatsAppButton";
+
 interface ComparisonItem {
   informal: string;
   call360: string;
@@ -7,12 +9,20 @@ interface ComparisonTableProps {
   items: ComparisonItem[];
   title?: string;
   subtitle?: string;
+  showCta?: boolean;
+  ctaLabel?: string;
+  ctaText?: string;
+  ctaSubtext?: string;
 }
 
 export default function ComparisonTable({
   items,
   title = "Deja el desorden",
   subtitle = "La diferencia entre operar como siempre o hacerlo bien",
+  showCta = false,
+  ctaLabel = "Quiero cotizar mi proyecto",
+  ctaText = "Hola Call360, me interesa conocer la diferencia con sus servicios y cotizar.",
+  ctaSubtext,
 }: ComparisonTableProps) {
   return (
     <section className="py-24">
@@ -71,6 +81,13 @@ export default function ComparisonTable({
             </ul>
           </div>
         </div>
+
+        {showCta && (
+          <div className="mt-12 flex flex-col items-center justify-center gap-3">
+            <WhatsAppButton label={ctaLabel} text={ctaText} />
+            {ctaSubtext && <p className="text-xs text-white/40">{ctaSubtext}</p>}
+          </div>
+        )}
       </div>
     </section>
   );

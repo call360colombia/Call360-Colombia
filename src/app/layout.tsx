@@ -3,6 +3,10 @@ import { Sora, Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ThreeBackground from "@/components/ThreeBackground";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import StickyBottomBar from "@/components/StickyBottomBar";
+import ExitIntentPopup from "@/components/ExitIntentPopup";
+import Analytics from "@/components/Analytics";
 import "./globals.css";
 
 const sora = Sora({
@@ -46,10 +50,14 @@ export default function RootLayout({
       className={`${sora.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white">
+        <Analytics />
         <ThreeBackground />
         <Navbar />
         <main className="flex-1 pt-16 relative z-10">{children}</main>
         <Footer />
+        <FloatingWhatsApp />
+        <StickyBottomBar />
+        <ExitIntentPopup />
       </body>
     </html>
   );

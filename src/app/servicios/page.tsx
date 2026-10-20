@@ -30,7 +30,7 @@ const services = [
   {
     title: "CRM WhatsApp",
     description:
-      "Gestiona a tus clientes con un sistema profesional de WhatsApp. Multiagente, campañas masivas e historial de chats.",
+      "Gestiona a tus clientes con un sistema profesional de WhatsApp. Multiagente, bandeja compartida e historial de chats.",
     benefit: "Para negocios que atienden por WhatsApp",
     href: "/crm-whatsapp",
     gradient: "from-emerald-500/20 to-green-500/20",
@@ -66,7 +66,7 @@ const services = [
     description:
       "Contenido profesional para redes sociales. Diseños, estrategia de contenido y anuncios que atraen clientes.",
     benefit: "Deja de preguntarte qué publicar",
-    href: "/marketing-digital",
+    href: "/marketing",
     gradient: "from-amber-500/20 to-orange-500/20",
     hoverBorder: "hover:border-amber-500/30",
     image: "/Marketing/EstrategiaDeContenido.jpeg?v=2",

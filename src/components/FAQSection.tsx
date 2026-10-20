@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 interface FAQItem {
   question: string;
@@ -10,11 +11,19 @@ interface FAQItem {
 interface FAQSectionProps {
   items: FAQItem[];
   title?: string;
+  showCta?: boolean;
+  ctaLabel?: string;
+  ctaText?: string;
+  ctaSubtext?: string;
 }
 
 export default function FAQSection({
   items,
   title = "Preguntas frecuentes",
+  showCta = false,
+  ctaLabel = "Resolver otras dudas",
+  ctaText = "Hola Call360, tengo una duda sobre el servicio que no está en las preguntas frecuentes.",
+  ctaSubtext,
 }: FAQSectionProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -64,6 +73,13 @@ export default function FAQSection({
             </div>
           ))}
         </div>
+
+        {showCta && (
+          <div className="mt-12 flex flex-col items-center justify-center gap-3">
+            <WhatsAppButton label={ctaLabel} text={ctaText} />
+            {ctaSubtext && <p className="text-xs text-white/40">{ctaSubtext}</p>}
+          </div>
+        )}
       </div>
     </section>
   );
