@@ -133,7 +133,7 @@ export default function GuaranteesSection() {
 
             return (
               <ScrollReveal key={item.title} delay={i * 100}>
-                <div className={`group relative flex flex-col justify-between h-full rounded-2xl border border-white/[0.08] bg-[#12121a]/60 backdrop-blur-xl p-8 transition-all duration-300 ${glowBorder} hover:-translate-y-2`}>
+                <div className={`group relative flex flex-col justify-between h-full rounded-2xl border border-white/[0.08] bg-[#12121a]/60 backdrop-blur-xl p-5 sm:p-8 transition-all duration-300 ${glowBorder} hover:-translate-y-2`}>
                   <div>
                     {/* Badge */}
                     <div className="flex items-center justify-between mb-6">

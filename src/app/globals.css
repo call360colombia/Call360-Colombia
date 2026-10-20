@@ -35,6 +35,8 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 body {
@@ -413,19 +415,36 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   CONTINUOUS LIVE BENEFITS TICKER
+   CONTINUOUS LIVE BENEFITS TICKER & MARQUEE
    ============================================ */
 @keyframes ticker-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
 }
 
 .animate-ticker {
-  animation: ticker-scroll 45s linear infinite;
+  animation: ticker-scroll 75s linear infinite;
   will-change: transform;
 }
 
-.animate-ticker:hover {
+.animate-ticker:hover,
+.animate-ticker:active,
+.animate-ticker:focus-within {
+  animation-play-state: paused;
+}
+
+.animate-ticker-slow {
+  animation: ticker-scroll 90s linear infinite;
+  will-change: transform;
+}
+
+.animate-ticker-slow:hover,
+.animate-ticker-slow:active,
+.animate-ticker-slow:focus-within {
   animation-play-state: paused;
 }
 

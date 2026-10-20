@@ -91,7 +91,7 @@ export default function ArcadeTicketsMarquee({ className = "" }: { className?: s
 
       {/* CINTA DIAGONAL FLOTANDO DIRECTAMENTE SOBRE EL LIENZO */}
       <div className="relative w-[116%] -ml-[8%] rotate-[-1.8deg] sm:rotate-[-2.2deg] py-3">
-        <div className="flex w-max items-center gap-4 sm:gap-6 px-4 animate-ticker pointer-events-auto">
+        <div className="flex w-max items-center gap-4 sm:gap-6 px-4 animate-ticker-slow pointer-events-auto">
           {row.map((item, i) => {
             const isWaveUp = i % 2 === 0;
 

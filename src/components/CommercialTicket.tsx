@@ -98,7 +98,7 @@ export default function CommercialTicket({
 
   const content = (
     <div
-      className={`relative flex items-center h-[4.75rem] sm:h-[5.25rem] w-full max-w-[20rem] sm:w-[18.5rem] rounded-2xl ${
+      className={`relative flex items-center h-[4.75rem] sm:h-[5.25rem] w-full max-w-[310px] sm:max-w-[340px] rounded-2xl ${
         p.bg
       } ${p.text} shadow-[0_12px_28px_-6px_rgba(0,0,0,0.65)] ${
         isTransparent ? "border-2 border-white/20" : "border-2 border-black/15"
@@ -177,7 +177,7 @@ export default function CommercialTicket({
 
   if (href) {
     return (
-      <Link href={href} className="inline-block focus:outline-none w-full max-w-[20rem] sm:w-[18.5rem]">
+      <Link href={href} className="inline-block focus:outline-none w-full max-w-[310px] sm:max-w-[340px]">
         {content}
       </Link>
     );

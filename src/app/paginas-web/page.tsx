@@ -317,24 +317,24 @@ export default function PaginasWebPage() {
 
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             {/* Steps Stack */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {steps.map((step, index) => (
                 <div
                   key={index}
-                  className="group relative rounded-2xl border border-white/[0.06] bg-[#12121a] p-6 transition-all duration-500 hover:border-cyan-500/20 hover:-translate-y-1"
+                  className="group relative rounded-2xl border border-white/[0.06] bg-[#12121a] p-4 sm:p-6 transition-all duration-500 hover:border-cyan-500/20 hover:-translate-y-1"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3 sm:gap-4">
                     {/* Step Number */}
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 text-lg font-black text-white shadow-lg shadow-cyan-500/30">
+                    <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-cyan-500 to-blue-500 text-base sm:text-lg font-black text-white shadow-lg shadow-cyan-500/30">
                       {index + 1}
                     </div>
 
                     {/* Content */}
                     <div>
-                      <h3 className="mb-1 text-lg font-bold text-white">
+                      <h3 className="mb-1 text-base sm:text-lg font-bold text-white">
                         {step.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-white/50">
+                      <p className="text-xs sm:text-sm leading-relaxed text-white/50">
                         {step.description}
                       </p>
                     </div>
@@ -344,7 +344,7 @@ export default function PaginasWebPage() {
             </div>
 
             {/* Mockup Visual Modernizado */}
-            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0c0c14]/90 p-5 group shadow-2xl shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-500">
+            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#0c0c14]/90 p-3.5 sm:p-5 group shadow-2xl shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-500">
               <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
                 <div className="flex items-center gap-1.5">
                   <span className="h-3 w-3 rounded-full bg-[#ff5f56]/80" />
@@ -410,11 +410,11 @@ export default function PaginasWebPage() {
             </h2>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3">
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="group rounded-2xl border border-white/[0.08] bg-[#12121a] p-8 transition-all duration-500 hover:border-cyan-500/30 hover:bg-[#1a1a24] hover:-translate-y-1"
+                className="group rounded-2xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-8 transition-all duration-500 hover:border-cyan-500/30 hover:bg-[#1a1a24] hover:-translate-y-1"
               >
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-white/[0.06] text-cyan-400 transition-all duration-500 group-hover:bg-cyan-500/10 group-hover:scale-110 group-hover:rotate-3">
                   {benefit.icon}
@@ -511,16 +511,16 @@ export default function PaginasWebPage() {
             </h2>
           </div>
 
-          <div className="overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a]">
+          <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a]">
             {/* Header */}
             <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0f0f17]">
-              <div className="p-6" />
-              <div className="p-6 text-center">
-                <div className="text-sm font-bold text-white/40">Hacerlo solo</div>
+              <div className="p-3 sm:p-6" />
+              <div className="p-3 sm:p-6 text-center">
+                <div className="text-xs sm:text-sm font-bold text-white/40">Hacerlo solo</div>
               </div>
-              <div className="p-6 text-center">
-                <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-4 py-1 text-sm font-bold text-cyan-400">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <div className="p-3 sm:p-6 text-center flex items-center justify-center">
+                <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-2.5 sm:px-4 py-1 text-xs sm:text-sm font-bold text-cyan-400">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                   Call360
@@ -536,14 +536,14 @@ export default function PaginasWebPage() {
                   index === comparisonItems.length - 1 ? "border-b-0" : ""
                 }`}
               >
-                <div className="p-6 flex items-center">
-                  <span className="text-sm font-medium text-white/70">{item.label}</span>
+                <div className="p-3 sm:p-6 flex items-center">
+                  <span className="text-xs sm:text-sm font-medium text-white/80 leading-tight">{item.label}</span>
                 </div>
-                <div className="p-6 flex items-center justify-center">
-                  <span className="text-sm text-white/40">{item.solo}</span>
+                <div className="p-3 sm:p-6 flex items-center justify-center text-center">
+                  <span className="text-xs sm:text-sm text-white/40 leading-tight">{item.solo}</span>
                 </div>
-                <div className="p-6 flex items-center justify-center">
-                  <span className="text-sm font-bold text-cyan-400">{item.call360}</span>
+                <div className="p-3 sm:p-6 flex items-center justify-center text-center">
+                  <span className="text-xs sm:text-sm font-bold text-cyan-400 leading-tight">{item.call360}</span>
                 </div>
               </div>
             ))}
@@ -554,33 +554,33 @@ export default function PaginasWebPage() {
       {/* TRUST BLOCK */}
       <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-3xl border border-white/[0.08] bg-[#12121a] p-12 md:p-16 text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-6">
+          <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-12 md:p-16 text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-6">
               No somos una agencia
             </div>
             
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-white mb-4 sm:mb-6">
               Somos tu departamento de tecnología
             </h2>
             
-            <p className="text-lg text-white/60 mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg text-white/60 mb-8 leading-relaxed">
               Después de +12 años viendo cómo empresas colombianas pierden dinero con 
               agencias costosas y proyectos que nunca terminan, creamos Call360: 
               páginas web que realmente funcionan como herramienta de ventas.
             </p>
 
-            <div className="grid gap-6 md:grid-cols-3 mb-10">
-              <div className="rounded-2xl border border-white/[0.08] bg-[#0f0f17] p-6">
-                <div className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-2">
+            <div className="grid grid-cols-2 gap-3 sm:gap-6 max-w-md mx-auto mb-8 sm:mb-10">
+              <div className="rounded-xl sm:rounded-2xl border border-white/[0.08] bg-[#0f0f17] p-4 sm:p-6">
+                <div className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-1 sm:mb-2">
                   72h
                 </div>
-                <div className="text-xs text-white/50">Entrega promedio</div>
+                <div className="text-[11px] sm:text-xs text-white/50">Entrega promedio</div>
               </div>
-              <div className="rounded-2xl border border-white/[0.08] bg-[#0f0f17] p-6">
-                <div className="text-3xl font-black bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-2">
+              <div className="rounded-xl sm:rounded-2xl border border-white/[0.08] bg-[#0f0f17] p-4 sm:p-6">
+                <div className="text-2xl sm:text-3xl font-black bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-1 sm:mb-2">
                   12+
                 </div>
-                <div className="text-xs text-white/50">Años experiencia</div>
+                <div className="text-[11px] sm:text-xs text-white/50">Años experiencia</div>
               </div>
             </div>
 
@@ -606,16 +606,16 @@ export default function PaginasWebPage() {
             </h2>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faqItems.map((item, index) => (
               <details
                 key={index}
                 className="group rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-300 hover:border-cyan-500/30"
               >
-                <summary className="flex cursor-pointer items-center justify-between px-6 py-5 text-left">
-                  <span className="text-base font-bold text-white pr-8">{item.question}</span>
+                <summary className="flex cursor-pointer items-center justify-between px-4 sm:px-6 py-4 sm:py-5 text-left">
+                  <span className="text-sm sm:text-base font-bold text-white pr-4 sm:pr-8">{item.question}</span>
                   <svg
-                    className="ml-4 h-5 w-5 shrink-0 text-cyan-400 transition-transform duration-300 group-open:rotate-180"
+                    className="ml-2 sm:ml-4 h-5 w-5 shrink-0 text-cyan-400 transition-transform duration-300 group-open:rotate-180"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -624,8 +624,8 @@ export default function PaginasWebPage() {
                     <polyline points="6 9 12 15 18 9" />
                   </svg>
                 </summary>
-                <div className="px-6 pb-5 pt-0">
-                  <p className="text-sm leading-relaxed text-white/60">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-0">
+                  <p className="text-xs sm:text-sm leading-relaxed text-white/60">
                     {item.answer}
                   </p>
                 </div>
@@ -680,7 +680,7 @@ export default function PaginasWebPage() {
                 subtitle="Generación de textos comerciales"
                 serial="AI-PRO100"
                 badge="AI"
-                color="violet"
+                color="lavender"
               />
               <CommercialTicket
                 category="TICKET SOPORTE"
@@ -703,7 +703,7 @@ export default function PaginasWebPage() {
       {/* CTA */}
       <section className="py-14 sm:py-20 lg:py-28">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-gradient-to-br from-cyan-500/[0.1] via-[#12121a] to-violet-500/[0.1] p-6 sm:p-12 md:p-16 text-center">
+          <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-gradient-to-br from-cyan-500/[0.1] via-[#12121a] to-violet-500/[0.1] p-5 sm:p-12 md:p-16 text-center">
             {/* Background Glow */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl" />
             
