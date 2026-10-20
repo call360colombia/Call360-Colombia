@@ -35,9 +35,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
-  max-width: 100%;
-  width: 100%;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
 }
 
 body {
@@ -45,18 +45,23 @@ body {
   background: var(--bg);
   color: var(--white);
   line-height: 1.6;
-  overflow-x: hidden;
-  max-width: 100%;
-  width: 100%;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
   position: relative;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 main {
-  overflow-x: hidden;
-  max-width: 100%;
-  width: 100%;
+  overflow-x: hidden !important;
+  max-width: 100% !important;
+  width: 100% !important;
+  min-width: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {

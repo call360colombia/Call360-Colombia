@@ -114,7 +114,7 @@ export default function Navbar() {
               alt="Call360 Logo"
               width={277}
               height={79}
-              className="h-[72px] w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-8 sm:h-10 md:h-11 w-auto object-contain transition-transform group-hover:scale-105"
               priority
             />
           </Link>

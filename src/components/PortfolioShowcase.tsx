@@ -133,14 +133,14 @@ export default function PortfolioShowcase() {
   const activeProject = projects[selectedIndex];
 
   return (
-    <div className="w-full">
+    <div className="w-full max-w-full min-w-0 overflow-hidden">
       {/* Selector de Proyectos Reales en Barra de Pestañas Móvil/Desktop */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none snap-x">
+      <div className="flex w-full max-w-full items-center gap-2 overflow-x-auto pb-4 scrollbar-none snap-x touch-pan-x">
         {projects.map((proj, idx) => (
           <button
             key={proj.id}
             onClick={() => setSelectedIndex(idx)}
-            className={`shrink-0 snap-start rounded-full px-4 py-2 text-xs font-bold transition-all cursor-pointer ${
+            className={`shrink-0 snap-start rounded-full px-3.5 sm:px-4 py-1.5 sm:py-2 text-[11px] sm:text-xs font-bold transition-all cursor-pointer ${
               idx === selectedIndex
                 ? "bg-gradient-to-r from-cyan-500 to-blue-500 text-white shadow-lg shadow-cyan-500/25 scale-[1.02]"
                 : "border border-white/10 bg-white/[0.04] text-white/70 hover:border-white/20 hover:text-white"
@@ -152,7 +152,7 @@ export default function PortfolioShowcase() {
       </div>
 
       {/* Tarjeta Principal de Presentación de Proyecto (Marco de Navegador Moderno) */}
-      <div className="mt-4 overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0c14]/90 backdrop-blur-2xl shadow-2xl shadow-cyan-500/10">
+      <div className="mt-4 w-full max-w-full min-w-0 overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0c0c14]/90 backdrop-blur-2xl shadow-2xl shadow-cyan-500/10">
         {/* Cabecera estilo Navegador Moderno (macOS) */}
         <div className="flex items-center justify-between border-b border-white/[0.08] bg-white/[0.02] px-3 sm:px-4 py-2.5 sm:py-3 select-none">
           <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 max-w-[85%] sm:max-w-none">
@@ -180,10 +180,10 @@ export default function PortfolioShowcase() {
         </div>
 
         {/* Contenido: Grid Imagen + Detalles */}
-        <div className="grid gap-6 p-4 sm:p-6 lg:grid-cols-12 lg:items-center lg:gap-8">
+        <div className="grid gap-6 p-3 sm:p-6 lg:grid-cols-12 lg:items-center lg:gap-8 w-full max-w-full min-w-0">
           {/* Captura de pantalla real del sitio - CERO CORTES (object-contain object-top) */}
-          <div className="lg:col-span-7">
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/15 bg-[#08090f] shadow-2xl flex items-center justify-center p-0.5">
+          <div className="w-full max-w-full min-w-0 lg:col-span-7">
+            <div className="relative aspect-[16/10] w-full max-w-full overflow-hidden rounded-xl border border-white/15 bg-[#08090f] shadow-2xl flex items-center justify-center p-0.5">
               <Image
                 src={activeProject.image}
                 alt={`${activeProject.title} — ${activeProject.niche}`}
@@ -193,39 +193,39 @@ export default function PortfolioShowcase() {
                 priority
               />
             </div>
-            <div className="mt-2.5 flex items-center justify-between px-1 text-[11px] text-white/40">
+            <div className="mt-2.5 flex items-center justify-between px-1 text-[10px] sm:text-[11px] text-white/40">
               <span>Captura real del desarrollo web</span>
               <span className="font-mono text-cyan-400">100% responsive en PC y celular</span>
             </div>
           </div>
 
           {/* Información comercial y métricas del proyecto */}
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-5">
+          <div className="w-full max-w-full min-w-0 lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-5">
             <div>
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-bold ${activeProject.badgeColor}`}>
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 mb-2">
+                <span className={`inline-flex items-center rounded-full border px-2 sm:px-2.5 py-0.5 text-[9px] sm:text-[10px] font-bold ${activeProject.badgeColor}`}>
                   {activeProject.category}
                 </span>
-                <span className="text-[11px] font-medium text-cyan-300">
+                <span className="text-[10px] sm:text-[11px] font-medium text-cyan-300">
                   {activeProject.niche}
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white tracking-tight break-words">
                 {activeProject.title}
               </h3>
-              <p className="mt-3 text-sm text-white/70 leading-relaxed">
+              <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-white/70 leading-relaxed break-words">
                 {activeProject.description}
               </p>
             </div>
 
             {/* Métricas clave */}
-            <div className="grid grid-cols-3 gap-2.5 py-3 border-y border-white/[0.08]">
+            <div className="grid grid-cols-3 gap-1.5 sm:gap-2.5 py-3 border-y border-white/[0.08] w-full min-w-0">
               {activeProject.metrics.map((m) => (
-                <div key={m.label} className="rounded-xl bg-white/[0.03] border border-white/[0.06] p-2.5 text-center">
-                  <div className="text-sm sm:text-base font-black text-cyan-400">
+                <div key={m.label} className="min-w-0 rounded-xl bg-white/[0.03] border border-white/[0.06] p-1.5 sm:p-2.5 text-center">
+                  <div className="text-xs sm:text-base font-black text-cyan-400 truncate">
                     {m.value}
                   </div>
-                  <div className="text-[10px] text-white/50 font-medium mt-0.5">
+                  <div className="text-[9px] sm:text-[10px] text-white/50 font-medium mt-0.5 leading-tight break-words">
                     {m.label}
                   </div>
                 </div>
@@ -233,11 +233,11 @@ export default function PortfolioShowcase() {
             </div>
 
             {/* CTAs comerciales: Cotizar y Ver demostración */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full">
               <WhatsAppButton
                 text={activeProject.whatsappMessage}
                 label="Cotizar sitio similar"
-                className="w-full sm:w-auto text-xs sm:text-sm px-5 py-2.5 shadow-lg shadow-cyan-500/20 text-center justify-center"
+                className="w-full sm:w-auto text-xs sm:text-sm px-4 sm:px-5 py-2.5 shadow-lg shadow-cyan-500/20 text-center justify-center"
               />
               <a
                 href={`https://wa.me/573203693949?text=${encodeURIComponent(
@@ -248,14 +248,14 @@ export default function PortfolioShowcase() {
                 className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 bg-white/[0.05] px-4 py-2.5 text-xs font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 text-center"
               >
                 <span>Ver ejemplo en vivo</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <polyline points="15 3 21 3 21 9" />
                   <line x1="10" y1="14" x2="21" y2="3" />
                 </svg>
               </a>
             </div>
-            <p className="text-[11px] text-white/40">
+            <p className="text-[10px] sm:text-[11px] text-white/40">
               ⚡ Entrega récord en 72 horas con dominio propio y soporte en Bogotá
             </p>
           </div>

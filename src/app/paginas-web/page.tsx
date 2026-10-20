@@ -142,16 +142,16 @@ export default function PaginasWebPage() {
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 sm:py-2 text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-cyan-400 mb-6 sm:mb-8 animate-fade-in-up">
-              <span className="relative flex h-2 w-2">
+            <div className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 sm:px-4 py-1.5 sm:py-2 text-[10px] xs:text-xs font-bold uppercase tracking-[0.1em] sm:tracking-[0.2em] text-cyan-400 mb-6 sm:mb-8 animate-fade-in-up text-center">
+              <span className="relative flex h-2 w-2 shrink-0">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
               </span>
-              Páginas Web Creadas Para Vender
+              <span className="break-words">Páginas Web Creadas Para Vender</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-white mb-5 sm:mb-6 animate-fade-in-up animation-delay-100">
+            <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-white mb-5 sm:mb-6 animate-fade-in-up animation-delay-100 break-words">
               No pierdas clientes por una web lenta: lista en{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
                 72 horas
@@ -159,30 +159,30 @@ export default function PaginasWebPage() {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200">
+            <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200 px-2 sm:px-0">
               Páginas web de alta velocidad desde <strong className="text-white font-black">$100.000 COP/mes</strong> y ecosistema comercial conectado a tu WhatsApp. Sin agencias costosas ni demoras.
             </p>
 
-            {/* CTA Buttons Ergonómicos Gigantes */}
-            <div className="flex flex-col items-center justify-center gap-4 animate-fade-in-up animation-delay-300">
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full max-w-lg mx-auto">
+            {/* CTA Buttons Ergonómicos */}
+            <div className="flex flex-col items-center justify-center gap-4 animate-fade-in-up animation-delay-300 w-full max-w-full">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-lg mx-auto">
                 <WhatsAppButton
                   text="Hola Call360, quiero cotizar mi página web profesional y mi CRM ahora"
                   label="Cotizar mi página / CRM ahora"
-                  className="w-full sm:w-auto min-h-[54px] sm:min-h-[58px] text-base sm:text-lg px-8 sm:px-10 py-4 font-black shadow-2xl shadow-cyan-500/30 justify-center text-center"
+                  className="w-full sm:w-auto min-h-[50px] sm:min-h-[58px] text-sm sm:text-lg px-4 sm:px-10 py-3.5 sm:py-4 font-black shadow-2xl shadow-cyan-500/30 justify-center text-center"
                 />
                 <a
                   href="#planes"
-                  className="inline-flex w-full sm:w-auto min-h-[54px] sm:min-h-[58px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.08] backdrop-blur-md px-8 py-4 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/50 hover:bg-cyan-400/10 active:scale-[0.98] group"
+                  className="inline-flex w-full sm:w-auto min-h-[50px] sm:min-h-[58px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.08] backdrop-blur-md px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/50 hover:bg-cyan-400/10 active:scale-[0.98] group text-center"
                 >
                   <span>Ver planes y precios</span>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-y-0.5">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-y-0.5 shrink-0">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <polyline points="19 12 12 19 5 12" />
                   </svg>
                 </a>
               </div>
-              <p className="text-xs text-white/50 mt-1">
+              <p className="text-[11px] sm:text-xs text-white/50 mt-1 text-center px-2">
                 ⚡ Boceto inicial sin costo • Dominio propio (.com o .co) • Soporte directo en Bogotá
               </p>
             </div>
@@ -367,40 +367,42 @@ export default function PaginasWebPage() {
               </h3>
             </div>
 
-            <div className="overflow-hidden rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a]">
-              <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0f0f17]">
-                <div className="p-3 sm:p-6" />
-                <div className="p-3 sm:p-6 text-center">
-                  <div className="text-xs sm:text-sm font-bold text-white/40">Hacerlo solo</div>
-                </div>
-                <div className="p-3 sm:p-6 text-center flex items-center justify-center">
-                  <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-2.5 sm:px-4 py-1 text-xs sm:text-sm font-bold text-cyan-400">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    Call360
+            <div className="overflow-x-auto rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] -mx-1 sm:mx-0">
+              <div className="min-w-[320px]">
+                <div className="grid grid-cols-3 border-b border-white/[0.08] bg-[#0f0f17]">
+                  <div className="p-3 sm:p-6" />
+                  <div className="p-3 sm:p-6 text-center">
+                    <div className="text-xs sm:text-sm font-bold text-white/40">Hacerlo solo</div>
+                  </div>
+                  <div className="p-3 sm:p-6 text-center flex items-center justify-center">
+                    <div className="inline-flex items-center gap-1.5 sm:gap-2 rounded-full bg-gradient-to-r from-cyan-500/20 to-blue-500/20 px-2 sm:px-4 py-1 text-[11px] sm:text-sm font-bold text-cyan-400">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      Call360
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              {comparisonItems.map((item, index) => (
-                <div
-                  key={index}
-                  className={`grid grid-cols-3 border-b border-white/[0.06] transition-colors hover:bg-white/[0.02] ${
-                    index === comparisonItems.length - 1 ? "border-b-0" : ""
-                  }`}
-                >
-                  <div className="p-3 sm:p-6 flex items-center">
-                    <span className="text-xs sm:text-sm font-medium text-white/80 leading-tight">{item.label}</span>
+                {comparisonItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className={`grid grid-cols-3 border-b border-white/[0.06] transition-colors hover:bg-white/[0.02] ${
+                      index === comparisonItems.length - 1 ? "border-b-0" : ""
+                    }`}
+                  >
+                    <div className="p-2.5 sm:p-6 flex items-center min-w-0">
+                      <span className="text-xs sm:text-sm font-medium text-white/80 leading-tight break-words">{item.label}</span>
+                    </div>
+                    <div className="p-2.5 sm:p-6 flex items-center justify-center text-center min-w-0">
+                      <span className="text-[11px] sm:text-sm text-white/40 leading-tight break-words">{item.solo}</span>
+                    </div>
+                    <div className="p-2.5 sm:p-6 flex items-center justify-center text-center min-w-0">
+                      <span className="text-[11px] sm:text-sm font-bold text-cyan-400 leading-tight break-words">{item.call360}</span>
+                    </div>
                   </div>
-                  <div className="p-3 sm:p-6 flex items-center justify-center text-center">
-                    <span className="text-xs sm:text-sm text-white/40 leading-tight">{item.solo}</span>
-                  </div>
-                  <div className="p-3 sm:p-6 flex items-center justify-center text-center">
-                    <span className="text-xs sm:text-sm font-bold text-cyan-400 leading-tight">{item.call360}</span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -515,17 +517,17 @@ export default function PaginasWebPage() {
                 Tu página web profesional lista en 72 horas con dominio propio y WhatsApp conectado. Sin costos ocultos.
               </p>
               
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-4 w-full max-w-md sm:max-w-none mx-auto">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
                 <WhatsAppButton
                   text="Hola Call360, quiero iniciar mi página web profesional y mi CRM ahora"
                   label="Cotizar mi página / CRM ahora"
-                  className="min-h-[52px] sm:min-h-[56px] text-base px-8 py-3.5"
+                  className="w-full sm:w-auto min-h-[50px] sm:min-h-[56px] text-sm sm:text-base px-4 sm:px-8 py-3.5 justify-center text-center"
                 />
                 <ServiceLeadForm
                   service="pagina-web"
                   triggerLabel="Solicitar llamada de asesoría"
                   triggerVariant="cyan"
-                  triggerClassName="w-full sm:w-auto min-h-[52px] sm:min-h-[56px] text-sm sm:text-base px-6 sm:px-8 py-3.5"
+                  triggerClassName="w-full sm:w-auto min-h-[50px] sm:min-h-[56px] text-sm sm:text-base px-4 sm:px-8 py-3.5"
                 />
               </div>
             </div>

@@ -97,7 +97,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
           <ScrollReveal delay={100}>
             <div className="relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border-2 border-cyan-400/60 bg-gradient-to-b from-cyan-500/[0.15] via-[#12121a] to-[#12121a] p-5 sm:p-8 md:p-10 shadow-[0_0_50px_-10px_rgba(6,182,212,0.25)] transition-all duration-300 hover:border-cyan-300 hover:-translate-y-1">
               {/* Badge Destacado */}
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-3.5 sm:px-5 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-cyan-500/40">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 max-w-[90%] truncate rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-3.5 sm:px-5 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-cyan-500/40">
                 ⚡ Ahorra 50% · Mejor Valor
               </div>
 
@@ -292,7 +292,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
           {/* MODALIDAD 2: CORREO + CRM + IA (MENSUAL DESTACADO) */}
           <ScrollReveal delay={80}>
             <div className="relative flex h-full flex-col justify-between rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-b from-emerald-500/[0.12] to-[#12121a] p-6 transition-all duration-300 hover:border-emerald-400 shadow-xl shadow-emerald-500/10">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-emerald-500 px-3 py-0.5 text-[10px] font-black uppercase tracking-wider text-black">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 max-w-[90%] truncate rounded-full bg-emerald-500 px-3 py-0.5 text-[10px] font-black uppercase tracking-wider text-black">
                 Recomendado
               </div>
               <div>
