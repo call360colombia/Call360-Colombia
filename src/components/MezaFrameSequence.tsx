@@ -188,10 +188,13 @@ export default function MezaFrameSequence({
       }
     };
 
-    // Calcular progreso exacto sobre TODO el scroll de la página /nosotros
+    // Calcular progreso exacto sobre el scroll de la página /nosotros
+    // Calibrado con el footer para que el Frame 80 culmine justo con la tarjeta de cierre comercial en foco
     const calculateProgress = () => {
+      const footer = document.querySelector("footer");
+      const footerOffset = footer ? Math.max(0, footer.offsetHeight * 0.45) : 0;
       const maxScroll =
-        document.documentElement.scrollHeight - window.innerHeight;
+        document.documentElement.scrollHeight - window.innerHeight - footerOffset;
       if (maxScroll <= 0) return 0;
       const scrollY = window.scrollY ?? document.documentElement.scrollTop ?? 0;
       return Math.min(1, Math.max(0, scrollY / maxScroll));
