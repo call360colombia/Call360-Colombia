@@ -4,33 +4,43 @@ import React, { useState } from "react";
 
 const BENEFITS = [
   {
-    feature: "Páginas Web en 72h",
-    example: "Al aire desde $100.000/mes",
+    feature: "Hosting de Alta Velocidad",
+    example: "Servidores Cloud SSD Ultrarrápidos",
+    color: "text-cyan-300 bg-cyan-500/15 border-cyan-500/25",
+  },
+  {
+    feature: "Dominio Propio Incluido",
+    example: ".com o .co configurado para tu empresa",
+    color: "text-emerald-300 bg-emerald-500/15 border-emerald-500/25",
+  },
+  {
+    feature: "Correos Corporativos con IA",
+    example: "Cuentas oficiales con asistente integrado",
+    color: "text-violet-300 bg-violet-500/15 border-violet-500/25",
+  },
+  {
+    feature: "Seguridad SSL & Certificados",
+    example: "Candado seguro y encriptación bancaria",
+    color: "text-amber-300 bg-amber-500/15 border-amber-500/25",
+  },
+  {
+    feature: "Páginas Web en 72 Horas",
+    example: "Al aire desde $100.000 COP/mes",
     color: "text-cyan-300 bg-cyan-500/15 border-cyan-500/25",
   },
   {
     feature: "CRM WhatsApp Multiagente",
-    example: "1 Solo Número para Todo el Equipo",
+    example: "1 solo número para todo el equipo de ventas",
     color: "text-emerald-300 bg-emerald-500/15 border-emerald-500/25",
   },
   {
-    feature: "Plan Anual 50% DCTO",
-    example: "Dominio .com + 3 Correos de Obsequio",
-    color: "text-amber-300 bg-amber-500/15 border-amber-500/25",
+    feature: "Soporte Directo con Desarrollador",
+    example: "Atención personalizada en Bogotá sin bots",
+    color: "text-rose-300 bg-rose-500/15 border-rose-500/25",
   },
   {
-    feature: "Correos con Inteligencia Artificial",
-    example: "100 Créditos IA/Mes Incluidos",
-    color: "text-violet-300 bg-violet-500/15 border-violet-500/25",
-  },
-  {
-    feature: "Telefonía IP Issabel",
-    example: "Minutos Ilimitados a Todo Colombia",
-    color: "text-emerald-300 bg-emerald-500/15 border-emerald-500/25",
-  },
-  {
-    feature: "Soporte Directo Desarrollador",
-    example: "Sin Bots ni Tickets Eternos",
+    feature: "Copias y Mantenimiento Continuo",
+    example: "Respaldo automático y estabilidad 24/7",
     color: "text-cyan-300 bg-cyan-500/15 border-cyan-500/25",
   },
 ];

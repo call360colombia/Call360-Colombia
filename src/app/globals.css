@@ -427,7 +427,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-ticker {
-  animation: ticker-scroll 75s linear infinite;
+  animation: ticker-scroll 48s linear infinite;
   will-change: transform;
 }
 
@@ -438,7 +438,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .animate-ticker-slow {
-  animation: ticker-scroll 90s linear infinite;
+  animation: ticker-scroll 60s linear infinite;
   will-change: transform;
 }
 

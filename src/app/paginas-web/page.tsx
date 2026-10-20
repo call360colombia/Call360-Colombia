@@ -483,14 +483,14 @@ export default function PaginasWebPage() {
             {/* Image Slider de Proyectos Reales */}
             <ImageSlider
               images={[
-                { src: "/shots/call360.jpg", alt: "Plataforma SaaS Call360 — Web Comercial & CRM" },
-                { src: "/shots/clinica.jpg", alt: "Página Web Especializada para Clínica Odontológica" },
-                { src: "/shots/reservadelguamo.jpg", alt: "Portal Turístico y Hotelero Reserva del Guamo" },
-                { src: "/shots/barberpro.jpg", alt: "Sitio Web y Sistema de Citas Barber Pro" },
-                { src: "/shots/yajuridico.jpg", alt: "Página Web Corporativa para Firma Jurídica" },
-                { src: "/shots/alfayomega.jpg", alt: "Sitio Web Empresarial para Ingeniería Alfa y Omega" },
+                { src: "/shots/clinica.jpg", alt: "New Clinic — Odontología y Armonización Orofacial", urlPreview: "newclinic.com.co" },
+                { src: "/shots/alfayomega.jpg", alt: "Alfa & Omega — Extintores y Control de Plagas / Fumigación", urlPreview: "alfayomegaingenieria.com" },
+                { src: "/shots/tulicencia.jpg", alt: "Tu Licencia — Gestión Legal y Trámites", urlPreview: "tulicenciacolombia.com" },
+                { src: "/shots/yajuridico.jpg", alt: "YA Jurídico — Servicios Legales y Asesoría Corporativa", urlPreview: "yajuridico.com" },
+                { src: "/shots/reservadelguamo.jpg", alt: "Reserva del Guamo Tolima — Desarrollo Inmobiliario y Lotes Campestres", urlPreview: "reservadelguamo.com" },
+                { src: "/shots/call360.jpg", alt: "Call360 Colombia — Plataforma Comercial SaaS & CRM", urlPreview: "call360colombia.com" },
               ]}
-              interval={4000}
+              interval={4500}
             />
           </div>
         </div>

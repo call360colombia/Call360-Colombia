@@ -9,6 +9,7 @@ import ModernSaaSMockup from "@/components/ModernSaaSMockup";
 import LiveBenefitsTicker from "@/components/LiveBenefitsTicker";
 import CommercialTicketsBanner from "@/components/CommercialTicketsBanner";
 import ArcadeTicketsMarquee from "@/components/ArcadeTicketsMarquee";
+import PortfolioShowcase from "@/components/PortfolioShowcase";
 
 export default function Home() {
   return (
@@ -316,6 +317,32 @@ export default function Home() {
                 </a>
               </p>
             </div>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* PORTAFOLIO DE PROYECTOS REALES */}
+      <section className="py-14 sm:py-20 lg:py-28 bg-[#0a0c13]/70 border-t border-white/[0.06]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center mb-12 sm:mb-16">
+              <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
+                ★ Proyectos Reales Desarrollados
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white">
+                Empresas colombianas que ya{" "}
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
+                  venden y crecen con Call360
+                </span>
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-white/60 leading-relaxed">
+                Diseño web responsive de alto impacto, plataformas a medida y sistemas de venta directa por WhatsApp con entrega récord en 72 horas.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <PortfolioShowcase />
           </ScrollReveal>
         </div>
       </section>
