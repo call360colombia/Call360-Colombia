@@ -3,6 +3,7 @@ import Image from "next/image";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
 import ComparisonTable from "@/components/ComparisonTable";
+import PhoneSystemMockup from "@/components/PhoneSystemMockup";
 
 export const metadata: Metadata = {
   title: "Call Center | Call360 | Sistema Comercial Integral",
@@ -180,31 +181,9 @@ export default function CallCenterPage() {
               </div>
             </div>
 
-            <div className="relative hidden lg:block">
-              <div className="relative aspect-square max-w-lg mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-violet-500/10 to-amber-500/10 rounded-3xl blur-3xl" />
-                <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a] p-6 group">
-                  <Image
-                    src="/inicio/hero.png?v=2"
-                    alt="Call360 para Call Centers"
-                    fill
-                    priority
-                    className="object-contain transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="absolute -bottom-6 -left-8 rounded-2xl border border-white/[0.08] bg-[#12121a]/90 backdrop-blur-xl px-6 py-4 shadow-xl animate-float">
-                  <div className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                    +3M
-                  </div>
-                  <div className="text-xs text-white/50 font-medium">Minutos/mes</div>
-                </div>
-                <div className="absolute -top-6 -right-8 rounded-2xl border border-white/[0.08] bg-[#12121a]/90 backdrop-blur-xl px-6 py-4 shadow-xl animate-float delay-700">
-                  <div className="text-3xl font-black bg-gradient-to-r from-violet-400 to-amber-400 bg-clip-text text-transparent">
-                    +200
-                  </div>
-                  <div className="text-xs text-white/50 font-medium">Empresas activas</div>
-                </div>
-              </div>
+            {/* PBX & Dialer Mockup */}
+            <div className="relative mt-8 lg:mt-0 w-full max-w-xl mx-auto">
+              <PhoneSystemMockup />
             </div>
           </div>
         </div>

@@ -305,61 +305,49 @@ export default function CRMWhatsAppPage() {
             </div>
           </ScrollReveal>
 
-          {/* Hero Image */}
+          {/* Interactive Modern SaaS Showcase */}
           <ScrollReveal>
-            <div className="relative mb-8 overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a] p-6 group">
-              <div className="absolute inset-0 bg-gradient-to-b from-emerald-500/[0.05] to-transparent" />
-              <div className="relative z-10 aspect-video overflow-hidden rounded-2xl bg-white/[0.04]">
-                <Image
-                  src="/whatsapp/WhatsappCRMPC.jpeg?v=2"
-                  alt="CRM WhatsApp en PC"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
+            <div className="relative mb-12">
+              <ModernSaaSMockup variant="hero" className="w-full" />
             </div>
           </ScrollReveal>
 
-          {/* Feature Images Grid */}
+          {/* Feature Highlights Grid */}
           <div className="grid gap-6 md:grid-cols-3">
             {[
-              { src: "/whatsapp/PanelWhatsapp.png?v=2", alt: "Panel multiagente WhatsApp", title: "Panel multiagente" },
-              { src: "/whatsapp/HistorialWhatsapp.png?v=2", alt: "Historial de conversaciones", title: "Historial completo" },
-              { src: "/whatsapp/CampañasWhatsapp.png?v=2", alt: "Campañas masivas WhatsApp", title: "Campañas masivas" },
-            ].map((img, i) => (
-              <ScrollReveal key={img.src} delay={i * 150}>
-                <div className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all hover:border-emerald-500/20">
-                  <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="p-4">
-                    <h3 className="text-sm font-bold text-white">{img.title}</h3>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-
-          {/* Secondary Images */}
-          <div className="mt-6 grid gap-6 md:grid-cols-2">
-            {[
-              { src: "/whatsapp/WhatsappCRM.jpeg?v=2", alt: "CRM WhatsApp interfaz" },
-              { src: "/whatsapp/dashboard.png?v=2", alt: "Dashboard de métricas WhatsApp" },
-            ].map((img, i) => (
-              <ScrollReveal key={img.src} delay={i * 150}>
-                <div className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all hover:border-emerald-500/20">
-                  <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+              {
+                icon: "💬",
+                title: "Bandeja Unificada Multiagente",
+                desc: "Todo tu equipo atiende desde una misma línea comercial. Historial compartido y asignación de chats en menos de 2 segundos.",
+                badge: "Cero Esperas",
+                badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
+              },
+              {
+                icon: "⚡",
+                title: "Campañas Masivas Protegidas",
+                desc: "Dispersión programada con cadencia anti-bloqueo y variables dinámicas ({Nombre}, {Empresa}) en horario hábil Colombia.",
+                badge: "Cadencia Segura",
+                badgeColor: "border-cyan-500/30 bg-cyan-500/10 text-cyan-400",
+              },
+              {
+                icon: "📈",
+                title: "Pipeline & Cotizaciones PDF",
+                desc: "Convierte conversaciones en acuerdos cerrados. Genera cotizaciones y visualiza el valor total de tu embudo comercial.",
+                badge: "Cierre Rápido",
+                badgeColor: "border-violet-500/30 bg-violet-500/10 text-violet-400",
+              },
+            ].map((feat, i) => (
+              <ScrollReveal key={feat.title} delay={i * 120}>
+                <div className="group h-full rounded-2xl border border-white/10 bg-[#0c0c14]/90 p-6 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 shadow-xl flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-2xl">{feat.icon}</span>
+                      <span className={`text-[10px] font-bold uppercase rounded-full border px-2.5 py-0.5 ${feat.badgeColor}`}>
+                        {feat.badge}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">{feat.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{feat.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>

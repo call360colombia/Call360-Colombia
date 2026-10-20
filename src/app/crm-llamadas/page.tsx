@@ -14,6 +14,7 @@ import IssabelDashboard from "@/components/IssabelDashboard";
 import GuaranteesSection from "@/components/GuaranteesSection";
 import CotizadorCRM from "@/components/CotizadorCRM";
 import DemoRequestForm from "@/components/DemoRequestForm";
+import PhoneSystemMockup from "@/components/PhoneSystemMockup";
 
 export const metadata: Metadata = {
   title: "CRM Llamadas con Minutos Ilimitados | Call360",
@@ -158,21 +159,21 @@ export default function CRMLlamadasPage() {
                   ⚡ Demo real de 6 horas gratis • Minutos ilimitados • Activación en 24h
                 </p>
               </div>
+
+              {/* Mobile Phone Mockup */}
+              <div className="relative mt-10 md:hidden w-full">
+                <div className="relative max-w-lg mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-cyan-500/10 rounded-3xl blur-2xl pointer-events-none" />
+                  <PhoneSystemMockup className="w-full" />
+                </div>
+              </div>
             </div>
 
-            {/* Hero Visual */}
+            {/* Desktop Hero Visual */}
             <div className="relative hidden md:block">
-              <div className="relative aspect-video max-w-lg mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-cyan-500/10 rounded-3xl blur-3xl" />
-                <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.04] p-4 group glow-violet">
-                  <Image
-                    src="/predictivo/hero.png?v=2"
-                    alt="CRM Llamadas Dashboard"
-                    fill
-                    priority
-                    className="object-contain transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+              <div className="relative max-w-xl mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-purple-500/10 to-cyan-500/10 rounded-3xl blur-3xl pointer-events-none" />
+                <PhoneSystemMockup className="w-full" />
               </div>
             </div>
           </div>
@@ -223,36 +224,42 @@ export default function CRMLlamadasPage() {
             </div>
           </ScrollReveal>
 
-          {/* Hero Image */}
-          <ScrollReveal>
-            <div className="relative mb-8 overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a] p-6 group">
-              <div className="absolute inset-0 bg-gradient-to-b from-violet-500/[0.05] to-transparent" />
-              <div className="relative z-10 aspect-video overflow-hidden rounded-2xl bg-white/[0.04]">
-                <Image
-                  src="/predictivo/llamada.jpeg?v=2"
-                  alt="Llamada en curso - CRM Llamadas"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* Dashboard Images */}
-          <div className="grid gap-6 md:grid-cols-2">
+          {/* Capability Cards con Estética Moderna */}
+          <div className="grid gap-6 md:grid-cols-3">
             {[
-              { src: "/predictivo/dashboard.jpeg?v=2", alt: "Dashboard de métricas de llamadas" },
-              { src: "/predictivo/Dashboard 2.jpeg?v=2", alt: "Panel de control de agentes" },
-            ].map((img, i) => (
-              <ScrollReveal key={img.src} delay={i * 150}>
-                <div className="group overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all hover:border-violet-500/20">
-                  <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                    <Image
-                      src={img.src}
-                      alt={img.alt}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+              {
+                icon: "🎙️",
+                title: "Grabación 100% en la Nube",
+                desc: "Cada segundo de conversación queda respaldado con audio nítido para auditoría comercial y cumplimiento legal.",
+                badge: "Audio HD Encriptado",
+                badgeColor: "border-violet-500/30 bg-violet-500/10 text-violet-300",
+              },
+              {
+                icon: "⚡",
+                title: "Minutos Ilimitados Reales",
+                desc: "Habla todo el mes con fijos y celulares de Colombia sin cortes, sin recargas sorpresa y con tarifa fija mensual.",
+                badge: "Cero Costos Ocultos",
+                badgeColor: "border-cyan-500/30 bg-cyan-500/10 text-cyan-300",
+              },
+              {
+                icon: "📊",
+                title: "Supervisión en Tiempo Real",
+                desc: "Monitorea llamadas activas, tiempo promedio en línea y estado de cada agente desde cualquier navegador.",
+                badge: "Consola Web en Vivo",
+                badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-300",
+              },
+            ].map((card, i) => (
+              <ScrollReveal key={card.title} delay={i * 120}>
+                <div className="group h-full rounded-2xl border border-white/10 bg-[#0c0c14]/90 p-6 transition-all duration-300 hover:border-violet-400/40 hover:-translate-y-1 shadow-xl flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-2xl">{card.icon}</span>
+                      <span className={`text-[10px] font-bold uppercase rounded-full border px-2.5 py-0.5 ${card.badgeColor}`}>
+                        {card.badge}
+                      </span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-2">{card.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{card.desc}</p>
                   </div>
                 </div>
               </ScrollReveal>

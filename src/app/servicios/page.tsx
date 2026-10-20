@@ -69,7 +69,7 @@ const services = [
     href: "/marketing",
     gradient: "from-amber-500/20 to-orange-500/20",
     hoverBorder: "hover:border-amber-500/30",
-    image: "/Marketing/EstrategiaDeContenido.jpeg?v=2",
+    image: "/Marketing/marketing_scheduler_mockup.png",
     alt: "Marketing Digital Profesional",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -153,18 +153,18 @@ export default function ServiciosPage() {
                 <div className="relative grid grid-cols-2 gap-3 p-4">
                   <div className="space-y-3">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/predictivo/hero.png?v=2" alt="CRM Llamadas" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <Image src="/shots/call360.jpg" alt="Call360 Platform" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/whatsapp/hero.png?v=2" alt="CRM WhatsApp" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <Image src="/whatsapp/wa_inbox_mockup.png" alt="CRM WhatsApp Multiagente" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                   </div>
                   <div className="space-y-3 pt-8">
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/creacion-web/hero.png?v=2" alt="Páginas Web" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <Image src="/shots/clinica.jpg" alt="Páginas Web y Sistemas" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                     <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/Marketing/EstrategiaDeContenido.jpeg?v=2" alt="Marketing Digital" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <Image src="/shots/reservadelguamo.jpg" alt="E-Commerce y Marketing" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
                     </div>
                   </div>
                 </div>
@@ -328,7 +328,7 @@ export default function ServiciosPage() {
             <ScrollReveal>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-violet-500/20">
                 <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/predictivo/dashboard.jpeg?v=2" alt="Dashboard CRM Llamadas" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src="/predictivo/voip_dashboard_mockup.png" alt="Dashboard CRM Llamadas" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">CRM Llamadas Predictivo</h3>
@@ -339,7 +339,7 @@ export default function ServiciosPage() {
             <ScrollReveal delay={150}>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-emerald-500/20">
                 <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/whatsapp/PanelWhatsapp.png?v=2" alt="Panel CRM WhatsApp" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src="/whatsapp/wa_inbox_mockup.png" alt="Panel CRM WhatsApp" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">CRM WhatsApp Multiagente</h3>
@@ -354,7 +354,7 @@ export default function ServiciosPage() {
             <ScrollReveal>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-cyan-500/20">
                 <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/creacion-web/Diseño1.png?v=2" alt="Diseño de Páginas Web" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src="/creacion-web/web_templates_mockup.png" alt="Diseño de Páginas Web" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">Diseño de Páginas Web</h3>
@@ -365,7 +365,7 @@ export default function ServiciosPage() {
             <ScrollReveal delay={150}>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-amber-500/20">
                 <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/Marketing/ContenidoConstante.png?v=2" alt="Marketing Digital" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <Image src="/Marketing/marketing_scheduler_mockup.png" alt="Marketing Digital" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">Marketing Digital</h3>

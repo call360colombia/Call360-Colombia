@@ -189,7 +189,7 @@ export default function MarketingDigitalPage() {
               </div>
               <div className="order-1 md:order-2 relative aspect-video overflow-hidden rounded-2xl bg-white/[0.04] p-4 group">
                 <Image
-                  src="/Marketing/EstrategiaDeContenido.jpeg?v=2"
+                  src="/Marketing/marketing_scheduler_mockup.png"
                   alt="Estrategia de Contenido Digital"
                   fill
                   className="object-contain transition-transform duration-500 group-hover:scale-105"
