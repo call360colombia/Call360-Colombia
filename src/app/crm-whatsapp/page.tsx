@@ -14,6 +14,7 @@ import WhatsAppLiveChat from "@/components/WhatsAppLiveChat";
 import GuaranteesSection from "@/components/GuaranteesSection";
 import CotizadorCRM from "@/components/CotizadorCRM";
 import DemoRequestForm from "@/components/DemoRequestForm";
+import ModernSaaSMockup from "@/components/ModernSaaSMockup";
 
 export const metadata: Metadata = {
   title: "CRM WhatsApp Multiagente en Colombia | Call360",
@@ -243,17 +244,9 @@ export default function CRMWhatsAppPage() {
 
             {/* Hero Visual */}
             <div className="relative hidden md:block">
-              <div className="relative aspect-video max-w-lg mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/10 to-cyan-500/10 rounded-3xl blur-3xl" />
-                <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.04] p-4 group glow-emerald">
-                  <Image
-                    src="/whatsapp/hero.png?v=2"
-                    alt="CRM WhatsApp Dashboard"
-                    fill
-                    priority
-                    className="object-contain transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+              <div className="relative max-w-xl mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/10 to-cyan-500/10 rounded-3xl blur-3xl pointer-events-none" />
+                <ModernSaaSMockup variant="whatsapp" className="w-full" />
               </div>
             </div>
           </div>

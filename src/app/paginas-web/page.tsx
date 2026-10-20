@@ -456,13 +456,15 @@ export default function PaginasWebPage() {
               </div>
             </div>
 
-            {/* Image Slider */}
+            {/* Image Slider de Proyectos Reales */}
             <ImageSlider
               images={[
-                { src: "/creacion-web/Diseño1.png?v=2", alt: "Diseño de página web 1" },
-                { src: "/creacion-web/Diseño2.png?v=2", alt: "Diseño de página web 2" },
-                { src: "/creacion-web/Diseño3.png?v=2", alt: "Diseño de página web 3" },
-                { src: "/creacion-web/Diseño4.png?v=2", alt: "Diseño de página web 4" },
+                { src: "/shots/call360.jpg", alt: "Plataforma SaaS Call360 — Web Comercial & CRM" },
+                { src: "/shots/clinica.jpg", alt: "Página Web Especializada para Clínica Odontológica" },
+                { src: "/shots/reservadelguamo.jpg", alt: "Portal Turístico y Hotelero Reserva del Guamo" },
+                { src: "/shots/barberpro.jpg", alt: "Sitio Web y Sistema de Citas Barber Pro" },
+                { src: "/shots/yajuridico.jpg", alt: "Página Web Corporativa para Firma Jurídica" },
+                { src: "/shots/alfayomega.jpg", alt: "Sitio Web Empresarial para Ingeniería Alfa y Omega" },
               ]}
               interval={4000}
             />

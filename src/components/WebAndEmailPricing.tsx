@@ -95,10 +95,10 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
 
           {/* 2. PLAN ANUAL CRECIMIENTO (DESTACADO) */}
           <ScrollReveal delay={100}>
-            <div className="relative flex h-full flex-col justify-between rounded-3xl border-2 border-cyan-400/50 bg-gradient-to-b from-cyan-500/[0.12] via-[#12121a] to-[#12121a] p-8 sm:p-10 shadow-2xl shadow-cyan-500/10 transition-all duration-300 hover:border-cyan-400 hover:-translate-y-1">
+            <div className="relative flex h-full flex-col justify-between rounded-3xl border-2 border-cyan-400/60 bg-gradient-to-b from-cyan-500/[0.15] via-[#12121a] to-[#12121a] p-8 sm:p-10 shadow-[0_0_50px_-10px_rgba(6,182,212,0.25)] transition-all duration-300 hover:border-cyan-300 hover:-translate-y-1">
               {/* Badge Destacado */}
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 px-4 py-1 text-xs font-black uppercase tracking-wider text-white shadow-lg shadow-cyan-500/30">
-                Mejor Valor — 50% DCTO
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-5 py-1.5 text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-cyan-500/40">
+                ⚡ Ahorra 50% · Mejor Valor
               </div>
 
               <div>

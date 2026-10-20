@@ -5,6 +5,7 @@ import HowItWorks from "@/components/HowItWorks";
 import ServiceCard from "@/components/ServiceCard";
 import FAQSection from "@/components/FAQSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ModernSaaSMockup from "@/components/ModernSaaSMockup";
 
 export default function Home() {
   return (
@@ -105,30 +106,25 @@ export default function Home() {
             </div>
 
             <div className="relative hidden lg:block">
-              <div className="relative aspect-square max-w-lg mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-cyan-500/10 to-emerald-500/10 rounded-3xl blur-3xl" />
-                <div className="relative h-full w-full overflow-hidden rounded-3xl border border-white/[0.08] bg-white/[0.04] p-6 group glow-violet">
-                  <Image
-                    src="/inicio/hero.png?v=2"
-                    alt="Call360 - Sistema Completo de Ventas para Call Centers y Equipos Comerciales"
-                    fill
-                    priority
-                    className="object-contain transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
+              <div className="relative max-w-xl mx-auto">
+                <div className="absolute inset-0 bg-gradient-to-br from-violet-500/20 via-cyan-500/15 to-emerald-500/15 rounded-3xl blur-3xl pointer-events-none" />
+                
+                {/* Modern Dark Mode SaaS Window Mockup */}
+                <ModernSaaSMockup variant="hero" className="w-full" />
 
-                <div className="absolute -bottom-6 -left-8 rounded-2xl border border-white/[0.08] bg-[#12121a]/90 backdrop-blur-xl px-6 py-4 shadow-xl animate-float">
-                  <div className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
+                {/* Floating Metric Badges with Ambient Glow */}
+                <div className="absolute -bottom-6 -left-6 rounded-2xl border border-white/10 bg-[#0c0c14]/90 backdrop-blur-xl px-5 py-3 shadow-2xl shadow-cyan-500/10 animate-float pointer-events-none">
+                  <div className="text-2xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
                     72h
                   </div>
-                  <div className="text-xs text-white/50 font-medium">Entrega promedio</div>
+                  <div className="text-[11px] text-white/60 font-medium">Entrega promedio web</div>
                 </div>
 
-                <div className="absolute -top-6 -right-8 rounded-2xl border border-white/[0.08] bg-[#12121a]/90 backdrop-blur-xl px-6 py-4 shadow-xl animate-float delay-700">
-                  <div className="text-3xl font-black bg-gradient-to-r from-violet-400 to-emerald-400 bg-clip-text text-transparent">
+                <div className="absolute -top-6 -right-6 rounded-2xl border border-white/10 bg-[#0c0c14]/90 backdrop-blur-xl px-5 py-3 shadow-2xl shadow-emerald-500/10 animate-float delay-700 pointer-events-none">
+                  <div className="text-2xl font-black bg-gradient-to-r from-emerald-400 to-teal-400 bg-clip-text text-transparent">
                     +200
                   </div>
-                  <div className="text-xs text-white/50 font-medium">Empresas activas</div>
+                  <div className="text-[11px] text-white/60 font-medium">Empresas en Colombia</div>
                 </div>
               </div>
             </div>
