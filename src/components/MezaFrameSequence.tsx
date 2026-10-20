@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 
 const FRAME_COUNT = 80;
 const frameSrc = (i: number) =>
-  `/frames-meza/${String(i + 1).padStart(2, "0")}.webp`;
+  `/media/frames/${String(i + 1).padStart(2, "0")}.webp`;
 
 interface MezaFrameSequenceProps {
   /** "global" para vincular al scroll total de la página, o id de un contenedor específico */

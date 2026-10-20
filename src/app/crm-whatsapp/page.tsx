@@ -240,9 +240,17 @@ export default function CRMWhatsAppPage() {
                   ⚡ Sin tarjeta de crédito • Configuración en 10 min • Cancela cuando quieras
                 </p>
               </div>
+
+              {/* Mobile Hero Visual Mockup */}
+              <div className="relative mt-10 md:hidden w-full">
+                <div className="relative max-w-lg mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/10 to-cyan-500/10 rounded-3xl blur-2xl pointer-events-none" />
+                  <ModernSaaSMockup variant="whatsapp" className="w-full" />
+                </div>
+              </div>
             </div>
 
-            {/* Hero Visual */}
+            {/* Hero Visual Desktop */}
             <div className="relative hidden md:block">
               <div className="relative max-w-xl mx-auto">
                 <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/10 to-cyan-500/10 rounded-3xl blur-3xl pointer-events-none" />

@@ -13,39 +13,40 @@ export default function MezaScrollExperience() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const [progress, setProgress] = useState(0);
-  const [currentFrame, setCurrentFrame] = useState(0);
+  const [displayFrame, setDisplayFrame] = useState(0);
+  const [displayProgress, setDisplayProgress] = useState(0);
   const [isReady, setIsReady] = useState(false);
 
-  // Cache de imágenes precargadas
-  const imagesRef = useRef<(HTMLImageElement | null)[]>(
-    new Array(TOTAL_FRAMES).fill(null)
-  );
-  const loadedCountRef = useRef(0);
-  const lastRenderedIndexRef = useRef(-1);
+  // Cache de imágenes con carga predictiva
+  const cacheRef = useRef<Map<number, HTMLImageElement>>(new Map());
+  const pendingRef = useRef<Set<number>>(new Set());
+  const targetProgressRef = useRef(0);
+  const currentProgressRef = useRef(0);
+  const currentFrameRef = useRef(-1);
+  const isCancelledRef = useRef(false);
 
-  // Función para dibujar un frame con ajuste "cover" y punto focal en el rostro
-  const drawFrame = useCallback((index: number) => {
+  // Función para dibujar un frame con encuadre cover inteligente
+  const draw = useCallback((idx: number) => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d", { alpha: false });
     if (!ctx) return;
 
-    // Buscar el frame deseado o el más cercano cargado
-    let img = imagesRef.current[index];
+    // Obtener imagen del cache
+    let img = cacheRef.current.get(idx);
     if (!img || !img.complete || img.naturalWidth === 0) {
-      // Buscar hacia atrás
-      for (let i = index - 1; i >= 0; i--) {
-        const candidate = imagesRef.current[i];
+      // Buscar frame cargado más cercano hacia atrás
+      for (let k = idx - 1; k >= 0; k--) {
+        const candidate = cacheRef.current.get(k);
         if (candidate?.complete && candidate.naturalWidth > 0) {
           img = candidate;
           break;
         }
       }
-      // Si aún no, buscar hacia adelante
+      // Si no, buscar hacia adelante
       if (!img || !img.complete || img.naturalWidth === 0) {
-        for (let i = index + 1; i < TOTAL_FRAMES; i++) {
-          const candidate = imagesRef.current[i];
+        for (let k = idx + 1; k < TOTAL_FRAMES; k++) {
+          const candidate = cacheRef.current.get(k);
           if (candidate?.complete && candidate.naturalWidth > 0) {
             img = candidate;
             break;
@@ -60,18 +61,14 @@ export default function MezaScrollExperience() {
     const ch = canvas.height;
     if (cw < 2 || ch < 2) return;
 
-    // Proporción "cover"
-    const hRatio = cw / img.naturalWidth;
-    const vRatio = ch / img.naturalHeight;
-    const scale = Math.max(hRatio, vRatio);
-
+    // Proporción cover
+    const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
     const dw = img.naturalWidth * scale;
     const dh = img.naturalHeight * scale;
 
-    // Encuadre inteligente con punto focal en rostro (~46% X, ~40% Y)
+    // Centrado con punto focal en el rostro (~46% X, ~40% Y)
     const clampN = (v: number, lo: number, hi: number) =>
       v < lo ? lo : v > hi ? hi : v;
-
     const dx =
       dw <= cw ? (cw - dw) / 2 : clampN(cw * 0.5 - 0.46 * dw, cw - dw, 0);
     const dy =
@@ -80,130 +77,174 @@ export default function MezaScrollExperience() {
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
     ctx.drawImage(img, dx, dy, dw, dh);
-    lastRenderedIndexRef.current = index;
+    currentFrameRef.current = idx;
   }, []);
 
-  // Redimensionar el canvas adaptado a Retina display
+  // Función de carga con disparo inmediato de redibujo
+  const loadFrame = useCallback(
+    (idx: number): HTMLImageElement | null => {
+      if (idx < 0 || idx >= TOTAL_FRAMES) return null;
+      const hit = cacheRef.current.get(idx);
+      if (hit?.complete && hit.naturalWidth > 0) return hit;
+      if (pendingRef.current.has(idx)) return null;
+      pendingRef.current.add(idx);
+
+      const img = new Image();
+      img.decoding = "async";
+      img.fetchPriority = idx < 6 ? "high" : "low";
+      img.src = frameSrc(idx);
+
+      img.onload = () => {
+        pendingRef.current.delete(idx);
+        if (isCancelledRef.current) return;
+        cacheRef.current.set(idx, img);
+
+        if (idx === 0 && !isReady) {
+          setIsReady(true);
+        }
+
+        // Si el usuario está detenido en este frame exacto o es el primer render
+        const targetFrame = Math.min(
+          TOTAL_FRAMES - 1,
+          Math.max(0, Math.floor(currentProgressRef.current * (TOTAL_FRAMES - 1)))
+        );
+        if (targetFrame === idx || currentFrameRef.current === -1) {
+          draw(idx);
+        }
+      };
+
+      img.onerror = () => {
+        pendingRef.current.delete(idx);
+      };
+
+      cacheRef.current.set(idx, img);
+      return null;
+    },
+    [draw, isReady]
+  );
+
+  // Precarga dinámica alrededor de la posición actual del usuario
+  const preloadAround = useCallback(
+    (center: number) => {
+      // Priorizar los siguientes 8 frames en dirección de avance y 3 hacia atrás
+      const offsets = [0, 1, 2, 3, 4, 5, 6, 7, 8, -1, -2, -3];
+      for (const off of offsets) {
+        const target = center + off;
+        if (target >= 0 && target < TOTAL_FRAMES) {
+          loadFrame(target);
+        }
+      }
+    },
+    [loadFrame]
+  );
+
+  // Redimensionar canvas adaptado a Retina Display
   const resizeCanvas = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(typeof window !== "undefined" ? window.devicePixelRatio || 1 : 1, 2);
     const w = Math.round(canvas.clientWidth * dpr);
     const h = Math.round(canvas.clientHeight * dpr);
 
     if (canvas.width !== w || canvas.height !== h) {
       canvas.width = w;
       canvas.height = h;
-      if (lastRenderedIndexRef.current >= 0) {
-        drawFrame(lastRenderedIndexRef.current);
+      if (currentFrameRef.current >= 0) {
+        draw(currentFrameRef.current);
       }
     }
-  }, [drawFrame]);
+  }, [draw]);
 
-  // Precarga progresiva e inteligente de los 80 frames
+  // Ciclo principal de inicialización, precarga y Loop RAF con interpolación suave
   useEffect(() => {
-    let isCancelled = false;
+    isCancelledRef.current = false;
 
-    // 1. Prioridad máxima a los primeros 4 frames para render instantáneo
-    for (let i = 0; i < 4; i++) {
-      const img = new Image();
-      img.decoding = "async";
-      img.fetchPriority = "high";
-      img.src = frameSrc(i);
-      img.onload = () => {
-        if (isCancelled) return;
-        imagesRef.current[i] = img;
-        loadedCountRef.current++;
-        if (i === 0) {
-          setIsReady(true);
-          resizeCanvas();
-          drawFrame(0);
-        }
-      };
+    // 1. Cargar frames iniciales prioritarios
+    for (let i = 0; i < 6; i++) {
+      loadFrame(i);
     }
 
-    // 2. Carga en lotes progresivos del resto para no saturar la red en móviles
+    // 2. Precarga progresiva rápida en segundo plano de todos los 80 frames
     const timers: number[] = [];
-
-    const loadRange = (start: number, end: number) => {
-      if (isCancelled) return;
-      for (let i = start; i <= end && i < TOTAL_FRAMES; i++) {
-        if (imagesRef.current[i]) continue;
-        const img = new Image();
-        img.decoding = "async";
-        img.fetchPriority = "low";
-        img.src = frameSrc(i);
-        img.onload = () => {
-          if (isCancelled) return;
-          imagesRef.current[i] = img;
-          loadedCountRef.current++;
-        };
+    const batchLoad = (from: number, to: number) => {
+      if (isCancelledRef.current) return;
+      for (let i = from; i <= to && i < TOTAL_FRAMES; i++) {
+        loadFrame(i);
       }
     };
 
-    timers.push(window.setTimeout(() => loadRange(4, 20), 80));
-    timers.push(window.setTimeout(() => loadRange(21, 45), 250));
-    timers.push(window.setTimeout(() => loadRange(46, 65), 550));
-    timers.push(window.setTimeout(() => loadRange(66, 79), 900));
+    timers.push(window.setTimeout(() => batchLoad(6, 22), 60));
+    timers.push(window.setTimeout(() => batchLoad(23, 48), 200));
+    timers.push(window.setTimeout(() => batchLoad(49, 68), 450));
+    timers.push(window.setTimeout(() => batchLoad(69, 79), 750));
 
-    return () => {
-      isCancelled = true;
-      timers.forEach((t) => window.clearTimeout(t));
-    };
-  }, [drawFrame, resizeCanvas]);
-
-  // Manejador de scroll de alto rendimiento con requestAnimationFrame
-  useEffect(() => {
+    // 3. Loop RAF continuo con interpolación suave (Lerp)
     let rafId = 0;
+    let lastRenderedFrame = -1;
 
-    const handleScroll = () => {
-      if (rafId) return;
+    const loop = () => {
+      // Interpolación suave del progreso de scroll (velocidad 0.22 por tick)
+      const diff = targetProgressRef.current - currentProgressRef.current;
+      if (Math.abs(diff) > 0.0005) {
+        currentProgressRef.current += diff * 0.22;
+      } else {
+        currentProgressRef.current = targetProgressRef.current;
+      }
 
-      rafId = requestAnimationFrame(() => {
-        rafId = 0;
-        const container = containerRef.current;
-        if (!container) return;
+      const p = currentProgressRef.current;
+      const targetIdx = Math.min(
+        TOTAL_FRAMES - 1,
+        Math.max(0, Math.floor(p * (TOTAL_FRAMES - 1)))
+      );
 
-        const rect = container.getBoundingClientRect();
-        const containerHeight = rect.height;
-        const windowHeight = window.innerHeight || 1;
+      if (targetIdx !== lastRenderedFrame) {
+        lastRenderedFrame = targetIdx;
+        setDisplayFrame(targetIdx);
+        setDisplayProgress(p);
+        draw(targetIdx);
+        preloadAround(targetIdx);
+      }
 
-        // Recorrido total disponible
-        const totalScrollable = containerHeight - windowHeight;
-        if (totalScrollable <= 0) return;
-
-        // Cuánto se ha scrolleado del contenedor
-        const scrolled = -rect.top;
-        const rawProgress = scrolled / totalScrollable;
-        const clampedProgress = Math.min(1, Math.max(0, rawProgress));
-
-        setProgress(clampedProgress);
-
-        // Mapear directamente a los 80 frames (0 a 79)
-        const frameIdx = Math.min(
-          TOTAL_FRAMES - 1,
-          Math.max(0, Math.floor(clampedProgress * (TOTAL_FRAMES - 1)))
-        );
-
-        setCurrentFrame(frameIdx);
-        drawFrame(frameIdx);
-      });
+      rafId = requestAnimationFrame(loop);
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    window.addEventListener("resize", resizeCanvas, { passive: true });
+    // 4. Cálculo instantáneo de scroll en contenedor
+    const updateScrollProgress = () => {
+      const container = containerRef.current;
+      if (!container) return;
 
-    // Primer ajuste
+      const rect = container.getBoundingClientRect();
+      const containerHeight = rect.height;
+      const windowHeight = window.innerHeight || 1;
+
+      const totalScrollable = containerHeight - windowHeight;
+      if (totalScrollable <= 0) return;
+
+      const scrolled = -rect.top;
+      const rawProgress = scrolled / totalScrollable;
+      targetProgressRef.current = Math.min(1, Math.max(0, rawProgress));
+    };
+
     resizeCanvas();
-    handleScroll();
+    updateScrollProgress();
+    currentProgressRef.current = targetProgressRef.current;
+    loop();
+
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+    window.addEventListener("resize", () => {
+      resizeCanvas();
+      updateScrollProgress();
+    }, { passive: true });
 
     return () => {
+      isCancelledRef.current = true;
       if (rafId) cancelAnimationFrame(rafId);
-      window.removeEventListener("scroll", handleScroll);
+      timers.forEach((t) => window.clearTimeout(t));
+      window.removeEventListener("scroll", updateScrollProgress);
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, [drawFrame, resizeCanvas]);
+  }, [draw, loadFrame, preloadAround, resizeCanvas]);
 
   return (
     <div
@@ -234,7 +275,7 @@ export default function MezaScrollExperience() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
             </span>
-            <span>FRAME {String(currentFrame + 1).padStart(2, "0")} / 80</span>
+            <span>FRAME {String(displayFrame + 1).padStart(2, "0")} / 80</span>
           </div>
 
           <div className="hidden sm:inline-flex items-center gap-1.5 text-xs text-white/50 bg-black/40 border border-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
@@ -247,11 +288,11 @@ export default function MezaScrollExperience() {
           <div className="w-1 h-32 sm:h-48 rounded-full bg-white/10 overflow-hidden relative">
             <div
               className="w-full bg-gradient-to-b from-cyan-400 to-emerald-400 rounded-full transition-all duration-75"
-              style={{ height: `${Math.round(progress * 100)}%` }}
+              style={{ height: `${Math.round(displayProgress * 100)}%` }}
             />
           </div>
           <span className="text-[10px] font-mono text-cyan-400 font-bold">
-            {Math.round(progress * 100)}%
+            {Math.round(displayProgress * 100)}%
           </span>
         </div>
 
@@ -259,10 +300,10 @@ export default function MezaScrollExperience() {
         <div className="relative z-20 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 w-full pointer-events-none">
           {/* FASE 1: 0% a 25% — Presentación y Dirección de Juan David Meza */}
           <div
-            className={`transition-all duration-700 transform ${
-              progress < 0.26
+            className={`transition-all duration-500 transform ${
+              displayProgress < 0.26
                 ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 -translate-y-8 pointer-events-none hidden"
+                : "opacity-0 -translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
             <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-[#0c0c14]/85 border border-cyan-500/30 backdrop-blur-xl shadow-2xl shadow-cyan-950/30">
@@ -290,10 +331,10 @@ export default function MezaScrollExperience() {
 
           {/* FASE 2: 26% a 55% — Dolor y Solución WhatsApp Multiagente */}
           <div
-            className={`transition-all duration-700 transform ${
-              progress >= 0.26 && progress < 0.58
+            className={`transition-all duration-500 transform ${
+              displayProgress >= 0.26 && displayProgress < 0.58
                 ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 translate-y-8 pointer-events-none hidden"
+                : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
             <div className="max-w-xl mx-auto md:ml-auto p-6 sm:p-8 rounded-3xl bg-[#0c0c14]/85 border border-emerald-500/30 backdrop-blur-xl shadow-2xl shadow-emerald-950/30">
@@ -321,10 +362,10 @@ export default function MezaScrollExperience() {
 
           {/* FASE 3: 58% a 82% — Campañas Masivas con Cadencia Anti-Bloqueo */}
           <div
-            className={`transition-all duration-700 transform ${
-              progress >= 0.58 && progress < 0.85
+            className={`transition-all duration-500 transform ${
+              displayProgress >= 0.58 && displayProgress < 0.85
                 ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 translate-y-8 pointer-events-none hidden"
+                : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
             <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-[#0c0c14]/85 border border-cyan-500/30 backdrop-blur-xl shadow-2xl shadow-cyan-950/30">
@@ -345,10 +386,10 @@ export default function MezaScrollExperience() {
 
           {/* FASE 4: 85% a 100% — Trato Directo y Cierre */}
           <div
-            className={`transition-all duration-700 transform ${
-              progress >= 0.85
+            className={`transition-all duration-500 transform ${
+              displayProgress >= 0.85
                 ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 translate-y-8 pointer-events-none hidden"
+                : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
             <div className="max-w-xl mx-auto p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-cyan-500/20 via-[#0c0c14]/95 to-violet-500/20 border-2 border-cyan-400/60 backdrop-blur-2xl shadow-2xl shadow-cyan-500/20 text-center">
@@ -381,7 +422,7 @@ export default function MezaScrollExperience() {
         {/* HINT VISUAL DE SCROLL INFERIOR (DESAPARECE TRAS EL INICIO) */}
         <div
           className={`absolute bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 transition-opacity duration-500 pointer-events-none ${
-            progress < 0.15 ? "opacity-100" : "opacity-0"
+            displayProgress < 0.15 ? "opacity-100" : "opacity-0"
           }`}
         >
           <span className="text-[11px] font-bold uppercase tracking-widest text-cyan-400">

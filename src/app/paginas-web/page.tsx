@@ -7,6 +7,7 @@ import GuaranteesSection from "@/components/GuaranteesSection";
 import ServiceLeadForm from "@/components/ServiceLeadForm";
 import DemoRequestForm from "@/components/DemoRequestForm";
 import WebAndEmailPricing from "@/components/WebAndEmailPricing";
+import PortfolioShowcase from "@/components/PortfolioShowcase";
 
 export const metadata: Metadata = {
   title: "Páginas Web Profesionales en Colombia | Entrega 72h & WhatsApp | Call360",
@@ -286,26 +287,9 @@ export default function PaginasWebPage() {
               </p>
             </div>
 
-            {/* Hero Visual */}
-            <div className="mt-20 relative animate-fade-in-up animation-delay-400">
-              <div className="relative aspect-video overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] shadow-2xl shadow-cyan-500/10 group">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.05] to-violet-500/[0.05]" />
-                <Image
-                  src="/creacion-web/hero.png?v=2"
-                  alt="Diseño de Páginas Web Call360"
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  priority
-                />
-              </div>
-              
-              {/* Floating Stats Cards */}
-              <div className="absolute -bottom-6 -left-6 md:bottom-8 md:-left-12 rounded-2xl border border-white/[0.08] bg-[#12121a]/90 backdrop-blur-xl px-6 py-4 shadow-xl animate-float">
-                <div className="text-3xl font-black bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                  72h
-                </div>
-                <div className="text-xs text-white/50 font-medium">Entrega promedio</div>
-              </div>
+            {/* Hero Visual: Showcase de Proyectos Reales */}
+            <div className="mt-14 relative animate-fade-in-up animation-delay-400">
+              <PortfolioShowcase />
             </div>
           </div>
         </div>
@@ -354,17 +338,52 @@ export default function PaginasWebPage() {
               ))}
             </div>
 
-            {/* Mockup Visual */}
-            <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-[#12121a] p-4 group glow-cyan shadow-xl shadow-cyan-500/5 hover:-translate-y-1 transition-all duration-500">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/[0.03] to-violet-500/[0.03]" />
-              <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-white/[0.02]">
-                <Image
-                  src="/creacion-web/web_templates_mockup.png"
-                  alt="Plantillas web Call360"
-                  fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  sizes="(max-w-1024px) 100vw, 50vw"
-                />
+            {/* Mockup Visual Modernizado */}
+            <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0c0c14]/90 p-5 group shadow-2xl shadow-cyan-500/10 hover:-translate-y-1 transition-all duration-500">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
+                <div className="flex items-center gap-1.5">
+                  <span className="h-3 w-3 rounded-full bg-[#ff5f56]/80" />
+                  <span className="h-3 w-3 rounded-full bg-[#ffbd2e]/80" />
+                  <span className="h-3 w-3 rounded-full bg-[#27c93f]/80" />
+                </div>
+                <div className="text-xs font-mono text-cyan-400 font-bold">
+                  ⚡ Rendimiento Google: 100/100
+                </div>
+              </div>
+
+              <div className="space-y-3">
+                <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-emerald-400 text-lg">🚀</span>
+                    <div>
+                      <div className="text-xs font-bold text-white">Velocidad Extrema</div>
+                      <div className="text-[11px] text-white/50">Carga en menos de 1 segundo en redes 4G</div>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-emerald-400 font-mono">0.6s</span>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-cyan-400 text-lg">💬</span>
+                    <div>
+                      <div className="text-xs font-bold text-white">WhatsApp Flotante</div>
+                      <div className="text-[11px] text-white/50">Mensajes precargados por servicio</div>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-cyan-400 font-mono">1 Clic</span>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <span className="text-violet-400 text-lg">🔒</span>
+                    <div>
+                      <div className="text-xs font-bold text-white">SSL &amp; Dominio Propio</div>
+                      <div className="text-[11px] text-white/50">Certificado de seguridad bancario</div>
+                    </div>
+                  </div>
+                  <span className="text-xs font-bold text-violet-400 font-mono">HTTPS</span>
+                </div>
               </div>
             </div>
           </div>

@@ -103,6 +103,14 @@ export default function Home() {
                   </div>
                 ))}
               </div>
+
+              {/* Mobile SaaS Window Mockup (Visible en smartphones < 1024px) */}
+              <div className="relative mt-10 lg:hidden">
+                <div className="relative max-w-lg mx-auto">
+                  <div className="absolute inset-0 bg-gradient-to-br from-violet-500/15 via-cyan-500/10 to-emerald-500/10 rounded-3xl blur-2xl pointer-events-none" />
+                  <ModernSaaSMockup variant="hero" className="w-full" />
+                </div>
+              </div>
             </div>
 
             <div className="relative hidden lg:block">
