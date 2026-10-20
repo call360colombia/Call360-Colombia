@@ -184,10 +184,10 @@ export default function MezaScrollExperience() {
     let lastRenderedFrame = -1;
 
     const loop = () => {
-      // Interpolación suave del progreso de scroll (velocidad 0.22 por tick)
+      // Interpolación suave y pausada del progreso de scroll (ritmo cinematográfico 0.10)
       const diff = targetProgressRef.current - currentProgressRef.current;
-      if (Math.abs(diff) > 0.0005) {
-        currentProgressRef.current += diff * 0.22;
+      if (Math.abs(diff) > 0.0003) {
+        currentProgressRef.current += diff * 0.10;
       } else {
         currentProgressRef.current = targetProgressRef.current;
       }
@@ -249,28 +249,28 @@ export default function MezaScrollExperience() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-[320vh] sm:h-[360vh] bg-[#0a0a0f]"
+      className="relative w-full h-[520vh] sm:h-[600vh] bg-[#080B11]"
       id="scroll-experiencia"
     >
       {/* CAPA STICKY QUE SE FIJA EN PANTALLA COMPLETA MIENTRAS EL USUARIO HACE SCROLL */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center justify-center">
+      <div className="sticky top-0 h-[100dvh] sm:h-screen w-full overflow-hidden flex items-center justify-center">
         {/* CANVAS PRINCIPAL (RENDERIZADO CONTINUO DE FRAMES) */}
         <canvas
           ref={canvasRef}
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-700"
           style={{
             opacity: isReady ? 1 : 0.4,
-            filter: "contrast(1.08) saturate(1.05) brightness(0.94)",
+            filter: "contrast(1.06) saturate(1.05) brightness(0.96)",
           }}
         />
 
-        {/* VELOS CINEMATOGRÁFICOS PARA CONTRASTE Y LEGIBILIDAD EN MÓVIL Y PC */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-black/40 to-[#0a0a0f]/80 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_30%,rgba(10,10,15,0.85)_95%)] pointer-events-none" />
+        {/* VELOS CINEMATOGRÁFICOS SUTILES PARA DEJAR PROTAGONISTA EL CANVAS */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#080B11] via-transparent to-[#080B11]/50 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_55%,rgba(8,11,17,0.65)_100%)] pointer-events-none" />
 
-        {/* INDICADOR DE PROGRESO Y CONTADOR DE FRAMES */}
+        {/* INDICADOR DE PROGRESO Y CONTADOR DE FRAMES (GLASSMORPHIC) */}
         <div className="absolute top-20 sm:top-24 left-4 sm:left-8 z-30 flex items-center gap-3">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-black/60 px-3.5 py-1 text-xs font-mono font-bold text-cyan-300 backdrop-blur-md shadow-lg shadow-cyan-950/40">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/20 px-3.5 py-1 text-xs font-mono font-bold text-cyan-300 backdrop-blur-md shadow-lg shadow-black/30">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
@@ -278,14 +278,14 @@ export default function MezaScrollExperience() {
             <span>FRAME {String(displayFrame + 1).padStart(2, "0")} / 80</span>
           </div>
 
-          <div className="hidden sm:inline-flex items-center gap-1.5 text-xs text-white/50 bg-black/40 border border-white/10 px-3 py-1 rounded-full backdrop-blur-sm">
-            <span>Scroll interactivo activo</span>
+          <div className="hidden sm:inline-flex items-center gap-1.5 text-xs text-white/60 bg-black/20 border border-white/10 px-3 py-1 rounded-full backdrop-blur-md">
+            <span>Scroll cinematográfico</span>
           </div>
         </div>
 
         {/* BARRA DE PROGRESO DE SCROLL LATERAL (DERECHA) */}
         <div className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 flex flex-col items-center gap-2 pointer-events-none">
-          <div className="w-1 h-32 sm:h-48 rounded-full bg-white/10 overflow-hidden relative">
+          <div className="w-1 h-36 sm:h-52 rounded-full bg-white/10 overflow-hidden relative backdrop-blur-sm">
             <div
               className="w-full bg-gradient-to-b from-cyan-400 to-emerald-400 rounded-full transition-all duration-75"
               style={{ height: `${Math.round(displayProgress * 100)}%` }}
@@ -296,7 +296,7 @@ export default function MezaScrollExperience() {
           </span>
         </div>
 
-        {/* CAPA DE TEXTOS COMERCIALES SUPERPUESTOS SINCRONIZADOS CON FASES DE SCROLL */}
+        {/* CAPA DE TEXTOS COMERCIALES SUPERPUESTOS SINCRONIZADOS CON FASES DE SCROLL (GLASSMORPHISM REAL) */}
         <div className="relative z-20 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 w-full pointer-events-none">
           {/* FASE 1: 0% a 25% — Presentación y Dirección de Juan David Meza */}
           <div
@@ -306,23 +306,23 @@ export default function MezaScrollExperience() {
                 : "opacity-0 -translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-[#0c0c14]/85 border border-cyan-500/30 backdrop-blur-xl shadow-2xl shadow-cyan-950/30">
-              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4">
+            <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-black/20 border border-white/15 hover:border-cyan-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4 backdrop-blur-sm">
                 Arquitectura &amp; Dirección Comercial
               </span>
               <h2 className="text-3xl sm:text-5xl font-black tracking-tight text-white leading-tight">
                 Juan David Meza
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
+              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
                 Plataforma desarrollada y respaldada directamente por su creador. Sin intermediarios, sin plantillas extranjeras en dólares y sin tickets eternos.
               </p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <WhatsAppButton
                   text="Hola Juan David, quiero una asesoría directa sobre cómo implementar Call360 en mi empresa"
                   label="Hablar con Juan David"
-                  className="text-xs sm:text-sm px-5 py-2.5 shadow-lg shadow-emerald-500/20"
+                  className="text-xs sm:text-sm px-5 py-2.5 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-lg shadow-black/30"
                 />
-                <span className="text-xs text-white/50">
+                <span className="text-xs text-white/60 font-medium">
                   Desliza para ver la tecnología ↓
                 </span>
               </div>
@@ -337,23 +337,23 @@ export default function MezaScrollExperience() {
                 : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto md:ml-auto p-6 sm:p-8 rounded-3xl bg-[#0c0c14]/85 border border-emerald-500/30 backdrop-blur-xl shadow-2xl shadow-emerald-950/30">
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-4">
+            <div className="max-w-xl mx-auto md:ml-auto p-6 sm:p-8 rounded-3xl bg-black/20 border border-white/15 hover:border-emerald-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 mb-4 backdrop-blur-sm">
                 Cero Prospectos Perdidos
               </span>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
                 No pierdas clientes por demoras al responder en WhatsApp
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
+              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
                 Varios asesores atendiendo desde el mismo número comercial con historial compartido, tareas de seguimiento y bandeja unificada.
               </p>
-              <div className="mt-5 grid grid-cols-2 gap-3 text-xs text-white/70">
-                <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                  <strong className="block text-emerald-400 text-sm font-bold">18 Segundos</strong>
+              <div className="mt-5 grid grid-cols-2 gap-3 text-xs text-white/80">
+                <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
+                  <strong className="block text-emerald-400 text-sm font-black">18 Segundos</strong>
                   Tiempo promedio respuesta
                 </div>
-                <div className="p-2.5 rounded-xl bg-white/[0.04] border border-white/[0.06]">
-                  <strong className="block text-cyan-400 text-sm font-bold">1 Solo Número</strong>
+                <div className="p-3 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-sm">
+                  <strong className="block text-cyan-400 text-sm font-black">1 Solo Número</strong>
                   Múltiples agentes en simultáneo
                 </div>
               </div>
@@ -368,17 +368,17 @@ export default function MezaScrollExperience() {
                 : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-[#0c0c14]/85 border border-cyan-500/30 backdrop-blur-xl shadow-2xl shadow-cyan-950/30">
-              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4">
+            <div className="max-w-xl mx-auto md:mx-0 p-6 sm:p-8 rounded-3xl bg-black/20 border border-white/15 hover:border-cyan-400/40 backdrop-blur-md shadow-2xl shadow-black/40 transition-all duration-300">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-4 backdrop-blur-sm">
                 Campañas Sin Enredos
               </span>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
                 Difusión masiva con cadencia segura y horario colombiano
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
+              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
                 Envía promociones y reactiva tu cartera de clientes sin riesgo de baneo. Despacho programado con variables personalizadas ({`{Nombre}`}, {`{Empresa}`}).
               </p>
-              <div className="mt-5 p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-200">
+              <div className="mt-5 p-3.5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-200 backdrop-blur-sm">
                 ⚡ <strong>Protección anti-bloqueo:</strong> Intervalos variables entre mensajes y control estricto de velocidad de envío.
               </div>
             </div>
@@ -392,25 +392,25 @@ export default function MezaScrollExperience() {
                 : "opacity-0 translate-y-6 pointer-events-none absolute inset-x-0"
             }`}
           >
-            <div className="max-w-xl mx-auto p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-cyan-500/20 via-[#0c0c14]/95 to-violet-500/20 border-2 border-cyan-400/60 backdrop-blur-2xl shadow-2xl shadow-cyan-500/20 text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-300 mb-4">
+            <div className="max-w-xl mx-auto p-6 sm:p-8 rounded-3xl bg-black/30 border border-cyan-400/40 hover:border-cyan-400/60 backdrop-blur-md shadow-2xl shadow-black/50 text-center transition-all duration-300">
+              <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-300 mb-4 backdrop-blur-sm">
                 Soporte Inmediato
               </span>
               <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white leading-tight">
                 Hablas directamente con el creador del software
               </h2>
-              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed">
+              <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
                 Revisamos la operación de tu negocio y estructuramos tu CRM de WhatsApp o llamadas en menos de 24 horas.
               </p>
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <WhatsAppButton
                   text="Hola Juan David, vi toda la animación de scroll y quiero agendar una demostración para mi empresa"
                   label="Contactar a Juan David"
-                  className="w-full sm:w-auto text-sm px-6 py-3 shadow-xl shadow-emerald-500/30"
+                  className="w-full sm:w-auto text-sm px-6 py-3 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-xl shadow-black/30"
                 />
                 <Link
                   href={DEMO_PATH}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-6 py-3 text-sm font-bold text-white transition-all hover:bg-white/[0.1]"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 py-3 text-sm font-bold text-white backdrop-blur-md transition-all hover:bg-white/[0.12] hover:border-white/30"
                 >
                   Ver Demo Guiada
                 </Link>
@@ -425,10 +425,10 @@ export default function MezaScrollExperience() {
             displayProgress < 0.15 ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="text-[11px] font-bold uppercase tracking-widest text-cyan-400">
+          <span className="text-[11px] font-bold uppercase tracking-widest text-cyan-400 drop-shadow">
             Desliza para animar
           </span>
-          <div className="w-5 h-8 rounded-full border-2 border-cyan-400/40 flex items-start justify-center p-1">
+          <div className="w-5 h-8 rounded-full border-2 border-cyan-400/40 flex items-start justify-center p-1 backdrop-blur-sm">
             <div className="w-1 h-2 rounded-full bg-cyan-400 animate-bounce" />
           </div>
         </div>

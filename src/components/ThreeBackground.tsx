@@ -1,11 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ThreeBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pathname = usePathname();
+
+  const isNosotros = pathname === "/nosotros" || pathname?.startsWith("/nosotros");
 
   useEffect(() => {
+    if (isNosotros) return;
+
     let scene: any;
     let camera: any;
     let renderer: any;
@@ -245,7 +251,11 @@ export default function ThreeBackground() {
         renderer.dispose();
       }
     };
-  }, []);
+  }, [isNosotros]);
+
+  if (isNosotros) {
+    return null;
+  }
 
   return (
     <canvas

@@ -147,13 +147,13 @@ export default function NosotrosPage() {
       {/* SECCIÓN INTERACTIVA STICKY 350VH: SECUENCIA DE FRAMES DE JUAN DAVID MEZA */}
       <MezaScrollExperience />
 
-      <div className="relative z-10">
+      <div className="relative z-10 bg-[#080B11]/95 text-white">
 
-        {/* PROFILE & ARCHITECTURE BLOCK */}
+        {/* PROFILE & ARCHITECTURE BLOCK (GLASSMORPHISM REAL) */}
         <section className="pb-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#0c0c14]/85 backdrop-blur-xl p-8 sm:p-12 lg:p-16 shadow-2xl relative">
+              <div className="overflow-hidden rounded-3xl border border-white/15 bg-white/[0.04] backdrop-blur-md p-8 sm:p-12 lg:p-16 shadow-2xl relative">
                 <div className="grid gap-12 lg:grid-cols-12 items-center">
                   {/* Foto y credenciales */}
                   <div className="lg:col-span-5 flex flex-col items-center text-center">
@@ -165,7 +165,7 @@ export default function NosotrosPage() {
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         priority
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c14] via-transparent to-transparent opacity-50" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#080B11] via-transparent to-transparent opacity-40" />
                     </div>
 
                     <div className="mt-6">
@@ -177,7 +177,7 @@ export default function NosotrosPage() {
 
                       <a
                         href={`mailto:${CONTACT_EMAIL}`}
-                        className="mt-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-2 text-xs font-bold text-cyan-300 transition-all hover:border-cyan-300 hover:bg-cyan-500/20"
+                        className="mt-4 inline-flex items-center gap-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 px-4 py-2 text-xs font-bold text-cyan-300 backdrop-blur-sm transition-all hover:border-cyan-300 hover:bg-cyan-500/20"
                       >
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -190,7 +190,7 @@ export default function NosotrosPage() {
 
                   {/* Copy comercial directo */}
                   <div className="lg:col-span-7 space-y-6">
-                    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-emerald-400 backdrop-blur-sm">
                       <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
                       100% Código Propio y Respaldado
                     </span>
@@ -208,15 +208,15 @@ export default function NosotrosPage() {
                     </p>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-6 border-t border-white/10">
-                      <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/[0.06]">
+                      <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/10 backdrop-blur-sm">
                         <div className="text-2xl font-black text-cyan-400">+12 años</div>
                         <div className="text-xs text-white/60 mt-1">Infraestructura TI y Ventas</div>
                       </div>
-                      <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/[0.06]">
+                      <div className="rounded-2xl bg-white/[0.04] p-4 border border-white/10 backdrop-blur-sm">
                         <div className="text-2xl font-black text-emerald-400">+200</div>
                         <div className="text-xs text-white/60 mt-1">Empresas en Colombia</div>
                       </div>
-                      <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-4 border border-white/[0.06]">
+                      <div className="col-span-2 sm:col-span-1 rounded-2xl bg-white/[0.04] p-4 border border-white/10 backdrop-blur-sm">
                         <div className="text-2xl font-black text-violet-400">0 Tickets</div>
                         <div className="text-xs text-white/60 mt-1">Atención directa por WhatsApp</div>
                       </div>
@@ -228,7 +228,7 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* 3 PILARES COMERCIALES DE VENTA */}
+        {/* 3 PILARES COMERCIALES DE VENTA (GLASSMORPHISM) */}
         <section className="py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
@@ -248,10 +248,10 @@ export default function NosotrosPage() {
             <div className="grid gap-8 md:grid-cols-3">
               {pilaresComerciales.map((pilar, index) => (
                 <ScrollReveal key={pilar.title} delay={index * 120}>
-                  <div className="flex h-full flex-col justify-between rounded-3xl border border-white/10 bg-[#0c0c14]/85 backdrop-blur-xl p-8 sm:p-10 transition-all duration-300 hover:border-cyan-400/40 hover:-translate-y-1 shadow-xl">
+                  <div className="flex h-full flex-col justify-between rounded-3xl border border-white/15 bg-white/[0.04] backdrop-blur-md p-8 sm:p-10 transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:-translate-y-1 shadow-xl">
                     <div>
                       <div className="flex items-center justify-between gap-4 mb-6">
-                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 text-cyan-400">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
                           {pilar.icon}
                         </div>
                         <span className={`rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-wider ${pilar.badgeColor}`}>
@@ -289,9 +289,9 @@ export default function NosotrosPage() {
             <div className="grid gap-6 md:grid-cols-3">
               {trayectoriaReal.map((item, idx) => (
                 <ScrollReveal key={item.period} delay={idx * 100}>
-                  <div className="h-full rounded-3xl border border-white/10 bg-[#0c0c14]/85 backdrop-blur-xl p-8 flex flex-col justify-between shadow-xl">
+                  <div className="h-full rounded-3xl border border-white/15 bg-white/[0.04] backdrop-blur-md p-8 flex flex-col justify-between shadow-xl transition-all duration-300 hover:border-cyan-400/40 hover:bg-white/[0.07] hover:-translate-y-1">
                     <div>
-                      <span className="inline-block rounded-full bg-cyan-500/15 border border-cyan-500/30 px-3.5 py-1 text-xs font-black text-cyan-300 mb-4">
+                      <span className="inline-block rounded-full bg-cyan-500/15 border border-cyan-500/30 px-3.5 py-1 text-xs font-black text-cyan-300 mb-4 backdrop-blur-sm">
                         {item.period}
                       </span>
                       <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
@@ -310,13 +310,13 @@ export default function NosotrosPage() {
           </div>
         </section>
 
-        {/* FINAL CONVERSION CTA */}
+        {/* FINAL CONVERSION CTA (GLASSMORPHISM) */}
         <section className="pb-28">
           <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
-              <div className="relative overflow-hidden rounded-3xl border border-cyan-400/40 bg-gradient-to-br from-cyan-500/15 via-[#0c0c14]/95 to-violet-500/15 p-10 sm:p-14 text-center shadow-2xl backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-cyan-400/30 bg-gradient-to-br from-cyan-500/10 via-black/40 to-violet-500/10 p-10 sm:p-14 text-center shadow-2xl backdrop-blur-md">
                 <div className="relative z-10 max-w-2xl mx-auto">
-                  <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-6">
+                  <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-6 backdrop-blur-sm">
                     Atención Inmediata en Bogotá y Todo Colombia
                   </span>
                   <h2 className="text-3xl font-black text-white sm:text-4xl">
@@ -329,11 +329,11 @@ export default function NosotrosPage() {
                     <WhatsAppButton
                       text="Hola Juan David, quiero agendar una demostración de Call360 para mi equipo de ventas"
                       label="Escribir a Juan David por WhatsApp"
-                      className="text-base px-8 py-4 shadow-xl shadow-emerald-500/25"
+                      className="text-base px-8 py-4 !bg-emerald-500/25 hover:!bg-emerald-500/35 !border !border-emerald-400/40 backdrop-blur-md shadow-xl shadow-black/30"
                     />
                     <a
                       href={`mailto:${CONTACT_EMAIL}`}
-                      className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-8 py-4 text-base font-bold text-white transition-all hover:border-cyan-400/50 hover:bg-cyan-500/10"
+                      className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-8 py-4 text-base font-bold text-white backdrop-blur-md transition-all hover:border-cyan-400/50 hover:bg-white/[0.12]"
                     >
                       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                         <rect x="2" y="4" width="20" height="16" rx="2" />
