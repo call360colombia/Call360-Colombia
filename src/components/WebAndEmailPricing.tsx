@@ -29,7 +29,7 @@ export default function WebAndEmailPricing({ className = "" }: { className?: str
         <div className="grid gap-8 lg:grid-cols-3">
           {/* 1. PLAN MENSUAL FLEXIBLE */}
           <ScrollReveal delay={0}>
-            <div className="relative flex h-full flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#12121a] p-8 sm:p-10 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
+            <div className="relative flex h-full flex-col justify-between rounded-3xl border border-white/[0.08] bg-[#12121a] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
               <div>
                 <div className="mb-4">
                   <span className="rounded-full bg-white/[0.06] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white/70">

@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ScrollReveal from "@/components/ScrollReveal";
-import MezaFrameSequence from "@/components/MezaFrameSequence";
+import MezaScrollExperience from "@/components/MezaScrollExperience";
 import { DEMO_PATH, CONTACT_EMAIL } from "@/lib/siteUrls";
 
 export const metadata: Metadata = {
@@ -144,67 +144,10 @@ export default function NosotrosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      {/* FONDO DINÁMICO INTERACTIVO CON EFECTO SCROLL (80 FRAMES JUAN MEZA) */}
-      <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <MezaFrameSequence
-          targetId="global"
-          opacity={0.38}
-          className="h-full w-full"
-        />
-        <div className="absolute inset-0 bg-[#0a0a0f]/60 backdrop-blur-[1px]" />
-      </div>
+      {/* SECCIÓN INTERACTIVA STICKY 350VH: SECUENCIA DE FRAMES DE JUAN DAVID MEZA */}
+      <MezaScrollExperience />
 
       <div className="relative z-10">
-        {/* HERO SECTION */}
-        <section className="relative overflow-hidden pt-20 pb-20 lg:pt-28 lg:pb-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <ScrollReveal>
-              <div className="mx-auto max-w-4xl text-center">
-                <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400 mb-6 backdrop-blur-md">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
-                  </span>
-                  Dirección Comercial &amp; Arquitectura de Software
-                </div>
-
-                <h1 className="text-4xl font-black leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl text-white">
-                  Plataforma desarrollada y respaldada directamente por su creador,{" "}
-                  <span className="bg-gradient-to-r from-cyan-400 via-violet-400 to-emerald-400 bg-clip-text text-transparent">
-                    Juan David Meza
-                  </span>
-                </h1>
-
-                <p className="mx-auto mt-6 max-w-2xl text-lg sm:text-xl leading-relaxed text-white/80">
-                  <strong className="text-white">Sin intermediarios, sin tickets eternos y sin demoras.</strong> Diseñamos Call360 para resolver el dolor número uno de las empresas en Colombia: perder ventas por desorden en WhatsApp y falta de seguimiento comercial.
-                </p>
-
-                {/* Badge explicativo del fondo de frames */}
-                <div className="mt-4 inline-flex items-center gap-2 text-xs text-white/50 bg-black/40 border border-white/10 px-4 py-1.5 rounded-full backdrop-blur-md">
-                  <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                  Fondo interactivo sincronizado: haz scroll para animar la secuencia de ingeniería
-                </div>
-
-                <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-                  <WhatsAppButton
-                    text="Hola Juan David, estuve revisando Call360 y quiero conversar contigo sobre cómo implementarlo en mi empresa"
-                    label="Hablar directamente con Juan David"
-                    className="text-base px-8 py-4 shadow-xl shadow-emerald-500/20"
-                  />
-                  <Link
-                    href={DEMO_PATH}
-                    className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/[0.05] px-8 py-4 text-base font-bold text-white backdrop-blur-md transition-all hover:border-cyan-400/50 hover:bg-cyan-500/10"
-                  >
-                    Ver Demo del CRM
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <path d="M5 12h14M12 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </ScrollReveal>
-          </div>
-        </section>
 
         {/* PROFILE & ARCHITECTURE BLOCK */}
         <section className="pb-24">
