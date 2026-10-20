@@ -152,19 +152,19 @@ export default function ServiciosPage() {
                 <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-violet-500/10 to-amber-500/10 rounded-3xl blur-3xl" />
                 <div className="relative grid grid-cols-2 gap-3 p-4">
                   <div className="space-y-3">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/shots/call360.jpg" alt="Call360 Platform" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0a0f] group">
+                      <Image src="/shots/call360.jpg" alt="Call360 Platform" fill className="object-contain object-top" />
                     </div>
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/whatsapp/wa_inbox_mockup.png" alt="CRM WhatsApp Multiagente" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0a0f] group">
+                      <Image src="/whatsapp/wa_inbox_mockup.png" alt="CRM WhatsApp Multiagente" fill className="object-contain object-top" />
                     </div>
                   </div>
                   <div className="space-y-3 pt-8">
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/shots/clinica.jpg" alt="Páginas Web y Sistemas" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0a0f] group">
+                      <Image src="/shots/clinica.jpg" alt="Páginas Web y Sistemas" fill className="object-contain object-top" />
                     </div>
-                    <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] group">
-                      <Image src="/shots/reservadelguamo.jpg" alt="E-Commerce y Marketing" fill className="object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0a0a0f] group">
+                      <Image src="/shots/reservadelguamo.jpg" alt="E-Commerce y Marketing" fill className="object-contain object-top" />
                     </div>
                   </div>
                 </div>
@@ -327,8 +327,8 @@ export default function ServiciosPage() {
           <div className="grid gap-6 md:grid-cols-2 mb-6">
             <ScrollReveal>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-violet-500/20">
-                <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/predictivo/voip_dashboard_mockup.png" alt="Dashboard CRM Llamadas" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="relative aspect-video overflow-hidden bg-[#0c0d14] p-1.5 flex items-center justify-center">
+                  <Image src="/predictivo/voip_dashboard_mockup.png" alt="Dashboard CRM Llamadas" fill className="object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">CRM Llamadas Predictivo</h3>
@@ -338,8 +338,8 @@ export default function ServiciosPage() {
             </ScrollReveal>
             <ScrollReveal delay={150}>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-emerald-500/20">
-                <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/whatsapp/wa_inbox_mockup.png" alt="Panel CRM WhatsApp" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="relative aspect-video overflow-hidden bg-[#0c0d14] p-1.5 flex items-center justify-center">
+                  <Image src="/whatsapp/wa_inbox_mockup.png" alt="Panel CRM WhatsApp" fill className="object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">CRM WhatsApp Multiagente</h3>
@@ -353,8 +353,8 @@ export default function ServiciosPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <ScrollReveal>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-cyan-500/20">
-                <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/creacion-web/web_templates_mockup.png" alt="Diseño de Páginas Web" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="relative aspect-video overflow-hidden bg-[#0c0d14] p-1.5 flex items-center justify-center">
+                  <Image src="/creacion-web/web_templates_mockup.png" alt="Diseño de Páginas Web" fill className="object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">Diseño de Páginas Web</h3>
@@ -364,8 +364,8 @@ export default function ServiciosPage() {
             </ScrollReveal>
             <ScrollReveal delay={150}>
               <div className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#12121a] transition-all duration-500 hover:border-amber-500/20">
-                <div className="relative aspect-video overflow-hidden bg-white/[0.04]">
-                  <Image src="/Marketing/marketing_scheduler_mockup.png" alt="Marketing Digital" fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="relative aspect-video overflow-hidden bg-[#0c0d14] p-1.5 flex items-center justify-center">
+                  <Image src="/Marketing/marketing_scheduler_mockup.png" alt="Marketing Digital" fill className="object-contain" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-white">Marketing Digital</h3>

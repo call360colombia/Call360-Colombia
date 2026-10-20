@@ -121,6 +121,21 @@ const projects: Project[] = [
       { label: "Contacto", value: "Privado" },
     ],
   },
+  {
+    id: "alfayomega",
+    title: "Alfa & Omega Ingeniería",
+    category: "Ingeniería & Seguridad Industrial",
+    badgeColor: "border-amber-500/30 bg-amber-500/10 text-amber-400",
+    image: "/shots/alfayomega.jpg",
+    urlPreview: "alfayomegaingenieria.com",
+    description:
+      "Portal industrial para servicios de ingeniería, extintores certificados y fumigación con cotización directa a WhatsApp.",
+    metrics: [
+      { label: "Solución", value: "Profesional" },
+      { label: "Respuesta", value: "Inmediata" },
+      { label: "Garantía", value: "100% Legal" },
+    ],
+  },
 ];
 
 export default function PortfolioShowcase() {
@@ -178,16 +193,15 @@ export default function PortfolioShowcase() {
         <div className="grid gap-6 p-4 sm:p-6 lg:grid-cols-12 lg:items-center lg:gap-8">
           {/* Captura de pantalla real del sitio */}
           <div className="lg:col-span-7">
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/[0.08] bg-black/60 shadow-xl group">
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl border border-white/15 bg-[#0a0a0f] shadow-2xl flex items-center justify-center">
               <Image
                 src={activeProject.image}
                 alt={activeProject.title}
                 fill
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                className="object-contain object-top"
                 sizes="(max-width: 1024px) 100vw, 60vw"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c14]/60 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
 
