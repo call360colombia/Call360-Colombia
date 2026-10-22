@@ -1,25 +1,18 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import FeatureCard from "@/components/FeatureCard";
-import PricingCard from "@/components/PricingCard";
-import ComparisonTable from "@/components/ComparisonTable";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import HowItWorks from "@/components/HowItWorks";
-import TrustBlock from "@/components/TrustBlock";
-import FAQSection from "@/components/FAQSection";
-import BeforeAfter from "@/components/BeforeAfter";
-import WhatsAppButton from "@/components/WhatsAppButton";
+import Link from "next/link";
 import ScrollReveal from "@/components/ScrollReveal";
-import WhatsAppLiveChat from "@/components/WhatsAppLiveChat";
-import GuaranteesSection from "@/components/GuaranteesSection";
-import CotizadorCRM from "@/components/CotizadorCRM";
-import DemoRequestForm from "@/components/DemoRequestForm";
 import ModernSaaSMockup from "@/components/ModernSaaSMockup";
+import WhatsAppLiveChat from "@/components/WhatsAppLiveChat";
+import PlansSection from "@/components/billing/PlansSection";
+import FAQSection from "@/components/FAQSection";
+import DemoRequestForm from "@/components/DemoRequestForm";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { DEMO_PATH } from "@/lib/siteUrls";
 
 export const metadata: Metadata = {
-  title: "CRM WhatsApp Multiagente en Colombia | Call360",
+  title: "Dale Superpoderes a tu WhatsApp | CRM Comercial Call360",
   description:
-    "No pierdas prospectos por demoras al responder en WhatsApp. Centraliza tus asesores en un solo número, envía campañas con cadencia anti-bloqueo y organiza tus ventas sin pagar en dólares. Planes desde $120.000/mes.",
+    "Atiende en equipo, responde mejor con IA y convierte tus conversaciones en oportunidades de venta. Todo desde Call360. Prueba gratis durante 14 días.",
   alternates: {
     canonical: "https://call360colombia.com/crm-whatsapp",
   },
@@ -28,9 +21,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "CRM WhatsApp Multiagente en Colombia | Call360",
+    title: "Dale Superpoderes a tu WhatsApp | CRM Comercial Call360",
     description:
-      "Varios asesores, un solo número de WhatsApp. Campañas masivas reguladas, historial unificado y soporte directo con el desarrollador Juan David Meza.",
+      "Atiende en equipo, responde mejor con IA y convierte tus conversaciones en oportunidades de venta. Todo desde Call360.",
     url: "https://call360colombia.com/crm-whatsapp",
     siteName: "Call360 Colombia",
     locale: "es_CO",
@@ -40,315 +33,202 @@ export const metadata: Metadata = {
         url: "https://call360colombia.com/inicio/whatsapp.png",
         width: 1200,
         height: 630,
-        alt: "CRM WhatsApp Multiagente Call360 Colombia",
+        alt: "CRM WhatsApp Comercial Call360 Colombia",
       },
     ],
   },
 };
 
-const features = [
+const PILARES = [
   {
-    title: "Multiagente",
-    description:
-      "Varios usuarios atendiendo desde un solo número de WhatsApp. Ideal para equipos de servicio al cliente.",
     icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="h-6 w-6 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
         <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
     ),
-  },
-  {
-    title: "Campañas masivas",
+    title: "1. Atiende en equipo",
+    subtitle: "Una sola línea comercial, múltiples asesores",
     description:
-      "Envía mensajes a miles de clientes al mismo tiempo. Segmenta por etiquetas y personaliza cada envío.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Historial de chats",
-    description:
-      "Consulta todas las conversaciones en un solo lugar. Busca por cliente, fecha o contenido del mensaje.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    ),
-  },
-  {
-    title: "Compatible con WhatsApp normal y API",
-    description:
-      "Funciona con ambas versiones de WhatsApp para máxima compatibilidad y flexibilidad.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-        <circle cx="12" cy="7" r="4" />
-      </svg>
-    ),
-  },
-  {
-    title: "Baja probabilidad de bloqueo",
-    description:
-      "Sistema diseñado para minimizar el riesgo de bloqueo por parte de WhatsApp.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-      </svg>
-    ),
-  },
-];
-
-const plans = [
-  {
-    name: "1 Usuario",
-    price: "$120.000",
-    period: "/ mes",
-    features: [
-      "Multiagente",
-      "Campañas masivas",
-      "Historial de chats",
-      "WhatsApp normal/API",
+      "Conecta tu número oficial y permite que todo tu equipo responda desde una bandeja unificada. Asigna chats, supervisa conversaciones en tiempo real y conserva el historial completo de cada contacto.",
+    highlights: [
+      "Bandeja compartida para múltiples asesores",
+      "Asignación de conversaciones y notas internas",
+      "Historial centralizado por cliente y empresa",
     ],
-    waText: "Hola Call360, quiero el CRM WhatsApp para 1 usuario",
   },
   {
-    name: "4 Usuarios",
-    price: "$240.000",
-    period: "/ mes",
-    features: [
-      "Multiagente",
-      "Campañas masivas",
-      "Historial de chats",
-      "WhatsApp normal/API",
+    icon: (
+      <svg className="h-6 w-6 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
+      </svg>
+    ),
+    title: "2. Responde mejor con IA incluida",
+    subtitle: "IA gestionada y lista para usar por tu equipo",
+    description:
+      "Tus asesores reciben sugerencias comerciales inteligentes, reescritura persuasiva, síntesis de conversaciones largas y transcripción de audios. Todo administrado por Call360, sin que tengas que conectar APIs ni pagar proveedores externos.",
+    highlights: [
+      "Sugerencias y reescritura comercial al instante",
+      "Resumen automático de chats y notas de voz",
+      "IA incluida de Call360: sin claves ni configuraciones técnicas",
     ],
-    featured: true,
-    badge: "Más popular",
-    waText: "Hola Call360, quiero el CRM WhatsApp para 4 usuarios",
   },
   {
-    name: "10 Usuarios",
-    price: "$500.000",
-    period: "/ mes",
-    features: [
-      "Multiagente",
-      "Campañas masivas",
-      "Historial de chats",
-      "WhatsApp normal/API",
+    icon: (
+      <svg className="h-6 w-6 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M12 20V10M18 20V4M6 20v-4" />
+      </svg>
+    ),
+    title: "3. Organiza tu seguimiento comercial",
+    subtitle: "Convierte conversaciones en ventas cerradas",
+    description:
+      "No dejes prospectos en el olvido. Visualiza tus negocios en un embudo comercial claro, programa tareas de seguimiento con fecha y hora, y segmenta tus contactos para campañas de difusión comercial efectivas.",
+    highlights: [
+      "Embudo visual de oportunidades y cotizaciones",
+      "Tareas y recordatorios para cada asesor",
+      "Campañas y difusión comercial a listas segmentadas",
     ],
-    waText: "Hola Call360, quiero el CRM WhatsApp para 10 usuarios",
   },
 ];
 
 export default function CRMWhatsAppPage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      {/* ========================================================
+          HERO SECTION — DALE SUPERPODERES A TU WHATSAPP
+          ======================================================== */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 hero-bg-whatsapp" />
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="noise-overlay" />
 
-        {/* Floating Orbs */}
+        {/* Orbes de fondo animados */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="orb-1 absolute top-1/4 left-[15%] w-80 h-80 bg-emerald-500/8 rounded-full blur-[100px]" />
-          <div className="orb-2 absolute bottom-1/4 right-[15%] w-96 h-96 bg-green-500/8 rounded-full blur-[120px]" />
+          <div className="orb-1 absolute top-1/4 left-[15%] w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px]" />
+          <div className="orb-2 absolute bottom-1/4 right-[15%] w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]" />
         </div>
 
-        <div className="relative z-10 mx-auto max-w-7xl px-4 py-40 sm:py-48 sm:px-6 lg:px-8">
-          <div className="grid gap-16 md:grid-cols-2 items-center">
-            <div className="text-center md:text-left flex flex-col items-center md:items-start">
-              {/* Badge */}
-              <div className="animate-fade-in-up mb-8 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 backdrop-blur-sm">
+        <div className="relative z-10 mx-auto max-w-7xl px-4 py-24 sm:py-32 lg:py-36 sm:px-6 lg:px-8">
+          <div className="grid gap-12 lg:gap-16 lg:grid-cols-2 lg:items-center">
+            <div className="text-center lg:text-left">
+              {/* Badge oficial */}
+              <div className="animate-fade-in-up mb-6 inline-flex items-center gap-2.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-emerald-400 backdrop-blur-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                CRM WhatsApp Multiagente
+                CRM Comercial · IA Incluida y Administrada
               </div>
 
-              {/* Headline */}
-              <h1 className="animate-fade-in-up animation-delay-100 text-4xl font-black leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl text-center md:text-left">
-                Gestiona clientes por{" "}
-                <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
-                  WhatsApp profesional
+              {/* Titular principal obligatorio */}
+              <h1 className="animate-fade-in-up animation-delay-100 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-white">
+                Dale superpoderes a tu{" "}
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+                  WhatsApp
                 </span>
               </h1>
 
-              {/* Subheadline */}
-              <div className="animate-fade-in-up animation-delay-200 mx-auto mt-8 max-w-lg text-left sm:mx-0">
-                <p className="text-lg font-extrabold text-emerald-400 mb-3">
-                  No pierdas prospectos por demoras al responder en WhatsApp.
-                </p>
-                <p className="text-base text-white/70 leading-relaxed mb-4">
-                  Organiza tus conversaciones, cotizaciones y tareas en un solo lugar sin pagar suscripciones absurdas en dólares. Software desarrollado y respaldado directamente por su creador, Juan David Meza.
-                </p>
-                <div className="grid grid-cols-1 gap-2 mb-6 text-sm text-white/80 font-medium">
-                  <div className="flex items-center gap-2">
-                    <span className="text-emerald-400">⚡</span> Varios asesores respondiendo desde el mismo número.
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-emerald-400">⚡</span> Campañas masivas reguladas con cadencia anti-bloqueo.
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-emerald-400">⚡</span> Trato directo con el desarrollador: sin tickets eternos.
-                  </div>
+              {/* Subtítulo de referencia */}
+              <p className="animate-fade-in-up animation-delay-200 mx-auto lg:mx-0 mt-6 max-w-xl text-base sm:text-lg text-white/70 leading-relaxed">
+                Atiende en equipo, responde mejor con IA y convierte tus conversaciones en
+                oportunidades de venta. Todo desde Call360.
+              </p>
+
+              {/* Los 3 Pilares en píldoras destacadas */}
+              <div className="animate-fade-in-up animation-delay-300 mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs sm:text-sm font-semibold text-white/70">
+                <div className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-sm">
+                  <span className="text-emerald-400">✓</span> Atención en equipo
                 </div>
-                <p className="text-base font-bold text-white">
-                  Entras, conectas tu WhatsApp en 2 minutos… y empiezas a vender.
-                </p>
-              </div>
-
-              {/* Benefits */}
-              <div className="animate-fade-in-up animation-delay-300 mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-white/60 md:justify-start">
-                {[
-                  "Multiagente simultáneo",
-                  "Campañas masivas",
-                  "Baja probabilidad de bloqueo",
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-4 py-2">
-                    <span className="text-emerald-400">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
-                    </span>
-                    {item}
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <div className="animate-fade-in-up animation-delay-400 mt-10">
-                <div className="flex flex-wrap items-center justify-center gap-4 md:justify-start">
-                  <WhatsAppButton
-                    text="Hola Call360, quiero probar gratis el CRM WhatsApp"
-                    label="Probar gratis 7 días"
-                    className="text-base px-8 py-4 shadow-lg shadow-emerald-500/20"
-                  />
-                  <a
-                    href="#chat-interactivo"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-8 py-4 text-sm font-bold text-white transition-all hover:bg-white/[0.08] hover:border-white/20 hover:scale-105"
-                  >
-                    Ver simulador de chat
-                  </a>
+                <div className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-sm">
+                  <span className="text-cyan-400">✓</span> IA incluida Call360
                 </div>
-                <p className="mt-3 text-xs text-white/40 md:text-left">
-                  ⚡ Sin tarjeta de crédito • Configuración en 10 min • Cancela cuando quieras
-                </p>
-              </div>
-
-              {/* Mobile Hero Visual Mockup */}
-              <div className="relative mt-10 md:hidden w-full">
-                <div className="relative max-w-lg mx-auto">
-                  <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/10 to-cyan-500/10 rounded-3xl blur-2xl pointer-events-none" />
-                  <ModernSaaSMockup variant="whatsapp" className="w-full" />
+                <div className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-sm">
+                  <span className="text-amber-400">✓</span> Seguimiento comercial
                 </div>
               </div>
+
+              {/* CTAs de Conversión */}
+              <div className="animate-fade-in-up animation-delay-400 mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center lg:justify-start">
+                <Link
+                  href={DEMO_PATH}
+                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-3.5 text-sm sm:text-base font-black text-slate-950 shadow-xl shadow-emerald-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>Prueba Call360 durante 14 días</span>
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+
+                <a
+                  href="#planes"
+                  className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3.5 text-sm sm:text-base font-bold text-white transition-all hover:border-emerald-400/40 hover:bg-emerald-400/10 active:scale-[0.98]"
+                >
+                  <span>Ver planes</span>
+                </a>
+              </div>
+
+              <p className="animate-fade-in-up animation-delay-400 mt-4 text-xs text-white/40">
+                ⚡ 14 días de prueba con 100 créditos IA • Sin tarjeta de crédito • Conexión en minutos
+              </p>
             </div>
 
-            {/* Hero Visual Desktop */}
-            <div className="relative hidden md:block">
-              <div className="relative max-w-xl mx-auto">
-                <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-green-500/10 to-cyan-500/10 rounded-3xl blur-3xl pointer-events-none" />
-                <ModernSaaSMockup variant="whatsapp" className="w-full" />
-              </div>
+            {/* Visual real del SaaS Mockup */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/20 via-cyan-500/15 to-transparent rounded-3xl blur-3xl pointer-events-none" />
+              <ModernSaaSMockup variant="whatsapp" className="w-full" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* FEATURES */}
-      <section className="py-32 bg-[#0f0f17]/50">
+      {/* ========================================================
+          LOS TRES PILARES COMERCIALES
+          ======================================================== */}
+      <section className="py-20 sm:py-28 bg-[#0c0d14]/80 border-y border-white/[0.06]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="mb-20 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                Funcionalidades
-              </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Todo lo que necesitas para{" "}
-                <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
-                  atender por WhatsApp
-                </span>
+            <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
+                Pilares Fundamentales
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                El sistema que transforma tu atención de WhatsApp en ventas
               </h2>
-            </div>
-          </ScrollReveal>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((feature, i) => (
-              <ScrollReveal key={feature.title} delay={i * 100}>
-                <FeatureCard {...feature} />
-              </ScrollReveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* VISTA DEL SISTEMA */}
-      <section className="py-32">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <div className="mb-12 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                Vista del sistema
+              <p className="mt-3 text-base text-white/60">
+                Todo lo necesario para que tu equipo comercial opere con orden y responda con calidad profesional.
               </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Así se ve{" "}
-                <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
-                  por dentro
-                </span>
-              </h2>
             </div>
           </ScrollReveal>
 
-          {/* Interactive Modern SaaS Showcase */}
-          <ScrollReveal>
-            <div className="relative mb-12">
-              <ModernSaaSMockup variant="hero" className="w-full" />
-            </div>
-          </ScrollReveal>
-
-          {/* Feature Highlights Grid */}
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              {
-                icon: "💬",
-                title: "Bandeja Unificada Multiagente",
-                desc: "Todo tu equipo atiende desde una misma línea comercial. Historial compartido y asignación de chats en menos de 2 segundos.",
-                badge: "Cero Esperas",
-                badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
-              },
-              {
-                icon: "⚡",
-                title: "Campañas Masivas Protegidas",
-                desc: "Dispersión programada con cadencia anti-bloqueo y variables dinámicas ({Nombre}, {Empresa}) en horario hábil Colombia.",
-                badge: "Cadencia Segura",
-                badgeColor: "border-cyan-500/30 bg-cyan-500/10 text-cyan-400",
-              },
-              {
-                icon: "📈",
-                title: "Embudo de Ventas & Cotizaciones PDF",
-                desc: "Convierte conversaciones en acuerdos cerrados. Genera cotizaciones y visualiza el valor total de tu embudo comercial.",
-                badge: "Cierre Rápido",
-                badgeColor: "border-violet-500/30 bg-violet-500/10 text-violet-400",
-              },
-            ].map((feat, i) => (
-              <ScrollReveal key={feat.title} delay={i * 120}>
-                <div className="group h-full rounded-2xl border border-white/10 bg-[#0c0c14]/90 p-6 transition-all duration-300 hover:border-emerald-400/40 hover:-translate-y-1 shadow-xl flex flex-col justify-between">
+          <div className="grid gap-8 lg:grid-cols-3">
+            {PILARES.map((pilar, index) => (
+              <ScrollReveal key={pilar.title} delay={index * 120}>
+                <div className="h-full rounded-3xl border border-white/10 bg-[#12121a] p-7 flex flex-col justify-between hover:border-emerald-500/30 transition-all hover:-translate-y-1 shadow-lg">
                   <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-2xl">{feat.icon}</span>
-                      <span className={`text-[10px] font-bold uppercase rounded-full border px-2.5 py-0.5 ${feat.badgeColor}`}>
-                        {feat.badge}
-                      </span>
+                    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white/[0.05] mb-5 border border-white/10">
+                      {pilar.icon}
                     </div>
-                    <h3 className="text-lg font-bold text-white mb-2">{feat.title}</h3>
-                    <p className="text-sm text-white/60 leading-relaxed">{feat.desc}</p>
+                    <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                      {pilar.subtitle}
+                    </span>
+                    <h3 className="text-xl font-bold text-white mt-1 mb-3">
+                      {pilar.title}
+                    </h3>
+                    <p className="text-sm text-white/60 leading-relaxed mb-6">
+                      {pilar.description}
+                    </p>
                   </div>
+
+                  <ul className="space-y-2 pt-4 border-t border-white/[0.08] text-xs text-white/80">
+                    {pilar.highlights.map((h, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <span className="text-emerald-400 shrink-0">✓</span>
+                        <span>{h}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </ScrollReveal>
             ))}
@@ -356,22 +236,24 @@ export default function CRMWhatsAppPage() {
         </div>
       </section>
 
-      {/* DASHBOARD INTERACTIVO */}
-      <section id="chat-interactivo" className="py-32">
+      {/* ========================================================
+          SIMULADOR INTERACTIVO DE CONVERSACIONES MULTIAGENTE
+          ======================================================== */}
+      <section id="chat-interactivo" className="py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <div className="mb-12 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                Conversaciones en vivo
-              </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Gestión{" "}
-                <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
-                  multiagente real
+              <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
+                Demostración Visual
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
+                Así trabaja tu equipo en una{" "}
+                <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+                  bandeja multiagente
                 </span>
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base text-white/50">
-                Conversaciones simuladas en vivo con agentes, etiquetas y mensajes entrando en tiempo real.
+              <p className="mx-auto mt-3 max-w-xl text-sm sm:text-base text-white/50">
+                Interactúa con la simulación para experimentar cómo se organizan asesores, estados y respuestas rápidas.
               </p>
             </div>
           </ScrollReveal>
@@ -380,272 +262,103 @@ export default function CRMWhatsAppPage() {
         </div>
       </section>
 
-      {/* GUARANTEES SECTION */}
-      <GuaranteesSection />
+      {/* ========================================================
+          SECCIÓN OFICIAL DE PLANES 3D Y CRÉDITOS IA
+          ======================================================== */}
+      <PlansSection />
 
-      {/* COTIZADOR INTERACTIVO */}
-      <section className="py-32">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-12 text-center">
-            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-              ⚡ Cotiza en vivo
-            </span>
-            <h2 className="text-3xl font-black tracking-tight sm:text-4xl">
-              Arma tu plan{" "}
-              <span className="bg-gradient-to-r from-emerald-400 via-green-400 to-cyan-400 bg-clip-text text-transparent">
-                en 30 segundos
-              </span>
-            </h2>
-            <p className="mt-3 text-base text-white/50">
-              Elige tipo de CRM, número de agentes y te enviamos todo a tu
-              WhatsApp con la cotización exacta.
-            </p>
-          </div>
-          <CotizadorCRM />
-        </div>
-      </section>
-
-      {/* PRICING */}
-      <section className="py-32 bg-[#0f0f17]/50">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* ========================================================
+          CÓMO FUNCIONA EL ONBOARDING
+          ======================================================== */}
+      <section className="py-20 sm:py-28 bg-[#0c0d14]/60 border-t border-white/[0.06]">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="mb-20 text-center">
-              <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-                Planes
-              </p>
-              <h2 className="text-4xl font-black tracking-tight sm:text-5xl">
-                Elige tu plan
+            <div className="text-center max-w-2xl mx-auto mb-14">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                Paso a Paso
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-white mt-2">
+                Conecta tu operación en 3 pasos sencillos
               </h2>
-              <p className="mt-4 text-base text-white/50">
-                Usuario adicional: $50.000/mes
-              </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {plans.map((plan, i) => (
-              <ScrollReveal key={plan.name} delay={i * 150}>
-                <PricingCard
-                  name={plan.name}
-                  price={plan.price}
-                  period={plan.period}
-                  features={plan.features}
-                  featured={plan.featured}
-                  badge={plan.badge}
-                  waText={plan.waText}
-                />
+          <div className="grid gap-6 md:grid-cols-3">
+            {[
+              {
+                step: "01",
+                title: "Conecta tu línea comercial",
+                desc: "Escaneas el código QR desde tu WhatsApp y la línea queda conectada al sistema de forma segura.",
+              },
+              {
+                step: "02",
+                title: "Invita a tus asesores",
+                desc: "Configura a tu equipo comercial. Cada asesor ingresa con su usuario y atiende la misma línea unificada.",
+              },
+              {
+                step: "03",
+                title: "Responde con IA y cierra negocios",
+                desc: "Aprovecha sugerencias automáticas, resúmenes de chats y el embudo de ventas para convertir cada oportunidad.",
+              },
+            ].map((st, i) => (
+              <ScrollReveal key={st.step} delay={i * 100}>
+                <div className="rounded-3xl border border-white/[0.08] bg-[#12121a] p-7 text-center h-full flex flex-col justify-between">
+                  <div>
+                    <span className="inline-block text-2xl font-black text-emerald-400 mb-3">
+                      {st.step}
+                    </span>
+                    <h3 className="text-lg font-bold text-white mb-2">{st.title}</h3>
+                    <p className="text-sm text-white/60 leading-relaxed">{st.desc}</p>
+                  </div>
+                </div>
               </ScrollReveal>
             ))}
           </div>
-          <p className="mt-8 text-center text-xs text-white/40">
-            * Garantía de prueba gratis por 7 días • Sin cargos ocultos • Configuración remota incluida
-          </p>
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
-      <section className="py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <WhyChooseUs
-              title="¿Por qué CRM WhatsApp Call360?"
-              showCta={true}
-              ctaLabel="Hablar con un especialista"
-              ctaText="Hola Call360, quiero consultar cómo su CRM WhatsApp beneficia mi negocio."
-              ctaSubtext="Asesoría gratuita de 15 minutos sin compromiso"
-              benefits={[
-                {
-                  title: "Todo en un solo lugar",
-                  description: "Deja de usar WhatsApp normal mezclado con el del negocio.",
-                },
-                {
-                  title: "Ahorro de costos",
-                  description: "Un número profesional atiende múltiples clientes simultáneamente.",
-                },
-                {
-                  title: "Implementación rápida",
-                  description: "Listo en menos de 24 horas, sin configuración compleja.",
-                },
-                {
-                  title: "Experiencia real",
-                  description: "+200 empresas gestionan sus ventas por WhatsApp con nosotros.",
-                },
-                {
-                  title: "Baja probabilidad de bloqueo",
-                  description: "Tecnología diseñada para cumplir las políticas de WhatsApp.",
-                },
-                {
-                  title: "Soporte local",
-                  description: "Equipo en Bogotá listo para ayudarte cuando lo necesites.",
-                },
-              ]}
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* HOW IT WORKS */}
-      <section className="py-32">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <HowItWorks
-              title="Cómo funciona"
-              subtitle="Gestiona tus clientes como un profesional"
-              image="/whatsapp/wa_inbox_mockup.png"
-              steps={[
-                {
-                  number: "1",
-                  title: "Conecta tu número",
-                  description: "Escaneas un QR y tu número de WhatsApp se integra al sistema multiagente. Sin apps extra ni configuraciones complicadas.",
-                },
-                {
-                  number: "2",
-                  title: "Atiende desde cualquier lugar",
-                  description: "Varios agentes pueden atender desde un mismo número. Cada uno con su área asignada y acceso controlado.",
-                },
-                {
-                  number: "3",
-                  title: "Gestiona y cierra",
-                  description: "Historial completo de cada cliente, campañas masivas segmentadas y métricas de rendimiento en tiempo real.",
-                },
-              ]}
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* COMPARISON */}
-      <section className="py-32 bg-[#0f0f17]/50">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <ComparisonTable
-              title="WhatsApp personal vs CRM profesional"
-              subtitle="La diferencia entre perder clientes y organizar tu atención"
-              showCta={true}
-              ctaLabel="Pasar a WhatsApp profesional"
-              ctaText="Hola Call360, quiero dejar de usar WhatsApp personal y pasarme al CRM profesional."
-              ctaSubtext="Configuración en minutos conservando tu número actual"
-              items={[
-                {
-                  informal: "Celular personal mezclado con chats del negocio",
-                  call360: "Número profesional dedicado exclusivamente a tus clientes",
-                },
-                {
-                  informal: "Solo un agente puede atender a la vez",
-                  call360: "Múltiples agentes atendiendo simultáneamente desde un mismo número",
-                },
-                {
-                  informal: "Chats perdidos si alguien deja la empresa",
-                  call360: "Historial centralizado accesible por todo el equipo autorizado",
-                },
-                {
-                  informal: "Respuestas manuales una por una",
-                  call360: "Campañas masivas automatizadas con segmentación por etiquetas",
-                },
-                {
-                  informal: "Sin métricas de rendimiento",
-                  call360: "Reportes de tiempos de respuesta, volumen de mensajes y conversión",
-                },
-                {
-                  informal: "Riesgo alto de bloqueo por uso intensivo",
-                  call360: "Tecnología optimizada para minimizar riesgo de bloqueo",
-                },
-              ]}
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* BEFORE AFTER */}
-      <section className="py-32">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <BeforeAfter
-              title="De caos operativo a gestión profesional"
-              subtitle="Tu transformación con el CRM WhatsApp"
-              showCta={true}
-              ctaLabel="Iniciar mi transformación"
-              ctaText="Hola Call360, quiero organizar mi WhatsApp de ventas con su CRM."
-              ctaSubtext="7 días de prueba sin costo"
-              items={[
-                {
-                  before: "Clientes esperando horas porque no hay nadie disponible",
-                  after: "Múltiples agentes atendiendo simultáneamente sin esperas",
-                },
-                {
-                  before: "No sabes quién atendió qué cliente",
-                  after: "Cada mensaje asignado a un agente con historial completo",
-                },
-                {
-                  before: "Envías el mismo mensaje a todos manualmente",
-                  after: "Campañas masivas segmentadas por etiquetas y comportamiento",
-                },
-                {
-                  before: "Perdiste un chat importante cuando alguien renegó",
-                  after: "Historial centralizado que permanece en la empresa",
-                },
-              ]}
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* TRUST BLOCK */}
-      <section className="py-32 bg-[#0f0f17]/50">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-          <ScrollReveal>
-            <TrustBlock
-              title="No somos solo un proveedor de software"
-              description="Hemos visto cómo empresas colombianas pierden cientos de clientes por mala gestión de WhatsApp. Por eso creamos este CRM: para que tu equipo pueda atender como los grandes, sin necesidad de ser un experto."
-              showCta={true}
-              ctaLabel="Iniciar sin riesgo ahora"
-              ctaText="Hola Call360, me interesa comenzar la prueba del CRM de WhatsApp."
-              ctaSubtext="Soporte local en Bogotá y configuración asistida"
-              bullets={[
-                "Entendemos las particularidades del mercado colombiano y cómo opera WhatsApp aquí",
-                "Nuestro sistema está diseñado específicamente para minimizar bloqueos usando técnicas validadas",
-                "+200 empresas confían en nosotros para gestionar sus conversaciones diarias",
-              ]}
-              closingStatement="Esto no es un plugin más. Es el cerebro que organiza toda tu atención al cliente."
-            />
-          </ScrollReveal>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-32">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      {/* ========================================================
+          PREGUNTAS FRECUENTES (FAQ)
+          ======================================================== */}
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <FAQSection
-              title="Preguntas frecuentes"
+              title="Preguntas frecuentes sobre Call360 WhatsApp"
               showCta={true}
-              ctaLabel="Tengo otra consulta"
-              ctaText="Hola Call360, tengo una duda sobre el CRM de WhatsApp que no sale en las preguntas frecuentes."
-              ctaSubtext="Te respondemos en minutos por WhatsApp"
+              ctaLabel="Hablar con ventas"
+              ctaText="Hola Call360, tengo una pregunta sobre el CRM de WhatsApp y los planes de IA."
+              ctaSubtext="Te asesoramos directamente por WhatsApp"
               items={[
                 {
-                  question: "¿Me van a bloquear el número?",
-                  answer: "Nuestro CRM está diseñado específicamente para operar dentro de los límites seguros de WhatsApp. Con prácticas recomendadas (no spam, respetar límites de mensajes), la probabilidad de bloqueo es mínima.",
+                  question: "¿Cómo funciona la prueba Demo de 14 días?",
+                  answer:
+                    "Recibes 14 días de acceso completo a la plataforma con 100 Créditos IA incluidos para toda la prueba. No requerimos tarjeta de crédito. Al finalizar la prueba, puedes elegir el plan comercial que mejor se adapte a tu empresa.",
                 },
                 {
-                  question: "¿Cuántos agentes puedo tener?",
-                  answer: "Ofrecemos planes desde 1 hasta 10 usuarios, con opción de agregar más según crezca tu equipo. El costo adicional por usuario es $50.000/mes.",
+                  question: "¿Qué significa que la IA está incluida y administrada?",
+                  answer:
+                    "Significa que no tienes que preocuparte por contratar proveedores externos, configurar modelos ni conectar claves API. Call360 administra la infraestructura y tu equipo simplemente disfruta de sugerencias, reescritura comercial, resúmenes y transcripción.",
                 },
                 {
-                  question: "¿Funciona en varios dispositivos?",
-                  answer: "Sí, cada agente puede acceder desde su computadora o celular. Todo sincronizado en tiempo real con el historial completo.",
+                  question: "¿Cómo se consumen los Créditos IA?",
+                  answer:
+                    "1 acción estándar completada (una sugerencia de respuesta, una reescritura o un análisis de chat) consume 1 Crédito IA según el tarifario vigente. Los reintentos por fallas técnicas nunca descuentan créditos dobles.",
                 },
                 {
-                  question: "¿Puedo hacer campañas masivas?",
-                  answer: "Sí, puedes enviar mensajes a miles de contactos a la vez. Puedes segmentar por etiquetas, historial de compras o cualquier criterio que tengas registrado.",
+                  question: "¿Los planes se cobran por usuario o por empresa?",
+                  answer:
+                    "Los precios y bolsas de créditos se asignan por empresa (tenant) y se comparten entre todos los asesores autorizados del equipo. No cobramos precios individuales por usuario en los planes vigentes.",
                 },
                 {
-                  question: "¿Qué pasa si quiero cancelar?",
-                  answer: "Sin permanencia. Los planes son mensuales y puedes cancelar cuando quieras. Solo pagas por lo que usas.",
+                  question: "¿Qué pasa si mi empresa necesita más de 10 usuarios?",
+                  answer:
+                    "Contáctanos directamente. Para equipos comerciales grandes configuramos un plan personalizado con la capacidad operativa y bolsa de créditos IA que requiera tu operación.",
                 },
                 {
-                  question: "¿Necesito conocimientos técnicos?",
-                  answer: "Para nada. La configuración inicial la hacemos nosotros y te capacitamos para que tu equipo empiece a usarlo inmediatamente.",
+                  question: "¿Puedo conservar mi número actual de WhatsApp?",
+                  answer:
+                    "Sí. El sistema se vincula directamente a tu línea comercial existente mediante código QR, conservando tu número oficial de contacto.",
                 },
               ]}
             />
@@ -653,37 +366,40 @@ export default function CRMWhatsAppPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      {/* ========================================================
+          CTA FINAL
+          ======================================================== */}
+      <section className="py-16 sm:py-24 bg-[#0c0d14]/60 border-t border-white/[0.06]">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <div className="rounded-3xl border border-white/[0.08] bg-[#12121a] p-12 text-center">
-              <h2 className="text-2xl font-black tracking-tight sm:text-3xl">
-                ¿Quieres ver el CRM WhatsApp en acción?
+            <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#12121a] to-[#0a0a0f] p-8 sm:p-14 shadow-2xl">
+              <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+                ¿Listo para darle superpoderes a tu WhatsApp?
               </h2>
-              <p className="mx-auto mt-4 max-w-xl text-base text-white/50">
-                Solicita una demo gratuita y descubre cómo gestionar a tus clientes
-                como un profesional.
+              <p className="mt-4 text-base text-white/60 max-w-xl mx-auto leading-relaxed">
+                Comienza hoy tu prueba de 14 días con 100 Créditos IA incluidos. Organiza tus
+                conversaciones y acelera el cierre de negocios de tu equipo.
               </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <DemoRequestForm
-                  title="Reserva tu demo del CRM WhatsApp"
-                  subtitle="Te mostramos el sistema en vivo y respondemos tus dudas"
-                  ctaLabel="Solicitar demo"
-                  defaultService="crm-whatsapp"
-                  className="text-base px-8 py-4"
-                />
-                <a
-                  href="tel:+573203693949"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/[0.15] px-8 py-4 text-base font-bold text-white transition-all hover:border-emerald-400/40 hover:bg-emerald-400/5"
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <Link
+                  href={DEMO_PATH}
+                  className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-3.5 text-sm sm:text-base font-black text-slate-950 transition-all hover:scale-[1.02] shadow-xl shadow-emerald-500/20"
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  <span>Probar gratis durante 14 días</span>
+                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                  Llamar a soporte
-                </a>
+                </Link>
+
+                <WhatsAppButton
+                  text="Hola Call360, quiero consultar con un asesor sobre el CRM de WhatsApp"
+                  label="Hablar con ventas"
+                  className="min-h-[50px] text-sm sm:text-base px-6 py-3.5"
+                />
               </div>
-              <p className="mt-3 text-xs text-white/40">Demo guiada de 15 minutos • Sin compromisos</p>
+              <p className="mt-4 text-xs text-white/40">
+                Activación guiada • Sin permanencia obligatoria • Soporte directo en Colombia
+              </p>
             </div>
           </ScrollReveal>
         </div>

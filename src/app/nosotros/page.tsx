@@ -88,9 +88,9 @@ const pilaresComerciales = [
   },
   {
     title: "Campañas masivas en minutos sin enredos técnicos",
-    subtitle: "Difusión regulada con cadencia anti-bloqueo",
+    subtitle: "Difusión comercial programada y segmentada",
     description:
-      "Envía novedades, promociones y reactivación de cartera a bases de datos segmentadas sin miedo al bloqueo. Controlas la velocidad de despacho, programas horarios hábiles y personalizas cada mensaje con el nombre del cliente.",
+      "Envía novedades, promociones y reactivación de cartera a bases de datos segmentadas. Controlas la velocidad de despacho, programas horarios hábiles y personalizas cada mensaje con el nombre del cliente.",
     badge: "Conversión Inmediata",
     badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
     icon: (

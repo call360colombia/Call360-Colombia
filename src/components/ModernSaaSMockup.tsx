@@ -247,7 +247,7 @@ export default function ModernSaaSMockup({
                 {/* Incoming Message */}
                 <div className="max-w-[85%] md:max-w-[75%] rounded-2xl rounded-tl-sm bg-white/[0.06] border border-white/[0.08] p-3 text-xs text-white/90 shadow-md">
                   <p className="leading-relaxed">
-                    Hola Juan David, revisé la propuesta que me diste por WhatsApp. ¿La plataforma ya incluye la cadencia anti-bloqueo para nuestras campañas de citas odontológicas?
+                    Hola Juan David, revisé la propuesta que me diste por WhatsApp. ¿La plataforma ya incluye la IA para sugerir respuestas y redacción en nuestras campañas de citas odontológicas?
                   </p>
                   <span className="mt-1 block text-[9px] text-white/40 text-right">10:40 AM</span>
                 </div>
@@ -255,7 +255,7 @@ export default function ModernSaaSMockup({
                 {/* Outgoing Message */}
                 <div className="ml-auto max-w-[85%] md:max-w-[75%] rounded-2xl rounded-tr-sm bg-gradient-to-r from-emerald-600/30 to-cyan-600/30 border border-emerald-500/40 p-3 text-xs text-white shadow-lg shadow-emerald-950/30">
                   <p className="leading-relaxed font-medium">
-                    ¡Totalmente Carolina! Tienes control de despacho regulado (1 mensaje cada 8-15 segundos con variables de nombre personalizadas). Cero riesgo de baneo y tus 3 recepcionistas atienden desde el mismo número.
+                    ¡Totalmente Carolina! Cuentas con sugerencias inteligentes con IA de Call360, variables de nombre personalizadas y tus 3 recepcionistas atienden desde el mismo número en equipo.
                   </p>
                   <div className="mt-2.5 rounded-xl bg-black/40 border border-white/10 p-2 flex items-center justify-between">
                     <div className="flex items-center gap-2">
@@ -307,7 +307,7 @@ export default function ModernSaaSMockup({
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
               <div>
                 <h3 className="text-base font-bold text-white">Centro de Difusión &amp; Campañas</h3>
-                <p className="text-xs text-white/50">Envíos masivos regulados sin riesgo de bloqueo por WhatsApp</p>
+                <p className="text-xs text-white/50">Envíos masivos segmentados y programados en horario hábil Colombia</p>
               </div>
               <span className="rounded-full bg-cyan-500/15 border border-cyan-500/30 px-3.5 py-1 text-xs font-bold text-cyan-300 self-start">
                 Cadencia Inteligente Activa

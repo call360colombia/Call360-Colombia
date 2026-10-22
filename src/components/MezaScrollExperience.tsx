@@ -360,7 +360,7 @@ export default function MezaScrollExperience() {
             </div>
           </div>
 
-          {/* FASE 3: 58% a 82% — Campañas Masivas con Cadencia Anti-Bloqueo */}
+          {/* FASE 3: 58% a 82% — Campañas Masivas con Cadencia Programada */}
           <div
             className={`transition-all duration-500 transform ${
               displayProgress >= 0.58 && displayProgress < 0.85
@@ -376,10 +376,10 @@ export default function MezaScrollExperience() {
                 Difusión masiva con cadencia segura y horario colombiano
               </h2>
               <p className="mt-3 text-sm sm:text-base text-white/80 leading-relaxed font-medium">
-                Envía promociones y reactiva tu cartera de clientes sin riesgo de baneo. Despacho programado con variables personalizadas ({`{Nombre}`}, {`{Empresa}`}).
+                Envía promociones y reactiva tu cartera de clientes de forma organizada. Despacho programado con variables personalizadas ({`{Nombre}`}, {`{Empresa}`}).
               </p>
               <div className="mt-5 p-3.5 rounded-xl sm:rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-xs text-cyan-200 backdrop-blur-sm">
-                ⚡ <strong>Protección anti-bloqueo:</strong> Intervalos variables entre mensajes y control estricto de velocidad de envío.
+                ⚡ <strong>Control de cadencia:</strong> Intervalos variables entre mensajes y programación en horario hábil.
               </div>
             </div>
           </div>

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Demostración en Vivo CRM WhatsApp & Campañas | Call360 Colombia",
     description:
-      "Descubre cómo centralizar tu equipo en WhatsApp y enviar campañas masivas con cadencia anti-bloqueo. Demostración guiada en vivo.",
+      "Descubre cómo centralizar tu equipo en WhatsApp, responder mejor con IA y organizar tus oportunidades comerciales. Demostración guiada en vivo.",
     url: "https://call360colombia.com/demo",
     siteName: "Call360 Colombia",
     locale: "es_CO",
@@ -53,7 +53,7 @@ const disponibleHoy = [
     items: [
       "Campañas segmentadas y filtradas por listas de contactos (CSV / Excel)",
       "Difusión masiva y programada con fecha y hora (horario Colombia)",
-      "Marketing por WhatsApp en lotes controlados con cadencia anti-bloqueo",
+      "Marketing y difusión comercial por WhatsApp con variables dinámicas y reportes de entrega",
       "Personalización automática con variables ({Nombre}, {Empresa}, etc.)",
       "Reportes esenciales de seguimiento y estados de envío en tiempo real",
     ],

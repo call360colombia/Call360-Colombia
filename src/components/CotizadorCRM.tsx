@@ -39,19 +39,22 @@ const fieldClass =
   "w-full rounded-xl border border-white/[0.08] bg-[#0a0a0f]/60 px-4 py-3 text-sm text-white outline-none transition-all focus:border-cyan-500/40 focus:ring-2 focus:ring-cyan-500/20";
 
 function calculateMonthly(type: CrmType, users: number): number {
-  if (type === "combinado") {
-    return users * 240000;
+  if (type === "whatsapp") {
+    if (users <= 1) return 65000;
+    if (users <= 4) return 130000;
+    return 200000;
   }
-  if (users <= 1) return 120000;
-  if (users <= 4) return 240000;
-  if (users <= 10) return 500000;
-  return 500000 + (users - 10) * ADDITIONAL_PRICE;
+  if (type === "combinado") {
+    const waBase = users <= 1 ? 65000 : users <= 4 ? 130000 : 200000;
+    return users * 120000 + waBase;
+  }
+  return users * 120000;
 }
 
 function getVolumeThreshold(type: CrmType): number {
-  if (type === "llamadas") return VOLUME_THRESHOLDS.crmLlamadas;
+  if (type === "whatsapp") return 10;
   if (type === "combinado") return 10;
-  return VOLUME_THRESHOLDS.crmWhatsapp;
+  return VOLUME_THRESHOLDS.crmLlamadas;
 }
 
 export default function CotizadorCRM({

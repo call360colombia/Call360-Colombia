@@ -241,8 +241,8 @@ export default function Home() {
               {
                 title: "CRM WhatsApp",
                 headline: "Varios asesores, un solo número de WhatsApp",
-                description: "Sistema profesional multiagente. Responde desde un solo lugar, conserva el historial de tus clientes y haz seguimiento sin perder oportunidades.",
-                benefit: "Prueba 7 días gratis • Baja probabilidad de bloqueo",
+                description: "Dale superpoderes a tu WhatsApp: atención multiagente, respuestas rápidas con IA incluida y seguimiento de oportunidades comerciales.",
+                benefit: "Prueba 14 días gratis • 100 Créditos IA incluidos",
                 image: "/inicio/whatsapp.png?v=2",
                 href: "/crm-whatsapp",
                 ctaLabel: "Ver CRM WhatsApp",
@@ -463,7 +463,7 @@ export default function Home() {
                     },
                     {
                       service: "CRM WhatsApp",
-                      guarantee: "7 días de prueba con acceso completo. Sin riesgo.",
+                      guarantee: "14 días de prueba con 100 créditos IA. Sin tarjeta ni riesgo.",
                       color: "emerald",
                     },
                     {
@@ -570,7 +570,7 @@ export default function Home() {
           },
           {
             question: "¿Qué pasa si no me gusta el servicio?",
-            answer: "Probamos antes de que pagues. El CRM WhatsApp tiene 7 días de prueba gratis. Las llamadas tienen demo de 6 horas. Si no funciona para ti, no pagas. Así de simple.",
+            answer: "Probamos antes de que pagues. El CRM WhatsApp tiene 14 días de prueba gratis con 100 créditos IA incluidos. Las llamadas tienen demo de 6 horas. Si no funciona para ti, no pagas. Así de simple.",
           },
         ]}
       />

@@ -30,8 +30,8 @@ const services = [
   {
     title: "CRM WhatsApp",
     description:
-      "Gestiona a tus clientes con un sistema profesional de WhatsApp. Multiagente, bandeja compartida e historial de chats.",
-    benefit: "Para negocios que atienden por WhatsApp",
+      "Dale superpoderes a tu WhatsApp: atención multiagente, respuestas rápidas con IA incluida de Call360 y seguimiento comercial organizado.",
+    benefit: "Prueba 14 días gratis con 100 créditos IA incluidos",
     href: "/crm-whatsapp",
     gradient: "from-emerald-500/20 to-green-500/20",
     hoverBorder: "hover:border-emerald-500/30",

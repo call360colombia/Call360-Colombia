@@ -56,7 +56,7 @@ const features = [
       </svg>
     ),
     title: "CRM WhatsApp Multiagente",
-    description: "Varios agentes desde un solo número. Campañas masivas ilimitadas, respuestas automáticas, plantillas y baja probabilidad de bloqueo.",
+    description: "Varios agentes desde un solo número con IA incluida de Call360. Bandeja compartida, sugerencias rápidas, historial y difusión comercial.",
     gradient: "from-emerald-500/20 to-green-500/20",
   },
   {
