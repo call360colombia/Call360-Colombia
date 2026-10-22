@@ -633,8 +633,12 @@ export default function Home() {
             answer: "Sí, somos una empresa colombiana con NIT y emitimos factura electrónica con todos los requisitos legales. Contamos con más de 12 años de operación en el país.",
           },
           {
+            question: "¿Qué diferencia hay entre los planes de CRM WhatsApp (Demo, Starter, Pro y Deluxe)?",
+            answer: "Todos los planes tienen exactamente las mismas funciones del CRM y la IA incluida desde el primer día: bandeja multiagente, transcripción, informes, análisis y sugerencias. La única diferencia es la duración del Demo (14 días con 100 créditos) y el cupo mensual de Créditos IA por empresa (1.000 en Starter, 3.000 en Pro y 10.000 en Deluxe).",
+          },
+          {
             question: "¿Qué pasa si no me gusta el servicio?",
-            answer: "Probamos antes de que pagues. El CRM WhatsApp tiene 14 días de prueba gratis con 100 créditos IA incluidos. Las llamadas tienen demo de 6 horas. Si no funciona para ti, no pagas. Así de simple.",
+            answer: "Probamos antes de que pagues. El CRM WhatsApp tiene 14 días de prueba gratis con 100 créditos IA para toda la prueba. Las llamadas tienen demo de 6 horas. Si no funciona para ti, no pagas. Así de simple.",
           },
         ]}
       />

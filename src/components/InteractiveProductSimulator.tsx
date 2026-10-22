@@ -249,7 +249,7 @@ export default function InteractiveProductSimulator() {
                 <div className="lg:col-span-4 space-y-4">
                   <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
                     <h4 className="text-sm font-bold text-white mb-2">Simula Acciones Comerciales:</h4>
-                    <p className="text-xs text-white/60 mb-4">Haz clic para ver cómo Call360 automatiza la gestión de tus ventas:</p>
+                    <p className="text-xs text-white/60 mb-4">Haz clic para ver cómo la IA asistida de Call360 agiliza las respuestas de tus asesores:</p>
 
                     <div className="space-y-2.5">
                       <button
@@ -259,7 +259,7 @@ export default function InteractiveProductSimulator() {
                       >
                         <span className="flex items-center gap-2">
                           <span>✨</span>
-                          <span>Generar Respuesta Rápida con IA</span>
+                          <span>Sugerir Respuesta con IA (Tú decides)</span>
                         </span>
                         <span className="text-[10px] bg-cyan-500/20 px-2 py-0.5 rounded">Probar</span>
                       </button>
@@ -308,7 +308,7 @@ export default function InteractiveProductSimulator() {
                       14 Días de Prueba Gratis
                     </h4>
                     <p className="text-xs text-white/70 leading-relaxed mb-4">
-                      Incluye 100 créditos IA para automatizar respuestas y soporte directo en WhatsApp con el creador, Juan David Meza.
+                      Incluye 100 créditos IA para sugerir respuestas y redacción asistida, con soporte directo en Bogotá.
                     </p>
                     <WhatsAppButton
                       text="Hola Call360, probé el simulador de CRM WhatsApp en la web y quiero activar los 14 días gratis para mi equipo."
@@ -587,7 +587,7 @@ export default function InteractiveProductSimulator() {
                       { step: "1. Anuncio Optimizado", desc: "Segmentado por ciudad en Colombia y palabras clave de alta intención.", stat: "+3.200 clics calificados" },
                       { step: "2. Landing en 0.8s", desc: "Página directa sin distracciones que carga al instante en smartphones.", stat: "92% retención de visita" },
                       { step: "3. Conversación WhatsApp", desc: "El prospecto abre chat directo con tus asesores con mensaje predeterminado.", stat: "+450 chats nuevos/mes" },
-                      { step: "4. Cierre y Venta", desc: "Seguimiento automatizado y llamada directa sin perder prospectos.", stat: "Retorno positivo asegurado" },
+                      { step: "4. Cierre y Venta", desc: "Seguimiento organizado con embudo visual y llamada directa sin perder prospectos.", stat: "Retorno positivo asegurado" },
                     ].map((s, idx) => (
                       <div key={idx} className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
                         <div>

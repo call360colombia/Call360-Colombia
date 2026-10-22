@@ -325,7 +325,7 @@ export default function CRMWhatsAppPage() {
               {
                 step: "03",
                 title: "Responde con IA y cierra negocios",
-                desc: "Aprovecha sugerencias automáticas, resúmenes de chats y el embudo de ventas para convertir cada oportunidad.",
+                desc: "Aprovecha sugerencias con IA asistida, resúmenes de chats y el embudo de ventas para convertir cada oportunidad (tú revisas y decides el envío).",
               },
             ].map((st, i) => (
               <ScrollReveal key={st.step} delay={i * 100}>
@@ -381,6 +381,16 @@ export default function CRMWhatsAppPage() {
                   question: "¿Qué pasa si mi empresa necesita más de 10 usuarios?",
                   answer:
                     "Contáctanos directamente. Para equipos comerciales grandes configuramos un plan personalizado con la capacidad operativa y bolsa de créditos IA que requiera tu operación.",
+                },
+                {
+                  question: "¿Hay funciones exclusivas en Pro o Deluxe que no tenga Starter?",
+                  answer:
+                    "No. Demo, Starter, Pro y Deluxe tienen exactamente las mismas funciones del CRM: bandeja multiagente, transcripción de notas de voz, informes, análisis, sugerencias y asistente con IA. La única diferencia es el cupo mensual de Créditos IA (1.000 en Starter, 3.000 en Pro y 10.000 en Deluxe; 100 créditos para los 14 días de Demo).",
+                },
+                {
+                  question: "¿Existe una opción si solo necesito gestionar correo corporativo?",
+                  answer:
+                    "Sí. Disponemos del plan especializado 'Solo Correo' con 200 Créditos IA al mes para redactar y resumir emails desde Call360. No incluye WhatsApp ni el CRM comercial completo, pero puede ampliarse cuando lo requieras. Puedes consultar sus condiciones directamente con nuestro equipo.",
                 },
                 {
                   question: "¿Puedo conservar mi número actual de WhatsApp?",

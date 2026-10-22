@@ -216,10 +216,12 @@ export default function CotizadorCRM({
             ≈ {formatCOP(Math.round(monthly / users))} por agente / mes
           </div>
         )}
+        <p className="mt-2 text-[11px] text-white/50">
+          * Todos los planes de CRM WhatsApp incluyen el CRM completo con todas las funciones e IA asistida. El cupo de Créditos IA se asigna por empresa y se comparte entre todos los asesores.
+        </p>
         {isVolume && (
           <p className="mt-3 text-xs text-amber-400">
-            💡 Para {users}+ {type === "llamadas" ? "agentes" : "usuarios"} tenemos planes
-            empresariales con descuento. Te contactaremos.
+            💡 Para más de 10 usuarios configuramos planes empresariales con bolsa personalizada de Créditos IA. Te contactaremos de inmediato.
           </p>
         )}
       </div>
