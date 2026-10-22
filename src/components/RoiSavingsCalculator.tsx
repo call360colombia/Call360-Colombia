@@ -9,6 +9,8 @@ export default function RoiSavingsCalculator() {
   const [hasCalls, setHasCalls] = useState(true);
   const [hasWeb, setHasWeb] = useState(false);
 
+  const [timeframe, setTimeframe] = useState<"monthly" | "yearly">("monthly");
+
   // Cost estimates with foreign/traditional tools in USD converted to COP
   // Traditional: USD $45/agent CRM (HubSpot/Zendesk) + USD $30/agent Twilio telephony + variable minutes + USD $20/month WhatsApp API = ~350,000 COP/agent + fixed fees
   const foreignCostPerAgent = 360000;
@@ -35,6 +37,10 @@ export default function RoiSavingsCalculator() {
   const yearlySavings = monthlySavings * 12;
   const percentageSavings = Math.round((monthlySavings / traditionalTotal) * 100);
 
+  const displayTraditional = timeframe === "yearly" ? traditionalTotal * 12 : traditionalTotal;
+  const displayCall360 = timeframe === "yearly" ? call360Total * 12 : call360Total;
+  const displaySavings = timeframe === "yearly" ? yearlySavings : monthlySavings;
+
   const handleWhatsAppQuote = () => {
     const services = [
       hasWhatsApp ? "CRM WhatsApp Multiagente" : null,
@@ -47,6 +53,7 @@ export default function RoiSavingsCalculator() {
 - Servicios de interés: ${services || "Ecosistema completo"}
 - Cotización Call360 estimada: ${formatCOP(call360Total)}/mes
 - Ahorro mensual proyectado: ${formatCOP(monthlySavings)}/mes (${percentageSavings}%)
+- Ahorro anual estimado: ${formatCOP(yearlySavings)}/año
 
 Quiero activar este plan o solicitar una asesoría personalizada.`;
 
@@ -242,11 +249,39 @@ Quiero activar este plan o solicitar una asesoría personalizada.`;
             </div>
 
             <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 block mb-1">
-                Tu Balance Económico Mensual
-              </span>
-              <h3 className="text-2xl font-black text-white mb-6">
-                Resultado de tu Operación
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-bold uppercase tracking-widest text-emerald-400 block">
+                  Balance Económico
+                </span>
+                {/* Timeframe selector */}
+                <div className="inline-flex rounded-full border border-white/20 bg-black/40 p-1 text-xs">
+                  <button
+                    type="button"
+                    onClick={() => setTimeframe("monthly")}
+                    className={`px-3 py-1 rounded-full font-bold transition-all ${
+                      timeframe === "monthly"
+                        ? "bg-emerald-500 text-black shadow-sm"
+                        : "text-white/60 hover:text-white"
+                    }`}
+                  >
+                    Mensual
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setTimeframe("yearly")}
+                    className={`px-3 py-1 rounded-full font-bold transition-all ${
+                      timeframe === "yearly"
+                        ? "bg-emerald-500 text-black shadow-sm"
+                        : "text-white/60 hover:text-white"
+                    }`}
+                  >
+                    Anual (12 Meses)
+                  </button>
+                </div>
+              </div>
+
+              <h3 className="text-2xl font-black text-white mb-5">
+                Resultado de tu Operación {timeframe === "yearly" ? "Anual" : "Mensual"}
               </h3>
 
               {/* Side-by-side cost breakdown */}
@@ -255,7 +290,7 @@ Quiero activar este plan o solicitar una asesoría personalizada.`;
                   <div className="flex justify-between items-center text-xs text-white/50 mb-1">
                     <span>Otras herramientas en USD + telefonía por minuto:</span>
                     <span className="font-mono text-red-400 line-through font-bold">
-                      {formatCOP(traditionalTotal)}/mes
+                      {formatCOP(displayTraditional)}/{timeframe === "yearly" ? "año" : "mes"}
                     </span>
                   </div>
                   <p className="text-[11px] text-white/40">
@@ -275,24 +310,26 @@ Quiero activar este plan o solicitar una asesoría personalizada.`;
                     </div>
                     <div className="text-right">
                       <span className="text-2xl sm:text-3xl font-black text-emerald-400 font-mono">
-                        {formatCOP(call360Total)}
+                        {formatCOP(displayCall360)}
                       </span>
-                      <span className="text-xs text-white/50 block">/mes</span>
+                      <span className="text-xs text-white/50 block">/{timeframe === "yearly" ? "año" : "mes"}</span>
                     </div>
                   </div>
                 </div>
               </div>
 
               {/* Big Savings Metric */}
-              <div className="rounded-2xl border border-white/10 bg-black/40 p-5 text-center mb-6">
+              <div className="rounded-2xl border border-emerald-500/30 bg-black/50 p-5 text-center mb-6 shadow-inner">
                 <span className="text-xs font-bold uppercase tracking-wider text-white/50 block mb-1">
-                  Dinero que se queda en tu empresa:
+                  Dinero neto que se queda en tu empresa:
                 </span>
                 <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent font-mono">
-                  +{formatCOP(monthlySavings)} / mes
+                  +{formatCOP(displaySavings)} / {timeframe === "yearly" ? "año" : "mes"}
                 </div>
                 <div className="text-xs text-emerald-300 font-semibold mt-1">
-                  Ahorro de {formatCOP(yearlySavings)} al año garantizado
+                  {timeframe === "monthly" 
+                    ? `Ahorro proyectado de ${formatCOP(yearlySavings)} al año garantizado` 
+                    : `Equivale a ${formatCOP(monthlySavings)} guardados mes a mes`}
                 </div>
               </div>
             </div>

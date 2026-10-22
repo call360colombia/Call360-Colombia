@@ -182,6 +182,34 @@ export default function PaginasWebPage() {
                   </svg>
                 </a>
               </div>
+
+              <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs mt-2">
+                <a
+                  href="#planes"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 text-cyan-300 font-bold hover:bg-cyan-500/20 transition-all"
+                >
+                  <span>⚡ Planes desde $100k/mes</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                <Link
+                  href="/#simulador-en-vivo"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 font-bold hover:bg-emerald-500/20 transition-all"
+                >
+                  <span>🚀 Test Velocidad (0.8s vs 7.4s)</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/#calculadora-ahorro"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-white/70 font-bold hover:text-white hover:bg-white/[0.08] transition-all"
+                >
+                  <span>💰 Calculadora de Ahorro</span>
+                </Link>
+              </div>
+
               <p className="text-[11px] sm:text-xs text-white/50 mt-1 text-center px-2">
                 ⚡ Boceto inicial sin costo • Dominio propio (.com o .co) • Soporte directo en Bogotá
               </p>

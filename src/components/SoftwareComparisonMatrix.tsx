@@ -126,20 +126,25 @@ export default function SoftwareComparisonMatrix() {
           </div>
 
           {/* Footer of Table */}
-          <div className="p-6 sm:p-8 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-violet-500/10 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <h4 className="text-base sm:text-lg font-black text-white">
-                ¿Listo para migrar tu operación comercial a Call360?
+          <div className="p-6 sm:p-8 bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-violet-500/10 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/20 px-3 py-1 text-[11px] font-black uppercase tracking-wider text-emerald-300">
+                🚀 Migración Asistida 100% Gratuita en 24h
+              </div>
+              <h4 className="text-lg sm:text-xl font-black text-white">
+                ¿Operas hoy con Trengo, Zenvia, Kommo, HubSpot o Twilio?
               </h4>
-              <p className="text-xs sm:text-sm text-white/70">
-                Migración asistida sin perder tus números ni tus historiales de clientes.
+              <p className="text-xs sm:text-sm text-white/70 max-w-xl">
+                Nuestro equipo técnico en Bogotá migra tus líneas de WhatsApp, bases de datos y contactos sin apagar tu operación ni perder un solo prospecto.
               </p>
             </div>
-            <WhatsAppButton
-              text="Hola Call360, quiero migrar mi sistema comercial y cotizar las soluciones para mi empresa."
-              label="Hablar con un Asesor en Bogotá"
-              className="w-full sm:w-auto shrink-0 shadow-lg shadow-emerald-500/20"
-            />
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
+              <WhatsAppButton
+                text="Hola Call360, quiero solicitar la migración gratuita de mi sistema actual a Call360 sin perder mis números."
+                label="Solicitar Migración Gratuita"
+                className="w-full sm:w-auto !min-h-[50px] !px-6 !py-3 shadow-lg shadow-emerald-500/25 justify-center"
+              />
+            </div>
           </div>
         </div>
       </div>

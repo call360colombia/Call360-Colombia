@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import FeatureCard from "@/components/FeatureCard";
 import PricingCard from "@/components/PricingCard";
 import WhatsAppButton from "@/components/WhatsAppButton";
@@ -155,8 +156,38 @@ export default function CRMLlamadasPage() {
                     Ver demo en vivo
                   </a>
                 </div>
+                <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5 text-xs md:justify-start">
+                  <a
+                    href="#panel-en-vivo"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-violet-400/30 bg-violet-500/10 text-violet-300 font-bold hover:bg-violet-500/20 transition-all"
+                  >
+                    <span>⚡ Panel en Vivo</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </a>
+                  <a
+                    href="#cotizador"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 text-cyan-300 font-bold hover:bg-cyan-500/20 transition-all"
+                  >
+                    <span>💰 Cotizador Automático</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </a>
+                  <Link
+                    href="/#calculadora-ahorro"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 font-bold hover:bg-emerald-500/20 transition-all"
+                  >
+                    <span>📊 Calcular Ahorro en COP</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <path d="M5 12h14M12 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                </div>
+
                 <p className="mt-3 text-xs text-white/40 md:text-left">
-                  ⚡ Demo real de 6 horas gratis • Minutos ilimitados • Activación en 24h
+                  ⚡ Demo real de 6 horas gratis • Minutos ilimitados a Colombia • Activación en 24h
                 </p>
               </div>
 

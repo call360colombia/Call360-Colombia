@@ -169,8 +169,35 @@ export default function CRMWhatsAppPage() {
                 </a>
               </div>
 
+              <div className="animate-fade-in-up animation-delay-400 mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs">
+                <a
+                  href="#chat-interactivo"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 font-bold hover:bg-emerald-500/20 transition-all"
+                >
+                  <span>⚡ Probar Bandeja en Vivo</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                <Link
+                  href="/#calculadora-ahorro"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 text-cyan-300 font-bold hover:bg-cyan-500/20 transition-all"
+                >
+                  <span>💰 Calcular Ahorro en COP</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/#comparativa-saas"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-white/70 font-bold hover:text-white hover:bg-white/[0.08] transition-all"
+                >
+                  <span>⚖️ Comparar vs Extranjeros</span>
+                </Link>
+              </div>
+
               <p className="animate-fade-in-up animation-delay-400 mt-4 text-xs text-white/40">
-                ⚡ 14 días de prueba con 100 créditos IA • Sin tarjeta de crédito • Conexión en minutos
+                ⚡ 14 días de prueba con 100 créditos IA • Sin tarjeta de crédito • Migración gratuita en 24h
               </p>
             </div>
 
