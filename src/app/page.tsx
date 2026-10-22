@@ -272,9 +272,9 @@ export default function Home() {
             {[
               {
                 title: "Páginas Web",
-                headline: "Tu vitrina digital lista en 72 horas",
-                description: "Diseño premium responsive, optimizado para SEO y conectado a WhatsApp. Incluye sección 'Trabaja con nosotros' para reclutamiento.",
-                benefit: "Mockup gratis antes de pagar • Solo pagas si te gusta",
+                headline: "Ten la web de tu negocio lista en 72 horas",
+                description: "Tu negocio atiende en un horario; tu web vende, genera confianza y te posiciona en Google 24/7 con conexión directa a WhatsApp.",
+                benefit: "Boceto previo gratis sin costo • Solo pagas si te encanta",
                 image: "/inicio/web.png?v=2",
                 href: "/paginas-web",
                 ctaLabel: "Ver páginas web",

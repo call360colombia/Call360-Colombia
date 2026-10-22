@@ -101,6 +101,16 @@ const faqItems = [
       "Por solo $600.000 COP al año (equivalente a $50.000 COP/mes), recibes la página web completa, dominio propio (.com o .co) a tu nombre por 1 año, 3 correos corporativos con IA, hosting en la nube de alta velocidad, certificado de seguridad SSL y soporte prioritario directo.",
   },
   {
+    question: "Nunca he tenido una página web y no sé de tecnología, ¿cómo me ayuda Call360?",
+    answer:
+      "No necesitas saber nada de sistemas ni programación. Nosotros hacemos todo el trabajo por ti: registramos tu dominio, configuramos el hosting de alta velocidad, creamos el diseño profesional a la medida de tu negocio y lo conectamos directo a tu WhatsApp. Te entregamos un boceto previo gratis sin costo: solo pagas si te convence el diseño.",
+  },
+  {
+    question: "¿Por qué mi negocio necesita una página web si ya tengo redes sociales o WhatsApp?",
+    answer:
+      "Tu negocio o local atiende en un horario comercial; tu página web está abierta las 24 horas del día, los 7 días de la semana en Google. Además, hoy los clientes desconfían de empresas que solo tienen un número de celular o redes sociales: una página web oficial con dominio propio (.com o .co) y correos corporativos le da a tu negocio la seguridad, formalidad y profesionalismo que cierran ventas.",
+  },
+  {
     question: "¿Tengo que pagar antes de ver el diseño?",
     answer:
       "No. En Call360 te preparamos un boceto preliminar de tu web sin costo inicial. Solo cuando veas la propuesta y te guste cómo luce, realizas el pago para publicar en tu dominio definitivo.",
@@ -147,35 +157,35 @@ export default function PaginasWebPage() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500" />
               </span>
-              <span className="break-words">Páginas Web Creadas Para Vender</span>
+              <span className="break-words">Tu Empresa Abierta 24/7 en Internet</span>
             </div>
 
             {/* Main Headline */}
             <h1 className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight tracking-tight text-white mb-5 sm:mb-6 animate-fade-in-up animation-delay-100 break-words">
-              No pierdas clientes por una web lenta: lista en{" "}
+              Ten la página web de tu negocio lista en{" "}
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
                 72 horas
               </span>
             </h1>
 
             {/* Subheadline */}
-            <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200 px-2 sm:px-0">
-              Páginas web de alta velocidad desde <strong className="text-white font-black">$100.000 COP/mes</strong> y ecosistema comercial conectado a tu WhatsApp. Sin agencias costosas ni demoras.
+            <p className="text-sm xs:text-base sm:text-lg lg:text-xl text-white/80 mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up animation-delay-200 px-2 sm:px-0">
+              <strong className="text-white">Tu local o tu oficina atienden en un horario; tu página web vende las 24 horas del día:</strong> da seguridad y confianza a tus clientes, posiciona tu empresa en Google y recibe clientes directo en tu WhatsApp. Desde <strong className="text-cyan-300 font-black">$100.000 COP/mes</strong> o plan anual con 50% de descuento.
             </p>
 
             {/* CTA Buttons Ergonómicos */}
             <div className="flex flex-col items-center justify-center gap-4 animate-fade-in-up animation-delay-300 w-full max-w-full">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-lg mx-auto">
                 <WhatsAppButton
-                  text="Hola Call360, quiero cotizar mi página web profesional y mi CRM ahora"
-                  label="Cotizar mi página / CRM ahora"
+                  text="Hola Call360, quiero tener la página web de mi negocio lista en 72 horas y solicitar mi boceto previo gratis"
+                  label="Tener mi web lista en 72 horas"
                   className="w-full sm:w-auto min-h-[50px] sm:min-h-[58px] text-sm sm:text-lg px-4 sm:px-10 py-3.5 sm:py-4 font-black shadow-2xl shadow-cyan-500/30 justify-center text-center"
                 />
                 <a
-                  href="#planes"
+                  href="#por-que-tener-web"
                   className="inline-flex w-full sm:w-auto min-h-[50px] sm:min-h-[58px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.08] backdrop-blur-md px-5 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-bold text-white transition-all hover:border-cyan-400/50 hover:bg-cyan-400/10 active:scale-[0.98] group text-center"
                 >
-                  <span>Ver planes y precios</span>
+                  <span>¿Por qué la necesitas?</span>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="transition-transform group-hover:translate-y-0.5 shrink-0">
                     <line x1="12" y1="5" x2="12" y2="19" />
                     <polyline points="19 12 12 19 5 12" />
@@ -185,28 +195,22 @@ export default function PaginasWebPage() {
 
               <div className="flex flex-wrap items-center justify-center gap-2.5 text-xs mt-2">
                 <a
+                  href="#por-que-tener-web"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 font-bold hover:bg-emerald-500/20 transition-all"
+                >
+                  <span>💡 ¿Por qué vender 24/7 con tu web?</span>
+                </a>
+                <a
                   href="#planes"
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 text-cyan-300 font-bold hover:bg-cyan-500/20 transition-all"
                 >
-                  <span>⚡ Planes desde $100k/mes</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M19 9l-7 7-7-7" />
-                  </svg>
+                  <span>⚡ Ver Planes desde $100k/mes</span>
                 </a>
                 <Link
                   href="/#simulador-en-vivo"
-                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 font-bold hover:bg-emerald-500/20 transition-all"
-                >
-                  <span>🚀 Test Velocidad (0.8s vs 7.4s)</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/#calculadora-ahorro"
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/[0.04] text-white/70 font-bold hover:text-white hover:bg-white/[0.08] transition-all"
                 >
-                  <span>💰 Calculadora de Ahorro</span>
+                  <span>🚀 Test de Velocidad (0.8s)</span>
                 </Link>
               </div>
 
@@ -220,6 +224,139 @@ export default function PaginasWebPage() {
 
       {/* CINTA DE BENEFICIOS INCLUIDOS EN PÁGINAS WEB (CALIBRADA A 48s) */}
       <LiveBenefitsTicker />
+
+      {/* BLOQUE EDUCATIVO Y COMERCIAL: POR QUÉ TU NEGOCIO NECESITA UNA PÁGINA WEB HOY */}
+      <section id="por-que-tener-web" className="py-16 sm:py-24 bg-[#0a0c14]/95 border-b border-white/[0.06] relative overflow-hidden">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-300 mb-4 shadow-sm">
+              ★ Lo que nadie te explica sobre tener una web ★
+            </span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+              ¿Por qué tu negocio se posiciona mejor con una{" "}
+              <span className="bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-300 bg-clip-text text-transparent">
+                página web profesional?
+              </span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-base sm:text-lg text-white/70 leading-relaxed">
+              Si nunca has tenido una página web o dudas si realmente vale la pena para tu negocio, esto es exactamente lo que cambia desde el primer día:
+            </p>
+          </div>
+
+          {/* 4 Pilares Comerciales Irrefutables */}
+          <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-4 items-stretch mb-14">
+            {/* Pilar 1 */}
+            <div className="rounded-3xl border border-white/10 bg-[#12141f] p-6 sm:p-7 flex flex-col justify-between hover:border-cyan-400/40 hover:-translate-y-1 transition-all shadow-xl">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-500/15 text-cyan-400 mb-5 border border-cyan-500/20">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-cyan-400 bg-cyan-500/10 px-2.5 py-1 rounded-md">
+                  Venta 24/7 Sin Descanso
+                </span>
+                <h3 className="text-lg font-black text-white mt-3 mb-2">
+                  Tu negocio atiende en un horario; tu web vende las 24 horas
+                </h3>
+                <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
+                  Tu local, consultorio u oficina física cierran en la noche y fines de semana. Tu página web nunca duerme: muestra tus productos, explica tus servicios y te deja prospectos listos en tu WhatsApp a las 11:00 PM o un domingo en la mañana.
+                </p>
+              </div>
+            </div>
+
+            {/* Pilar 2 */}
+            <div className="rounded-3xl border border-white/10 bg-[#12141f] p-6 sm:p-7 flex flex-col justify-between hover:border-emerald-400/40 hover:-translate-y-1 transition-all shadow-xl">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400 mb-5 border border-emerald-500/20">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md">
+                  Confianza &amp; Seguridad
+                </span>
+                <h3 className="text-lg font-black text-white mt-3 mb-2">
+                  Seguridad inmediata para que tus clientes no desconfíen
+                </h3>
+                <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
+                  Hoy en día, un cliente que solo ve un número de celular suelto o una cuenta en redes sospecha de si eres una empresa real o una estafa. Una web con dominio propio (.com o .co) y correos oficiales le da tranquilidad para transferir y comprar.
+                </p>
+              </div>
+            </div>
+
+            {/* Pilar 3 */}
+            <div className="rounded-3xl border border-white/10 bg-[#12141f] p-6 sm:p-7 flex flex-col justify-between hover:border-amber-400/40 hover:-translate-y-1 transition-all shadow-xl">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500/15 text-amber-400 mb-5 border border-amber-500/20">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md">
+                  Posicionamiento Google
+                </span>
+                <h3 className="text-lg font-black text-white mt-3 mb-2">
+                  Aparece cuando tus clientes buscan lo que vendes en Google
+                </h3>
+                <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
+                  Cuando alguien necesita tus servicios en tu ciudad, lo primero que hace es buscar en Google. Google solo recomienda empresas con página web. Si tú no estás ahí, ese cliente que ya tiene la plata en la mano le compra a tu competencia.
+                </p>
+              </div>
+            </div>
+
+            {/* Pilar 4 */}
+            <div className="rounded-3xl border border-white/10 bg-[#12141f] p-6 sm:p-7 flex flex-col justify-between hover:border-violet-400/40 hover:-translate-y-1 transition-all shadow-xl">
+              <div>
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-violet-500/15 text-violet-400 mb-5 border border-violet-500/20">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                  </svg>
+                </div>
+                <span className="text-[10px] font-black uppercase tracking-widest text-violet-400 bg-violet-500/10 px-2.5 py-1 rounded-md">
+                  Imagen de Primer Nivel
+                </span>
+                <h3 className="text-lg font-black text-white mt-3 mb-2">
+                  Profesionalismo que te diferencia del 90% informal
+                </h3>
+                <p className="text-xs sm:text-sm text-white/60 leading-relaxed">
+                  Deja de mandar fotos desordenadas o PDFs pesados por chat. Envía el enlace de tu web: rápida, limpia y optimizada para celulares. Tus fotos, testimonios y precios se ven impecables, proyectando la seriedad de una empresa consolidada.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Gran Banner de Cero Riesgo: Mockup Gratis */}
+          <div className="rounded-3xl border-2 border-cyan-400/40 bg-gradient-to-r from-cyan-500/15 via-[#121727] to-emerald-500/15 p-6 sm:p-10 shadow-2xl">
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+              <div className="max-w-2xl text-center lg:text-left space-y-2">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-300 border border-emerald-400/40">
+                  🤝 Cero Riesgo · Garantía Call360
+                </span>
+                <h3 className="text-xl sm:text-2xl font-black text-white">
+                  ¿Nunca has tenido web? Te hacemos un boceto previo gratis antes de pagar
+                </h3>
+                <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
+                  No tienes que saber nada de diseño, programación ni servidores. Nuestro equipo en Bogotá arma una muestra visual de cómo se verá tu página web. Solo cuando veas el resultado y te encante, cerramos el proyecto y la publicamos en 72 horas.
+                </p>
+              </div>
+              <div className="shrink-0 w-full lg:w-auto">
+                <WhatsAppButton
+                  text="Hola Call360, nunca he tenido página web y quiero solicitar mi boceto previo gratuito en 72 horas para mi negocio."
+                  label="Pedir mi boceto previo gratis"
+                  className="w-full lg:w-auto !min-h-[52px] !px-8 !py-3.5 shadow-xl shadow-cyan-500/25 justify-center text-center font-black"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* BLOQUE 2 INMEDIATO: PLANES CLAROS Y TRANSPARENTES + TICKETS DE OBSEQUIO (CRO) */}
       <section className="py-14 sm:py-20 lg:py-28 bg-[#0a0c13]/90 border-b border-white/[0.06]" id="planes">
@@ -566,10 +703,10 @@ export default function PaginasWebPage() {
             
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 sm:mb-6">
-                ¿Listo para empezar hoy?
+                ¿Listo para que tu negocio empiece a vender 24/7?
               </h2>
-              <p className="text-base sm:text-lg lg:text-xl text-white/60 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
-                Tu página web profesional lista en 72 horas con dominio propio y WhatsApp conectado. Sin costos ocultos.
+              <p className="text-base sm:text-lg lg:text-xl text-white/70 mb-8 sm:mb-10 max-w-2xl mx-auto leading-relaxed">
+                Ten la página web de tu empresa lista en 72 horas con dominio propio, WhatsApp integrado y boceto inicial gratuito. Da el paso hoy y proyecta la seguridad que tus clientes buscan.
               </p>
               
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none mx-auto">
