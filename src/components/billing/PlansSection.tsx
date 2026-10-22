@@ -124,7 +124,7 @@ export default function PlansSection() {
         </div>
 
         {/* ========================================================
-            GRID DE LAS 4 TARJETAS 3D FINTECH
+            GRID DE LAS 4 TARJETAS 3D FINTECH + DETALLE COMPLETO
             ======================================================== */}
         <div className="grid gap-6 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch">
           {COMMERCIAL_PLANS.map((plan) => {
@@ -136,14 +136,16 @@ export default function PlansSection() {
             return (
               <div
                 key={plan.id}
-                className={`flex flex-col justify-between rounded-3xl p-3 sm:p-4 border transition-all duration-300 backdrop-blur-sm ${
+                className={`flex flex-col justify-between rounded-3xl p-4 sm:p-5 border transition-all duration-300 backdrop-blur-sm ${
                   plan.isRecommended
-                    ? 'border-emerald-500/50 bg-emerald-500/[0.03] shadow-xl shadow-emerald-950/20'
-                    : 'border-white/[0.08] bg-[#12121a]/80 hover:border-white/20'
+                    ? 'border-emerald-500/60 bg-gradient-to-b from-emerald-500/[0.08] via-[#121422] to-[#0e101b] shadow-2xl shadow-emerald-950/40 ring-1 ring-emerald-400/30'
+                    : plan.id === 'deluxe'
+                      ? 'border-amber-500/50 bg-gradient-to-b from-amber-500/[0.08] via-[#16131c] to-[#0e101b] shadow-2xl shadow-amber-950/40'
+                      : 'border-white/[0.1] bg-[#12121a]/95 hover:border-white/20'
                 }`}
               >
-                {/* Tarjeta 3D Física */}
-                <div className="w-full mb-4">
+                {/* 1. Tarjeta 3D Física Interactiva */}
+                <div className="w-full mb-5">
                   <PlanCard3D
                     plan={plan}
                     currency={currency}
@@ -152,51 +154,144 @@ export default function PlansSection() {
                   />
                 </div>
 
-                {/* Bloque descriptivo de la columna */}
-                <div className="flex-1 flex flex-col justify-between px-2 pt-2">
+                {/* 2. Bloque Descriptivo Completo (100% Contenido Visible) */}
+                <div className="flex-1 flex flex-col justify-between pt-1">
                   <div>
-                    <div className="flex items-baseline justify-between mb-1">
-                      <span className="text-xs font-black uppercase tracking-wider text-white/80">
-                        {plan.name}
-                      </span>
-                      <span className="text-xs font-black text-cyan-400 font-mono">
-                        {pricing.formatted}
+                    {/* Encabezado: Nombre del Plan + Precio */}
+                    <div className="flex items-baseline justify-between mb-2">
+                      <div className="flex items-center gap-1.5">
+                        <span className="text-base font-black uppercase tracking-wider text-white">
+                          {plan.name}
+                        </span>
+                        {plan.isRecommended && (
+                          <span className="text-amber-400 font-black text-sm">⭐</span>
+                        )}
+                      </div>
+                      <div className="text-right">
+                        <span className="text-base sm:text-lg font-black text-cyan-400 font-mono">
+                          {pricing.formatted}
+                        </span>
+                        <span className="text-[10px] text-white/50 block -mt-0.5">
+                          {pricing.period}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Tagline Oficial en Tarjeta: CRM completo + IA incluida */}
+                    <div className="mb-2.5">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        {plan.tagline}
                       </span>
                     </div>
 
-                    {/* Tagline común en las 4: CRM completo + IA incluida */}
-                    <div className="mb-2">
-                      <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md border border-emerald-500/20">
-                        CRM completo + IA incluida
-                      </span>
+                    {/* Vigencia / Duración */}
+                    <div className="flex items-center gap-1 text-[11px] text-white/60 mb-3">
+                      <span className="text-white/40">⏱ Vigencia:</span>
+                      <strong className="text-white/80 font-semibold">{plan.durationLabel}</strong>
                     </div>
 
-                    {/* Descripción orientativa según directriz */}
-                    <p className="text-xs text-white/70 mb-3 min-h-[36px] leading-relaxed">
-                      {plan.description}
+                    {/* Descripción Orientativa según directriz comercial */}
+                    <p className="text-xs text-white/80 mb-3 leading-relaxed bg-white/[0.02] p-2.5 rounded-xl border border-white/[0.05]">
+                      &ldquo;{plan.description}&rdquo;
                     </p>
 
-                    {/* Resumen de cupos de IA */}
-                    <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] p-2.5 mb-4 text-center">
-                      <span className="block text-xs font-bold text-emerald-300 font-mono">
-                        {plan.aiCreditsLabel}
-                      </span>
-                      <span className="block text-[10px] text-white/40 mt-0.5">
-                        Cupo compartido por empresa
-                      </span>
+                    {/* Bloque WOW: Multiplicador de Créditos IA */}
+                    {plan.usageMultiplier?.ratio === '10X' && (
+                      <div className="rounded-2xl border-2 border-amber-400/60 bg-gradient-to-br from-amber-500/25 via-[#1a1610] to-yellow-500/20 p-3.5 mb-4 shadow-xl shadow-amber-950/50">
+                        <div className="flex items-center justify-between gap-1 mb-1.5">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-amber-100 bg-amber-500/40 px-2.5 py-0.5 rounded-full border border-amber-300/80 animate-pulse">
+                            {plan.usageMultiplier.badge}
+                          </span>
+                          <span className="text-[10px] font-black text-amber-300">vs Starter</span>
+                        </div>
+                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
+                          10.000 Créditos IA / mes
+                        </span>
+                        <p className="text-[11px] text-amber-100/90 font-medium mt-1 leading-snug">
+                          {plan.usageMultiplier.highlightText}
+                        </p>
+                      </div>
+                    )}
+
+                    {plan.usageMultiplier?.ratio === '3X' && (
+                      <div className="rounded-2xl border border-emerald-400/50 bg-gradient-to-br from-emerald-500/20 via-[#101918] to-cyan-500/15 p-3.5 mb-4 shadow-lg shadow-emerald-950/40">
+                        <div className="flex items-center justify-between gap-1 mb-1.5">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-emerald-200 bg-emerald-500/30 px-2.5 py-0.5 rounded-full border border-emerald-400/50">
+                            {plan.usageMultiplier.badge}
+                          </span>
+                          <span className="text-[10px] font-black text-cyan-300">vs Starter</span>
+                        </div>
+                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
+                          3.000 Créditos IA / mes
+                        </span>
+                        <p className="text-[11px] text-emerald-100/90 font-medium mt-1 leading-snug">
+                          {plan.usageMultiplier.highlightText}
+                        </p>
+                      </div>
+                    )}
+
+                    {plan.usageMultiplier?.ratio === '1X' && (
+                      <div className="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-[#161414] to-white/[0.02] p-3.5 mb-4">
+                        <div className="flex items-center justify-between gap-1 mb-1.5">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-amber-300 bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-500/40">
+                            {plan.usageMultiplier.badge}
+                          </span>
+                          <span className="text-[10px] text-white/50">Punto de partida</span>
+                        </div>
+                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
+                          1.000 Créditos IA / mes
+                        </span>
+                        <p className="text-[11px] text-white/70 font-medium mt-1 leading-snug">
+                          {plan.usageMultiplier.highlightText}
+                        </p>
+                      </div>
+                    )}
+
+                    {plan.id === 'demo' && (
+                      <div className="rounded-2xl border border-white/15 bg-gradient-to-br from-white/10 via-[#14151f] to-white/[0.02] p-3.5 mb-4">
+                        <div className="flex items-center justify-between gap-1 mb-1.5">
+                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-slate-200 bg-white/15 px-2.5 py-0.5 rounded-full border border-white/20">
+                            PRUEBA TOTAL
+                          </span>
+                          <span className="text-[10px] text-slate-400">14 días</span>
+                        </div>
+                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
+                          100 Créditos IA
+                        </span>
+                        <p className="text-[11px] text-white/70 font-medium mt-1 leading-snug">
+                          Cupo completo para conocer y probar todas las funciones
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Resumen de Política de Créditos */}
+                    <div className="text-[11px] text-white/60 mb-4 flex items-center gap-1.5 px-1">
+                      <svg className="h-3.5 w-3.5 text-cyan-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                      </svg>
+                      <span>Cupo compartido entre todos los asesores</span>
                     </div>
 
-                    {/* Capacidades compartidas destacadas */}
-                    <ul className="space-y-1.5 mb-6 text-[11px] text-white/70">
-                      {plan.features.slice(0, 4).map((f, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <svg className="h-3.5 w-3.5 text-emerald-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                            <polyline points="20 6 9 17 4 12" />
-                          </svg>
-                          <span>{f}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    {/* Capacidades compartidas destacadas: SE MUESTRAN TODAS */}
+                    <div className="border-t border-white/[0.08] pt-3 mb-5">
+                      <span className="block text-[10px] font-black uppercase tracking-wider text-white/50 mb-2">
+                        Funciones incluidas (CRM 100% activo):
+                      </span>
+                      <ul className="space-y-2 text-xs text-white/80">
+                        {plan.features.map((f, i) => (
+                          <li key={i} className="flex items-start gap-2">
+                            <svg className="h-4 w-4 text-emerald-400 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                              <polyline points="20 6 9 17 4 12" />
+                            </svg>
+                            <span className="leading-snug">{f}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
 
                   {/* Botón de Acción Principal */}
@@ -204,10 +299,10 @@ export default function PlansSection() {
                     {plan.id === 'demo' ? (
                       <Link
                         href={DEMO_PATH}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-400/40 px-4 py-3 text-xs font-bold text-white transition-all shadow-md active:scale-[0.98]"
+                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-400/40 px-4 py-3.5 text-xs font-black text-white transition-all shadow-md active:scale-[0.98]"
                       >
                         <span>{plan.ctaLabel}</span>
-                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                       </Link>
@@ -215,16 +310,16 @@ export default function PlansSection() {
                       <button
                         type="button"
                         onClick={() => handlePlanAction(plan)}
-                        className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3 text-xs font-bold transition-all shadow-md active:scale-[0.98] ${
+                        className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-xs font-black transition-all shadow-lg active:scale-[0.98] ${
                           plan.tier === 'premium'
-                            ? 'bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-950 font-black shadow-amber-500/25 hover:from-amber-300 hover:to-yellow-300'
+                            ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 text-slate-950 shadow-amber-500/30 hover:brightness-110'
                             : plan.tier === 'silver_emerald'
-                              ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold hover:from-emerald-500 hover:to-teal-500 border border-emerald-400/40 shadow-emerald-950/40'
-                              : 'bg-gradient-to-r from-amber-700 to-yellow-700 text-amber-50 font-bold hover:from-amber-600 hover:to-yellow-600 border border-amber-400/40'
+                              ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-400 hover:to-teal-400 border border-emerald-300/40 shadow-emerald-500/30'
+                              : 'bg-gradient-to-r from-amber-600 to-yellow-600 text-white hover:from-amber-500 hover:to-yellow-500 border border-amber-400/40 shadow-amber-600/30'
                         }`}
                       >
                         <span>{plan.ctaLabel}</span>
-                        <svg className="h-3.5 w-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                           <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
                       </button>

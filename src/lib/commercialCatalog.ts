@@ -29,6 +29,13 @@ export interface CommercialPlan {
   description: string;
   aiCredits: number;
   aiCreditsLabel: string;
+  durationLabel: string;
+  usageMultiplier?: {
+    ratio: string;
+    title: string;
+    badge: string;
+    highlightText: string;
+  };
   isTrial?: boolean;
   trialDays?: number;
   pricing: Record<Currency, PlanPricing>;
@@ -65,6 +72,7 @@ export const COMMERCIAL_PLANS: CommercialPlan[] = [
     description: 'Conoce todas las funciones del CRM durante 14 días.',
     aiCredits: 100,
     aiCreditsLabel: '100 Créditos IA (toda la prueba)',
+    durationLabel: '14 días (toda la prueba)',
     isTrial: true,
     trialDays: 14,
     pricing: {
@@ -101,6 +109,13 @@ export const COMMERCIAL_PLANS: CommercialPlan[] = [
     description: 'Todas las funciones para empezar, con 1.000 Créditos IA al mes.',
     aiCredits: 1000,
     aiCreditsLabel: '1.000 Créditos IA / mes',
+    durationLabel: 'Renovación mensual',
+    usageMultiplier: {
+      ratio: '1X',
+      title: 'Cupo base para empezar',
+      badge: '1X CAPACIDAD BASE',
+      highlightText: '1.000 Créditos IA / mes',
+    },
     pricing: {
       COP: {
         amount: 65000,
@@ -120,12 +135,12 @@ export const COMMERCIAL_PLANS: CommercialPlan[] = [
         COP: {
           amount: 32500,
           formatted: '$32.500',
-          period: 'primer mes (luego $65.000/mes)',
+          period: 'mes 1 (luego $65.000/mes)',
         },
         USD: {
           amount: 10,
           formatted: 'US$10',
-          period: 'first month (then US$20/mo)',
+          period: 'month 1 (then US$20/mo)',
         },
       },
       note: '50% de descuento aplicable al primer mes.',
@@ -152,6 +167,13 @@ export const COMMERCIAL_PLANS: CommercialPlan[] = [
     description: 'El mismo CRM completo, con 3.000 Créditos IA para un mayor uso.',
     aiCredits: 3000,
     aiCreditsLabel: '3.000 Créditos IA / mes',
+    durationLabel: 'Renovación mensual',
+    usageMultiplier: {
+      ratio: '3X',
+      title: '3X Uso de Créditos IA respecto a Starter',
+      badge: '⚡ 3X MÁS CRÉDITOS IA',
+      highlightText: '3.000 Créditos IA / mes (3X respecto a Starter)',
+    },
     isRecommended: true,
     pricing: {
       COP: {
@@ -187,6 +209,13 @@ export const COMMERCIAL_PLANS: CommercialPlan[] = [
     description: 'Todas las funciones, con 10.000 Créditos IA para un uso más intensivo.',
     aiCredits: 10000,
     aiCreditsLabel: '10.000 Créditos IA / mes',
+    durationLabel: 'Renovación mensual',
+    usageMultiplier: {
+      ratio: '10X',
+      title: '10X Uso de Créditos IA respecto a Starter',
+      badge: '🔥 10X POTENCIA EN CRÉDITOS IA',
+      highlightText: '10.000 Créditos IA / mes (10X respecto a Starter)',
+    },
     pricing: {
       COP: {
         amount: 200000,

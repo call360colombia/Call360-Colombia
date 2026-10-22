@@ -566,6 +566,17 @@ export function PlanCard3D({
                     </div>
 
                     <div className="flex items-center gap-1 flex-wrap justify-end">
+                      {plan.usageMultiplier && plan.usageMultiplier.ratio !== '1X' && (
+                        <span
+                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider shadow-md backdrop-blur-md ${
+                            plan.usageMultiplier.ratio === '10X'
+                              ? 'bg-amber-400/40 text-amber-100 border border-amber-300/80 animate-pulse'
+                              : 'bg-cyan-500/40 text-cyan-100 border border-cyan-300/80'
+                          }`}
+                        >
+                          {plan.usageMultiplier.ratio === '10X' ? '🔥 10X IA' : '⚡ 3X IA'}
+                        </span>
+                      )}
                       {isRecommended && (
                         <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider bg-emerald-500/35 text-emerald-200 border border-emerald-400/60 shadow-md backdrop-blur-md">
                           <SparklesIcon className="h-2.5 w-2.5 text-emerald-300" /> RECOMENDADO
@@ -661,11 +672,11 @@ export function PlanCard3D({
                     </span>
                   </div>
 
-                  <ul className="space-y-1">
-                    {plan.features.slice(0, 4).map((f, i) => (
-                      <li key={i} className="flex items-center gap-1.5 text-[8.5px] sm:text-[9px] text-white/90 leading-tight">
+                  <ul className="space-y-0.5">
+                    {plan.features.map((f, i) => (
+                      <li key={i} className="flex items-center gap-1.5 text-[8px] sm:text-[8.5px] text-white/90 leading-tight">
                         <span className="text-emerald-400 shrink-0">
-                          <CheckIcon className="h-3 w-3" />
+                          <CheckIcon className="h-2.5 w-2.5" />
                         </span>
                         <span className="truncate">{f}</span>
                       </li>
