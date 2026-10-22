@@ -10,6 +10,11 @@ import LiveBenefitsTicker from "@/components/LiveBenefitsTicker";
 import CommercialTicketsBanner from "@/components/CommercialTicketsBanner";
 import ArcadeTicketsMarquee from "@/components/ArcadeTicketsMarquee";
 import PortfolioShowcase from "@/components/PortfolioShowcase";
+import LiveActivityWidget from "@/components/LiveActivityWidget";
+import RoiSavingsCalculator from "@/components/RoiSavingsCalculator";
+import InteractiveProductSimulator from "@/components/InteractiveProductSimulator";
+import SoftwareComparisonMatrix from "@/components/SoftwareComparisonMatrix";
+import ServiceQuiz from "@/components/ServiceQuiz";
 
 export default function Home() {
   return (
@@ -81,6 +86,27 @@ export default function Home() {
                 </Link>
               </div>
 
+              <div className="animate-fade-in-up animation-delay-400 mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs">
+                <a
+                  href="#simulador-en-vivo"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-500/10 text-cyan-300 font-bold hover:bg-cyan-500/20 transition-all"
+                >
+                  <span>⚡ Probar Simulador en Vivo</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+                <a
+                  href="#calculadora-ahorro"
+                  className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-emerald-400/30 bg-emerald-500/10 text-emerald-300 font-bold hover:bg-emerald-500/20 transition-all"
+                >
+                  <span>💰 Calcular Ahorro Mensual en COP</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M19 9l-7 7-7-7" />
+                  </svg>
+                </a>
+              </div>
+
               <p className="animate-fade-in-up animation-delay-400 mt-4 text-xs text-white/40 lg:text-left">
                 ⚡ Implementación rápida • Sin cláusulas de permanencia • Soporte directo en Bogotá
               </p>
@@ -143,6 +169,21 @@ export default function Home() {
       {/* CINTA DE NOTICIAS & BENEFICIOS EN VIVO ESTILO SAAS */}
       <LiveBenefitsTicker />
 
+      {/* ACTIVIDAD EN VIVO Y PRUEBA SOCIAL EN COLOMBIA */}
+      <section className="py-10 bg-black/40 border-b border-white/[0.06]">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <LiveActivityWidget />
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* SIMULADOR INTERACTIVO DE PRODUCTOS EN VIVO */}
+      <InteractiveProductSimulator />
+
+      {/* CALCULADORA DE RETORNO Y AHORRO REAL */}
+      <RoiSavingsCalculator />
+
       {/* BLOQUE DE PASES Y TICKETS COMERCIALES (COLOR & ACCESO VIP) */}
       <CommercialTicketsBanner
         title="Garantías y Beneficios Comerciales Directos"
@@ -174,6 +215,9 @@ export default function Home() {
           </ScrollReveal>
         </div>
       </section>
+
+      {/* TABLA COMPARATIVA: CALL360 VS SOFTWARE EXTRANJERO */}
+      <SoftwareComparisonMatrix />
 
       {/* HOW IT WORKS */}
       <section className="py-14 sm:py-20 lg:py-28 bg-[#0f0f17]/50">
@@ -497,6 +541,26 @@ export default function Home() {
               </div>
             </ScrollReveal>
           </div>
+        </div>
+      </section>
+
+      {/* ASISTENTE DE DECISIÓN Y DIAGNÓSTICO COMERCIAL (QUIZ INTERACTIVO) */}
+      <section className="py-16 sm:py-24 bg-[#0c0f18]/80 border-t border-white/[0.06]" id="diagnostico-comercial">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center mb-10">
+              <span className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-cyan-300 mb-3">
+                🎯 Asistente de Decisión Comercial en 30 Segundos
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-black text-white">
+                ¿No estás seguro de cuál solución necesita tu empresa?
+              </h2>
+              <p className="mt-3 text-sm sm:text-base text-white/65">
+                Responde 4 preguntas breves y obtén la recomendación exacta con cotización inmediata para tu equipo.
+              </p>
+            </div>
+            <ServiceQuiz />
+          </ScrollReveal>
         </div>
       </section>
 
