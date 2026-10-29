@@ -12,6 +12,7 @@ interface Project {
   badgeColor: string;
   image: string;
   urlPreview: string;
+  liveUrl?: string;
   description: string;
   metrics: { label: string; value: string }[];
   whatsappMessage: string;
@@ -25,7 +26,8 @@ const projects: Project[] = [
     category: "Salud & Estética Orofacial",
     badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
     image: "/shots/clinica.jpg",
-    urlPreview: "newclinic.com.co",
+    urlPreview: "newclinicbogota.com",
+    liveUrl: "https://newclinicbogota.com",
     description:
       "Página web de alta conversión para clínica odontológica y estética facial en Chapinero, Bogotá. Agendamiento prioritario a WhatsApp, catálogo interactivo de tratamientos y presentación de especialistas con diseño clínico sobrio que genera total confianza.",
     metrics: [
@@ -43,7 +45,8 @@ const projects: Project[] = [
     category: "Seguridad Industrial & Fumigación",
     badgeColor: "border-amber-500/30 bg-amber-500/10 text-amber-400",
     image: "/shots/alfayomega.jpg",
-    urlPreview: "alfayomegaingenieria.com",
+    urlPreview: "alfayomega-web.vercel.app",
+    liveUrl: "https://alfayomega-web.vercel.app",
     description:
       "Portal industrial y comercial para recarga de extintores certificados, control integral de plagas y cumplimiento normativo ante la Secretaría de Salud. Cotización directa a WhatsApp para empresas, conjuntos residenciales y comercios.",
     metrics: [
@@ -80,6 +83,7 @@ const projects: Project[] = [
     badgeColor: "border-indigo-500/30 bg-indigo-500/10 text-indigo-400",
     image: "/shots/yajuridico.jpg",
     urlPreview: "yajuridico.com",
+    liveUrl: "https://yajuridico.com",
     description:
       "Presencia digital sobria y formal para bufete de abogados especializado en propiedad horizontal y recuperación de cartera. Proyecta respaldo institucional, agendamiento de asesorías y contacto confidencial encriptado.",
     metrics: [
@@ -98,6 +102,7 @@ const projects: Project[] = [
     badgeColor: "border-emerald-500/30 bg-emerald-500/10 text-emerald-400",
     image: "/shots/reservadelguamo.jpg",
     urlPreview: "reservadelguamo.com",
+    liveUrl: "https://reservadelguamo.com",
     description:
       "Experiencia visual inmersiva para venta directa de lotes campestres de 250 m² y cabañas en el Tolima. Plano interactivo, simulador de planes de pago y coordinación de visitas campestres por WhatsApp sin intermediarios ni comisiones.",
     metrics: [
@@ -116,6 +121,7 @@ const projects: Project[] = [
     badgeColor: "border-cyan-500/30 bg-cyan-500/10 text-cyan-400",
     image: "/shots/call360.jpg",
     urlPreview: "call360colombia.com",
+    liveUrl: "https://call360colombia.com",
     description:
       "Plataforma comercial completa para empresas colombianas: sitio web corporativo de alta velocidad, CRM WhatsApp multiagente y marcación predictiva con minutos ilimitados.",
     metrics: [
@@ -130,13 +136,26 @@ const projects: Project[] = [
 
 export default function PortfolioShowcase() {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const activeProject = projects[selectedIndex];
+  // Primero los proyectos publicados (se pueden abrir en vivo), luego los diseños de referencia.
+  const FEATURED_ORDER = [
+    "reservadelguamo",
+    "yajuridico",
+    "call360",
+    "newclinic",
+    "alfayomega",
+    "tulicencia",
+  ];
+  const orderedProjects = [...projects].sort(
+    (a, b) => FEATURED_ORDER.indexOf(a.id) - FEATURED_ORDER.indexOf(b.id)
+  );
+  const activeProject = orderedProjects[selectedIndex];
+  const isLive = Boolean(activeProject.liveUrl);
 
   return (
     <div className="w-full max-w-full min-w-0 overflow-hidden">
       {/* Selector de Proyectos Reales en Barra de Pestañas Móvil/Desktop */}
       <div className="flex w-full max-w-full items-center gap-2 overflow-x-auto pb-4 scrollbar-none snap-x touch-pan-x">
-        {projects.map((proj, idx) => (
+        {orderedProjects.map((proj, idx) => (
           <button
             key={proj.id}
             onClick={() => setSelectedIndex(idx)}
@@ -146,7 +165,10 @@ export default function PortfolioShowcase() {
                 : "border border-white/10 bg-white/[0.04] text-white/70 hover:border-white/20 hover:text-white"
             }`}
           >
-            {proj.title}
+            <span className="inline-flex items-center gap-1.5">
+              {proj.title}
+              {proj.liveUrl && <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" aria-label="en vivo" />}
+            </span>
           </button>
         ))}
       </div>
@@ -172,15 +194,25 @@ export default function PortfolioShowcase() {
             <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-[10px] font-bold ${activeProject.badgeColor}`}>
               {activeProject.category}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2 py-0.5 text-[10px] font-bold text-emerald-400">
-              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Al aire en 72h
+            <span
+              className={`inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-[10px] font-bold ${
+                isLive
+                  ? "border-emerald-500/20 bg-emerald-500/10 text-emerald-400"
+                  : "border-white/15 bg-white/[0.06] text-white/60"
+              }`}
+            >
+              <span
+                className={`h-1.5 w-1.5 rounded-full ${
+                  isLive ? "animate-pulse bg-emerald-400" : "bg-white/50"
+                }`}
+              />
+              {isLive ? "En vivo" : "Diseño de referencia"}
             </span>
           </div>
         </div>
 
         {/* Contenido: Grid Imagen + Detalles */}
-        <div className="grid gap-6 p-3 sm:p-6 lg:grid-cols-12 lg:items-center lg:gap-8 w-full max-w-full min-w-0">
+        <div className="grid grid-cols-1 gap-6 p-3 sm:p-6 lg:grid-cols-12 lg:items-center lg:gap-8 w-full max-w-full min-w-0">
           {/* Captura de pantalla real del sitio - CERO CORTES (object-contain object-top) */}
           <div className="w-full max-w-full min-w-0 lg:col-span-7">
             <div className="relative aspect-[16/10] w-full max-w-full overflow-hidden rounded-xl border border-white/15 bg-[#08090f] shadow-2xl flex items-center justify-center p-0.5">
@@ -239,21 +271,21 @@ export default function PortfolioShowcase() {
                 label="Cotizar sitio similar"
                 className="w-full sm:w-auto text-xs sm:text-sm px-4 sm:px-5 py-2.5 shadow-lg shadow-cyan-500/20 text-center justify-center"
               />
-              <a
-                href={`https://wa.me/573203693949?text=${encodeURIComponent(
-                  `Hola Call360, quiero ver el ejemplo en vivo y la demostración de la web de ${activeProject.title} (${activeProject.niche})`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 bg-white/[0.05] px-4 py-2.5 text-xs font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 text-center"
-              >
-                <span>Ver ejemplo en vivo</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                  <polyline points="15 3 21 3 21 9" />
-                  <line x1="10" y1="14" x2="21" y2="3" />
-                </svg>
-              </a>
+              {activeProject.liveUrl && (
+                <a
+                  href={activeProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-1.5 rounded-full border border-white/20 bg-white/[0.05] px-4 py-2.5 text-xs font-bold text-white transition-all hover:border-cyan-400/40 hover:bg-cyan-400/10 text-center"
+                >
+                  <span>Abrir la web en vivo</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" className="shrink-0">
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                    <polyline points="15 3 21 3 21 9" />
+                    <line x1="10" y1="14" x2="21" y2="3" />
+                  </svg>
+                </a>
+              )}
             </div>
             <p className="text-[10px] sm:text-[11px] text-white/40">
               ⚡ Entrega récord en 72 horas con dominio propio y soporte en Bogotá
