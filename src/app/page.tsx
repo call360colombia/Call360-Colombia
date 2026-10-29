@@ -49,13 +49,13 @@ export default function Home() {
               </h1>
 
               <p className="animate-fade-in-up animation-delay-200 mx-auto mt-5 sm:mt-7 max-w-xl text-base sm:text-lg text-white/70 sm:mx-0 leading-relaxed">
-                <strong className="text-white">Acelera tus ventas y moderniza tu operación:</strong> CRM WhatsApp multiagente para equipos, desarrollo de páginas web de alto impacto en 72h, correo corporativo y telefonía IP con minutos ilimitados. Todo en un solo proveedor.
+                <strong className="text-white">Acelera tus ventas y moderniza tu operación:</strong> Centralización de Correo Corporativo + WhatsApp con IA para equipos comerciales, desarrollo de páginas web de alto impacto en 72h y telefonía IP con minutos ilimitados. Todo en un solo proveedor.
               </p>
 
               <div className="animate-fade-in-up animation-delay-300 mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs sm:text-sm font-semibold text-white/60 lg:justify-start">
                 {[
                   "Páginas Web desde $100k/mes",
-                  "CRM WhatsApp Multiagente",
+                  "Correo + WhatsApp con IA",
                   "Telefonía IP & Minutos Ilimitados",
                 ].map((item) => (
                   <div key={item} className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 sm:px-4 sm:py-2">
@@ -283,13 +283,13 @@ export default function Home() {
                 ctaColor: "text-cyan-400 group-hover:text-cyan-300",
               },
               {
-                title: "CRM WhatsApp",
-                headline: "Varios asesores, un solo número de WhatsApp",
-                description: "Dale superpoderes a tu WhatsApp: atención multiagente, respuestas rápidas con IA incluida y seguimiento de oportunidades comerciales.",
-                benefit: "Prueba 14 días gratis • 100 Créditos IA incluidos",
+                title: "Correo + WhatsApp CRM",
+                headline: "Centraliza WhatsApp y Correo Corporativo con IA",
+                description: "Atención comercial unificada: correo profesional y WhatsApp multiagente, respuestas asistidas con IA y embudo de ventas en un solo lugar.",
+                benefit: "Planes desde $40.000 COP/usuario • Créditos IA incluidos",
                 image: "/inicio/whatsapp.png?v=2",
                 href: "/crm-whatsapp",
-                ctaLabel: "Ver CRM WhatsApp",
+                ctaLabel: "Ver planes y canales",
                 gradient: "from-emerald-500/20 to-green-500/20",
                 hoverGlow: "hover:border-emerald-500/30 hover:shadow-[0_20px_40px_-15px_rgba(16,185,129,0.15)]",
                 ctaColor: "text-emerald-400 group-hover:text-emerald-300",
@@ -626,19 +626,19 @@ export default function Home() {
           },
           {
             question: "¿Hay límite de agentes o usuarios?",
-            answer: "No. Escalabilidad ilimitada. Puedes tener desde 1 agente hasta cientos en el mismo sistema. El precio se ajusta según tu volumen de uso.",
+            answer: "Puedes contratar desde 1 usuario individual por plan (sin paquetes grupales obligatorios). Para equipos comerciales de 10 o más usuarios, configuramos una propuesta empresarial personalizada con tarifas preferenciales y bolsa de Créditos IA a la medida.",
           },
           {
             question: "¿Dan factura con NIT?",
             answer: "Sí, somos una empresa colombiana con NIT y emitimos factura electrónica con todos los requisitos legales. Contamos con más de 12 años de operación en el país.",
           },
           {
-            question: "¿Qué diferencia hay entre los planes de CRM WhatsApp (Demo, Starter, Pro y Deluxe)?",
-            answer: "Todos los planes tienen exactamente las mismas funciones del CRM y la IA incluida desde el primer día: bandeja multiagente, transcripción, informes, análisis y sugerencias. La única diferencia es la duración del Demo (14 días con 100 créditos) y el cupo mensual de Créditos IA por empresa (1.000 en Starter, 3.000 en Pro y 10.000 en Deluxe).",
+            question: "¿Qué diferencia hay entre los planes de Call360 (Correo, Starter, Pro y Deluxe)?",
+            answer: "Se diferencian por los canales comerciales integrados y la cuota de Créditos IA mensual: Plan Correo ($40.000 COP/mes) incluye Correo + CRM; Starter ($65.000 COP/mes) incluye 1 canal a elección (WhatsApp ó Correo) con 1.000 créditos IA; Pro ($120.000 COP/mes, Más vendido) integra WhatsApp + Correo corporativo con 3.000 créditos IA; y Deluxe ($220.000 COP/mes, Mejor oferta) integra ambos canales con cuota máxima de 10.000 créditos IA. En planes anuales los créditos IA se renuevan mensualmente de forma fija.",
           },
           {
             question: "¿Qué pasa si no me gusta el servicio?",
-            answer: "Probamos antes de que pagues. El CRM WhatsApp tiene 14 días de prueba gratis con 100 créditos IA para toda la prueba. Las llamadas tienen demo de 6 horas. Si no funciona para ti, no pagas. Así de simple.",
+            answer: "Probamos antes de que pagues. Ofrecemos demostración y asesoría guiada para que conozcas la centralización de Correo y WhatsApp con IA asistida. Las llamadas tienen demo de 6 horas. Si no funciona para tu empresa, no pagas. Así de simple.",
           },
         ]}
       />

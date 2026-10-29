@@ -17,7 +17,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from '@/hooks/useReducedMotion';
 import { cn } from '@/lib/utils';
 import { Call360Logo } from '@/components/Call360Logo';
-import type { CommercialPlan, Currency } from '@/lib/commercialCatalog';
+import type { CommercialPlan, BillingPeriod, Currency } from '@/lib/commercialCatalog';
 
 const IS_TOUCH =
   typeof window !== 'undefined'
@@ -245,7 +245,8 @@ const TIERS = {
 
 interface PlanCard3DProps {
   plan: CommercialPlan;
-  currency: Currency;
+  billingPeriod?: BillingPeriod;
+  currency?: Currency;
   showPromo?: boolean;
   onActionClick?: (plan: CommercialPlan) => void;
   className?: string;
@@ -253,7 +254,8 @@ interface PlanCard3DProps {
 
 export function PlanCard3D({
   plan,
-  currency,
+  billingPeriod = 'monthly',
+  currency = 'COP',
   showPromo = false,
   onActionClick,
   className,
@@ -281,10 +283,7 @@ export function PlanCard3D({
   const ts = TIERS[tier];
   const isRecommended = plan.isRecommended ?? false;
 
-  const currentPricing =
-    showPromo && plan.launchPromo?.enabled
-      ? plan.launchPromo.pricing[currency]
-      : plan.pricing[currency];
+  const currentPricing = plan.pricing[billingPeriod];
 
   /* 60FPS RAF Tilt Engine */
   useEffect(() => {
@@ -566,47 +565,35 @@ export function PlanCard3D({
                     </div>
 
                     <div className="flex items-center gap-1 flex-wrap justify-end">
-                      {plan.usageMultiplier && plan.usageMultiplier.ratio !== '1X' && (
+                      {plan.badge && (
                         <span
-                          className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider shadow-md backdrop-blur-md ${
-                            plan.usageMultiplier.ratio === '10X'
+                          className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider shadow-md backdrop-blur-md ${
+                            plan.isBestOffer
                               ? 'bg-amber-400/40 text-amber-100 border border-amber-300/80 animate-pulse'
-                              : 'bg-cyan-500/40 text-cyan-100 border border-cyan-300/80'
+                              : 'bg-emerald-500/40 text-emerald-100 border border-emerald-300/80'
                           }`}
                         >
-                          {plan.usageMultiplier.ratio === '10X' ? '🔥 10X IA' : '⚡ 3X IA'}
-                        </span>
-                      )}
-                      {isRecommended && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider bg-emerald-500/35 text-emerald-200 border border-emerald-400/60 shadow-md backdrop-blur-md">
-                          <SparklesIcon className="h-2.5 w-2.5 text-emerald-300" /> RECOMENDADO
-                        </span>
-                      )}
-                      {plan.isTrial && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider bg-slate-900/90 text-slate-100 border border-slate-300/50 shadow-sm backdrop-blur-md">
-                          14 DÍAS PRUEBA
-                        </span>
-                      )}
-                      {plan.launchPromo?.enabled && (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider bg-amber-500/30 text-amber-200 border border-amber-300/60 shadow-sm backdrop-blur-md animate-pulse">
-                          50% OFF MES 1
+                          {plan.isBestOffer ? '💎 MEJOR OFERTA' : '🔥 MÁS VENDIDO'}
                         </span>
                       )}
                     </div>
                   </div>
 
-                  {/* Centro: Nombre del Plan + Píldora de Créditos IA */}
+                  {/* Centro: Nombre del Plan + Canales + Píldora de Créditos IA */}
                   <div ref={layerTextRef} className="my-auto py-1 text-center" style={{ willChange: 'transform' }}>
                     <h3 className={cn('text-sm sm:text-base font-black tracking-tight drop-shadow-md', ts.accentTextColor)}>
                       {plan.name}
                     </h3>
-                    <p className={cn('text-[10px] sm:text-[11px] font-medium leading-snug mt-0.5', ts.primaryTextColor)}>
-                      &ldquo;{plan.tagline}&rdquo;
+                    <p className={cn('text-[9.5px] sm:text-[10px] font-bold leading-snug mt-0.5', ts.primaryTextColor)}>
+                      {plan.channelsSummary}
                     </p>
                     <div className="mt-1.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[8.5px] font-black uppercase tracking-wide border shadow-sm backdrop-blur-md bg-black/40 border-white/20 text-white">
                       <SparklesIcon className="h-2.5 w-2.5 text-cyan-300" />
                       <span>{plan.aiCreditsLabel}</span>
                     </div>
+                    <span className="block text-[7.5px] text-white/70 mt-1 font-medium">
+                      {plan.aiBenefitUsd}
+                    </span>
                   </div>
 
                   {/* Inferior: EMV Chip + NFC + Precios Reales en Moneda Seleccionada */}
@@ -631,12 +618,17 @@ export function PlanCard3D({
                           {currentPricing.formatted}
                         </span>
                         <span className="text-[7.5px] font-bold uppercase tracking-wider text-white/70">
-                          {currency}
+                          COP
                         </span>
                       </div>
                       <p className={cn('text-[8px] font-medium leading-none mt-0.5', ts.subtleTextColor)}>
                         {currentPricing.period}
                       </p>
+                      {currentPricing.referenceMonthly && (
+                        <p className="text-[7.5px] font-semibold text-emerald-300/90 leading-none mt-0.5">
+                          {currentPricing.referenceMonthly.label}
+                        </p>
+                      )}
                       <p className="text-[7px] text-white/40 leading-none mt-1">
                         Haz clic o pulsa para ver beneficios ↻
                       </p>
@@ -667,8 +659,8 @@ export function PlanCard3D({
                     <span className="text-[8px] font-black uppercase tracking-wider text-white/80">
                       Beneficios incluidos
                     </span>
-                    <span className="text-[7px] font-mono text-white/50">
-                      TENANT SHARING
+                    <span className="text-[7px] font-mono text-emerald-400">
+                      1 USUARIO
                     </span>
                   </div>
 
@@ -684,7 +676,7 @@ export function PlanCard3D({
                   </ul>
 
                   <p className="mt-1.5 text-[7px] text-white/60 leading-tight">
-                    * Cupo de créditos asignado a tu empresa y compartido entre asesores.
+                    * Renovación mensual fija de Créditos IA. A partir de 10 usuarios aplica propuesta empresarial.
                   </p>
                 </div>
 

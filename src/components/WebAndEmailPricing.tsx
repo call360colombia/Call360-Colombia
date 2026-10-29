@@ -1,374 +1,307 @@
 import React from "react";
 import WhatsAppButton from "./WhatsAppButton";
-import ScrollReveal from "./ScrollReveal";
+
+const correoBeneficios = [
+  {
+    title: "Te ves como empresa",
+    description:
+      "ventas@tunegocio.com genera más confianza que un correo personal con números y guiones bajos.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+    ),
+  },
+  {
+    title: "Te responden más",
+    description:
+      "Los mensajes que salen de tu dominio no parecen spam y llegan a la bandeja correcta del cliente.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <path d="M4 4h16v12H5.17L4 17.17V4z" />
+        <polyline points="8 9 11 12 16 7" />
+      </svg>
+    ),
+  },
+  {
+    title: "Tu equipo se ve ordenado",
+    description:
+      "Cada área con su cuenta: ventas@, gerencia@, facturacion@. Nada de mezclar lo personal con el negocio.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <rect x="3" y="4" width="18" height="4" rx="1" />
+        <rect x="3" y="10" width="18" height="4" rx="1" />
+        <rect x="3" y="16" width="18" height="4" rx="1" />
+      </svg>
+    ),
+  },
+  {
+    title: "La información se queda en tu empresa",
+    description:
+      "Si cambia un empleado o un celular, los correos y las conversaciones siguen siendo tuyos.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M9 12l2 2 4-4" />
+      </svg>
+    ),
+  },
+];
+
+const planesWeb = [
+  {
+    name: "Plan Mensual Flexible",
+    tag: "Baja inversión inicial",
+    tagClass: "bg-white/[0.06] text-white/70",
+    description: "Para empezar sin descapitalizarte.",
+    price: "$100.000",
+    period: "COP / mes",
+    note: "Primer pago de inicio: $140.000 COP",
+    noteClass: "text-cyan-400",
+    features: [
+      "Tu página web con dominio propio",
+      "Diseño pensado para celular y carga rápida",
+      "Botones de WhatsApp listos para vender",
+      "Soporte y cambios mes a mes",
+    ],
+    extra: "Correo corporativo opcional: +$20.000 / mes",
+    cta: "Empezar plan mensual",
+    waText: "Hola Call360, me interesa el Plan Mensual Flexible de página web ($100.000 COP/mes)",
+    featured: false,
+  },
+  {
+    name: "Plan Anual Crecimiento",
+    tag: "El más elegido",
+    tagClass: "bg-cyan-500/20 text-cyan-300",
+    description: "Presencia todo el año con 50% de ahorro.",
+    price: "$600.000",
+    period: "COP / año",
+    note: "Equivale a $50.000 COP al mes",
+    noteClass: "text-emerald-400",
+    features: [
+      "Página web completa y personalizada",
+      "Dominio .com o .co a tu nombre",
+      "Hosting rápido y certificado de seguridad",
+      "3 correos corporativos de obsequio",
+      "Optimización básica para Google",
+    ],
+    extra: null,
+    cta: "Aprovechar el 50%",
+    waText:
+      "Hola Call360, quiero el Plan Anual Crecimiento de página web con 50% de descuento ($600.000 COP/año)",
+    featured: true,
+  },
+  {
+    name: "Plan Empresarial Pro",
+    tag: "A la medida",
+    tagClass: "bg-violet-500/10 text-violet-300 border border-violet-500/20",
+    description: "Para bases de datos, usuarios o plataformas.",
+    price: "$1.200.000",
+    period: "COP",
+    note: "Alcance definido contigo antes de empezar",
+    noteClass: "text-violet-300",
+    features: [
+      "Web corporativa de alto rendimiento",
+      "Base de datos y sistema de usuarios",
+      "Integraciones con CRM o APIs",
+      "Hasta 10 correos corporativos",
+    ],
+    extra: null,
+    cta: "Cotizar mi proyecto",
+    waText: "Hola Call360, quiero cotizar el Plan Empresarial Pro de página web ($1.200.000 COP)",
+    featured: false,
+  },
+];
+
+const planesCorreo = [
+  {
+    name: "Plan Correo Mensual",
+    tag: "Mensual",
+    price: "$40.000",
+    period: "COP / usuario / mes",
+    description: "Correo corporativo con dominio propio + CRM comercial con 500 créditos IA al mes.",
+    cta: "Contratar Plan Correo",
+    waText: "Hola Call360, me interesa el Plan Correo ($40.000 COP/usuario/mes) con 500 créditos IA",
+    style: "border-cyan-500/40 bg-gradient-to-b from-cyan-500/[0.08] to-[#11131c]",
+    priceClass: "text-cyan-300",
+    ctaClass: "!bg-cyan-500 !text-black font-black hover:!bg-cyan-400",
+    recommended: true,
+  },
+  {
+    name: "Plan Correo Anual",
+    tag: "Ahorro anual",
+    price: "$240.000",
+    period: "COP / usuario / año",
+    description: "Equiv. ref. $20.000/mes. Correo corporativo + CRM + 500 créditos IA/mes con renovación mensual fija.",
+    cta: "Contratar Plan Correo Anual",
+    waText: "Hola Call360, me interesa el Plan Correo Anual ($240.000 COP/usuario/año) con 500 créditos IA",
+    style: "border-emerald-400/50 bg-gradient-to-b from-emerald-500/[0.12] to-[#11131c]",
+    priceClass: "text-emerald-400",
+    ctaClass: "!bg-none !bg-emerald-500 !text-black font-black hover:!bg-emerald-400",
+  },
+];
 
 export default function WebAndEmailPricing({ className = "" }: { className?: string }) {
   return (
-    <div className={`space-y-24 ${className}`}>
-      {/* ========================================================================= */}
-      {/* SECCIÓN A: DESARROLLO DE PÁGINAS WEB (3 PLANES) */}
-      {/* ========================================================================= */}
+    <div className={`space-y-14 sm:space-y-20 ${className}`}>
+      {/* PÁGINAS WEB */}
       <div>
-        <ScrollReveal>
-          <div className="mb-14 text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-cyan-400">
-              Desarrollo Web Profesional
-            </span>
-            <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Planes de Páginas Web{" "}
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-violet-400 bg-clip-text text-transparent">
-                Creadas para Vender
-              </span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/60">
-              Sin demoras ni sorpresas. Sitios modernos, rápidos y conectados a tu WhatsApp listos en 72 horas.
-            </p>
-          </div>
-        </ScrollReveal>
+        <div className="mb-6 text-center sm:mb-8">
+          <h3 className="text-xl font-black text-white sm:text-2xl">Planes de páginas web</h3>
+          <p className="mx-auto mt-1.5 max-w-lg text-[13px] leading-relaxed text-white/55 sm:text-sm">
+            Elige cómo pagarla. La página es la misma: rápida, hecha para celular y conectada a tu
+            WhatsApp.
+          </p>
+        </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
-          {/* 1. PLAN MENSUAL FLEXIBLE */}
-          <ScrollReveal delay={0}>
-            <div className="relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-8 md:p-10 transition-all duration-300 hover:border-white/20 hover:-translate-y-1">
+        <div className="grid grid-cols-1 gap-4 sm:gap-5 lg:grid-cols-3">
+          {planesWeb.map((plan) => (
+            <div
+              key={plan.name}
+              className={`relative flex h-full flex-col justify-between rounded-2xl p-5 sm:p-6 ${
+                plan.featured
+                  ? "border-2 border-cyan-400/60 bg-gradient-to-b from-cyan-500/[0.14] via-[#11131c] to-[#11131c] shadow-[0_0_50px_-15px_rgba(6,182,212,0.35)]"
+                  : "border border-white/[0.08] bg-[#11131c]"
+              }`}
+            >
+              {plan.featured && (
+                <span className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-black shadow-lg">
+                  ⚡ Ahorra 50%
+                </span>
+              )}
+
               <div>
-                <div className="mb-4">
-                  <span className="rounded-full bg-white/[0.06] px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white/70">
-                    Baja Inversión Inicial
-                  </span>
-                </div>
-                <h3 className="text-2xl font-black text-white">Plan Mensual Flexible</h3>
-                <p className="mt-2 text-sm text-white/50">
-                  Ideal para arrancar sin descapitalizarte y con soporte continuo mes a mes.
-                </p>
+                <span
+                  className={`inline-flex rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider ${plan.tagClass}`}
+                >
+                  {plan.tag}
+                </span>
+                <h4 className="mt-3 text-xl font-black text-white">{plan.name}</h4>
+                <p className="mt-1 text-[13px] leading-relaxed text-white/50">{plan.description}</p>
 
-                <div className="my-6 border-y border-white/[0.08] py-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-xs text-white/50">Desde</span>
-                    <span className="text-4xl font-black text-white">$100.000</span>
-                    <span className="text-xs text-white/50">COP / mes</span>
+                <div className="my-4 border-y border-white/[0.08] py-4">
+                  <div className="flex flex-wrap items-baseline gap-x-1.5">
+                    <span className="text-[2rem] font-black leading-none text-white">{plan.price}</span>
+                    <span className="text-[11px] text-white/50">{plan.period}</span>
                   </div>
-                  <p className="mt-2 text-xs font-semibold text-cyan-400">
-                    Primer pago de inicio: $140.000 COP
-                  </p>
+                  <p className={`mt-1.5 text-[11px] font-semibold ${plan.noteClass}`}>{plan.note}</p>
                 </div>
 
-                <ul className="space-y-3.5 text-sm text-white/70">
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
-                      ✓
-                    </span>
-                    <span>Tu página web <strong>tunegocio.com</strong> lista para vender</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
-                      ✓
-                    </span>
-                    <span>Diseño responsivo optimizado 100% para celulares</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
-                      ✓
-                    </span>
-                    <span>Integración directa a tu WhatsApp de ventas</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/20 text-cyan-400">
-                      ✓
-                    </span>
-                    <span>Soporte técnico y mantenimiento continuo</span>
-                  </li>
-                  <li className="flex items-start gap-3 text-xs text-cyan-300/80 bg-cyan-500/5 p-2 rounded-xl border border-cyan-500/20">
-                    <span>💡 <strong>Opcional:</strong> Agrega correo corporativo por +$20.000 COP / mes</span>
-                  </li>
+                <ul className="space-y-2">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2 text-[13px] leading-snug text-white/70">
+                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-500/15 text-[10px] font-black text-cyan-400">
+                        ✓
+                      </span>
+                      {feature}
+                    </li>
+                  ))}
+                  {plan.extra && (
+                    <li className="rounded-lg border border-cyan-500/20 bg-cyan-500/[0.06] px-2.5 py-1.5 text-[11px] text-cyan-200/90">
+                      {plan.extra}
+                    </li>
+                  )}
                 </ul>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/[0.08]">
+              <div className="mt-5 border-t border-white/[0.08] pt-4">
                 <WhatsAppButton
-                  text="Hola Call360, me interesa el Plan Mensual Flexible de página web ($100.000 COP/mes)"
-                  label="Empezar Plan Mensual"
-                  className="w-full justify-center !bg-transparent border border-white/20 hover:!bg-white/[0.08]"
+                  text={plan.waText}
+                  label={plan.cta}
+                  className={`w-full justify-center min-h-[46px] text-[13px] ${
+                    plan.featured
+                      ? "!bg-gradient-to-r !from-cyan-400 !to-blue-500 !text-black font-black hover:!from-cyan-300 hover:!to-blue-400"
+                      : "!bg-none !bg-transparent border border-white/20 hover:!bg-white/[0.08]"
+                  }`}
                 />
               </div>
             </div>
-          </ScrollReveal>
-
-          {/* 2. PLAN ANUAL CRECIMIENTO (DESTACADO) */}
-          <ScrollReveal delay={100}>
-            <div className="relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border-2 border-cyan-400/60 bg-gradient-to-b from-cyan-500/[0.15] via-[#12121a] to-[#12121a] p-5 sm:p-8 md:p-10 shadow-[0_0_50px_-10px_rgba(6,182,212,0.25)] transition-all duration-300 hover:border-cyan-300 hover:-translate-y-1">
-              {/* Badge Destacado */}
-              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 max-w-[90%] truncate rounded-full bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-500 px-3.5 sm:px-5 py-1 text-[11px] sm:text-xs font-black uppercase tracking-wider text-black shadow-xl shadow-cyan-500/40">
-                ⚡ Ahorra 50% · Mejor Valor
-              </div>
-
-              <div>
-                <div className="mb-4">
-                  <span className="rounded-full bg-cyan-500/20 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300">
-                    El más elegido
-                  </span>
-                </div>
-                <h3 className="text-2xl font-black text-white">Plan Anual Crecimiento</h3>
-                <p className="mt-2 text-sm text-white/60">
-                  La solución integral definitiva para empresas que quieren presencia sólida por todo el año.
-                </p>
-
-                <div className="my-6 border-y border-white/[0.1] py-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-black text-white">$600.000</span>
-                    <span className="text-xs text-white/50">COP / año</span>
-                  </div>
-                  <p className="mt-2 text-xs font-bold text-emerald-400">
-                    Ahorro del 50% frente al pago mensual
-                  </p>
-                </div>
-
-                <ul className="space-y-3.5 text-sm text-white/80">
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-400 text-black font-black text-xs">
-                      ✓
-                    </span>
-                    <span>Tu <strong>página web profesional completa</strong> y personalizada</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-400 text-black font-black text-xs">
-                      ✓
-                    </span>
-                    <span><strong>Hosting de alta velocidad</strong> incluido por 1 año completo</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-400 text-black font-black text-xs">
-                      ✓
-                    </span>
-                    <span><strong>Dominio web incluido</strong> (.com o .co a tu nombre)</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-400 text-black font-black text-xs">
-                      ✓
-                    </span>
-                    <span className="text-cyan-200">
-                      🎁 <strong>Obsequio especial:</strong> 3 cuentas de correo corporativo configuradas
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cyan-400 text-black font-black text-xs">
-                      ✓
-                    </span>
-                    <span>Certificado SSL de seguridad y optimización SEO en Google</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/[0.1]">
-                <WhatsAppButton
-                  text="Hola Call360, quiero aprovechar el 50% de descuento en el Plan Anual Crecimiento de página web ($600.000 COP/año)"
-                  label="Aprovechar 50% de Descuento"
-                  className="w-full justify-center !bg-gradient-to-r !from-cyan-400 !to-blue-500 !text-black font-black hover:!from-cyan-300 hover:!to-blue-400 shadow-xl shadow-cyan-500/20"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
-
-          {/* 3. PLAN EMPRESARIAL PRO */}
-          <ScrollReveal delay={200}>
-            <div className="relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#12121a] p-5 sm:p-8 md:p-10 transition-all duration-300 hover:border-violet-500/40 hover:-translate-y-1">
-              <div>
-                <div className="mb-4">
-                  <span className="rounded-full bg-violet-500/10 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-violet-400 border border-violet-500/20">
-                    Solución a Medida
-                  </span>
-                </div>
-                <h3 className="text-2xl font-black text-white">Plan Empresarial Pro</h3>
-                <p className="mt-2 text-sm text-white/50">
-                  Para negocios con requerimientos especiales, bases de datos o plataformas operativas.
-                </p>
-
-                <div className="my-6 border-y border-white/[0.08] py-6">
-                  <div className="flex items-baseline gap-1">
-                    <span className="text-4xl font-black text-white">$1.200.000</span>
-                    <span className="text-xs text-white/50">COP</span>
-                  </div>
-                  <p className="mt-2 text-xs font-semibold text-violet-400">
-                    Cotización y alcance de proyecto personalizado
-                  </p>
-                </div>
-
-                <ul className="space-y-3.5 text-sm text-white/70">
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-violet-500/20 text-violet-400">
-                      ✓
-                    </span>
-                    <span>Plataforma web corporativa de <strong>alto rendimiento y escalabilidad</strong></span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-violet-500/20 text-violet-400">
-                      ✓
-                    </span>
-                    <span>Arquitectura con <strong>base de datos</strong> dedicada</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-violet-500/20 text-violet-400">
-                      ✓
-                    </span>
-                    <span>Sistema de usuarios, autenticación y roles</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-violet-500/20 text-violet-400">
-                      ✓
-                    </span>
-                    <span>Integraciones personalizadas con APIs o CRM</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-violet-500/20 text-violet-400">
-                      ✓
-                    </span>
-                    <span>Hasta <strong>10 cuentas de correo corporativo</strong></span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/[0.08]">
-                <WhatsAppButton
-                  text="Hola Call360, quiero cotizar el Plan Empresarial Pro de página web ($1.200.000 COP)"
-                  label="Cotizar Proyecto Empresarial"
-                  className="w-full justify-center !bg-transparent border border-white/20 hover:!bg-white/[0.08]"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
+          ))}
         </div>
       </div>
 
-      {/* ========================================================================= */}
-      {/* SECCIÓN B: CORREO CORPORATIVO, CRM E INTELIGENCIA ARTIFICIAL */}
-      {/* ========================================================================= */}
-      <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-[#0c0c14] p-5 sm:p-10 lg:p-16 relative overflow-hidden">
-        <div className="absolute top-0 right-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
+      {/* CORREO CORPORATIVO: BENEFICIOS ANTES DE PRECIOS */}
+      <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0c0e16] p-4 sm:p-8">
+        <div className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-emerald-500/10 blur-3xl" />
 
-        <ScrollReveal>
-          <div className="mb-14 text-center relative z-10">
-            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400">
-              Comunicaciones &amp; Tecnología Comercial
+        <div className="relative z-10">
+          <div className="text-center">
+            <span className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-emerald-300">
+              ¿Y el correo?
             </span>
-            <h2 className="mt-4 text-3xl font-black tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Correo Corporativo, CRM &amp;{" "}
-              <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-violet-400 bg-clip-text text-transparent">
-                Inteligencia Artificial
-              </span>
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base text-white/60">
-              Da imagen profesional a tu negocio con tu propio dominio, organiza tus prospectos en el CRM y potencia tus respuestas con IA.
+            <h3 className="mt-3 text-[1.35rem] font-black leading-tight text-white sm:text-2xl">
+              En qué te beneficia tener correo con tu dominio
+            </h3>
+            <p className="mx-auto mt-2 max-w-xl text-[13px] leading-relaxed text-white/60 sm:text-sm">
+              Si hoy escribes desde un Gmail personal, tu cliente ve{" "}
+              <span className="text-white/80">“ventas.minegocio@gmail.com”</span> y algo no cuadra.
+              Con un correo de empresa pasa lo contrario:
             </p>
           </div>
-        </ScrollReveal>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 relative z-10">
-          {/* MODALIDAD 1: BÁSICO MENSUAL */}
-          <ScrollReveal delay={0}>
-            <div className="flex h-full flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#12121a] p-6 transition-all duration-300 hover:border-white/20">
-              <div>
-                <span className="rounded-full bg-white/[0.06] px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-white/60">
-                  Mensual
+          <div className="mt-5 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
+            {correoBeneficios.map((beneficio) => (
+              <div
+                key={beneficio.title}
+                className="flex gap-3 rounded-xl border border-white/[0.07] bg-white/[0.02] p-3.5"
+              >
+                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-emerald-500/20 bg-emerald-500/10 text-emerald-300">
+                  {beneficio.icon}
                 </span>
-                <h3 className="mt-3 text-lg font-bold text-white">Correo Corporativo Básico</h3>
-                <div className="mt-4 mb-4">
-                  <div className="text-3xl font-black text-white">$40.000</div>
-                  <span className="text-xs text-white/40">COP / mes</span>
+                <div>
+                  <h4 className="text-[13.5px] font-black text-white">{beneficio.title}</h4>
+                  <p className="mt-0.5 text-[12px] leading-relaxed text-white/55">
+                    {beneficio.description}
+                  </p>
                 </div>
-                <p className="text-xs leading-relaxed text-white/60">
-                  Cuentas corporativas seguras con tu propio dominio (ej. <em>ventas@tudominio.com</em>), acceso webmail seguro y configuración DNS completa.
-                </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.08]">
-                <WhatsAppButton
-                  text="Hola Call360, me interesa activar Correo Corporativo Básico ($40.000 COP/mes)"
-                  label="Contratar Básico"
-                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-transparent border border-white/20 hover:!bg-white/[0.06]"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
+            ))}
+          </div>
 
-          {/* MODALIDAD 2: CORREO + CRM + IA (MENSUAL DESTACADO) */}
-          <ScrollReveal delay={80}>
-            <div className="relative flex h-full flex-col justify-between rounded-2xl border-2 border-emerald-400/50 bg-gradient-to-b from-emerald-500/[0.12] to-[#12121a] p-6 transition-all duration-300 hover:border-emerald-400 shadow-xl shadow-emerald-500/10">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 max-w-[90%] truncate rounded-full bg-emerald-500 px-3 py-0.5 text-[10px] font-black uppercase tracking-wider text-black">
-                Recomendado
-              </div>
-              <div>
-                <span className="rounded-full bg-emerald-500/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-emerald-300">
-                  Suite Integrada
-                </span>
-                <h3 className="mt-3 text-lg font-bold text-white">Correo + CRM + IA</h3>
-                <div className="mt-4 mb-4">
-                  <div className="text-3xl font-black text-emerald-400">$60.000</div>
-                  <span className="text-xs text-white/40">COP / mes</span>
-                </div>
-                <p className="text-xs leading-relaxed text-white/70">
-                  Suite de correo corporativo integrada al CRM de Call360 + <strong>100 créditos mensuales de Inteligencia Artificial</strong> para asistencia y redacción comercial.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.08]">
-                <WhatsAppButton
-                  text="Hola Call360, quiero activar Correo Corporativo + CRM + IA ($60.000 COP/mes)"
-                  label="Activar con CRM e IA"
-                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-emerald-500 !text-black font-bold hover:!bg-emerald-400"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
+          <div className="mt-7 text-center">
+            <h4 className="text-lg font-black text-white">Planes de correo corporativo</h4>
+            <p className="mt-1 text-[12px] text-white/50">
+              Incluyen configuración en tu celular, webmail y las apps que ya usas.
+            </p>
+          </div>
 
-          {/* MODALIDAD 3: CORREO ANUAL */}
-          <ScrollReveal delay={160}>
-            <div className="flex h-full flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#12121a] p-6 transition-all duration-300 hover:border-white/20">
-              <div>
-                <span className="rounded-full bg-cyan-500/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-cyan-300 border border-cyan-500/20">
-                  Ahorro Anual
-                </span>
-                <h3 className="mt-3 text-lg font-bold text-white">Correo Corporativo Anual</h3>
-                <div className="mt-4 mb-4">
-                  <div className="text-3xl font-black text-white">$120.000</div>
-                  <span className="text-xs text-white/40">COP / año</span>
+          <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {planesCorreo.map((plan) => (
+              <div
+                key={plan.name}
+                className={`relative flex h-full flex-col justify-between rounded-xl p-4 ${plan.style}`}
+              >
+                {plan.recommended && (
+                  <span className="absolute -top-2.5 left-4 rounded-full bg-emerald-500 px-2.5 py-0.5 text-[9px] font-black uppercase tracking-wider text-black">
+                    Recomendado
+                  </span>
+                )}
+                <div>
+                  <span className="text-[9.5px] font-bold uppercase tracking-wider text-white/45">
+                    {plan.tag}
+                  </span>
+                  <h5 className="mt-1 text-[15px] font-black leading-snug text-white">{plan.name}</h5>
+                  <div className="mt-2 flex items-baseline gap-1">
+                    <span className={`text-2xl font-black ${plan.priceClass}`}>{plan.price}</span>
+                    <span className="text-[10px] text-white/45">{plan.period}</span>
+                  </div>
+                  <p className="mt-1.5 text-[11.5px] leading-relaxed text-white/55">{plan.description}</p>
                 </div>
-                <p className="text-xs leading-relaxed text-white/60">
-                  Ahorro anual representativo para operación básica y estable de correo corporativo durante 12 meses (sin módulo CRM / sin IA).
-                </p>
+                <div className="mt-3 border-t border-white/[0.07] pt-3">
+                  <WhatsAppButton
+                    text={plan.waText}
+                    label={plan.cta}
+                    className={`w-full justify-center min-h-[42px] text-[11.5px] ${plan.ctaClass}`}
+                  />
+                </div>
               </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.08]">
-                <WhatsAppButton
-                  text="Hola Call360, me interesa el plan de Correo Corporativo Anual ($120.000 COP/año)"
-                  label="Contratar Anual"
-                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-transparent border border-white/20 hover:!bg-white/[0.06]"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
+            ))}
+          </div>
 
-          {/* MODALIDAD 4: ANUAL PRO + IA */}
-          <ScrollReveal delay={240}>
-            <div className="flex h-full flex-col justify-between rounded-2xl border border-violet-500/30 bg-gradient-to-b from-violet-500/[0.08] to-[#12121a] p-6 transition-all duration-300 hover:border-violet-400">
-              <div>
-                <span className="rounded-full bg-violet-500/20 px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider text-violet-300 border border-violet-500/30">
-                  Anual Potenciado
-                </span>
-                <h3 className="mt-3 text-lg font-bold text-white">Correo Anual Pro + IA</h3>
-                <div className="mt-4 mb-4">
-                  <div className="text-3xl font-black text-violet-400">$180.000</div>
-                  <span className="text-xs text-white/40">COP / año</span>
-                </div>
-                <p className="text-xs leading-relaxed text-white/70">
-                  Suite completa de correo anual con <strong>100 créditos mensuales de IA</strong> para optimizar y redactar comunicaciones durante todo el año.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-white/[0.08]">
-                <WhatsAppButton
-                  text="Hola Call360, quiero el plan de Correo Corporativo Anual Pro + IA ($180.000 COP/año)"
-                  label="Contratar Anual Pro"
-                  className="w-full justify-center min-h-[44px] sm:min-h-[46px] !py-2.5 !text-xs sm:!text-sm !bg-violet-600 !text-white font-bold hover:!bg-violet-500"
-                />
-              </div>
-            </div>
-          </ScrollReveal>
+          <p className="mt-4 text-center text-[11px] leading-relaxed text-white/45">
+            Si ya contrataste tu página anual, tus 3 correos ya están incluidos: no pagues dos veces.
+          </p>
         </div>
       </div>
     </div>

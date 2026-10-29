@@ -3,15 +3,16 @@
 /**
  * components/billing/PlansSection.tsx
  *
- * Sección Comercial Completa de Planes y Créditos IA para Call360.
+ * Sección Comercial Oficial de Planes, Precios, Canales y Créditos IA — Call360 Colombia
  *
- * CONTRATO COMERCIAL VIGENTE:
- * - Titular: "Todas las funciones desde el primer día."
- * - Subtítulo: "Prueba el CRM completo y elige el cupo de Créditos IA que necesita tu empresa. La IA ya está incluida: no necesitas configurar APIs."
- * - Mismas funciones en Demo, Starter, Pro y Deluxe.
- * - Tarjetas 3D físicas idénticas al CRM.
- * - Sección común "Incluido en Demo, Starter, Pro y Deluxe" con matriz de paridad funcional.
- * - 5to Plan diferenciado: "Solo Correo" con 200 créditos IA y precio "Consulta las condiciones".
+ * REGLAS COMERCIALES APROBADAS:
+ * - Todos los precios son en COP por 1 usuario individual (sin paquetes grupales base).
+ * - A partir de 10 usuarios aplica propuesta empresarial personalizada.
+ * - Selector Mensual / Anual 100% responsive en móvil y escritorio.
+ * - Pago total anual visible, con equivalente mensual de referencia claramente etiquetado.
+ * - Los créditos IA se renuevan mensualmente de forma fija, incluso en planes anuales.
+ * - USD describe únicamente el valor aproximado del beneficio IA incluido.
+ * - Operación bajo IA asistida (tú revisas y decides el envío).
  */
 
 import React, { useState } from 'react';
@@ -20,33 +21,26 @@ import { PlanCard3D } from './PlanCard3D';
 import {
   COMMERCIAL_PLANS,
   PLANS_SECTION_HEADER,
-  SHARED_INCLUDED_CAPABILITIES,
   FUNCTIONAL_PARITY_ROWS,
-  EMAIL_ONLY_PLAN,
   ENTERPRISE_CUSTOM_PLAN,
   AI_CREDITS_POLICY,
   type CommercialPlan,
-  type Currency,
+  type BillingPeriod,
 } from '@/lib/commercialCatalog';
 import { buildWhatsAppUrl } from '@/lib/formData';
 import { DEMO_PATH } from '@/lib/siteUrls';
 
 export default function PlansSection() {
-  const [currency, setCurrency] = useState<Currency>('COP');
-  const [showPromo, setShowPromo] = useState(false);
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
   const [showParityTable, setShowParityTable] = useState(false);
 
   const handlePlanAction = (plan: CommercialPlan) => {
-    if (plan.id === 'demo') {
-      window.location.href = DEMO_PATH;
-      return;
-    }
-    const url = buildWhatsAppUrl(plan.waMessage);
-    window.open(url, '_blank', 'noopener,noreferrer');
-  };
-
-  const handleEmailPlanAction = () => {
-    const url = buildWhatsAppUrl(EMAIL_ONLY_PLAN.waMessage);
+    const periodText =
+      billingPeriod === 'annual'
+        ? `plan anual (${plan.pricing.annual.formatted} COP/año)`
+        : `plan mensual (${plan.pricing.monthly.formatted} COP/mes)`;
+    const message = `Hola Call360, quiero contratar el ${plan.name} en ${periodText} para 1 usuario con ${plan.aiCreditsLabel}.`;
+    const url = buildWhatsAppUrl(message);
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
@@ -58,14 +52,14 @@ export default function PlansSection() {
   return (
     <section id="planes" className="relative py-20 sm:py-28 lg:py-32 overflow-hidden">
       {/* Fondos y resplandores controlados */}
-      <div className="absolute inset-0 bg-[#0c0d14]/80" />
+      <div className="absolute inset-0 bg-[#0c0d14]/85" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gradient-to-r from-emerald-500/10 via-cyan-500/10 to-amber-500/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* ========================================================
             ENCABEZADO OFICIAL
             ======================================================== */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.2em] text-emerald-400 mb-4">
             {PLANS_SECTION_HEADER.badge}
           </div>
@@ -79,207 +73,163 @@ export default function PlansSection() {
             {PLANS_SECTION_HEADER.brandTagline}
           </p>
 
-          {/* Selector de Moneda y Oferta de Lanzamiento */}
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            {/* Toggle COP / USD */}
-            <div className="inline-flex items-center p-1 rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-md shadow-inner">
+          {/* ========================================================
+              SELECTOR MENSUAL / ANUAL (RESPONSIVE MÓVIL Y ESCRITORIO)
+              ======================================================== */}
+          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+            <div className="inline-flex items-center p-1.5 rounded-full border border-white/15 bg-white/[0.04] backdrop-blur-md shadow-inner w-full sm:w-auto max-w-xs sm:max-w-none">
               <button
                 type="button"
-                onClick={() => setCurrency('COP')}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  currency === 'COP'
+                onClick={() => setBillingPeriod('monthly')}
+                className={`flex-1 sm:flex-none px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all min-h-[44px] cursor-pointer ${
+                  billingPeriod === 'monthly'
                     ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md'
                     : 'text-white/60 hover:text-white'
                 }`}
+                aria-pressed={billingPeriod === 'monthly'}
               >
-                🇨🇴 Pesos Colombianos (COP)
+                Facturación Mensual
               </button>
               <button
                 type="button"
-                onClick={() => setCurrency('USD')}
-                className={`px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  currency === 'USD'
+                onClick={() => setBillingPeriod('annual')}
+                className={`flex-1 sm:flex-none px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all min-h-[44px] cursor-pointer flex items-center justify-center gap-1.5 ${
+                  billingPeriod === 'annual'
                     ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-md'
                     : 'text-white/60 hover:text-white'
                 }`}
+                aria-pressed={billingPeriod === 'annual'}
               >
-                🌎 Dólares (USD)
+                <span>Facturación Anual</span>
+                <span className="hidden xs:inline-block px-1.5 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider bg-amber-400 text-slate-950">
+                  Ahorro
+                </span>
               </button>
             </div>
 
-            {/* Toggle Promo Lanzamiento Starter */}
-            <button
-              type="button"
-              onClick={() => setShowPromo((v) => !v)}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-full border text-xs font-bold transition-all ${
-                showPromo
-                  ? 'border-amber-400/80 bg-amber-500/20 text-amber-200 shadow-md shadow-amber-500/20'
-                  : 'border-white/10 bg-white/[0.03] text-white/60 hover:text-white hover:border-white/20'
-              }`}
-            >
-              <span className={`h-2 w-2 rounded-full ${showPromo ? 'bg-amber-400 animate-ping' : 'bg-white/30'}`} />
-              <span>Promo Starter (50% OFF mes 1)</span>
-            </button>
+            {billingPeriod === 'annual' && (
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 bg-amber-500/15 border border-amber-400/30 px-3 py-1.5 rounded-full animate-fade-in">
+                <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
+                Pago total anual visible · Hasta 50% de ahorro por usuario
+              </span>
+            )}
           </div>
         </div>
 
         {/* ========================================================
-            GRID DE LAS 4 TARJETAS 3D FINTECH + DETALLE COMPLETO
+            GRID DE LAS 4 TARJETAS 3D + DETALLE COMERCIAL COMPLETO
             ======================================================== */}
         <div className="grid gap-6 sm:gap-6 md:grid-cols-2 lg:grid-cols-4 items-stretch">
           {COMMERCIAL_PLANS.map((plan) => {
-            const pricing =
-              showPromo && plan.launchPromo?.enabled
-                ? plan.launchPromo.pricing[currency]
-                : plan.pricing[currency];
+            const pricing = plan.pricing[billingPeriod];
 
             return (
               <div
                 key={plan.id}
                 className={`flex flex-col justify-between rounded-3xl p-4 sm:p-5 border transition-all duration-300 backdrop-blur-sm ${
                   plan.isRecommended
-                    ? 'border-emerald-500/60 bg-gradient-to-b from-emerald-500/[0.08] via-[#121422] to-[#0e101b] shadow-2xl shadow-emerald-950/40 ring-1 ring-emerald-400/30'
-                    : plan.id === 'deluxe'
-                      ? 'border-amber-500/50 bg-gradient-to-b from-amber-500/[0.08] via-[#16131c] to-[#0e101b] shadow-2xl shadow-amber-950/40'
+                    ? 'border-emerald-500/60 bg-gradient-to-b from-emerald-500/[0.08] via-[#121422] to-[#0e101b] shadow-2xl shadow-emerald-950/40 ring-1 ring-emerald-400/40'
+                    : plan.isBestOffer
+                      ? 'border-amber-500/50 bg-gradient-to-b from-amber-500/[0.08] via-[#16131c] to-[#0e101b] shadow-2xl shadow-amber-950/40 ring-1 ring-amber-400/30'
                       : 'border-white/[0.1] bg-[#12121a]/95 hover:border-white/20'
                 }`}
               >
                 {/* 1. Tarjeta 3D Física Interactiva */}
-                <div className="w-full mb-5">
+                <div className="w-full mb-4">
                   <PlanCard3D
                     plan={plan}
-                    currency={currency}
-                    showPromo={showPromo}
+                    billingPeriod={billingPeriod}
+                    currency="COP"
                     onActionClick={handlePlanAction}
                   />
                 </div>
 
-                {/* 2. Bloque Descriptivo Completo (100% Contenido Visible) */}
+                {/* 2. Bloque Descriptivo Completo */}
                 <div className="flex-1 flex flex-col justify-between pt-1">
                   <div>
-                    {/* Encabezado: Nombre del Plan + Precio */}
-                    <div className="flex items-baseline justify-between mb-2">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-base font-black uppercase tracking-wider text-white">
-                          {plan.name}
+                    {/* Encabezado: Nombre del Plan + Etiqueta Obligatoria */}
+                    <div className="flex items-center justify-between gap-2 mb-2">
+                      <span className="text-lg font-black uppercase tracking-wider text-white">
+                        {plan.name}
+                      </span>
+                      {plan.badge && (
+                        <span
+                          className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider ${
+                            plan.isBestOffer
+                              ? 'bg-amber-400/20 text-amber-300 border border-amber-300/60'
+                              : 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/60'
+                          }`}
+                        >
+                          {plan.isBestOffer ? '💎 ' : '🔥 '}
+                          {plan.badge}
                         </span>
-                        {plan.isRecommended && (
-                          <span className="text-amber-400 font-black text-sm">⭐</span>
-                        )}
-                      </div>
-                      <div className="text-right">
-                        <span className="text-base sm:text-lg font-black text-cyan-400 font-mono">
+                      )}
+                    </div>
+
+                    {/* Canales incluidos claramente visibles */}
+                    <div className="mb-3 p-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02]">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-white/50 block mb-0.5">
+                        Canales incluidos:
+                      </span>
+                      <p className="text-xs font-semibold text-cyan-300 leading-snug">
+                        {plan.channelsDetail}
+                      </p>
+                    </div>
+
+                    {/* Precios: Pago Total y Referencia Mensual */}
+                    <div className="mb-3 p-3 rounded-2xl border border-white/[0.08] bg-black/40">
+                      <div className="flex items-baseline justify-between">
+                        <span className="text-xl sm:text-2xl font-black text-white font-mono">
                           {pricing.formatted}
                         </span>
-                        <span className="text-[10px] text-white/50 block -mt-0.5">
-                          {pricing.period}
+                        <span className="text-xs font-bold uppercase tracking-wider text-white/60">
+                          COP
                         </span>
                       </div>
-                    </div>
-
-                    {/* Tagline Oficial en Tarjeta: CRM completo + IA incluida */}
-                    <div className="mb-2.5">
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
-                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                        {plan.tagline}
+                      <span className="text-[11px] text-white/50 block font-medium">
+                        {pricing.period}
                       </span>
+                      {pricing.referenceMonthly && (
+                        <div className="mt-1.5 pt-1.5 border-t border-white/10 flex items-center justify-between text-[11px]">
+                          <span className="text-white/50">Equivalente mensual:</span>
+                          <span className="font-bold text-emerald-400 font-mono">
+                            {pricing.referenceMonthly.formatted} / mes (ref)
+                          </span>
+                        </div>
+                      )}
                     </div>
 
-                    {/* Vigencia / Duración */}
-                    <div className="flex items-center gap-1 text-[11px] text-white/60 mb-3">
-                      <span className="text-white/40">⏱ Vigencia:</span>
-                      <strong className="text-white/80 font-semibold">{plan.durationLabel}</strong>
+                    {/* Cupo de Créditos IA + Beneficio en USD */}
+                    <div className="mb-3 rounded-2xl border border-cyan-500/30 bg-cyan-500/[0.06] p-3">
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="text-xs font-black uppercase tracking-wider text-cyan-300">
+                          {plan.aiCreditsLabel}
+                        </span>
+                        <span className="text-[9px] font-bold uppercase text-white/50">
+                          Fija mensual
+                        </span>
+                      </div>
+                      <p className="text-[11px] font-semibold text-white/80">
+                        {plan.aiBenefitUsd}
+                      </p>
+                      <p className="text-[10px] text-white/50 mt-0.5 leading-snug">
+                        * Los créditos IA se renuevan cada mes, incluso en suscripciones anuales.
+                      </p>
                     </div>
 
-                    {/* Descripción Orientativa según directriz comercial */}
-                    <p className="text-xs text-white/80 mb-3 leading-relaxed bg-white/[0.02] p-2.5 rounded-xl border border-white/[0.05]">
-                      &ldquo;{plan.description}&rdquo;
-                    </p>
-
-                    {/* Bloque WOW: Multiplicador de Créditos IA */}
-                    {plan.usageMultiplier?.ratio === '10X' && (
-                      <div className="rounded-2xl border-2 border-amber-400/60 bg-gradient-to-br from-amber-500/25 via-[#1a1610] to-yellow-500/20 p-3.5 mb-4 shadow-xl shadow-amber-950/50">
-                        <div className="flex items-center justify-between gap-1 mb-1.5">
-                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-amber-100 bg-amber-500/40 px-2.5 py-0.5 rounded-full border border-amber-300/80 animate-pulse">
-                            {plan.usageMultiplier.badge}
-                          </span>
-                          <span className="text-[10px] font-black text-amber-300">vs Starter</span>
-                        </div>
-                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
-                          10.000 Créditos IA / mes
-                        </span>
-                        <p className="text-[11px] text-amber-100/90 font-medium mt-1 leading-snug">
-                          {plan.usageMultiplier.highlightText}
-                        </p>
-                      </div>
-                    )}
-
-                    {plan.usageMultiplier?.ratio === '3X' && (
-                      <div className="rounded-2xl border border-emerald-400/50 bg-gradient-to-br from-emerald-500/20 via-[#101918] to-cyan-500/15 p-3.5 mb-4 shadow-lg shadow-emerald-950/40">
-                        <div className="flex items-center justify-between gap-1 mb-1.5">
-                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-emerald-200 bg-emerald-500/30 px-2.5 py-0.5 rounded-full border border-emerald-400/50">
-                            {plan.usageMultiplier.badge}
-                          </span>
-                          <span className="text-[10px] font-black text-cyan-300">vs Starter</span>
-                        </div>
-                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
-                          3.000 Créditos IA / mes
-                        </span>
-                        <p className="text-[11px] text-emerald-100/90 font-medium mt-1 leading-snug">
-                          {plan.usageMultiplier.highlightText}
-                        </p>
-                      </div>
-                    )}
-
-                    {plan.usageMultiplier?.ratio === '1X' && (
-                      <div className="rounded-2xl border border-amber-500/30 bg-gradient-to-br from-amber-500/10 via-[#161414] to-white/[0.02] p-3.5 mb-4">
-                        <div className="flex items-center justify-between gap-1 mb-1.5">
-                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-amber-300 bg-amber-500/20 px-2.5 py-0.5 rounded-full border border-amber-500/40">
-                            {plan.usageMultiplier.badge}
-                          </span>
-                          <span className="text-[10px] text-white/50">Punto de partida</span>
-                        </div>
-                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
-                          1.000 Créditos IA / mes
-                        </span>
-                        <p className="text-[11px] text-white/70 font-medium mt-1 leading-snug">
-                          {plan.usageMultiplier.highlightText}
-                        </p>
-                      </div>
-                    )}
-
-                    {plan.id === 'demo' && (
-                      <div className="rounded-2xl border border-white/15 bg-gradient-to-br from-white/10 via-[#14151f] to-white/[0.02] p-3.5 mb-4">
-                        <div className="flex items-center justify-between gap-1 mb-1.5">
-                          <span className="inline-flex items-center gap-1 text-[10px] font-black uppercase tracking-wider text-slate-200 bg-white/15 px-2.5 py-0.5 rounded-full border border-white/20">
-                            PRUEBA TOTAL
-                          </span>
-                          <span className="text-[10px] text-slate-400">14 días</span>
-                        </div>
-                        <span className="block text-base sm:text-lg font-black text-white tracking-tight">
-                          100 Créditos IA
-                        </span>
-                        <p className="text-[11px] text-white/70 font-medium mt-1 leading-snug">
-                          Cupo completo para conocer y probar todas las funciones
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Resumen de Política de Créditos */}
-                    <div className="text-[11px] text-white/60 mb-4 flex items-center gap-1.5 px-1">
-                      <svg className="h-3.5 w-3.5 text-cyan-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                        <circle cx="9" cy="7" r="4" />
-                        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                    {/* Base de cobro por 1 usuario */}
+                    <div className="flex items-center gap-1.5 text-[11px] text-white/60 mb-3 px-1">
+                      <svg className="h-3.5 w-3.5 text-emerald-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                        <circle cx="12" cy="7" r="4" />
                       </svg>
-                      <span>Cupo compartido entre todos los asesores</span>
+                      <span>Tarifa base por 1 usuario individual (sin paquetes base)</span>
                     </div>
 
-                    {/* Capacidades compartidas destacadas: SE MUESTRAN TODAS */}
-                    <div className="border-t border-white/[0.08] pt-3 mb-5">
+                    {/* Lista de características */}
+                    <div className="border-t border-white/[0.08] pt-3 mb-4">
                       <span className="block text-[10px] font-black uppercase tracking-wider text-white/50 mb-2">
-                        Funciones incluidas (CRM 100% activo):
+                        Incluido en el plan:
                       </span>
                       <ul className="space-y-2 text-xs text-white/80">
                         {plan.features.map((f, i) => (
@@ -296,34 +246,22 @@ export default function PlansSection() {
 
                   {/* Botón de Acción Principal */}
                   <div className="pt-2">
-                    {plan.id === 'demo' ? (
-                      <Link
-                        href={DEMO_PATH}
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-400/40 px-4 py-3.5 text-xs font-black text-white transition-all shadow-md active:scale-[0.98]"
-                      >
-                        <span>{plan.ctaLabel}</span>
-                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </Link>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => handlePlanAction(plan)}
-                        className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-xs font-black transition-all shadow-lg active:scale-[0.98] ${
-                          plan.tier === 'premium'
-                            ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 text-slate-950 shadow-amber-500/30 hover:brightness-110'
-                            : plan.tier === 'silver_emerald'
-                              ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-400 hover:to-teal-400 border border-emerald-300/40 shadow-emerald-500/30'
-                              : 'bg-gradient-to-r from-amber-600 to-yellow-600 text-white hover:from-amber-500 hover:to-yellow-500 border border-amber-400/40 shadow-amber-600/30'
-                        }`}
-                      >
-                        <span>{plan.ctaLabel}</span>
-                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <path d="M5 12h14M12 5l7 7-7 7" />
-                        </svg>
-                      </button>
-                    )}
+                    <button
+                      type="button"
+                      onClick={() => handlePlanAction(plan)}
+                      className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-xs font-black transition-all shadow-lg active:scale-[0.98] cursor-pointer ${
+                        plan.isBestOffer
+                          ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-300 text-slate-950 shadow-amber-500/30 hover:brightness-110'
+                          : plan.isRecommended
+                            ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white hover:from-emerald-400 hover:to-teal-400 border border-emerald-300/40 shadow-emerald-500/30'
+                            : 'bg-gradient-to-r from-cyan-600 to-teal-600 text-white hover:from-cyan-500 hover:to-teal-500 border border-cyan-400/40 shadow-cyan-600/30'
+                      }`}
+                    >
+                      <span>{plan.ctaLabel}</span>
+                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -332,49 +270,59 @@ export default function PlansSection() {
         </div>
 
         {/* ========================================================
-            SECCIÓN COMÚN: INCLUIDO EN DEMO, STARTER, PRO Y DELUXE
+            SECCIÓN CORPORATIVA (A PARTIR DE 10 USUARIOS)
             ======================================================== */}
-        <div className="mt-16 sm:mt-24 rounded-3xl border border-white/10 bg-[#10121d]/90 p-6 sm:p-10 backdrop-blur-md">
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
-              Mismo CRM, Todas las Capacidades
-            </span>
-            <h3 className="text-2xl sm:text-3xl font-black text-white">
-              Incluido en Demo, Starter, Pro y Deluxe
+        <div className="mt-12 rounded-3xl border border-cyan-500/30 bg-gradient-to-r from-white/[0.04] via-cyan-500/[0.08] to-emerald-500/[0.05] p-6 sm:p-10 backdrop-blur-md shadow-2xl">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+            <div className="max-w-3xl text-center lg:text-left">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 mb-3">
+                {ENTERPRISE_CUSTOM_PLAN.badge}
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-black text-white">
+                {ENTERPRISE_CUSTOM_PLAN.title}
+              </h3>
+              <p className="mt-2 text-sm sm:text-base text-white/70 leading-relaxed">
+                {ENTERPRISE_CUSTOM_PLAN.description}
+              </p>
+              <div className="mt-4 flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-white/60">
+                <span className="inline-flex items-center gap-1">✓ Tarifas preferenciales por volumen</span>
+                <span className="inline-flex items-center gap-1">✓ Bolsa corporativa de Créditos IA</span>
+                <span className="inline-flex items-center gap-1">✓ Soporte e implementación prioritaria</span>
+              </div>
+            </div>
+            <button
+              type="button"
+              onClick={handleEnterpriseContact}
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 px-7 py-4 text-sm font-black text-slate-950 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/25 shrink-0 cursor-pointer"
+            >
+              <span>{ENTERPRISE_CUSTOM_PLAN.ctaText}</span>
+              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* ========================================================
+            TABLA COMPARATIVA Y PARIDAD FUNCIONAL
+            ======================================================== */}
+        <div className="mt-14 rounded-3xl border border-white/10 bg-[#10121d]/90 p-6 sm:p-8 backdrop-blur-md">
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <h3 className="text-xl sm:text-2xl font-black text-white">
+              Comparativa detallada entre planes
             </h3>
-            <p className="mt-3 text-sm text-white/60 leading-relaxed">
-              No recortamos funciones por nivel. Transcripción, informes, análisis, sugerencias, traducción y asistente comercial están incluidos en todos los planes. La única diferencia es la duración del Demo y el cupo de Créditos IA que tu empresa consume al mes.
+            <p className="mt-2 text-xs sm:text-sm text-white/60">
+              Revisa los canales, base de cobro por usuario y cupos de créditos IA de cada plan.
             </p>
           </div>
 
-          {/* Grid de Capacidades Compartidas */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5 mb-8">
-            {SHARED_INCLUDED_CAPABILITIES.map((cap, idx) => (
-              <div
-                key={idx}
-                className="rounded-2xl border border-white/[0.08] bg-white/[0.02] p-4 flex flex-col justify-between hover:border-emerald-500/30 transition-all"
-              >
-                <div>
-                  <div className="flex items-center gap-2 mb-2 text-emerald-400">
-                    <svg className="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                      <polyline points="20 6 9 17 4 12" />
-                    </svg>
-                    <h4 className="text-xs font-bold text-white leading-tight">{cap.title}</h4>
-                  </div>
-                  <p className="text-[11px] text-white/50 leading-relaxed">{cap.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Toggle para Ver Matriz Completa de Paridad */}
-          <div className="text-center pt-2 border-t border-white/[0.06]">
+          <div className="text-center mb-6">
             <button
               type="button"
               onClick={() => setShowParityTable((v) => !v)}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 bg-white/[0.04] text-xs font-bold text-white/80 hover:text-white hover:border-white/30 transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 bg-white/[0.04] text-xs font-bold text-white/80 hover:text-white hover:border-white/30 transition-all cursor-pointer"
             >
-              <span>{showParityTable ? 'Ocultar Matriz de Paridad Funcional' : 'Ver Matriz de Paridad Funcional (Todas Iguales)'}</span>
+              <span>{showParityTable ? 'Ocultar comparativa detallada' : 'Ver tabla comparativa completa'}</span>
               <svg
                 className={`h-3.5 w-3.5 transition-transform duration-300 ${showParityTable ? 'rotate-180' : ''}`}
                 viewBox="0 0 24 24"
@@ -387,27 +335,26 @@ export default function PlansSection() {
             </button>
           </div>
 
-          {/* Tabla de Paridad Funcional */}
           {showParityTable && (
-            <div className="mt-6 overflow-x-auto rounded-2xl border border-white/10 bg-[#0a0c13]">
+            <div className="overflow-x-auto rounded-2xl border border-white/10 bg-[#0a0c13]">
               <table className="w-full text-left text-xs">
                 <thead>
                   <tr className="border-b border-white/10 bg-white/[0.03] text-white/80 font-bold uppercase tracking-wider text-[10px]">
-                    <th className="p-3.5">Función o Característica</th>
-                    <th className="p-3.5 text-center">Demo</th>
+                    <th className="p-3.5">Característica / Plan</th>
+                    <th className="p-3.5 text-center">Plan Correo</th>
                     <th className="p-3.5 text-center">Starter</th>
-                    <th className="p-3.5 text-center text-emerald-400">Pro</th>
-                    <th className="p-3.5 text-center">Deluxe</th>
+                    <th className="p-3.5 text-center text-emerald-400">Pro (Más vendido)</th>
+                    <th className="p-3.5 text-center text-amber-300">Deluxe (Mejor oferta)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/[0.06] text-white/70">
                   {FUNCTIONAL_PARITY_ROWS.map((row, i) => (
                     <tr key={i} className="hover:bg-white/[0.02]">
                       <td className="p-3.5 font-medium text-white">{row.feature}</td>
-                      <td className="p-3.5 text-center font-mono font-bold">{row.demo}</td>
-                      <td className="p-3.5 text-center font-mono font-bold">{row.starter}</td>
-                      <td className="p-3.5 text-center font-mono font-bold text-emerald-300">{row.pro}</td>
-                      <td className="p-3.5 text-center font-mono font-bold">{row.deluxe}</td>
+                      <td className="p-3.5 text-center">{row.correo}</td>
+                      <td className="p-3.5 text-center">{row.starter}</td>
+                      <td className="p-3.5 text-center font-bold text-emerald-300">{row.pro}</td>
+                      <td className="p-3.5 text-center font-bold text-amber-300">{row.deluxe}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -415,7 +362,7 @@ export default function PlansSection() {
             </div>
           )}
 
-          {/* Nota aclaratoria sobre conexión de cuentas */}
+          {/* Nota de conexión técnica segura */}
           <div className="mt-6 p-4 rounded-xl border border-white/[0.08] bg-white/[0.02] flex items-start gap-3 text-xs text-white/50">
             <svg className="h-4 w-4 text-cyan-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10" />
@@ -423,105 +370,13 @@ export default function PlansSection() {
               <line x1="12" y1="16" x2="12.01" y2="16" />
             </svg>
             <p>
-              <strong>Aclaración de conexión:</strong> Tener acceso completo no significa que las conexiones estén ya autorizadas sin la intervención del titular. El cliente debe conectar su propia línea comercial de WhatsApp o sus cuentas de correo cuando corresponda mediante el código QR seguro.
+              <strong>Conexión directa y segura:</strong> El cliente conecta su propia línea de WhatsApp escaneando el código QR seguro desde la aplicación, o sus casillas de correo corporativo mediante configuración estándar. No requiere contratación de APIs externas de terceros.
             </p>
           </div>
         </div>
 
         {/* ========================================================
-            5TO PLAN: SECCIÓN SEPARADA — SOLO CORREO
-            ======================================================== */}
-        <div className="mt-14 rounded-3xl border border-cyan-500/30 bg-gradient-to-br from-cyan-500/[0.06] via-[#10141f] to-[#0c0e17] p-6 sm:p-10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none" />
-
-          <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="max-w-2xl text-center lg:text-left">
-              <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/40 bg-cyan-500/15 px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-cyan-300 mb-3">
-                ✉️ Modalidad Especializada
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-white">
-                {EMAIL_ONLY_PLAN.sectionTitle}
-              </h3>
-              <p className="mt-1 text-sm font-semibold text-cyan-300">
-                Plan {EMAIL_ONLY_PLAN.name} · {EMAIL_ONLY_PLAN.benefit}
-              </p>
-              <p className="mt-3 text-xs sm:text-sm text-white/60 leading-relaxed">
-                {EMAIL_ONLY_PLAN.sectionSubtitle}
-              </p>
-
-              {/* Puntos clave */}
-              <ul className="mt-4 grid gap-2 sm:grid-cols-2 text-xs text-white/75">
-                {EMAIL_ONLY_PLAN.highlights.map((h, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <span className="text-cyan-400 font-bold shrink-0">•</span>
-                    <span>{h}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Caja de Acción y Precio Pendiente */}
-            <div className="rounded-2xl border border-cyan-500/40 bg-black/50 p-6 text-center w-full sm:w-auto shrink-0 shadow-lg min-w-[280px]">
-              <span className="block text-xs font-bold uppercase tracking-widest text-white/50 mb-1">
-                Cupo Asignado
-              </span>
-              <span className="text-xl sm:text-2xl font-black text-cyan-300 font-mono block mb-2">
-                {EMAIL_ONLY_PLAN.aiCreditsLabel}
-              </span>
-              <div className="p-2.5 rounded-xl border border-white/10 bg-white/[0.03] mb-4">
-                <span className="text-xs text-white/60 block">Tarifa comercial:</span>
-                <span className="text-sm font-black text-amber-300">
-                  {EMAIL_ONLY_PLAN.priceLabel}
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={handleEmailPlanAction}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-400 px-6 py-3 text-xs font-black text-slate-950 transition-all hover:scale-[1.02] shadow-lg shadow-cyan-500/25 cursor-pointer"
-              >
-                <span>{EMAIL_ONLY_PLAN.ctaText}</span>
-                <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </button>
-              <span className="block text-[10px] text-white/40 mt-2">
-                Sin checkout automático · Atención directa por WhatsApp
-              </span>
-            </div>
-          </div>
-        </div>
-
-        {/* ========================================================
-            BANNER EMPRESAS (+10 USUARIOS / EQUIPOS GRANDES)
-            ======================================================== */}
-        <div className="mt-10 rounded-3xl border border-white/10 bg-gradient-to-r from-white/[0.04] via-emerald-500/[0.05] to-cyan-500/[0.04] p-6 sm:p-10 backdrop-blur-md">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
-            <div className="max-w-2xl text-center lg:text-left">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 mb-3">
-                Equipos y Empresas
-              </span>
-              <h3 className="text-xl sm:text-2xl font-black text-white">
-                {ENTERPRISE_CUSTOM_PLAN.title}
-              </h3>
-              <p className="mt-2 text-sm text-white/60 leading-relaxed">
-                {ENTERPRISE_CUSTOM_PLAN.description}
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={handleEnterpriseContact}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-cyan-500 to-emerald-500 px-6 sm:px-8 py-3.5 text-sm font-black text-slate-950 transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-cyan-500/25 shrink-0 cursor-pointer"
-            >
-              <span>{ENTERPRISE_CUSTOM_PLAN.ctaText}</span>
-              <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        {/* ========================================================
-            EXPLICACIÓN TRANSPARENTE DE CRÉDITOS IA (ASISTIDA)
+            POLÍTICA Y REGLAS CLARAS DE CRÉDITOS IA
             ======================================================== */}
         <div className="mt-16 sm:mt-24">
           <div className="text-center max-w-2xl mx-auto mb-10">
@@ -555,7 +410,7 @@ export default function PlansSection() {
           </div>
 
           <p className="mt-8 text-center text-xs text-white/40">
-            * Los cupos se asignan mensualmente por empresa (14 días en Demo). Errores de conexión o reintentos técnicos nunca descuentan créditos duplicados.
+            * Renovación mensual fija de Créditos IA en todos los planes. Errores de conexión o reintentos técnicos nunca descuentan créditos duplicados.
           </p>
         </div>
       </div>

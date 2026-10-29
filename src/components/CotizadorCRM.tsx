@@ -40,21 +40,19 @@ const fieldClass =
 
 function calculateMonthly(type: CrmType, users: number): number {
   if (type === "whatsapp") {
-    if (users <= 1) return 65000;
-    if (users <= 4) return 130000;
-    return 200000;
+    // Base Starter: 65.000 COP / usuario / mes
+    return users * 65000;
   }
   if (type === "combinado") {
-    const waBase = users <= 1 ? 65000 : users <= 4 ? 130000 : 200000;
-    return users * 120000 + waBase;
+    // Ecosistema integrado: WhatsApp + Correo Pro ($120.000) + Telefonía IP ($120.000) por usuario
+    return users * 240000;
   }
   return users * 120000;
 }
 
 function getVolumeThreshold(type: CrmType): number {
-  if (type === "whatsapp") return 10;
-  if (type === "combinado") return 10;
-  return VOLUME_THRESHOLDS.crmLlamadas;
+  // A partir de 10 usuarios aplica propuesta empresarial personalizada
+  return 9;
 }
 
 export default function CotizadorCRM({
@@ -217,11 +215,11 @@ export default function CotizadorCRM({
           </div>
         )}
         <p className="mt-2 text-[11px] text-white/50">
-          * Todos los planes de CRM WhatsApp incluyen el CRM completo con todas las funciones e IA asistida. El cupo de Créditos IA se asigna por empresa y se comparte entre todos los asesores.
+          * Precios en COP por 1 usuario al mes. Los créditos IA se renuevan mensualmente de forma fija. A partir de 10 usuarios aplica propuesta empresarial personalizada.
         </p>
         {isVolume && (
           <p className="mt-3 text-xs text-amber-400">
-            💡 Para más de 10 usuarios configuramos planes empresariales con bolsa personalizada de Créditos IA. Te contactaremos de inmediato.
+            💡 Para equipos de 10 o más usuarios configuramos propuestas empresariales personalizadas con tarifas preferenciales y bolsa corporativa de Créditos IA.
           </p>
         )}
       </div>

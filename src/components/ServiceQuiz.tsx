@@ -121,7 +121,7 @@ function getRecommendation(answers: Record<string, string>): Recommendation {
       highlights: [
         { label: "Servicio", value: SERVICE_LABELS["crm-whatsapp"] },
         { label: "Agentes", value: `${team || "1-5"} personas` },
-        { label: "Desde", value: "$65.000 COP/mes (o US$20)" },
+        { label: "Desde", value: "$40.000 COP/usuario/mes" },
       ],
     };
   }

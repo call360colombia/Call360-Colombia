@@ -28,9 +28,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Call360 | Sistema Completo de Ventas para Colombia",
+  title: "Call360 | Centralización de Correo Corporativo + WhatsApp con IA",
   description:
-    "Te conseguimos clientes (páginas web + marketing) y te damos el sistema para gestionarlos (CRM WhatsApp + CRM Llamadas con minutos ilimitados). Desde $350.000.",
+    "Centralización de Correo Corporativo + WhatsApp con IA, desarrollo web en 72h y telefonía IP con minutos ilimitados en Colombia. Planes desde $40.000 COP/usuario.",
   icons: {
     icon: [
       { url: "/favicon_io/favicon-16x16.png", sizes: "16x16", type: "image/png" },

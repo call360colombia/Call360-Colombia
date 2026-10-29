@@ -10,9 +10,9 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { DEMO_PATH } from "@/lib/siteUrls";
 
 export const metadata: Metadata = {
-  title: "Dale Superpoderes a tu WhatsApp | CRM Comercial Call360",
+  title: "Centralización de Correo y WhatsApp con IA | CRM Call360",
   description:
-    "Atiende en equipo, responde mejor con IA y convierte tus conversaciones en oportunidades de venta. Todo desde Call360. Prueba gratis durante 14 días.",
+    "Atiende en equipo, unifica correo corporativo y WhatsApp con IA asistida y gestiona tus oportunidades de venta. Planes desde $40.000 COP/usuario.",
   alternates: {
     canonical: "https://call360colombia.com/crm-whatsapp",
   },
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Dale Superpoderes a tu WhatsApp | CRM Comercial Call360",
+    title: "Centralización de Correo y WhatsApp con IA | CRM Call360",
     description:
-      "Atiende en equipo, responde mejor con IA y convierte tus conversaciones en oportunidades de venta. Todo desde Call360.",
+      "Atiende en equipo, unifica correo corporativo y WhatsApp con IA asistida y gestiona tus oportunidades de venta.",
     url: "https://call360colombia.com/crm-whatsapp",
     siteName: "Call360 Colombia",
     locale: "es_CO",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
         url: "https://call360colombia.com/inicio/whatsapp.png",
         width: 1200,
         height: 630,
-        alt: "CRM WhatsApp Comercial Call360 Colombia",
+        alt: "CRM Correo y WhatsApp Comercial Call360 Colombia",
       },
     ],
   },
@@ -119,54 +119,53 @@ export default function CRMWhatsAppPage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
                 </span>
-                CRM Comercial · IA Incluida y Administrada
+                Centralización Comercial · Correo + WhatsApp con IA
               </div>
 
               {/* Titular principal obligatorio */}
               <h1 className="animate-fade-in-up animation-delay-100 text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-black leading-tight tracking-tight text-white">
-                Dale superpoderes a tu{" "}
+                Centraliza tu{" "}
                 <span className="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
-                  WhatsApp
+                  Correo y WhatsApp con IA
                 </span>
               </h1>
 
               {/* Subtítulo de referencia */}
               <p className="animate-fade-in-up animation-delay-200 mx-auto lg:mx-0 mt-6 max-w-xl text-base sm:text-lg text-white/70 leading-relaxed">
-                Atiende en equipo, responde mejor con IA y convierte tus conversaciones en
-                oportunidades de venta. Todo desde Call360.
+                Atiende en equipo, unifica tu correo corporativo y WhatsApp, responde mejor con IA asistida y convierte cada conversación en oportunidades de venta. Todo desde Call360.
               </p>
 
               {/* Los 3 Pilares en píldoras destacadas */}
               <div className="animate-fade-in-up animation-delay-300 mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs sm:text-sm font-semibold text-white/70">
                 <div className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-sm">
-                  <span className="text-emerald-400">✓</span> Atención en equipo
+                  <span className="text-emerald-400">✓</span> Correo + WhatsApp Unificados
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-sm">
-                  <span className="text-cyan-400">✓</span> IA incluida Call360
+                  <span className="text-cyan-400">✓</span> IA asistida integrada
                 </div>
                 <div className="flex items-center gap-2 rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-sm">
-                  <span className="text-amber-400">✓</span> Seguimiento comercial
+                  <span className="text-amber-400">✓</span> Precios por 1 usuario (sin paquetes base)
                 </div>
               </div>
 
               {/* CTAs de Conversión */}
               <div className="animate-fade-in-up animation-delay-400 mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 justify-center lg:justify-start">
-                <Link
-                  href={DEMO_PATH}
+                <a
+                  href="#planes"
                   className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-3.5 text-sm sm:text-base font-black text-slate-950 shadow-xl shadow-emerald-500/20 transition-all hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <span>Prueba Call360 durante 14 días</span>
+                  <span>Ver Planes Comerciales</span>
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </Link>
+                </a>
 
-                <a
-                  href="#planes"
+                <Link
+                  href={DEMO_PATH}
                   className="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] backdrop-blur-md px-6 sm:px-8 py-3.5 text-sm sm:text-base font-bold text-white transition-all hover:border-emerald-400/40 hover:bg-emerald-400/10 active:scale-[0.98]"
                 >
-                  <span>Ver planes</span>
-                </a>
+                  <span>Solicitar Demo Guiada</span>
+                </Link>
               </div>
 
               <div className="animate-fade-in-up animation-delay-400 mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs">
@@ -197,7 +196,7 @@ export default function CRMWhatsAppPage() {
               </div>
 
               <p className="animate-fade-in-up animation-delay-400 mt-4 text-xs text-white/40">
-                ⚡ 14 días de prueba con 100 créditos IA • Sin tarjeta de crédito • Migración gratuita en 24h
+                ⚡ Precios en COP por usuario • Renovación mensual fija de créditos IA • Soporte directo en Colombia
               </p>
             </div>
 
@@ -351,51 +350,51 @@ export default function CRMWhatsAppPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
             <FAQSection
-              title="Preguntas frecuentes sobre Call360 WhatsApp"
+              title="Preguntas frecuentes sobre Call360 Correo y WhatsApp"
               showCta={true}
-              ctaLabel="Hablar con ventas"
-              ctaText="Hola Call360, tengo una pregunta sobre el CRM de WhatsApp y los planes de IA."
+              ctaLabel="Hablar con un asesor"
+              ctaText="Hola Call360, tengo una pregunta sobre los planes comerciales de Correo y WhatsApp con IA."
               ctaSubtext="Te asesoramos directamente por WhatsApp"
               items={[
                 {
-                  question: "¿Cómo funciona la prueba Demo de 14 días?",
-                  answer:
-                    "Recibes 14 días de acceso completo a la plataforma con 100 Créditos IA incluidos para toda la prueba. No requerimos tarjeta de crédito. Al finalizar la prueba, puedes elegir el plan comercial que mejor se adapte a tu empresa.",
-                },
-                {
-                  question: "¿Qué significa que la IA está incluida y administrada?",
-                  answer:
-                    "Significa que no tienes que preocuparte por contratar proveedores externos, configurar modelos ni conectar claves API. Call360 administra la infraestructura y tu equipo simplemente disfruta de sugerencias, reescritura comercial, resúmenes y transcripción.",
-                },
-                {
-                  question: "¿Cómo se consumen los Créditos IA?",
-                  answer:
-                    "1 acción estándar completada (una sugerencia de respuesta, una reescritura o un análisis de chat) consume 1 Crédito IA según el tarifario vigente. Los reintentos por fallas técnicas nunca descuentan créditos dobles.",
-                },
-                {
                   question: "¿Los planes se cobran por usuario o por empresa?",
                   answer:
-                    "Los precios y bolsas de créditos se asignan por empresa (tenant) y se comparten entre todos los asesores autorizados del equipo. No cobramos precios individuales por usuario en los planes vigentes.",
+                    "Todos los precios son en COP por 1 usuario individual. No existen paquetes grupales base. Cada usuario cuenta con sus accesos y su cupo mensual de Créditos IA correspondiente al plan elegido. A partir de 10 usuarios aplica una propuesta empresarial personalizada.",
+                },
+                {
+                  question: "¿Cómo se renuevan los Créditos IA en los planes anuales?",
+                  answer:
+                    "Los Créditos IA se renuevan mensualmente de forma fija al inicio de cada mes, incluso cuando contratas la suscripción anual. Por ejemplo, en el Plan Pro recibes 3.000 créditos cada mes durante los 12 meses.",
+                },
+                {
+                  question: "¿Qué canales incluye cada plan?",
+                  answer:
+                    "Plan Correo ($40.000 COP/usuario/mes) incluye Correo corporativo + CRM (no incluye WhatsApp). Starter ($65.000 COP/usuario/mes) incluye 1 solo canal a elección (Correo + CRM ó WhatsApp + CRM). Pro ($120.000 COP/usuario/mes, Más vendido) integra ambos canales: WhatsApp + Correo corporativo + CRM. Deluxe ($220.000 COP/usuario/mes, Mejor oferta) integra ambos canales con la cuota máxima de 10.000 créditos IA al mes.",
+                },
+                {
+                  question: "¿Qué significa el valor en USD indicado en los planes?",
+                  answer:
+                    "Los valores de suscripción se cobran 100% en pesos colombianos (COP). El valor en USD (ej. aprox. USD 10, USD 20, USD 60 o USD 100) describe exclusivamente el valor comercial de referencia de la bolsa de Créditos IA que ya viene incluida dentro de cada plan.",
                 },
                 {
                   question: "¿Qué pasa si mi empresa necesita más de 10 usuarios?",
                   answer:
-                    "Contáctanos directamente. Para equipos comerciales grandes configuramos un plan personalizado con la capacidad operativa y bolsa de créditos IA que requiera tu operación.",
+                    "Para equipos comerciales de 10 o más usuarios configuramos una propuesta empresarial personalizada con tarifas preferenciales por volumen, bolsa corporativa de Créditos IA y soporte prioritario.",
                 },
                 {
-                  question: "¿Hay funciones exclusivas en Pro o Deluxe que no tenga Starter?",
+                  question: "¿Se requiere contratar WhatsApp Business API oficial de Meta?",
                   answer:
-                    "No. Demo, Starter, Pro y Deluxe tienen exactamente las mismas funciones del CRM: bandeja multiagente, transcripción de notas de voz, informes, análisis, sugerencias y asistente con IA. La única diferencia es el cupo mensual de Créditos IA (1.000 en Starter, 3.000 en Pro y 10.000 en Deluxe; 100 créditos para los 14 días de Demo).",
+                    "No requieres pagar cargos por mensaje de API oficial ni trámites complejos. El sistema se vincula directamente a tu línea comercial existente mediante código QR seguro, conservando tu número oficial de contacto.",
                 },
                 {
-                  question: "¿Existe una opción si solo necesito gestionar correo corporativo?",
+                  question: "¿Las respuestas con IA son 100% autónomas o asistidas?",
                   answer:
-                    "Sí. Disponemos del plan especializado 'Solo Correo' con 200 Créditos IA al mes para redactar y resumir emails desde Call360. No incluye WhatsApp ni el CRM comercial completo, pero puede ampliarse cuando lo requieras. Puedes consultar sus condiciones directamente con nuestro equipo.",
+                    "Operamos bajo el modelo de IA asistida (tú revisas y decides): la IA sugiere borradores, analiza el contexto y transcribe notas de voz, pero el asesor comercial siempre revisa y autoriza el mensaje antes de enviarlo. No se prometen automatizaciones autónomas no supervisadas.",
                 },
                 {
-                  question: "¿Puedo conservar mi número actual de WhatsApp?",
+                  question: "¿Puedo cambiar de plan o pasar de facturación mensual a anual?",
                   answer:
-                    "Sí. El sistema se vincula directamente a tu línea comercial existente mediante código QR, conservando tu número oficial de contacto.",
+                    "Sí. Puedes actualizar tu plan o migrar a facturación anual en cualquier momento para aprovechar el descuento del pago anual y el equivalente mensual de referencia.",
                 },
               ]}
             />
