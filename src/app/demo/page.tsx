@@ -8,9 +8,9 @@ import ScrollReveal from "@/components/ScrollReveal";
 import { CRM_LOGIN_URL } from "@/lib/siteUrls";
 
 export const metadata: Metadata = {
-  title: "Demostración en Vivo CRM WhatsApp & Campañas | Call360 Colombia",
+  title: "Demostración en Vivo CRM Correo, WhatsApp & IA | Call360 Colombia",
   description:
-    "Prueba el CRM de WhatsApp multiagente y centro de campañas de Call360 en vivo. Sin registros tediosos ni tarjetas de crédito: te conectamos en minutos por WhatsApp.",
+    "Conoce la centralización de Correo Corporativo y WhatsApp con IA asistida en vivo. Demostración guiada para tu equipo sin tarjetas ni registros tediosos.",
   alternates: {
     canonical: "https://call360colombia.com/demo",
   },
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Demostración en Vivo CRM WhatsApp & Campañas | Call360 Colombia",
+    title: "Demostración en Vivo CRM Correo, WhatsApp & IA | Call360 Colombia",
     description:
-      "Descubre cómo centralizar tu equipo en WhatsApp, responder mejor con IA y organizar tus oportunidades comerciales. Demostración guiada en vivo.",
+      "Descubre cómo centralizar tu correo corporativo y WhatsApp, responder mejor con IA asistida y organizar tus ventas con Call360.",
     url: "https://call360colombia.com/demo",
     siteName: "Call360 Colombia",
     locale: "es_CO",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
         url: "https://call360colombia.com/inicio/hero.png",
         width: 1200,
         height: 630,
-        alt: "Demo CRM WhatsApp y Campañas Call360 Colombia",
+        alt: "Demo CRM Correo, WhatsApp y Campañas Call360 Colombia",
       },
     ],
   },
@@ -39,33 +39,33 @@ export const metadata: Metadata = {
 
 const disponibleHoy = [
   {
-    group: "WhatsApp Multiagente y Chats",
+    group: "Correo Corporativo & WhatsApp Centralizados",
     items: [
       "Bandeja de entrada compartida para múltiples asesores",
-      "Conexión de tu línea comercial oficial de WhatsApp",
-      "Mensajes centralizados y respuestas rápidas para el equipo",
-      "Envío y atención directa 1:1 supervisada",
-      "Historial unificado de conversaciones por contacto",
+      "Conexión de línea oficial de WhatsApp y casillas de correo con dominio propio",
+      "Mensajes centralizados y respuestas rápidas para el equipo comercial",
+      "Atención 1:1 supervisada con historial por cliente y empresa",
+      "Control de estados y asignación ágil de conversaciones",
     ],
   },
   {
-    group: "Campañas y Difusión Masiva",
+    group: "Campañas y Difusión Segmentada",
     items: [
       "Campañas segmentadas y filtradas por listas de contactos (CSV / Excel)",
       "Difusión masiva y programada con fecha y hora (horario Colombia)",
-      "Marketing y difusión comercial por WhatsApp con variables dinámicas y reportes de entrega",
-      "Personalización automática con variables ({Nombre}, {Empresa}, etc.)",
-      "Reportes esenciales de seguimiento y estados de envío en tiempo real",
+      "Difusión comercial multicanal con variables dinámicas ({Nombre}, {Empresa})",
+      "Reportes de seguimiento y estados de entrega en tiempo real",
+      "Control de cadencia y buenas prácticas de envío",
     ],
   },
   {
-    group: "Inteligencia Artificial y Gestión",
+    group: "Inteligencia Artificial Asistida y CRM",
     items: [
-      "Asistente de Inteligencia Artificial (IA) integrada para redacción y análisis",
-      "Captura de consentimiento y registro de preferencias de contacto",
-      "Embudo comercial visual para organizar negocios y cotizaciones",
-      "Tareas de seguimiento comercial y recordatorios para asesores",
-      "Gestión multiempresa con control de permisos y roles",
+      "IA asistida para sugerencias persuasivas, resúmenes y borradores (tú decides qué enviar)",
+      "Transcripción de notas de voz de WhatsApp a texto limpio",
+      "Embudo comercial visual (Kanban) para organizar cotizaciones y prospectos",
+      "Tarifas transparentes por 1 usuario y propuestas corporativas para 10+ asesores",
+      "Gestión de permisos y roles por asesor",
     ],
   },
 ];
@@ -142,7 +142,7 @@ export default function DemoPage() {
                     },
                     {
                       title: "Responde desde un solo lugar",
-                      desc: "Tu equipo atiende el mismo número de WhatsApp con una bandeja compartida y asignación rápida.",
+                      desc: "Tu equipo atiende WhatsApp y Correo Corporativo desde una bandeja compartida con asignación ágil.",
                     },
                     {
                       title: "Haz seguimiento sin perder oportunidades",

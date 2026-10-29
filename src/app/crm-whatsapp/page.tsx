@@ -410,26 +410,25 @@ export default function CRMWhatsAppPage() {
           <ScrollReveal>
             <div className="rounded-3xl border border-white/10 bg-gradient-to-b from-[#12121a] to-[#0a0a0f] p-8 sm:p-14 shadow-2xl">
               <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-                ¿Listo para darle superpoderes a tu WhatsApp?
+                ¿Listo para centralizar tu Correo y WhatsApp con IA?
               </h2>
               <p className="mt-4 text-base text-white/60 max-w-xl mx-auto leading-relaxed">
-                Comienza hoy tu prueba de 14 días con 100 Créditos IA incluidos. Organiza tus
-                conversaciones y acelera el cierre de negocios de tu equipo.
+                Elige el plan comercial que mejor se adapte a tu operación desde $40.000 COP/usuario, o solicita una demostración guiada para tu equipo.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <Link
-                  href={DEMO_PATH}
+                <a
+                  href="#planes"
                   className="inline-flex min-h-[50px] items-center justify-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-teal-500 px-8 py-3.5 text-sm sm:text-base font-black text-slate-950 transition-all hover:scale-[1.02] shadow-xl shadow-emerald-500/20"
                 >
-                  <span>Probar gratis durante 14 días</span>
+                  <span>Ver Planes Comerciales</span>
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
-                </Link>
+                </a>
 
                 <WhatsAppButton
-                  text="Hola Call360, quiero consultar con un asesor sobre el CRM de WhatsApp"
-                  label="Hablar con ventas"
+                  text="Hola Call360, quiero consultar con un asesor sobre los planes de Correo y WhatsApp"
+                  label="Hablar con un asesor"
                   className="min-h-[50px] text-sm sm:text-base px-6 py-3.5"
                 />
               </div>

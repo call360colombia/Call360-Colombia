@@ -28,15 +28,15 @@ const services = [
     ),
   },
   {
-    title: "CRM WhatsApp",
+    title: "CRM Correo & WhatsApp con IA",
     description:
-      "Dale superpoderes a tu WhatsApp: atención multiagente, respuestas rápidas con IA incluida de Call360 y seguimiento comercial organizado.",
-    benefit: "Prueba 14 días gratis con 100 créditos IA incluidos",
+      "Centraliza tus canales comerciales: atención de WhatsApp y correo corporativo, respuestas con IA asistida y seguimiento de ventas organizado.",
+    benefit: "Planes desde $40.000 COP/usuario • Créditos IA incluidos",
     href: "/crm-whatsapp",
     gradient: "from-emerald-500/20 to-green-500/20",
     hoverBorder: "hover:border-emerald-500/30",
     image: "/whatsapp/hero.png?v=2",
-    alt: "CRM WhatsApp Multiagente",
+    alt: "CRM Correo y WhatsApp Multiagente",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />

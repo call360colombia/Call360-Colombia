@@ -302,17 +302,17 @@ export default function InteractiveProductSimulator() {
 
                   <div className="rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-5">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 block mb-1">
-                      Oferta Comercial Activa
+                      Oferta Comercial 2026
                     </span>
                     <h4 className="text-base font-black text-white mb-2">
-                      14 Días de Prueba Gratis
+                      Planes desde $40.000 COP / usuario
                     </h4>
                     <p className="text-xs text-white/70 leading-relaxed mb-4">
-                      Incluye 100 créditos IA para sugerir respuestas y redacción asistida, con soporte directo en Bogotá.
+                      Elige entre Plan Correo, Starter, Pro o Deluxe con créditos IA incluidos para redacción y análisis comercial asistido.
                     </p>
                     <WhatsAppButton
-                      text="Hola Call360, probé el simulador de CRM WhatsApp en la web y quiero activar los 14 días gratis para mi equipo."
-                      label="Activar 14 Días Gratis"
+                      text="Hola Call360, probé el simulador en la web y quiero cotizar los planes de Correo y WhatsApp para mi equipo."
+                      label="Cotizar Planes Comerciales"
                       className="w-full justify-center !text-xs !py-3"
                     />
                   </div>

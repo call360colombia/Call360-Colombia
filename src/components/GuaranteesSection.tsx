@@ -28,12 +28,12 @@ export default function GuaranteesSection() {
       )
     },
     {
-      title: "CRM WHATSAPP",
-      badge: "Prueba sin Riesgo",
+      title: "CRM CORREO & WHATSAPP",
+      badge: "Garantía Comercial",
       points: [
-        "Prueba gratis 14 días",
-        "100 Créditos IA incluidos",
-        "Sin tarjeta de crédito"
+        "Demostración guiada en vivo",
+        "Créditos IA incluidos por plan",
+        "Sin permanencia obligatoria"
       ],
       guaranteeText: "Sin riesgo",
       colorClass: "emerald",

@@ -506,8 +506,8 @@ export default function Home() {
                       color: "cyan",
                     },
                     {
-                      service: "CRM WhatsApp",
-                      guarantee: "14 días de prueba con 100 créditos IA. Sin tarjeta ni riesgo.",
+                      service: "CRM Correo & WhatsApp",
+                      guarantee: "Demostración guiada en vivo para tu equipo. Sin cláusulas de permanencia.",
                       color: "emerald",
                     },
                     {
